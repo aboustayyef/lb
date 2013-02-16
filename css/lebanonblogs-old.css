@@ -1,0 +1,152 @@
+body{
+	background-color: #e5e5e5;
+}
+
+
+.logo_info{
+	position: relative;
+	color: white;
+	display: block;
+	width: 308px;
+	height: 240px;
+	float: left;
+	margin-right: 5px;
+	margin-left: 5px;
+	border: 1px solid #333;
+	padding: 10px;
+	width: 288px;
+	background-color: #981611;
+	-moz-box-shadow: 0 1px 2px #8f8f8f;
+	-webkit-box-shadow: 0 1px 2px #8f8f8f;
+	margin-bottom:10px ;
+}
+
+a{
+	color: gray;
+	text-decoration: none;
+}
+
+div.post_title a{
+	font-size: .8em;
+	line-height: .8em;
+	color: #982520;
+}
+
+#title p {
+	opacity: .7;
+	margin-top: 102px;
+	margin-bottom: 0px;
+}
+
+div.main-container{
+	display: block;
+	overflow: auto;
+	margin: auto;
+}
+
+div.main-container {
+	margin-top: 10px;
+}
+
+div.blog_name{
+	font-size: .9em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+div.blogentry{
+	overflow: hidden;
+	background: white;
+	width: 308px;
+	float: left;
+	margin-right: 5px;
+	margin-left: 5px;
+	border: 1px solid #747474;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom:10px ;
+	height: 240px;
+	-moz-box-shadow: 0 1px 2px #8f8f8f;
+	-webkit-box-shadow: 0 1px 2px #8f8f8f;
+	box-shadow: 0 1px 2px #8f8f8f;
+}
+
+div.dash_thumbnail p {
+	font-size: .8em;
+	line-height: 2em;
+	padding: 8px;
+	margin-top: 0px;
+	margin-bottom: 0px;	
+	
+}
+
+
+div.dash_thumbnail {
+	height: 120px;
+	overflow: hidden;
+	background-color: hsl(59, 20%, 95%);
+	border-top: 1px dashed silver;
+	border-bottom: 1px dashed silver;
+	
+}
+
+
+
+div.thumb_and_title{
+	height: 75px;
+	overflow: auto;
+	margin-bottom: 10px;
+	margin-right: 9px;
+	margin-left: 9px;
+}
+div.blog_thumb{
+	width: 60px;
+	float: left;
+}
+
+div.blog_info{
+	width: 220px;
+	float: left;
+}
+
+div.post_title {
+	line-height: 1em;
+}
+
+div.sharing_tools ul {
+	font-size: .8em;
+	padding-top: .2em;
+	padding-bottom: .2em;
+	overflow: auto;
+	list-style-type: none;
+	margin-bottom: 0px;
+	background-color: hsl(59, 55%, 91%);
+}
+div.sharing_tools li {
+	float: left;
+	margin-right: 10px;
+}
+
+#title img {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#title a{
+	color: #eab019;
+}
+
+
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+
+div.main-container {
+	margin: 0px;
+	width: 100%;
+}
+
+
+}
