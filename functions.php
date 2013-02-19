@@ -1,28 +1,28 @@
 <?php 
-function display_blogs($from, $howmany){
-		$feed = new SimplePie(); // We'll process this feed with all of the default options.
-		$feed->set_feed_url("http://www.google.com/reader/public/atom/user%2F06686689690592384436%2Fbundle%2FLebanon%20Blogs%202?n=20"); // Set which feed to process.
-		$feed->set_cache_duration(600); // Set cache to 10 mins
-		$feed->strip_htmltags(false);
+function display_blogs($from, $howmany)
+{
+	$feed = new SimplePie(); // We'll process this feed with all of the default options.
+	$feed->set_feed_url("http://www.google.com/reader/public/atom/user%2F06686689690592384436%2Fbundle%2FLebanon%20Blogs%202?n=20"); // Set which feed to process.
+	$feed->set_cache_duration(600); // Set cache to 10 mins
+	$feed->strip_htmltags(false);
+	$feed->init(); // Run SimplePie. 
+	$feed->handle_content_type(); // This makes sure that the content is sent to the browser as text/html and the UTF-8 character set (since we didn't change it).
 
-		$feed->init(); // Run SimplePie. 
-		$feed->handle_content_type(); // This makes sure that the content is sent to the browser as text/html and the UTF-8 character set (since we didn't change it).
+	//begin loop
+	$previous_link = ""; // this variable will be used to prevent duplicate posts from showing twice
+	foreach($feed->get_items($from,$howmany) as $item) {
+	$canonical_resource = $item->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10,'link');
+	$canonical_url = has_canonical_url($canonical_resource); // will return either 'false' or a canonical url
+	$blog_post_link = ($canonical_url)? $canonical_url : $item->get_permalink();
+	$blog_post_thumb = get_thumb($blog_post_link);
+	$blog_name = get_blog_name($blog_post_link);
+	$blog_post_title = clean_up($item->get_title(), 120);
+	$blog_post_content = $item->get_content();
+	$blog_post_image = @dig_suitable_image($blog_post_content) ;
+	$blog_post_excerpt = get_blog_post_excerpt($blog_post_content);
+	$domain = get_domain($blog_post_link);
 
-		//begin loop
-		$previous_link = ""; // this variable will be used to prevent duplicate posts from showing twice
-		foreach($feed->get_items($from,$howmany) as $item) {
-
-		$blog_post_link = $item->get_permalink();
-		$blog_post_thumb = get_thumb($blog_post_link);
-		$blog_name = get_blog_name($blog_post_link);
-		$blog_post_title = clean_up($item->get_title(), 120);
-		$blog_post_content = $item->get_content();
-		$blog_post_image = @dig_suitable_image($blog_post_content) ;
-		$blog_post_excerpt = get_blog_post_excerpt($blog_post_content);
-		$domain = get_domain($blog_post_link);
-
-		if ($item->get_permalink() !== $previous_link ) { //Only go through if not duplicate 
-		?>
+	if ($item->get_permalink() !== $previous_link ) { //Only go through if not duplicate ?>
 		<div class="blogentry <?php if ($domain =="lebaneseblogs") {echo "metablog";} ?>" style ="opacity:0">
 			<div class ="thumb_and_title">
 				<div class ="blog_thumb"> 			
@@ -51,43 +51,36 @@ function display_blogs($from, $howmany){
 			<div class ="sharing_tools">
 				<ul>
 					<li>Share: </li>
-					<li> <a href="https://twitter.com/share?url=<?php echo $item->get_permalink() ; ?>" target="_blank">Tweet</a> </li>
-					<li> <a href="http://www.facebook.com/sharer.php?u=<?php echo $item->get_permalink() ; ?>">Facebook</a> </li>
+					<li> <a href="https://twitter.com/share?url=<?php echo $blog_post_link ; ?>" target="_blank">Tweet</a> </li>
+					<li> <a href="http://www.facebook.com/sharer.php?u=<?php echo $blog_post_link ; ?>">Facebook</a> </li>
 				</ul>
 			</div>
 
 			<?php 
-				$previous_link = $item->get_permalink(); 
+				$previous_link = $blog_post_link; 
 			?>
 		</div> <!-- /blogentry -->
 		<?php }}} ?>
 
 	<?php
+	/*****************************************
+	*
+	*	Will extract the domain from the url
+	*	Example input: "http://www.xyz.com"
+	*	Example output: "xyz" (string)
+	*
+	*******************************************/
 	function get_domain($theurl)
 	{
 		$parse = parse_url($theurl);
 		$host = $parse['host'];
 		$explode = explode(".", $host);
 		$domain = $explode[0];
-		if ($domain == 'www') {
-			$domain = $explode[1];
-		} else if ($domain == 'feedproxy'){
-			$explode2 = explode ("/", $theurl);
-			if ($explode2[3] == '~r'){
-				if ($explode2[4] == 'blogspot') {
-					$domain = $explode2[5];
-				} else {
-					$domain = $explode2[4];
-				}
-			}else{
-				$domain = $explode2[6];
-			}
-		} else if ($domain == 'blog'){
+		if ($domain == 'www' || $domain == 'blog') {
 			$domain = $explode[1];
 		} else {
 			$domain = $domain ;
 		}
-
 		return $domain;
 	}
 
@@ -149,12 +142,12 @@ $blognames = array (
 			'ritakml'				=> "Rita Kamel",
 			'al-bab'				=> "Al Bab",
 			'ivysays'				=> "Ivy Says",
-			'FreeThinkingLebanon'	=> "Free Thinking Lebanon",
+			'freethinkinglebanon'	=> "Free Thinking Lebanon",
 			'remarkz'				=> "Remarkz",
 			'seenbymaya'			=> "Seen By Maya",
 			'noteconnection'		=> "Note Connection 3.0",
 			'viewoverbeirut'		=> "View Over Beirut",
-			'FromBeirutToTheBeltway'=> "From Beirut To The Beltway",	
+			'frombeiruttothebeltway'=> "From Beirut To The Beltway",	
 			'MindSoup'				=> "Mind Soup",
 			'endashemdash'			=> "Nour Has a Tumblog",
 			'ethiopiansuicides'		=> "Ethiopian Suicides",
@@ -175,16 +168,16 @@ $blognames = array (
 			'arabglot'				=> 'arabglot الناطق بالضاد',
 			'greenresistance'		=> 'Green Resistance',
 			'ginosblog'				=> 'Gino\'s Blog',
-			'Plus961'				=> 'Plus 961',
+			'plus961'				=> 'Plus 961',
 			'armigatus'				=> 'Armigatus',
 			'woodenbeirut'			=>'Wood En Beirut', 
 			'lamathinks'			=>'Lama\'s Scrapbook',
 			'johayna'				=> 'جـهينة...',
-			'KathyShalhoub'			=> 'Kathy Shalhoub\'s Blog',
+			'kathyshalhoub'			=> 'Kathy Shalhoub\'s Blog',
 			'shalabieh'				=> "Shalabieh's World",
 			'edithandomar'			=> "Edith and Omar",
 			'beirutiyat'			=> 'خربشات بيروتية',
-			'LebanonNewsUnderRugSwept' => 'Under Rug Swept',
+			'jadaoun'				=> 'Under Rug Swept',
 			'beirutreport'			=> 'The Beirut Report',
 			'BPqar'					=> "Joe's Box",
 			'seeqnce'				=> "Seeqnce Blog",
@@ -214,7 +207,7 @@ $blognames = array (
 			'theterroristdonkey'	=> 'Thuraya &amp; the Terrorist Donkey',
 			'lynch'					=> 'Marc Lynch',
 			'lebanonspring'			=> 'Lebanon Spring',
-			'MarketingInLebanon'	=> 'Marketing in Lebanon',
+			'marketinginlebanon'	=> 'Marketing in Lebanon',
 			'mideastwire'			=> 'The Mideastwire Blog',
 			'lbcblogs'				=> 'Lebanese Blogging Community',
 			'blkbtrfli'				=> 'Lebanese Voices',
@@ -285,6 +278,19 @@ function get_blog_post_excerpt($content) {
 	$sample_paragraph = clean_up($content, 120);
 	return $sample_paragraph ;
 
+}
+
+function has_canonical_url ($resource) { // will either return the canonical url or "false"
+	$canonical = "no";
+	for ($i=0; $i <4 ; $i++) { 
+		if (@$resource[$i]['attribs']['']['rel'] == "canonical") {
+			$canonical = "yes";
+			return $resource[$i]['attribs']['']['href'];
+		}
+	}
+	if ($canonical ="no") {
+		return false;
+	}
 }
 
 function get_thumb($theurl){
