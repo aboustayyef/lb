@@ -63,6 +63,7 @@ function display_blogs($from, $howmany)
 		<?php }}} ?>
 
 	<?php
+	function get_domain($theurl)
 	/*****************************************
 	*
 	*	Will extract the domain from the url
@@ -70,7 +71,6 @@ function display_blogs($from, $howmany)
 	*	Example output: "xyz" (string)
 	*
 	*******************************************/
-	function get_domain($theurl)
 	{
 		$parse = parse_url($theurl);
 		$host = $parse['host'];
