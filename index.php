@@ -20,12 +20,18 @@
         <link rel="stylesheet" type="text/css" href="css/lebanonblogs.css?<?php echo time() ?>">
     </head>
     <body>
+
+    <div id="page">          
+
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
         <h1 class ="main title"><a href ="http://lebaneseblogs.com" style ="color:white;">LebaneseBlogs.com</a></h1>
-        <h2 class ="subheader">A place to browse the latest posts from the best Lebanese blogs.</h2>
+        <div class ="subheader"><a class ="prefopen" href ="#"><img src ="http://placehold.it/20x20"></a> <h2>A place to browse the latest posts from the best Lebanese blogs.</h2></div>
+         <div id="prefpanel">
+            <p>this is a test</p>
+        </div><!-- /panel -->
 
 
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -42,9 +48,14 @@
                   offsetY: 10,
                   blockElement: '.blogentry'
                 });
-            $('#loader').fadeTo('fast', 0   , function(){});
-            $('.blogentry').fadeTo('slow', 1, function(){});
+                $('#loader').fadeTo('fast', 0   , function(){});
+                $('.blogentry').fadeTo('slow', 1, function(){});
+                $('.prefopen img').fadeTo('slow',1, function(){});           
             });
+            $( ".prefopen" ).click(function(){
+                $("#prefpanel").slideToggle("fast");
+            });
+
         });
 
         
@@ -88,7 +99,7 @@
     
         <footer>
 
-            <h2 class = "subheader">Feedback? We're on <a href="http://twitter.com/lebaneseblogs" style ="color:yellow">Twitter</a><br/><small>Choice of blogs, design &amp; web development by <a href ="http://beirutspring.com">Mustapha Hamoui</a></small></h2>
+            <div class = "subheader">Feedback? We're on <a href="http://twitter.com/lebaneseblogs" style ="color:yellow">Twitter</a><br/><small>Choice of blogs, design &amp; web development by <a href ="http://beirutspring.com">Mustapha Hamoui</a></small></div>
 
             <!-- Start of StatCounter Code for Default Guide -->
                 <script type="text/javascript">
@@ -108,6 +119,6 @@
             <!-- End of StatCounter Code for Default Guide -->
 
         </footer>
-
+    </div>
     </body>
 </html>

@@ -11,19 +11,18 @@ function display_blogs($from, $howmany)
 	//begin loop
 	$previous_link = ""; // this variable will be used to prevent duplicate posts from showing twice
 	foreach($feed->get_items($from,$howmany) as $item) {
-	$canonical_resource = $item->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10,'link');
-	$canonical_url = has_canonical_url($canonical_resource); // will return either 'false' or a canonical url
-	$blog_post_link = ($canonical_url)? $canonical_url : $item->get_permalink();
-	$blog_post_thumb = get_thumb($blog_post_link);
-	$blog_name = get_blog_name($blog_post_link);
-	$blog_post_title = clean_up($item->get_title(), 120);
-	$blog_post_content = $item->get_content();
-	$blog_post_image = @dig_suitable_image($blog_post_content) ;
-	$blog_post_excerpt = get_blog_post_excerpt($blog_post_content);
-	$domain = get_domain($blog_post_link);
-
-	if ($item->get_permalink() !== $previous_link ) { //Only go through if not duplicate ?>
-		<div class="blogentry <?php if ($domain =="lebaneseblogs") {echo "metablog";} ?>" style ="opacity:0">
+		$canonical_resource = $item->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10,'link');
+		$canonical_url = has_canonical_url($canonical_resource); // will return either 'false' or a canonical url
+		$blog_post_link = ($canonical_url)? $canonical_url : $item->get_permalink();
+		$blog_post_thumb = get_thumb($blog_post_link);
+		$blog_name = get_blog_name($blog_post_link);
+		$blog_post_title = clean_up($item->get_title(), 120);
+		$blog_post_content = $item->get_content();
+		$blog_post_image = @dig_suitable_image($blog_post_content) ;
+		$blog_post_excerpt = get_blog_post_excerpt($blog_post_content);
+		$domain = get_domain($blog_post_link);
+		if ($item->get_permalink() !== $previous_link ) { //Only go through if not duplicate ?>
+			<div class="blogentry <?php if ($domain =="lebaneseblogs") {echo "metablog";} ?>" style ="opacity:0">
 			<div class ="thumb_and_title">
 				<div class ="blog_thumb"> 			
 					<img src ="<?php echo $blog_post_thumb ?>" width ="50">
@@ -126,7 +125,7 @@ $blognames = array (
 			'lebanesecomics'		=> "Malaak, Angel of Peace",
 			'majnouna-blog'			=> "Mirth & Folly",
 			'majnouna-khatt'		=> "Majnouna Khatt",
-			'SpeakinTheBlues'		=> "Speakin' The Blues",
+			'speaktheblues'			=> "Speakin' The Blues",
 			'nourspot'				=> "Nour Spot",
 			'eyeontheeast'			=> "Eye on the east",
 			'qaph'					=> "Qaph Blog",

@@ -4,6 +4,17 @@ body
 	background-color: hsl(0, 0%, 95%);
 }
 
+#prefpanel {
+	display: none;
+	background-color: silver;
+}
+
+#prefpanel p{
+	margin: 0;
+	padding:1em;
+}
+
+
 h1.main.title
 {
 	position: fixed;
@@ -25,14 +36,27 @@ h1.main.title
 	text-shadow: 1px 1px 1px #4c4c4c;
 }
 
-h2.subheader
+
+
+.subheader
 {
 	text-align: center;
-	display: block;
 	margin-top: 50px;
-	padding: .5em;
 	color: #ededed;
 	background-color: hsl(357, 72%, 30%);
+	padding: .5em;
+	position: relative;
+}
+
+.prefopen img {
+	opacity: 0;
+	position: absolute;
+	left: 1em;
+	top:.5em;
+}
+
+.subheader h2{
+	margin:0;
 	font: italic medium Georgia, "Times New Roman", Times, serif;
 }
 
