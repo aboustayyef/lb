@@ -1,18 +1,36 @@
 <?php 
-function display_blogs($from, $howmany)
+
+function get_posts($from, $to)
 {
+/********************************************************************
+*
+*	Returns an array of associative array with values to be displayed
+* 	$posts[0]= array (
+		"domain"	=> "name of blog that usually precedes .com or .wordpress ..etc example: beirutspring"
+		"url"		=> "http://url-of-the.post",
+		"title"		=> "title of the post",
+		"timestamp" => "352342345435",
+		"image-url"	=> "http://url-of-the-image-if-one-exists-else.null",
+		"excerpt"	=> "the short paragraph with a determined maximum letters",
+		"content"	=> "the whole post, if published in rss",
+		)
+*
+*********************************************************************/
+	$posts = array();
+	$howmany = $to-$from;
+	$previous_link = ""; // this variable will be used to prevent duplicate posts from showing twice
 	$feed = new SimplePie(); // We'll process this feed with all of the default options.
-	$feed->set_feed_url("http://www.google.com/reader/public/atom/user%2F06686689690592384436%2Fbundle%2FLebanon%20Blogs%202?n=20"); // Set which feed to process.
+	$feed->set_feed_url("http://www.google.com/reader/public/atom/user%2F06686689690592384436%2Fbundle%2FLebanon%20Blogs%202?n=$to"); // Set which feed to process.
 	$feed->set_cache_duration(600); // Set cache to 10 mins
 	$feed->strip_htmltags(false);
 	$feed->init(); // Run SimplePie. 
 	$feed->handle_content_type(); // This makes sure that the content is sent to the browser as text/html and the UTF-8 character set (since we didn't change it).
 
-	//begin loop
-	$previous_link = ""; // this variable will be used to prevent duplicate posts from showing twice
-	foreach($feed->get_items($from,$howmany) as $item) {
+	foreach($feed->get_items($from,$to) as $item) 
+	{
 		$canonical_resource = $item->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10,'link');
 		$canonical_url = has_canonical_url($canonical_resource); // will return either 'false' or a canonical url
+		$blog_post_timestamp = strtotime($item->get_date());
 		$blog_post_link = ($canonical_url)? $canonical_url : $item->get_permalink();
 		$blog_post_thumb = get_thumb($blog_post_link);
 		$blog_name = get_blog_name($blog_post_link);
@@ -21,45 +39,67 @@ function display_blogs($from, $howmany)
 		$blog_post_image = @dig_suitable_image($blog_post_content) ;
 		$blog_post_excerpt = get_blog_post_excerpt($blog_post_content);
 		$domain = get_domain($blog_post_link);
-		if ($item->get_permalink() !== $previous_link ) { //Only go through if not duplicate ?>
-			<div class="blogentry <?php if ($domain =="lebaneseblogs") {echo "metablog";} ?>" style ="opacity:0">
-			<div class ="thumb_and_title">
-				<div class ="blog_thumb"> 			
-					<img src ="<?php echo $blog_post_thumb ?>" width ="50">
-				</div>				
-				<?php echo "\n<!--\n\n$blog_post_content\n\n-->\n"; ?>
-				<div class ="blog_info">
-					<div class ="blog_name">
-						<?php echo $blog_name ; ?>
-					</div>
-					<div class ="post_title">
-						<a href ="<?php echo $blog_post_link ;?>"><?php echo $blog_post_title ?></a>
-					</div>
-				</div> <!-- /blog_info -->
-			</div>
-			<div class ="dash_thumbnail">
-				<?php 
-				if ($blog_post_image) { ?>
-					<a href ="<?php echo $blog_post_link ?>"><img width ="318" src ="<?php echo $blog_post_image ?>"></a>
-				<?php
-				} else {?>
-					<a href ="<?php echo $blog_post_link ; ?>"><p><?php echo $blog_post_excerpt ; ?></p></a>
-				<?php 
-				} ; ?>
-			</div><!-- /dash_thumbnail -->
-			<div class ="sharing_tools">
-				<ul>
-					<li>Share: </li>
-					<li> <a href="https://twitter.com/share?url=<?php echo $blog_post_link ; ?>" target="_blank">Tweet</a> </li>
-					<li> <a href="http://www.facebook.com/sharer.php?u=<?php echo $blog_post_link ; ?>">Facebook</a> </li>
-				</ul>
-			</div>
 
-			<?php 
-				$previous_link = $blog_post_link; 
-			?>
-		</div> <!-- /blogentry -->
-		<?php }}} ?>
+		if ($item->get_permalink() !== $previous_link ) { //Only go through if not duplicate
+			$posts[]= 	array (
+						"blogname"	=> $blog_name,
+						"domain"	=> $domain,
+						"url"		=> $blog_post_link,
+						"title"		=> $blog_post_title,
+						"timestamp" => $blog_post_timestamp,
+						"image-url"	=> $blog_post_image,
+						"excerpt"	=> $blog_post_excerpt,
+						"content"	=> $blog_post_content,
+						"thumb"		=> $blog_post_thumb
+						);
+		}
+
+		$previous_link = $blog_post_link; //used to prevent duplication 
+	}
+	return $posts;
+}
+
+function display_blogs($from, $to)
+{
+	$posts = get_posts($from, $to); 
+	foreach ($posts as $post) 
+	{?>
+	
+	<div class="blogentry <?php if ($post['domain'] =="lebaneseblogs") {echo "metablog";} ?>" style ="opacity:0">
+	<div class ="thumb_and_title">
+		<div class ="blog_thumb"> 			
+			<img src ="<?php echo $post['thumb']; ?>" width ="50">
+		</div>				
+		<div class ="blog_info">
+			<div class ="blog_name">
+				<?php echo $post['blogname'] ; ?>
+			</div>
+			<div class ="post_title">
+				<a href ="<?php echo $post['url'] ;?>"><?php echo $post['title'] ?></a>
+			</div>
+		</div> <!-- /blog_info -->
+	</div>
+	<div class ="dash_thumbnail">
+		<?php 
+		if ($post['image-url']) { ?>
+			<a href ="<?php echo $post['url'] ?>"><img width ="318" src ="<?php echo $post['image-url'] ?>"></a>
+		<?php
+		} else {?>
+			<a href ="<?php echo $post['url'] ; ?>"><p><?php echo $post['excerpt'] ; ?></p></a>
+		<?php 
+		} ; ?>
+	</div><!-- /dash_thumbnail -->
+	<div class ="sharing_tools">
+		<ul>
+			<li>Share: </li>
+			<li> <a href="https://twitter.com/share?url=<?php echo $post['url'] ; ?>" target="_blank">Tweet</a> </li>
+			<li> <a href="http://www.facebook.com/sharer.php?u=<?php echo $post['url'] ; ?>">Facebook</a> </li>
+		</ul>
+	</div>
+
+</div> <!-- /blogentry -->
+<?php 
+}} ?>
 
 	<?php
 	function get_domain($theurl)
@@ -82,8 +122,7 @@ function display_blogs($from, $howmany)
 		}
 		return $domain;
 	}
-
-
+	
 function whatsnew(){
 ?>
 <div class ="message hidden-phone">
@@ -178,7 +217,7 @@ $blognames = array (
 			'beirutiyat'			=> 'خربشات بيروتية',
 			'jadaoun'				=> 'Under Rug Swept',
 			'beirutreport'			=> 'The Beirut Report',
-			'BPqar'					=> "Joe's Box",
+			'joesbox'				=> "Joe's Box",
 			'seeqnce'				=> "Seeqnce Blog",
 			'saghbini'				=> 'Ninar - نينار',
 			'brofessionalreview'	=> 'Brofessional Review',
@@ -210,7 +249,7 @@ $blognames = array (
 			'mideastwire'			=> 'The Mideastwire Blog',
 			'lbcblogs'				=> 'Lebanese Blogging Community',
 			'blkbtrfli'				=> 'Lebanese Voices',
-			'UnPeuDeKilShi'			=> 'Un Peu De Kil Shi',
+			'saharghazale'			=> 'Un Peu De Kil Shi',
 			'mexicaninbeirut'		=> 'Mexican In Beirut',
 			'tajaddod-youth'		=> 'Tajaddod Youth',
 			'lefigaro'				=> "L'Orient Indiscret",
