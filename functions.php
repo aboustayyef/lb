@@ -1,9 +1,7 @@
 <?php 
-
-function get_posts($from, $to)
-{
-/********************************************************************
-*
+function get_posts_from_database($from,$to){
+/************************************************************************************
+*	uses database as source of data. Make sure database is up to date before using
 *	Returns an array of associative array with values to be displayed
 * 	$posts[0]= array (
 		"domain"	=> "name of blog that usually precedes .com or .wordpress ..etc example: beirutspring"
@@ -15,7 +13,62 @@ function get_posts($from, $to)
 		"content"	=> "the whole post, if published in rss",
 		)
 *
-*********************************************************************/
+**************************************************************************************/
+	$posts = array();
+	$amountOfRecords = $to-$from;
+	$mysqli = mysqli_connect("localhost", "mustapha", "mm000741", "lebanese_blogs");
+	
+	//make sure everything is in utf8 for arabic
+	$mysqli->query("SET NAMES 'utf8'");
+    $mysqli->query("SET CHARACTER SET utf8");
+    $mysqli->query("ALTER DATABASE lebanese_blogs DEFAULT CHARACTER SET utf8 COLLATE=utf8_general_ci");
+	
+	$query = "SELECT * FROM `posts` ORDER BY `post_timestamp` DESC LIMIT $to";
+	$result = $mysqli->query("$query");
+	$counter = 0;
+	while ($rows = $result->fetch_array(MYSQLI_ASSOC)){
+		
+		$url = $rows['post_url'];
+		$blogname = get_blog_name($url);
+		$thumbimage = get_thumb($url);
+
+		$posts[]	= array (
+		"domain"	=> $rows['blog_id'],
+		"url"		=> $rows['post_url'],
+		"title"		=> $rows['post_title'],
+		"timestamp" => $rows['post_timestamp'],
+		"image-url"	=> $rows['post_image'],
+		"excerpt"	=> $rows['post_excerpt'],
+		"content"	=> $rows['post_content'],
+		"blogname"	=> $blogname,
+		"thumb"		=> $thumbimage
+		);
+		$counter++;
+		if ($counter >= $amountOfRecords) {
+			break;
+		}
+	};
+
+	return $posts;
+}
+
+function get_posts_from_greader($from, $to)
+
+/************************************************************************************
+*	uses google reader as source of data
+*	Returns an array of associative array with values to be displayed
+* 	$posts[0]= array (
+		"domain"	=> "name of blog that usually precedes .com or .wordpress ..etc example: beirutspring"
+		"url"		=> "http://url-of-the.post",
+		"title"		=> "title of the post",
+		"timestamp" => "352342345435",
+		"image-url"	=> "http://url-of-the-image-if-one-exists-else.null",
+		"excerpt"	=> "the short paragraph with a determined maximum letters",
+		"content"	=> "the whole post, if published in rss",
+		)
+*
+**************************************************************************************/
+{
 	$posts = array();
 	$howmany = $to-$from;
 	$previous_link = ""; // this variable will be used to prevent duplicate posts from showing twice
@@ -32,96 +85,54 @@ function get_posts($from, $to)
 		$canonical_url = has_canonical_url($canonical_resource); // will return either 'false' or a canonical url
 		$blog_post_timestamp = strtotime($item->get_date());
 		$blog_post_link = ($canonical_url)? $canonical_url : $item->get_permalink();
+		$blog_post_link = preg_replace('/\?.*/', '', $blog_post_link); // removes queries at the end of posts
 		$blog_post_thumb = get_thumb($blog_post_link);
 		$blog_name = get_blog_name($blog_post_link);
 		$blog_post_title = clean_up($item->get_title(), 120);
-		$blog_post_content = $item->get_content();
+		$temp_content = $item->get_content();
+		$blog_post_content = html_entity_decode($temp_content, ENT_COMPAT, 'utf-8');
 		$blog_post_image = @dig_suitable_image($blog_post_content) ;
-		$blog_post_excerpt = get_blog_post_excerpt($blog_post_content);
+		$blog_post_excerpt = get_blog_post_excerpt($blog_post_content, 120);
 		$domain = get_domain($blog_post_link);
-
+		// (to be used later for harvesting links in post) preg_match_all("/((https?:\/\/)|(www.))([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/", $blog_post_content, $content_links_all);
 		if ($item->get_permalink() !== $previous_link ) { //Only go through if not duplicate
 			$posts[]= 	array (
-						"blogname"	=> $blog_name,
-						"domain"	=> $domain,
-						"url"		=> $blog_post_link,
-						"title"		=> $blog_post_title,
-						"timestamp" => $blog_post_timestamp,
-						"image-url"	=> $blog_post_image,
-						"excerpt"	=> $blog_post_excerpt,
-						"content"	=> $blog_post_content,
-						"thumb"		=> $blog_post_thumb
-						);
+				"blogname"	=> $blog_name,
+				"domain"	=> $domain,
+				"url"		=> $blog_post_link,
+				"title"		=> $blog_post_title,
+				"timestamp" => $blog_post_timestamp,
+				"image-url"	=> $blog_post_image,
+				"excerpt"	=> $blog_post_excerpt,
+				"content"	=> $blog_post_content,
+				"thumb"		=> $blog_post_thumb
+				);
 		}
-
 		$previous_link = $blog_post_link; //used to prevent duplication 
 	}
 	return $posts;
 }
-
-function display_blogs($from, $to)
-{
-	$posts = get_posts($from, $to); 
-	foreach ($posts as $post) 
-	{?>
 	
-	<div class="blogentry <?php if ($post['domain'] =="lebaneseblogs") {echo "metablog";} ?>" style ="opacity:0">
-	<div class ="thumb_and_title">
-		<div class ="blog_thumb"> 			
-			<img src ="<?php echo $post['thumb']; ?>" width ="50">
-		</div>				
-		<div class ="blog_info">
-			<div class ="blog_name">
-				<?php echo $post['blogname'] ; ?>
-			</div>
-			<div class ="post_title">
-				<a href ="<?php echo $post['url'] ;?>"><?php echo $post['title'] ?></a>
-			</div>
-		</div> <!-- /blog_info -->
-	</div>
-	<div class ="dash_thumbnail">
-		<?php 
-		if ($post['image-url']) { ?>
-			<a href ="<?php echo $post['url'] ?>"><img width ="318" src ="<?php echo $post['image-url'] ?>"></a>
-		<?php
-		} else {?>
-			<a href ="<?php echo $post['url'] ; ?>"><p><?php echo $post['excerpt'] ; ?></p></a>
-		<?php 
-		} ; ?>
-	</div><!-- /dash_thumbnail -->
-	<div class ="sharing_tools">
-		<ul>
-			<li>Share: </li>
-			<li> <a href="https://twitter.com/share?url=<?php echo $post['url'] ; ?>" target="_blank">Tweet</a> </li>
-			<li> <a href="http://www.facebook.com/sharer.php?u=<?php echo $post['url'] ; ?>">Facebook</a> </li>
-		</ul>
-	</div>
-
-</div> <!-- /blogentry -->
-<?php 
-}} ?>
-
-	<?php
-	function get_domain($theurl)
-	/*****************************************
-	*
-	*	Will extract the domain from the url
-	*	Example input: "http://www.xyz.com"
-	*	Example output: "xyz" (string)
-	*
-	*******************************************/
-	{
-		$parse = parse_url($theurl);
-		$host = $parse['host'];
-		$explode = explode(".", $host);
-		$domain = $explode[0];
-		if ($domain == 'www' || $domain == 'blog') {
-			$domain = $explode[1];
-		} else {
-			$domain = $domain ;
-		}
-		return $domain;
+function get_domain($theurl)
+/*****************************************
+*
+*	Will extract the domain from the url
+*	Example input: "http://www.xyz.com"
+*	Example output: "xyz" (string)
+*
+*******************************************/
+{
+	$parse = parse_url($theurl);
+	$host = $parse['host'];
+	$explode = explode(".", $host);
+	$domain = $explode[0];
+	if ($domain == 'www' || $domain == 'blog') {
+		$domain = $explode[1];
+	} else {
+		$domain = $domain ;
 	}
+	return $domain;
+}
 	
 function whatsnew(){
 ?>
@@ -131,9 +142,30 @@ function whatsnew(){
 <?php
 }
 
-function clean_up($original_string, $length){
+function contains_arabic($string){	
+/*******************************************************************
+*	returns true if string has arabic characters
+*
+********************************************************************/ 
+	if (preg_match("/([^…^#][٩٨٧٦٥٤٣٢١ةجحخهعغفقثصضكمنتالبيسشورزدذطظەیؤإأءئپ]).+/", $string)){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function clean_up($original_string, $length)
+/*****************************************
+*
+*	Will clean up and truncate a string
+*	mostly used for post excerpts
+*
+*******************************************/
+{
 	$original_string = html_entity_decode($original_string, ENT_COMPAT, 'utf-8');
 	$original_string = strip_tags($original_string);
+	str_replace(array("\r", "\r\n", "\n"), '', $original_string);
+	$original_string = trim($original_string);
 	if (strlen($original_string) > $length ) {
 		$new_string = substr($original_string,0,$length)."...";
 	} else {
@@ -146,9 +178,10 @@ function clean_up($original_string, $length){
 
 function get_blog_name($blog_post_link){
 	// find blog's name, or use "random blog"		
-	$domain = get_domain ($blog_post_link); // output example "beirutspring"
+$domain = get_domain ($blog_post_link); // output example "beirutspring"
 	
 $blognames = array (
+			'247momonduty'			=> "24/7 Mom on Duty",
 			'YA9FVx1oEYo'			=> "The Platform",
 			'smileyface80'			=> "بيسان",
 			'nasriatallah'			=> "Nasri Atallah",
@@ -273,11 +306,16 @@ $blognames = array (
 }
 
 function dig_suitable_image($content) 
+/*******************************************************************
+*	this function tries to find an image in a blog
+*
+********************************************************************/ 
 {
 	// I got the code below from: http://forums.wittysparks.com/topic/simple-way-to-extract-image-src-from-content-with-php
 	$contenttograbimagefrom = $content;
 	$firstImage = "";
-	$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $contenttograbimagefrom, $ContentImages);
+	// old regex // $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $contenttograbimagefrom, $ContentImages);
+	$output = preg_match_all('/<img.+src\s*=\s*[\'"]([^\'"]+)[\'"].*>/i', $contenttograbimagefrom, $ContentImages);
 	if (isset($ContentImages[1][0]))
 	{
 		$firstImage = $ContentImages[1][0]; // To grab the first image
@@ -298,6 +336,10 @@ function dig_suitable_image($content)
 }
 
 function get_youtube_thumb($content)
+/*******************************************************************
+*	Tries to get youtube content's preview
+*
+********************************************************************/ 
 {
 	preg_match('#(\.be/|/embed/|/v/|/watch\?v=)([A-Za-z0-9_-]{5,11})#', $content, $matches);
 	if(isset($matches[2]) && $matches[2] != '')
@@ -311,9 +353,14 @@ function get_youtube_thumb($content)
 	}
 }
 
-function get_blog_post_excerpt($content) {
+function get_blog_post_excerpt($content, $length) 
+/*******************************************************************
+*	Gets blog post excerpt with a length caracter
+*
+********************************************************************/ 
+{
 
-	$sample_paragraph = clean_up($content, 120);
+	$sample_paragraph = clean_up($content, $length);
 	return $sample_paragraph ;
 
 }

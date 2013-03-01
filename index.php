@@ -2,6 +2,7 @@
     require_once("simplepie.php");
     require_once "config.php";
     require_once("functions.php");
+    require_once("views.php");
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -29,67 +30,17 @@
         <![endif]-->
 
         <h1 class ="main title"><a href ="http://lebaneseblogs.com" style ="color:white;">LebaneseBlogs.com</a></h1>
-        <div class ="subheader"><a class ="prefopen" href ="#"><img src ="http://placehold.it/20x20"></a> <h2>A place to browse the latest posts from the best Lebanese blogs.</h2></div>
+        <div class ="subheader"><a class ="prefopen" href ="#"><img src ="details-icon.png" width ="20"></a> <h2>A place to browse the latest posts from the best Lebanese blogs.</h2></div>
          <div id="prefpanel">
             <p>this is a test</p>
         </div><!-- /panel -->
 
 
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="js/blocksit.min.js"></script>
     <script src ="js/jquery.waitforimages.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            content_size();
-            $('#main-container').waitForImages(function() {
-                $('#main-container').BlocksIt({
-                  numOfCol: how_many_columns(),
-                  offsetX: 10,
-                  offsetY: 10,
-                  blockElement: '.blogentry'
-                });
-                $('#loader').fadeTo('fast', 0   , function(){});
-                $('.blogentry').fadeTo('slow', 1, function(){});
-                $('.prefopen img').fadeTo('slow',1, function(){});           
-            });
-            $( ".prefopen" ).click(function(){
-                $("#prefpanel").slideToggle("fast");
-            });
-
-        });
-
-        
-        $(window).resize(function(){
-            content_size();
-            $('#main-container').waitForImages(function() {
-                $('#main-container').BlocksIt({
-                  numOfCol: how_many_columns(),
-                  offsetX: 10,
-                  offsetY: 10,
-                  blockElement: '.blogentry'
-                });
-            });
-        }); 
-        
-
-        function content_size()
-            {
-            var x = $(window).width();
-            var margins= x%320;
-            var desiredwidth = x-margins;
-            if (x!=desiredwidth) {
-            $("#wrapper").css("width",desiredwidth);      
-            }};
-        
-        var how_many_columns = function(){
-            var x = $(window).width();
-            var margins= x%320;
-            var desiredwidth = x-margins;
-            var columns = desiredwidth/320;
-            return columns;
-        }
-       </script>
+    <script type="text/javascript" src = "js/handledimensions.js"></script>
 
         <div id ="wrapper">
             <div id ="main-container">

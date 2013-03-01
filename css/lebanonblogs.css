@@ -9,6 +9,15 @@ body
 	background-color: silver;
 }
 
+.post_title.isarabic {
+	text-align: right;
+}
+
+.post_title.isarabic a{
+	font-size: 1.1em;
+	line-height: 1.2em;
+}
+
 #prefpanel p{
 	margin: 0;
 	padding:1em;
@@ -113,10 +122,9 @@ div.post_title a
 	position: relative;
 	display: block;
 	overflow: auto;
-	margin: auto;
+	margin: 10px auto;
 }
 
-#main-container { margin-top: 10px; }
 
 div.blog_name
 {
@@ -140,6 +148,8 @@ div.blogentry.metablog{
 
 div.blogentry
 {
+	margin-right:10px;
+	margin-left: 10px;
 	overflow: hidden;
 	background: white;
 	width: 308px;
@@ -150,6 +160,12 @@ div.blogentry
 	-moz-box-shadow: 0 1px 2px #8f8f8f;
 	-webkit-box-shadow: 0 1px 2px #8f8f8f;
 	box-shadow: 0 1px 2px #8f8f8f;
+	/* The Properties below allow for the animation when resized*/
+	-webkit-transition: top 1s ease, left 1s ease;
+	-moz-transition: top 1s ease, left 1s ease;
+	-o-transition: top 1s ease, left 1s ease;
+	-ms-transition: top 1s ease, left 1s ease;
+
 }
 
 div.blogentry.metablog div.thumb_and_title div.blog_info div.blog_name {
@@ -254,5 +270,4 @@ and (max-device-width : 480px)
 		width: 100%;
 	}
 	
-	div.blogentry { margin-left: 10px; }
 }
