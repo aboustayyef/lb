@@ -29,29 +29,39 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <h1 class ="main title"><a href ="http://lebaneseblogs.com" style ="color:white;">LebaneseBlogs.com</a></h1>
-        <div class ="subheader"><a class ="prefopen" href ="#"><img src ="details-icon.png" width ="20"></a> <h2>A place to browse the latest posts from the best Lebanese blogs.</h2></div>
-         <div id="prefpanel">
-            <p>this is a test</p>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="js/blocksit.min.js"></script>
+        <script src ="js/jquery.waitforimages.min.js"></script>
+        <script>var viewtype ="grid" // default view is grid. Other option is list</script>
+        <script type="text/javascript" src = "js/handledimensions.js"></script>
+
+        <div class ="main title">
+            <ul><li><img id ="switchToGridView" src="gridview.png" alt = "Switch to Grid View" title = "Switch to Grid View"></li><li><img id ="switchToListView" src="listview.png" alt = "Switch to List View" title = "Switch to List View"></li></ul> 
+            <a href ="http://lebaneseblogs.com" style ="color:white;">LebaneseBlogs.com</a>
+        </div>
+        <div class ="subheader"><a class ="prefopen" href ="#"><img src ="details-icon.png" width ="20"></a> <h2>Browse the latest posts from the best Lebanese blogs.</h2></div>
+         
+        <div id="prefpanel">
+            <div class ="menu">
+                <a href = "/blog">Metablog</a> | <a href ="http://twitter.com/lebaneseblogs">Twitter</a>  | Choice of blogs, design &amp; web development by <a href ="http://beirutspring.com">Mustapha Hamoui</a>
+            </div>
         </div><!-- /panel -->
-
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="js/blocksit.min.js"></script>
-    <script src ="js/jquery.waitforimages.min.js"></script>
-
-    <script type="text/javascript" src = "js/handledimensions.js"></script>
 
         <div id ="wrapper">
             <div id ="main-container">
                 <div id ="loader"><img src ="ajax-loader.gif"></div>
                 <?php display_blogs(0,20) ?>
             </div>
+            <div id ="loadingnew" class = "clearfix" style = "width:100%; padding:5px;text-align:center">
+                
+                <img src="ajax-loader.gif">
+
+            </div>
         </div>
     
         <footer>
 
-            <div class = "subheader">Feedback? We're on <a href="http://twitter.com/lebaneseblogs" style ="color:yellow">Twitter</a><br/><small>Choice of blogs, design &amp; web development by <a href ="http://beirutspring.com">Mustapha Hamoui</a></small></div>
+            <div class = "subheader"></div>
 
             <!-- Start of StatCounter Code for Default Guide -->
                 <script type="text/javascript">

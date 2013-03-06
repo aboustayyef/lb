@@ -25,7 +25,7 @@
     $latest_post_timestamp = $latest_post_details['post_timestamp'];
     $posts_added_in_this_session = 0;
 
-    $posts = get_posts_from_greader(0,$_GET["howmany"]);
+    $posts = get_posts_from_greader(0,30);
     
     foreach ($posts as $post) {
 

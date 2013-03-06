@@ -1,11 +1,16 @@
 <?php 
+	$start_from = $_POST['start_from'];
 
-function display_blogs($from, $to)
-{
-	$posts = get_posts_from_database($from, $to); 
+	require_once("simplepie.php");
+    require_once "config.php";
+    require_once("functions.php");
+    require_once("views.php");
+
+	$to = $start_from + 20; // change figure if we want
+	$posts = get_posts_from_database($start_from, $to); 
 	foreach ($posts as $post) 
 	{?>
-	
+	<!-- <div class ="console"><?php echo $start_from, " ", $to; ?></div> -->
 	<div class="blogentry <?php if ($post['domain'] =="lebaneseblogs") {echo "metablog";} ?>" style ="opacity:0">
 	<div class ="thumb_and_title">
 		<div class ="blog_thumb"> 			
@@ -39,8 +44,6 @@ function display_blogs($from, $to)
 	</div>
 </div> <!-- /blogentry -->
 <?php 
-}
-
 }
 
 ?>

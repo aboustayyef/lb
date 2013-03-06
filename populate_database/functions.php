@@ -1,57 +1,6 @@
 <?php 
 
 
-function get_posts_from_database($from,$to){
-/************************************************************************************
-*	uses database as source of data. Make sure database is up to date before using
-*	Returns an array of associative array with values to be displayed
-* 	$posts[0]= array (
-		"domain"	=> "name of blog that usually precedes .com or .wordpress ..etc example: beirutspring"
-		"url"		=> "http://url-of-the.post",
-		"title"		=> "title of the post",
-		"timestamp" => "352342345435",
-		"image-url"	=> "http://url-of-the-image-if-one-exists-else.null",
-		"excerpt"	=> "the short paragraph with a determined maximum letters",
-		"content"	=> "the whole post, if published in rss",
-		)
-*
-**************************************************************************************/
-	global $db_username, $db_password , $db_host , $db_database;
-
-	$posts = array();
-	$amountOfRecords = $to-$from;
-	$mysqli = mysqli_connect($db_host, $db_username, $db_password, $db_database);
-	
-	//make sure everything is in utf8 for arabic
-	$mysqli->query("SET NAMES 'utf8'");
-    $mysqli->query("SET CHARACTER SET utf8");
-    $mysqli->query("ALTER DATABASE lebanese_blogs DEFAULT CHARACTER SET utf8 COLLATE=utf8_general_ci");
-	
-	$query = "SELECT * FROM `posts` ORDER BY `post_timestamp` DESC LIMIT $to";
-	$result = $mysqli->query("$query");
-	
-	while ($rows = $result->fetch_array(MYSQLI_ASSOC)){
-
-		$url = $rows['post_url'];
-		$blogname = get_blog_name($url);
-		$thumbimage = get_thumb($url);
-
-		$posts[]	= array (
-		"domain"	=> $rows['blog_id'],
-		"url"		=> $rows['post_url'],
-		"title"		=> $rows['post_title'],
-		"timestamp" => $rows['post_timestamp'],
-		"image-url"	=> $rows['post_image'],
-		"excerpt"	=> $rows['post_excerpt'],
-		"content"	=> $rows['post_content'],
-		"blogname"	=> $blogname,
-		"thumb"		=> $thumbimage
-		);
-	};
-	$newposts = array_slice($posts, -$amountOfRecords, $amountOfRecords, true);
-	return $newposts;
-}
-
 function get_posts_from_greader($from, $to)
 
 /************************************************************************************
@@ -85,7 +34,7 @@ function get_posts_from_greader($from, $to)
 		$canonical_url = has_canonical_url($canonical_resource); // will return either 'false' or a canonical url
 		$blog_post_timestamp = strtotime($item->get_date());
 		$blog_post_link = ($canonical_url)? $canonical_url : $item->get_permalink();
-		$blog_post_link = preg_replace('/\?.*/', '', $blog_post_link); // removes queries at the end of posts
+		// $blog_post_link = preg_replace('/\?.*/', '', $blog_post_link); // removes queries at the end of posts
 		$blog_post_thumb = get_thumb($blog_post_link);
 		$blog_name = get_blog_name($blog_post_link);
 		$blog_post_title = clean_up($item->get_title(), 120);
