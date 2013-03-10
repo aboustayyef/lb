@@ -19,6 +19,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/lebanonblogs.css?<?php echo time() ?>">
     </head>
     <body>

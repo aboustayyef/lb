@@ -31,15 +31,15 @@
 			<a href ="<?php echo $post['url'] ?>"><img width ="318" src ="<?php echo $post['image-url'] ?>"></a>
 		<?php
 		} else {?>
-			<a href ="<?php echo $post['url'] ; ?>"><p <?php if (contains_arabic($post['excerpt'])) { echo 'class = "isarabic"'; } ?>><?php echo $post['excerpt'] ; ?></p></a>
+			<a href ="<?php echo $post['url'] ; ?>"><div class ="quote <?php if (contains_arabic($post['excerpt'])) { echo 'isarabic'; } ?>"><blockquote><?php echo $post['excerpt'] ; ?></blockquote></div></a>
+			<?php echo "<!-- length of string:", strlen($post['excerpt']), "-->" ?>
 		<?php 
 		} ; ?>
 	</div><!-- /dash_thumbnail -->
 	<div class ="sharing_tools">
 		<ul>
-			<li>Share: </li>
-			<li> <a href="https://twitter.com/share?url=<?php echo $post['url'] ; ?>" target="_blank">Tweet</a> </li>
-			<li> <a href="http://www.facebook.com/sharer.php?u=<?php echo $post['url'] ; ?>">Facebook</a> </li>
+			<li> <a href="https://twitter.com/share?url=<?php echo $post['url'] ; ?>" target="_blank"><img src ="share-icon-twitter.png" width ="16"></a> </li>
+			<li> <a href="http://www.facebook.com/sharer.php?u=<?php echo $post['url'] ; ?>"><img src ="share-icon-facebook.png" width ="16"></a> </li>
 		</ul>
 	</div>
 </div> <!-- /blogentry -->

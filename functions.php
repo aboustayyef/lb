@@ -85,7 +85,7 @@ function get_posts_from_greader($from, $to)
 		$canonical_url = has_canonical_url($canonical_resource); // will return either 'false' or a canonical url
 		$blog_post_timestamp = strtotime($item->get_date());
 		$blog_post_link = ($canonical_url)? $canonical_url : $item->get_permalink();
-		$blog_post_link = preg_replace('/\?.*/', '', $blog_post_link); // removes queries at the end of posts
+		 // $blog_post_link = preg_replace('/\?.*/', '', $blog_post_link); // removes queries at the end of posts
 		$blog_post_thumb = get_thumb($blog_post_link);
 		$blog_name = get_blog_name($blog_post_link);
 		$blog_post_title = clean_up($item->get_title(), 120);
@@ -147,10 +147,10 @@ function contains_arabic($string){
 *	returns true if string has arabic characters
 *
 ********************************************************************/ 
-	if (preg_match("/([^…^#][٩٨٧٦٥٤٣٢١ةجحخهعغفقثصضكمنتالبيسشورزدذطظەیؤإأءئپ]).+/", $string)){
-		return true;
-	} else {
+	if (preg_match("/([ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]).+/", $string)){
 		return false;
+	} else {
+		return true;
 	}
 }
 
@@ -181,8 +181,12 @@ function get_blog_name($blog_post_link){
 $domain = get_domain ($blog_post_link); // output example "beirutspring"
 	
 $blognames = array (
+			'bikaffe'				=> "بكفي",
+			'toomextra'				=> "Toom Extra",
+			'dirtykitchensecrets'	=> "Dirty Kitchen Secrets",
+			'nadinemoawad'			=> "What If I Break Free?",
 			'247momonduty'			=> "24/7 Mom on Duty",
-			'YA9FVx1oEYo'			=> "The Platform",
+			'h20-platform'			=> "The Platform",
 			'smileyface80'			=> "بيسان",
 			'nasriatallah'			=> "Nasri Atallah",
 			'bilamaliyeh'			=> "Bil'amaliyeh",
