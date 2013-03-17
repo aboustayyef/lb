@@ -6,8 +6,8 @@
     require_once("functions.php");
     require_once("views.php");
 
-	$to = $start_from + 20; // change figure if we want
-	$posts = get_posts_from_database($start_from, $to); 
+	$to = $start_from + 15; // change figure if we want
+	$posts = get_posts_from_greader($start_from+1, $to); 
 	foreach ($posts as $post) 
 	{?>
 	<!-- <div class ="console"><?php echo $start_from, " ", $to; ?></div> -->

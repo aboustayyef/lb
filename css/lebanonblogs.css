@@ -1,5 +1,4 @@
-body
-{
+body {
 	padding-top: 0px;
 	background-color: rgb(218, 218, 218);
 }
@@ -121,6 +120,18 @@ h2 a:hover { text-decoration: underline; }
 	text-align: center;	
 }
 
+#loadingnew{
+	color: rgb(120,120,120);
+	width: 100%;
+	position: relative;
+	display: inline-block;
+	top: 0;
+	left:0;
+	text-align:center;
+	padding: 1em;
+	background: rgb(240,240,240);
+}
+
 a
 {
 	color: gray;
@@ -158,8 +169,7 @@ div.blog_name
 }
 
 div.blogentry {
-margin-right: 10px;
-margin-left: 10px;
+margin: 10px;
 overflow: hidden;
 background: white;
 width: 308px;
@@ -183,6 +193,8 @@ div.dash_thumbnail blockquote {
 	font-family: 'Droid Serif', serif;
 	margin-left: 40px;
 	margin-right: 40px;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 
@@ -200,12 +212,11 @@ div.dash_thumbnail img{
 }
 
 div.quote {
-	padding-top: 5px;
-	padding-bottom: 5px;
-	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	border-top: 1px silver solid;
-
 	background: url(leftquote.png) no-repeat 9px 10px rgb(248,248,248);
+	min-height: 80px;
 }
 
 div.thumb_and_title
@@ -269,6 +280,10 @@ and (max-device-width : 480px)
 	{
 		margin: 0px;
 		width: 100%;
+	}
+
+	.hidemobile {
+		display: none;
 	}
 	
 }

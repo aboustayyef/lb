@@ -1,7 +1,7 @@
 console.log(viewtype);
-
 $(document).ready(function () {
     content_size();
+    console.log("Vertical Offset"+ verticalOffset());
     $('#main-container').waitForImages(function () {
         $('#main-container').BlocksIt({
             numOfCol: how_many_columns(),
@@ -11,7 +11,9 @@ $(document).ready(function () {
         });
 
         //fade out the "loading" element
-        $('#loader').fadeTo('fast', 0, function () {});
+        $('#loadingnew').fadeTo('fast', 0, function () {});
+        $('#loadingnew').css("display","none");
+        $('#loadingnew').css("padding",0);
 
         //fade in the blogs and the preferences cog
         $('.blogentry').fadeTo('slow', 1, function () {});
@@ -53,7 +55,7 @@ $(document).ready(function () {
     });
 
 
-    var position = 20;
+    var position = 16;
     var workInProgress = "no";
     $(window).scroll(function () {
         var wh = $(window).height();
@@ -102,17 +104,9 @@ $(document).ready(function () {
 
                     });
                 });
-            };
-        };
-    });               
-
-    function verticalOffset(){
-        if (viewtype == "grid") {
-            return 10
-        } else {
-            return 2
+            }
         }
-    }
+    });
 
     function content_size() {
         var x = $(window).width();
@@ -120,6 +114,14 @@ $(document).ready(function () {
         var desiredwidth = x - margins;
         if (x != desiredwidth) {
             $("#wrapper").css("width", desiredwidth);
+        }
+    }
+
+    function verticalOffset(){
+        if (viewtype == "grid") {
+            return 10;
+        } else {
+            return 2;
         }
     }
 

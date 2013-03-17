@@ -25,42 +25,52 @@
     $latest_post_timestamp = $latest_post_details['post_timestamp'];
     $posts_added_in_this_session = 0;
 
-    $posts = get_posts_from_greader(0,30);
-    
-    foreach ($posts as $post) {
+    populate(450,500);
+    populate(400,450);
+    populate(350,400);
+    populate(300,350);
+    populate(250,300);
+    populate(200,250);
+    populate(150,200);
+    populate(100,150);
+    populate(50,100);
+    populate(0,50);
 
-   	    $blogname = $post['blogname'];
-   	    $domain = $post['domain'];
-   	    $url =$post['url'];
-   	    $title =$post['title'];
-   	    $timestamp =$post['timestamp'];
-   	    $image_url =$post['image-url'];
-   	    $excerpt = $post['excerpt'];
-   	    $content =$post['content'];
-   	    if (($timestamp > $latest_post_timestamp)||($records_in_db == 0)) { //only add to table posts that were not already there
-   	    	$query = "INSERT into `posts` (
-		    		`post_url`,
-		    		`post_title`,
-		    		`post_image`,
-		    		`post_excerpt`,
-		    		`blog_id`,
-		    		`post_timestamp`,
-		    		`post_content` ) 
-					VALUES (
-						'$url',
-						'$title',
-						'$image_url',
-						'$excerpt',
-						'$domain',
-						'$timestamp',
-						'$content' )";
-			$result = $mysqli->query($query);
-			$posts_added_in_this_session++;
-		echo $title,"<br/>";
-   	    } else {
-   	    	break;
-   	    }
-    	
+    function populate($from, $to) {
+      $posts = get_posts_from_greader($from,$to);
+      foreach ($posts as $post) {
+     	    $blogname = $post['blogname'];
+     	    $domain = $post['domain'];
+     	    $url =$post['url'];
+     	    $title =$post['title'];
+     	    $timestamp =$post['timestamp'];
+     	    $image_url =$post['image-url'];
+     	    $excerpt = $post['excerpt'];
+     	    $content =$post['content'];
+     	    if (($timestamp > $latest_post_timestamp)||($records_in_db == 0)) { //only add to table posts that were not already there
+     	    	$query = "INSERT into `posts` (
+  		    		`post_url`,
+  		    		`post_title`,
+  		    		`post_image`,
+  		    		`post_excerpt`,
+  		    		`blog_id`,
+  		    		`post_timestamp`,
+  		    		`post_content` ) 
+  					VALUES (
+  						'$url',
+  						'$title',
+  						'$image_url',
+  						'$excerpt',
+  						'$domain',
+  						'$timestamp',
+  						'$content' )";
+    			$result = $mysqli->query($query);
+    			$posts_added_in_this_session++;
+    		  echo $title,"<br/>";
+     	    } else {
+     	    	break;
+     	    }
+      }
     }
 echo "<p>Done! Posts added: ", $posts_added_in_this_session, "</p>";
 

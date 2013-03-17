@@ -40,26 +40,26 @@
             <ul><li><img id ="switchToGridView" src="gridview.png" alt = "Switch to Grid View" title = "Switch to Grid View"></li><li><img id ="switchToListView" src="listview.png" alt = "Switch to List View" title = "Switch to List View"></li></ul> 
             <a href ="http://lebaneseblogs.com" style ="color:white;">LebaneseBlogs.com</a>
         </div>
-        <div class ="subheader"><a class ="prefopen" href ="#"><img src ="details-icon.png" width ="20"></a> <h2>Browse the latest posts from the best Lebanese blogs.</h2></div>
+        <div class ="subheader"><a class ="prefopen" href ="#"><img src ="details-icon.png" width ="20"></a> <h2>Latest posts from the best Lebanese blogs.</h2></div>
          
         <div id="prefpanel">
             <div class ="menu">
                 <a href = "/blog">Metablog</a> | <a href ="http://twitter.com/lebaneseblogs">Twitter</a>  | Choice of blogs, design &amp; web development by <a href ="http://beirutspring.com">Mustapha Hamoui</a>
             </div>
         </div><!-- /panel -->
-
+        <div id ="loadingnew" >
+            <img src="ajax-loader-small.gif">
+            &nbsp;&nbsp;Loading content<!-- <span class ="hidemobile">  (a longer wait means more photos)</span> -->
+        </div>
         <div id ="wrapper">
             <div id ="main-container">
-                <div id ="loader"><img src ="ajax-loader.gif"></div>
-                <?php display_blogs(0,20) ?>
-            </div>
-            <div id ="loadingnew" class = "clearfix" style = "width:100%; padding:5px;text-align:center">
-                
-                <img src="ajax-loader.gif">
-
+                <?php display_blogs(0,15) ?>
             </div>
         </div>
-    
+            <div id ="loadingnew" >
+            <img src="ajax-loader-small.gif">
+            &nbsp;&nbsp;Loading more posts<!-- <span class ="hidemobile">  (a longer wait means more photos)</span> -->
+        </div>
         <footer>
 
             <div class = "subheader"></div>
