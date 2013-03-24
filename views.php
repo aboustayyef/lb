@@ -1,8 +1,16 @@
 <?php 
 
-function display_blogs($from, $to)
+function display_blogs($from, $to, $source) // source should be either "database" or "greader"
 {
-	$posts = get_posts_from_greader($from, $to); 
+	switch ($source) {
+		case 'database':
+			$posts = get_posts_from_database($from, $to); 
+			break;
+		case 'greader':
+			$posts = get_posts_from_greader($from, $to); 
+			break;
+	}
+
 	foreach ($posts as $post) 
 	{?>
 	

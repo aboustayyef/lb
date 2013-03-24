@@ -34,7 +34,7 @@
         <script src="js/blocksit.min.js"></script>
         <script src ="js/jquery.waitforimages.min.js"></script>
         <script>var viewtype ="grid" // default view is grid. Other option is list</script>
-        <script type="text/javascript" src = "js/handledimensions.js"></script>
+        <script type="text/javascript" src = "js/handledimensions.js?<?php echo time() ?>"></script>
 
         <div class ="main title">
             <ul><li><img id ="switchToGridView" src="gridview.png" alt = "Switch to Grid View" title = "Switch to Grid View"></li><li><img id ="switchToListView" src="listview.png" alt = "Switch to List View" title = "Switch to List View"></li></ul> 
@@ -53,7 +53,7 @@
         </div>
         <div id ="wrapper">
             <div id ="main-container">
-                <?php display_blogs(0,15) ?>
+                <?php display_blogs(0,15, "database") ?>
             </div>
         </div>
             <div id ="loadingnew" >

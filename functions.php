@@ -177,148 +177,62 @@ function clean_up($original_string, $length)
 
 
 function get_blog_name($blog_post_link){
+
+	global $db_username, $db_password , $db_host , $db_database;
+
 	// find blog's name, or use "random blog"		
 $domain = get_domain ($blog_post_link); // output example "beirutspring"
-	
-$blognames = array (
-			"womanunveiled"			=> "إِمْرَأَةْ تَنْكَشِفْ",
-			'lobnene'				=> "لبناني",
-			'ghazayel'				=> "مجة",
-			'marianachawi'			=> "Maria Studio",
-			'cloudoflace' 			=> "Cloud Of Lace",
-			'sansglutenabeyrouth'	=> "Sans Gluten A Beyrouth",
-			'plush-beirut'			=> "Plush Beirut",
-			'thejrexpress'			=> "The JR Express",
-			'mokhlibnene'			=> "Mokh Libnene",
-			'bikaffe'				=> "بكفي",
-			'toomextra'				=> "Toom Extra",
-			'dirtykitchensecrets'	=> "Dirty Kitchen Secrets",
-			'nadinemoawad'			=> "What If I Break Free?",
-			'247momonduty'			=> "24/7 Mom on Duty",
-			'h20-platform'			=> "The Platform",
-			'smileyface80'			=> "بيسان",
-			'nasriatallah'			=> "Nasri Atallah",
-			'bilamaliyeh'			=> "Bil'amaliyeh",
-			'meandbeirut'			=> "Me & Beirut",
-			'arabsaga'				=> "Arab Saga",
-			'lebaneseexpatriate'	=> "Lebanese Expatriate",
-			'alextohme'				=> "Alex Tohme",
-			'lebaneseblogs'			=> "Lebanese Blogs Meta Blog",
-			'jadaoun'				=> "Beirut: Under Rug Swept",
-			'southoak'				=> "سنديانة الجنوب",
-			'hishamad'				=> "COLA WA CALSET",
-			'lebanesecomics'		=> "Malaak, Angel of Peace",
-			'majnouna-blog'			=> "Mirth & Folly",
-			'majnouna-khatt'		=> "Majnouna Khatt",
-			'speaktheblues'			=> "Speakin' The Blues",
-			'nourspot'				=> "Nour Spot",
-			'eyeontheeast'			=> "Eye on the east",
-			'qaph'					=> "Qaph Blog",
-			'code4word'				=> "Code 4 Word",
-			'lifeandstyleandco'		=> "Life and Style and Co.",
-			'bloggingfairtradelebanon' => "Blogging Fair Trade in Lebanon",
-			'racing-thoughts'		=> "Racing Thoughts",
-			'tomybeirut'			=> "To My Beirut",
-			'thedscoop'				=> "The D Scoop",
-			'larmoiredelana'		=> "L'armoire de Lana",
-			'ohmyhappiness'			=> "Oh My Happiness",
-			'languidlyurged'		=> "Languidly Urged",
-			'ritakml'				=> "Rita Kamel",
-			'al-bab'				=> "Al Bab",
-			'ivysays'				=> "Ivy Says",
-			'freethinkinglebanon'	=> "Free Thinking Lebanon",
-			'remarkz'				=> "Remarkz",
-			'seenbymaya'			=> "Seen By Maya",
-			'noteconnection'		=> "Note Connection 3.0",
-			'viewoverbeirut'		=> "View Over Beirut",
-			'frombeiruttothebeltway'=> "From Beirut To The Beltway",	
-			'MindSoup'				=> "Mind Soup",
-			'endashemdash'			=> "Nour Has a Tumblog",
-			'ethiopiansuicides'		=> "Ethiopian Suicides",
-			'snapshotscenes'		=> "Snap Shot Scenes",
-			'globalvoicesonline'	=> 'Global Voices Online',
-			'whenhopespeaks'		=> "When Hope Speaks",
-			'najissa'				=> 'خرّوب و زنزلخت',
-			'moulahazat'			=> 'Moulahazat',
-			'blogbaladi' 			=> 'Blog Baladi',
-			'stateofmind13' 		=> 'A Separate State of Mind',
-			'beirutspring'			=> 'Beirut Spring',
-			'beirutdriveby'			=> 'Beirut Driveby Shooting',
-			'sietske-in-beiroet'	=> 'Sietske In Beiroet',
-			'gingerbeirut'			=> 'Ginger Beirut',	
-			'ranasalam'				=> 'Rana Salam Design Blog',
-			'beirutntsc'			=> 'Beirut/NTSC',
-			'tasteofbeirut'			=> 'Taste Of Beirut',
-			'arabglot'				=> 'arabglot الناطق بالضاد',
-			'greenresistance'		=> 'Green Resistance',
-			'ginosblog'				=> 'Gino\'s Blog',
-			'plus961'				=> 'Plus 961',
-			'armigatus'				=> 'Armigatus',
-			'woodenbeirut'			=>'Wood En Beirut', 
-			'lamathinks'			=>'Lama\'s Scrapbook',
-			'johayna'				=> 'جـهينة...',
-			'kathyshalhoub'			=> 'Kathy Shalhoub\'s Blog',
-			'shalabieh'				=> "Shalabieh's World",
-			'edithandomar'			=> "Edith and Omar",
-			'beirutiyat'			=> 'خربشات بيروتية',
-			'jadaoun'				=> 'Under Rug Swept',
-			'beirutreport'			=> 'The Beirut Report',
-			'joesbox'				=> "Joe's Box",
-			'seeqnce'				=> "Seeqnce Blog",
-			'saghbini'				=> 'Ninar - نينار',
-			'brofessionalreview'	=> 'Brofessional Review',
-			'rationalrepublic'		=> 'Rational Republic',
-			'funkyozzi'				=> 'From Lebanon With a Funk',
-			'ritachemaly'			=> 'Rita Chemaly',
-			'thecubelb'				=> 'The Cube',
-			'inkontheside'			=> 'Ink On the Side',
-			'piratebeirut'			=> 'Pirate Beirut',
-			'thepresentperfect'		=> 'The Present Perfect',
-			'octavianasr'			=> "Octavia Nasr's Blog",
-			'karlremarks'			=> "Karl Remarks",
-			'cnas'					=> "Abu Muqawama",
-			'sleeplessbeirut'		=> "Sleepless in Beirut",
-			'backinbeirut'			=> "Back in Beirut",
-			'confettiblues'			=> 'Confetti Blues',
-			'YHhE89RhVa0'			=> 'The On-the-go Blog',
-			'missfarah'				=> 'Miss Farah',
-			'chroniquesbeyrouthines'=> 'Chroniques Beyrouthines',
-			'ziadmajed'				=> 'Ziad Majed',
-			'kabobfest'				=> 'Kabob Fest',
-			'MichCafe'				=> 'Mich Café',
-			'hummusnation'			=> 'جمهورية الحمص ، وكالة الانباء الرسمية',
-			'qifanabki'				=> 'Qifa Nabki',
-			'theterroristdonkey'	=> 'Thuraya &amp; the Terrorist Donkey',
-			'lynch'					=> 'Marc Lynch',
-			'lebanonspring'			=> 'Lebanon Spring',
-			'marketinginlebanon'	=> 'Marketing in Lebanon',
-			'mideastwire'			=> 'The Mideastwire Blog',
-			'lbcblogs'				=> 'Lebanese Blogging Community',
-			'blkbtrfli'				=> 'Lebanese Voices',
-			'saharghazale'			=> 'Un Peu De Kil Shi',
-			'mexicaninbeirut'		=> 'Mexican In Beirut',
-			'tajaddod-youth'		=> 'Tajaddod Youth',
-			'lefigaro'				=> "L'Orient Indiscret",
-			'hahussain'				=> 'Hussain Abdul Hussain',
-			'Ho0l89IFEuY'			=> 'Brit in Beirut',
-			'abirghattas'			=> 'Abir Ghattas',
-			'poshlemon'				=> 'Posh Lemon',
-			'LifeWithSubtitles'		=> 'Life With Subtitles' ,
-			'michcafe'				=> 'Mich Cafe' ,
-			'trella'				=> 'مدونة تريلا',
-			'smex'					=> 'Social Media Exchange',
-			'thinkmedialabs'		=> 'Think Media Labs',
-			);
 
-	if (isset($blognames[$domain])){
-		return $blognames[$domain];
-	}else{
+	$db = new PDO('mysql:dbname='.$db_database.';dbhost='.$db_host . '', $db_username, $db_password);
+
+	//make sure everything is in utf8 for arabic
+	$db->query("SET NAMES 'utf8'");
+	$db->query("SET CHARACTER SET utf8");
+	$db->query("ALTER DATABASE lebanese_blogs DEFAULT CHARACTER SET utf8 COLLATE=utf8_general_ci");
+	
+	$name_query = "SELECT blog_name FROM blogs WHERE blog_id = '$domain'";
+	$stmnt = $db->query($name_query,PDO::FETCH_NUM);
+
+	$result = $stmnt->fetch();
+	if ($result[0]) {
+		return $result[0];
+	} else {
 		return "Random Blog";
 	}
-
 }
 
-function dig_suitable_image($content) 
+function dig_suitable_image($content)
+/*******************************************************************
+*	This functions uses the PHP DOM Parser to extract images
+*
+********************************************************************/ 
+{
+require_once "simple_html_dom.php";
+$firstImage ="";
+$html = str_get_html($content);
+foreach ($html->find('img[src]') as $img) 
+	{
+    if (($img->getAttribute('width'))>299) //only return images 300 px large or wider
+    	{ 
+    		$firstImage = $img->getAttribute('src');
+    		break;
+    	}
+    }
+if ($firstImage) 
+	{
+	return $firstImage;
+	} 
+elseif (get_youtube_thumb($content)) 
+	{
+	return get_youtube_thumb($content);
+	} 
+else 
+	{
+	return NULL;
+	}
+}
+
+function dig_suitable_image_old($content) 
 /*******************************************************************
 *	this function tries to find an image in a blog
 *
