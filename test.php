@@ -18,11 +18,13 @@ echo "The Blog's name is $result[0]";
 
 require_once "simple_html_dom.php";
 
-$content = '<img width="300" height="300" src="http://www.nogarlicnoonions.com/wp-content/uploads/2013/03/Lets_Burger_Blueberry_Square_Dbayeh77-300x300.jpg" alt="Lets_Burger_Blueberry_Square_Dbayeh77">Blueberry Square here I come. After the opening of Blueberry Square Dbayeh, I decided to visit its restaurants one after the other in order to check what this new hub has to offer. As my love for burgers still goes strong, Let’s Burger was the first place to try on the list. Driving there, I<a href="http://www.nogarlicnoonions.com/lets-enjoy-blueberry-square-and-burger-somewhere-else/">  »more...</a>';
+$content = '<img src="http://24.media.tumblr.com/b8d4ff29c00f27a391ee0bb08f48d4d8/tumblr_mk621lZkt01r188pco1_500.jpg"><br><br><p>That’s about the closest I’ll ever get to a French manicure';
 
 $html = str_get_html($content);
 foreach ($html->find('img[src]') as $img) {
-    echo $img->getAttribute('src'),"<br/>";
-    echo $img->getAttribute('width'),"<br/>";
+    $image =$img->getAttribute('src');
+    echo $image ,"<br/>";
+    list($width, $height, $type, $attr) = getimagesize("$image");
+    echo $width,"<br>";
 }
 ?>

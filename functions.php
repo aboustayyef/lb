@@ -212,7 +212,9 @@ $firstImage ="";
 $html = str_get_html($content);
 foreach ($html->find('img[src]') as $img) 
 	{
-    if (($img->getAttribute('width'))>299) //only return images 300 px large or wider
+	    $image = $img->getAttribute('src');
+    	list($width, $height, $type, $attr) = getimagesize("$image");
+    	if ($width>299) //only return images 300 px large or wider
     	{ 
     		$firstImage = $img->getAttribute('src');
     		break;
