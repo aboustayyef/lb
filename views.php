@@ -6,7 +6,7 @@ function display_blogs($from, $to, $source) // source should be either "database
 		case 'database':
 			$posts = get_posts_from_database($from, $to); 
 			break;
-		case 'greader':
+		case 'greader': // deprecate soon
 			$posts = get_posts_from_greader($from, $to); 
 			break;
 	}
@@ -41,8 +41,13 @@ function display_blogs($from, $to, $source) // source should be either "database
 	</div><!-- /dash_thumbnail -->
 	<div class ="sharing_tools">
 		<ul>
-			<li> <a href="https://twitter.com/share?url=<?php echo $post['url'] ; ?>" target="_blank"><img src ="share-icon-twitter.png" width ="16"></a> </li>
+			<?php $tweetcredit = ($post['twitter'])?" by @${post['twitter']}":""; ?>
+			<?php $url_to_incode = "${post['title']} ${post['url']}".$tweetcredit." via lebaneseblogs.com" ;?>
+			<?php $twitterUrl = urlencode($url_to_incode) ;?>
+			<li> <a href="https://twitter.com/intent/tweet?text=<?php echo $twitterUrl; ?>" title="Click to send this post to Twitter!" target="_blank"><img src ="share-icon-twitter.png" width ="16"></a></li>
 			<li> <a href="http://www.facebook.com/sharer.php?u=<?php echo $post['url'] ; ?>"><img src ="share-icon-facebook.png" width ="16"></a> </li>
+			<!-- <a href="https://twitter.com/share?url=<?php echo $post['url'] ; ?>" target="_blank"><img src ="share-icon-twitter.png" width ="16"></a> -->
+
 		</ul>
 	</div>
 </div> <!-- /blogentry -->

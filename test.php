@@ -1,5 +1,15 @@
 <?php
 
+	require_once("simplepie.php");
+    require_once "config.php";
+    require_once("functions.php");
+    require_once("views.php");
+
+$details = get_blog_details("http://thepresentperfect.wordpress.com/2013/03/03/mar-mikhael-and-a-coat-made-by-me/");
+echo "Blog Name: ", $details['name'], "</br>";
+echo "Blog Description: ", $details['description'], "</br>";
+echo "Blog Twitter: ", $details['twitter'], "</br>";
+
 /*require_once "config.php";
 
 $db = new PDO('mysql:dbname='.$db_database.';dbhost='.$db_host . '', $db_username, $db_password);
@@ -14,7 +24,7 @@ $stmnt = $db->query($name_query,PDO::FETCH_NUM);
 $result = $stmnt->fetch();
 echo "The Blog's name is $result[0]";
 
-*/
+
 
 require_once "simple_html_dom.php";
 
@@ -26,5 +36,5 @@ foreach ($html->find('img[src]') as $img) {
     echo $image ,"<br/>";
     list($width, $height, $type, $attr) = getimagesize("$image");
     echo $width,"<br>";
-}
+}*/
 ?>

@@ -33,7 +33,10 @@ function get_posts_from_database($from,$to){
 	while ($rows = $result->fetch_array(MYSQLI_ASSOC)){
 
 		$url = $rows['post_url'];
-		$blogname = get_blog_name($url);
+		$blog_details = get_blog_details($url);
+		$blogname = $blog_details['name']; 
+		$blogtwitter = $blog_details['twitter'];
+		$blogdescription = $blog_details['description'];
 		$thumbimage = get_thumb($url);
 
 		$posts[]	= array (
@@ -45,14 +48,16 @@ function get_posts_from_database($from,$to){
 		"excerpt"	=> $rows['post_excerpt'],
 		"content"	=> $rows['post_content'],
 		"blogname"	=> $blogname,
-		"thumb"		=> $thumbimage
+		"thumb"		=> $thumbimage,
+		"description" => $blogdescription,
+		"twitter" => $blogtwitter
 		);
 	};
 	$newposts = array_slice($posts, -$amountOfRecords, $amountOfRecords, true);
 	return $newposts;
 }
 
-function get_posts_from_greader($from, $to)
+function get_posts_from_greader($from, $to) // deprecate soon
 
 /************************************************************************************
 *	uses google reader as source of data
@@ -173,6 +178,42 @@ function clean_up($original_string, $length)
 	}
 	
 	return $new_string ;
+}
+
+function get_blog_details($blog_post_link){
+
+	global $db_username, $db_password , $db_host , $db_database;
+
+	// find blog's name, or use "random blog"		
+	$domain = get_domain ($blog_post_link); // output example "beirutspring"
+
+	$db = new PDO('mysql:dbname='.$db_database.';dbhost='.$db_host . '', $db_username, $db_password);
+
+	//make sure everything is in utf8 for arabic
+	$db->query("SET NAMES 'utf8'");
+	$db->query("SET CHARACTER SET utf8");
+	$db->query("ALTER DATABASE lebanese_blogs DEFAULT CHARACTER SET utf8 COLLATE=utf8_general_ci");
+	
+	$name_query = "SELECT * FROM blogs WHERE blog_id = '$domain'";
+	$stmnt = $db->query($name_query);
+
+	$details = array();
+
+	$result = $stmnt->fetch();
+	if ($result['blog_id']) {
+		$details = array(
+			'name' => $result['blog_name'],
+			'description' => $result['blog_description'],
+			'twitter' => $result['blog_author_twitter_username']
+			);
+		return $details;
+	} else {
+		$details = array(
+			'name' => 'New blog',
+			'description' => 'blog recently added to lebaneseblogs.com',
+			'twitter' => null
+			);
+	}
 }
 
 

@@ -1,4 +1,3 @@
-console.log(viewtype);
 $(document).ready(function () {
     content_size();
     console.log("Vertical Offset"+ verticalOffset());
@@ -17,12 +16,14 @@ $(document).ready(function () {
 
         //fade in the blogs and the preferences cog
         $('.blogentry').fadeTo('slow', 1, function () {});
-        $('.prefopen img').fadeTo('slow', 1, function () {});
+        //$('.prefopen img').fadeTo('slow', 1, function () {});
+
+        do_scroll_math();
     });
 
-    $(".prefopen").click(function () {
+    /*$(".prefopen").click(function () {
         $("#prefpanel").slideToggle("fast");
-    });
+    });*/
 
     $(".switchview").click(function(){
         switchView();
@@ -39,7 +40,10 @@ $(document).ready(function () {
             });
         });
     });
-    $("#switchToGridView").css('cursor', 'pointer');
+    $("a#switchView").click(function(){
+        switchView();
+    });
+    /*$("#switchToGridView").css('cursor', 'pointer');
     $("#switchToListView").css('cursor', 'pointer');
     $("#switchToGridView").click(function(){
         viewtype = "list";
@@ -52,21 +56,25 @@ $(document).ready(function () {
         $("#switchToGridView").css("display","block");
         $("#switchToListView").css("display","none");
         switchView();
-    });
+    });*/
 
 
     var position = 16;
     var workInProgress = "no";
     $(window).scroll(function () {
+        do_scroll_math();
+    });
+
+    function do_scroll_math() {
         var wh = $(window).height();
         var dh = $(document).height();
         var s = $(document).scrollTop();
-        status = "Window Height: " + wh + " Document Height: " + dh + " Scroll Top: " + s;
+        var status = "Window Height: " + wh + " Document Height: " + dh + " Scroll Top: " + s;
         console.log(status);
         console.log(workInProgress);
         console.log(position);
 
-        if (s >= (dh - wh - 600)) { // when we're almost at the bottom of the document
+        if (s >= (dh - wh - 1000)) { // when we're almost at the bottom of the document
             if (workInProgress == "no") { // used to prevent overlapping background loading
                 console.log('initiated work');
                 workInProgress = "yes";
@@ -100,18 +108,20 @@ $(document).ready(function () {
                         $('.blogentry').fadeTo('fast', 1, function () {});
                         position = position + 20;
                         workInProgress = "no";
-                        $(document).scrollTop() = s;
+                        $(document).scrollTop = s;
 
                     });
                 });
             }
         }
-    });
+    }
 
     function content_size() {
         var x = $(window).width();
         var margins = x % 320;
         var desiredwidth = x - margins;
+        console.log("desired width for wrapper: "+desiredwidth);
+        console.log("columns: "+how_many_columns());
         if (x != desiredwidth) {
             $("#wrapper").css("width", desiredwidth);
         }
@@ -150,7 +160,7 @@ $(document).ready(function () {
                 offsetY: verticalOffset(),
                 blockElement: '.blogentry'
             });
-        });;
+        });
     }
 
     function how_many_columns() {

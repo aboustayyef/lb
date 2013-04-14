@@ -31,22 +31,31 @@
         <![endif]-->
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="js/blocksit.min.js"></script>
         <script src ="js/jquery.waitforimages.min.js"></script>
-        <script>var viewtype ="grid" // default view is grid. Other option is list</script>
+        <script src ="js/jquery.jpanelmenu.min.js"></script>
+        <script src="js/blocksit.min.js"></script>
+
+        <script>
+            var jPM = $.jPanelMenu({
+             menu: '#left-menu',
+             animated: false,
+            });
+            var viewtype ="grid" // default view is grid. Other option is list
+        </script>
         <script type="text/javascript" src = "js/handledimensions.js?<?php echo time() ?>"></script>
 
         <div class ="main title">
-            <ul><li><img id ="switchToGridView" src="gridview.png" alt = "Switch to Grid View" title = "Switch to Grid View"></li><li><img id ="switchToListView" src="listview.png" alt = "Switch to List View" title = "Switch to List View"></li></ul> 
-            <a href ="http://lebaneseblogs.com" style ="color:white;">LebaneseBlogs.com</a>
+        <div class="menu-trigger"><img src ="hamburger-button.png" width ="25px" style ="float:left;margin-left:10px;"></div>
+        <!-- <ul><li><img id ="switchToGridView" src="gridview.png" alt = "Switch to Grid View" title = "Switch to Grid View"></li><li><img id ="switchToListView" src="listview.png" alt = "Switch to List View" title = "Switch to List View"></li></ul>  -->            
+        <a href ="http://lebaneseblogs.com" style ="color:white;">LebaneseBlogs.com</a>
         </div>
-        <div class ="subheader"><a class ="prefopen" href ="#"><img src ="details-icon.png" width ="20"></a> <h2>Latest posts from the best Lebanese blogs.</h2></div>
-         
-        <div id="prefpanel">
+        <div class ="subheader"><h2>Latest posts from the best Lebanese blogs.</h2></div>
+
+        <!-- <div id="prefpanel">
             <div class ="menu">
                 <a href = "/blog">Metablog</a> | <a href ="http://twitter.com/lebaneseblogs">Twitter</a>  | Choice of blogs, design &amp; web development by <a href ="http://beirutspring.com">Mustapha Hamoui</a>
             </div>
-        </div><!-- /panel -->
+        </div>-->
         <div id ="loadingnew" >
             <img src="ajax-loader-small.gif">
             &nbsp;&nbsp;Loading content<!-- <span class ="hidemobile">  (a longer wait means more photos)</span> -->
@@ -81,7 +90,21 @@
                 alt="web counter"></a></div></noscript>
             <!-- End of StatCounter Code for Default Guide -->
 
-        </footer>
+        </footer>        
+        <nav id="left-menu">
+            <ul>
+                <li class="heading">About</li>
+                <li><a href="http://twitter.com/lebaneseblogs">Twitter</a></li>
+                <li><a href="http://lebaneseblogs.com/blog">Meta Blog</a></li>
+                <li class="heading">Settings</li>
+                <li><a id ="switchView" href ="#">Switch View</a></li>
+            </ul>
+            <p>Choice of blogs, design &amp; web development by <a href ="http://beirutspring.com">Mustapha Hamoui</a></p>
+
+        </nav>
+        <script type="text/javascript">
+            jPM.on();
+        </script>
     </div>
     </body>
 </html>

@@ -1,10 +1,16 @@
 <?php 
+
+/*******************************************************************
+*	This script handles the Cron Job for adding feeds into the database
+*
+********************************************************************/ 
+
 require_once("simplepie.php");
 require_once "config.php";
 require_once("functions.php");
 require_once("views.php");
 
-$maxitems = 2;
+$maxitems = 3;
 
 //prepare and connect to database
 global $db_username, $db_password , $db_host , $db_database;
@@ -28,7 +34,6 @@ $db->query("SET CHARACTER SET utf8");
 $db->query("ALTER DATABASE lebanese_blogs DEFAULT CHARACTER SET utf8 COLLATE=utf8_general_ci");
 
 $feeds = $query->fetchAll();
-
 
 // loop through feeds
 foreach ($feeds as $feed) 

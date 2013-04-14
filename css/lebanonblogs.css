@@ -1,6 +1,8 @@
 body {
 	padding-top: 0px;
+	background-image: url(noise.png);
 	background-color: rgb(218, 218, 218);
+
 }
 
 #prefpanel {
@@ -49,7 +51,7 @@ body {
 
 div.main.title
 {
-	position: fixed;
+	position: relative;
 	top: 0;	
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -63,7 +65,6 @@ div.main.title
 	background: url(background.png) #a13038;
 	z-index: 999;
 	color: #fff;
-	margin: 0 auto .2em;
 	font: italic x-large Georgia, "Times New Roman", Times, serif;
 	text-shadow: 1px 1px 1px #4c4c4c;
 }
@@ -73,7 +74,6 @@ div.main.title
 .subheader
 {
 	text-align: center;
-	margin-top: 50px;
 	color: #ededed;
 	background-color: hsl(357, 72%, 30%);
 	padding: .5em;
@@ -235,7 +235,7 @@ div.blog_thumb
 
 div.blog_info
 {
-	width: 220px;
+	max-width: 220px;
 	float: left;
 }
 
@@ -271,6 +271,55 @@ div.sharing_tools li:hover {
 }
 
 #title a { color: #eab019; }
+
+#left-menu{
+	display: none;
+}
+
+#jPanelMenu-menu {
+	font-family: "museo-sans","Museo Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+	background: #3b3b3b;
+}
+
+#jPanelMenu-menu ul {
+	margin: 0;
+	padding: 0;
+}
+
+#jPanelMenu-menu p {
+	padding: 0.5em 5%;
+	color: rgb(23, 23, 23);
+}
+
+#jPanelMenu-menu p a {
+	color: rgb(23, 23, 23);
+	text-decoration: underline;
+}
+
+#jPanelMenu-menu li.heading {
+	color: rgb(143, 143, 143);
+	padding: 0.3em 5%;
+	background: rgb(43, 43, 43);
+}
+
+#jPanelMenu-menu li a {
+background: #3b3b3b;
+background: -o-linear-gradient(top, #3e3e3e, #383838);
+background: -ms-linear-gradient(top, #3e3e3e, #383838);
+background: -moz-linear-gradient(top, #3e3e3e, #383838);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3e3e3e), color-stop(1, #383838));
+background: -webkit-linear-gradient(#3e3e3e, #383838);
+background: linear-gradient(top, #3e3e3e, #383838);
+font-weight: 300;
+font-weight: 700;
+display: block;
+padding: 0.5em 5%;
+border-top: 1px solid #484848;
+border-bottom: 1px solid #2e2e2e;
+text-decoration: none;
+text-shadow: 0 -1px 2px #222;
+color: #f7f7f7;
+}
 
 @media only screen 
 and (min-device-width : 320px) 
