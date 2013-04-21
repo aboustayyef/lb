@@ -1,14 +1,15 @@
 <?php 
 
-/*******************************************************************
-*	This script handles the Cron Job for adding feeds into the database
-*
-********************************************************************/ 
+/************************************************************************************************
+*	This script handles the Cron Job for adding feeds for Lebanese Blogs into the database 		*
+*																								*
+************************************************************************************************/ 
 
-require_once("simplepie.php");
-require_once "config.php";
-require_once("functions.php");
-require_once("views.php");
+require_once("ff/simplepie.php");
+require_once "ff/config.php";
+require_once("ff/functions.php");
+require_once("ff/views.php");
+require_once("ff/simple_html_dom.php");
 
 $maxitems = 3;
 
@@ -85,8 +86,20 @@ foreach ($feeds as $feed)
 				$blog_post_title = clean_up($item->get_title(), 120);
 				$temp_content = $item->get_content();
 				$blog_post_content = html_entity_decode($temp_content, ENT_COMPAT, 'utf-8');
+				
 				$blog_post_image = @dig_suitable_image($blog_post_content) ;
 				$blog_post_excerpt = get_blog_post_excerpt($blog_post_content, 120);
+
+				// added image dimensions for new design that does lazy loading
+
+				if ($blog_post_image) {
+					list($width, $height, $type, $attr) = @getimagesize($blog_post_image);
+					$blog_post_image_width = $width;
+					$blog_post_image_height = $height;
+				}	else {
+					$blog_post_image_width = 0;
+					$blog_post_image_height = 0;
+				}
 
 				$stmt = $db->prepare ('INSERT INTO posts 
 					(
@@ -96,7 +109,9 @@ foreach ($feeds as $feed)
 		    		post_excerpt,
 		    		blog_id,
 		    		post_timestamp,
-		    		post_content 
+		    		post_content,
+		    		post_image_width,
+		    		post_image_height
 		    		) 
 					VALUES
 					(
@@ -106,27 +121,35 @@ foreach ($feeds as $feed)
 					:excerpt,
 					:id,
 					:post_timestamp,
-					:content
+					:content,
+					:img_width,
+					:img_height
 
 					)');
 
 				  $stmt->execute(array(
-				        ':url' => $blog_post_link,
-				        ':title' => $blog_post_title,
-				        ':image' => $blog_post_image,
-				        ':excerpt' => $blog_post_excerpt,
-				        ':id'	=> $domain,
-				        ':post_timestamp' => $blog_post_timestamp,
-				        ':content' => $blog_post_content
+				        ':url'				=> $blog_post_link,
+				        ':title'			=> $blog_post_title,
+				        ':image'			=> $blog_post_image,
+				        ':excerpt'			=> $blog_post_excerpt,
+				        ':id'				=> $domain,
+				        ':post_timestamp'	=> $blog_post_timestamp,
+				        ':content'			=> $blog_post_content,
+				        ':img_width'		=> $blog_post_image_width,
+				        ':img_height'		=> $blog_post_image_height
 				  ));
 				
 				if ($stmt->rowCount()) {
 					Echo "<-- ok --><br/>";
 				}
+
 				echo "Timestamp: <em>$blog_post_timestamp</em><br/>";
 				echo "Title: <em>$blog_post_title</em><br/>";
 				echo "image source: $blog_post_image><br/>";
 				echo "Excerpt: <em>$blog_post_excerpt</em><br/>";
+				echo "Image height: ", $blog_post_image_height,"<br>";
+				echo "Image width: ", $blog_post_image_width,"<br>";
+
 				echo "<hr>";
 
 				/*
