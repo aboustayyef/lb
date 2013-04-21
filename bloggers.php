@@ -25,7 +25,7 @@ include_once("includes/top_part.php");
 			if (isset($_POST["submit"])) {
 				$submitted = $_POST['submittedUrl'];
 				mail("mustapha.hamoui@gmail.com", "[lebaneseblogs.com] SUBMISSION", $submitted);
-				echo '<span class="label label-success">Your suggestion has been submitted!</span>';
+				echo '<div class="alert alert-success">Your suggestion has been submitted! <a class ="btn btn-small" href ="bloggers.php">Submit another?</a></div>';
 
 			} else {
 				drawform();
