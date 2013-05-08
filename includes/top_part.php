@@ -2,6 +2,8 @@
 include_once("includes/config.php");
 include_once("includes/functions.php");
 include_once("includes/core.php");
+include_once("includes/simple_html_dom.php");
+include_once("includes/simplepie.php");
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +14,7 @@ include_once("includes/core.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo $description;?>">
     <meta name="author" content="Mustapha Hamoui">
+    <meta property="og:image" content="http://lebaneseblogs.com/blog/wp-content/uploads/2013/04/logo_new_360x60x2.png"/>
 
     <!-- Le styles -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,10 +31,10 @@ include_once("includes/core.php");
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/interface/lb-apple-icon-144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/interface/lb-apple-icon-114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/interface/lb-apple-icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" href="img/interface/lb-apple-icon-57x57.png">
 
 <link rel="shortcut icon" href="img/interface/favicon.ico"> 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans|Bitter' rel='stylesheet' type='text/css'>
@@ -39,6 +42,7 @@ include_once("includes/core.php");
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="js/blocksit.min.js"></script>
     <script src="js/jquery.lazyload.min.js"></script>
+    <script src="js/jquery.waitforimages.min.js"></script>
 
   </head>
 
@@ -58,6 +62,10 @@ include_once("includes/core.php");
               <li <?php if ($page == "home") {echo 'class ="active"';}?>><a href=".">Home</a></li>
               <li <?php if ($page == "about") {echo 'class ="active"';}?>><a href="about.php">About</a></li>
               <li <?php if ($page == "bloggers") {echo 'class ="active"';}?>><a href="bloggers.php">Bloggers</a></li>
+              <li <?php if ($page == "feedback") {echo 'class ="active"';}?>><a href="feedback.php">Feedback</a></li>
+              <li <?php if ($page == "ff") {echo 'class ="active"';}?>><a href="ff.php">#FF</a></li>
+              <li><a href="http://lebaneseblogs.com/blog">Blog</a></li>
+
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -66,7 +74,7 @@ include_once("includes/core.php");
 
     <div class="logobar">
     	<div class="container">
-    		<?php center_item('<img src = "img/interface/logo_new_white_275x46x2.png" width ="275" height = "46">'); ?>
+    		<?php center_item('<a href ="."><img src = "img/interface/logo_new_white_275x46x2.png" width ="275" height = "46"></a>'); ?>
     	</div>
     </div>
     <div class="descriptionbar">

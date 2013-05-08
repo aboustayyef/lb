@@ -1,15 +1,20 @@
 <?php 
 
+ini_set('max_execution_time', 0);
+ini_set("memory_limit","256M"); 
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 /************************************************************************************************
 *	This script handles the Cron Job for adding feeds for Lebanese Blogs into the database 		*
 *																								*
 ************************************************************************************************/ 
 
-require_once("ff/simplepie.php");
-require_once "ff/config.php";
-require_once("ff/functions.php");
-require_once("ff/views.php");
-require_once("ff/simple_html_dom.php");
+require_once("includes/simplepie.php");
+require_once "includes/config.php";
+require_once("includes/functions.php");
+require_once("includes/core.php");
+require_once("includes/simple_html_dom.php");
 
 $maxitems = 3;
 
@@ -87,13 +92,13 @@ foreach ($feeds as $feed)
 				$temp_content = $item->get_content();
 				$blog_post_content = html_entity_decode($temp_content, ENT_COMPAT, 'utf-8');
 				
-				$blog_post_image = @dig_suitable_image($blog_post_content) ;
+				$blog_post_image = dig_suitable_image($blog_post_content) ;
 				$blog_post_excerpt = get_blog_post_excerpt($blog_post_content, 120);
 
 				// added image dimensions for new design that does lazy loading
 
 				if ($blog_post_image) {
-					list($width, $height, $type, $attr) = @getimagesize($blog_post_image);
+					list($width, $height, $type, $attr) = getimagesize($blog_post_image);
 					$blog_post_image_width = $width;
 					$blog_post_image_height = $height;
 				}	else {
@@ -138,6 +143,7 @@ foreach ($feeds as $feed)
 				        ':img_width'		=> $blog_post_image_width,
 				        ':img_height'		=> $blog_post_image_height
 				  ));
+				  var_dump($stmt->errorInfo());
 				
 				if ($stmt->rowCount()) {
 					Echo "<-- ok --><br/>";

@@ -1,21 +1,22 @@
 <?php
-  if (isset($_COOKIE["logged_in"]))
-  {
-    if ($_COOKIE["logged_in"] == "yes")
-    {
-      header("location:admin.php");
-    }
-  }
 
-  $user = "stayyef";
-  $pass = "mm000741";
+include_once("includes/config.php");
+include_once("includes/functions.php");
+
+if (admin_logged_in())
+{
+  log_in_form("ok");
+} 
+
+$user = "stayyef";
+$pass = "mm000741";
 
   if ((isset($_POST['user']))&&(isset($_POST['password']))) 
   {
     if (($_POST['user'] == $user) && ($_POST['password']==$pass)) 
     {
       setcookie("logged_in", "yes", time()+3600);  /* expires in 1 hour */
-      header("location:admin.php");
+      log_in_form("ok");
     } else {
       log_in_form();
     }
@@ -27,7 +28,7 @@
 
 <?php 
 
-function log_in_form(){
+function log_in_form($status=NULL){
 
   $page = "admin";
   $title = "Lebanese Blogs | admin";
@@ -46,6 +47,8 @@ function log_in_form(){
           <input type="password" class="input-small" placeholder="Password" name = "password">
           <button type="submit" class="btn">Sign in</button>
         </form>
+        <?php if ($status == "ok"){
+          echo '<p><a href ="exit_links.php">Exit Links</a> - <a href ="add_blog.php">Add Blog</a></p>';} ?>
         </div>
       </div>
     </div> <!-- /container -->

@@ -1,10 +1,12 @@
 <?php 
 
-function display_blogs($from, $to){
-
+function display_blogs($from, $to)
+{
+$counter = $from;
 	$posts = get_posts_from_database($from, $to);
-
-	foreach ($posts as $post) {
+	foreach ($posts as $post) 
+	{
+		$target_url = "http://lebaneseblogs.com/r.php?r=".urlencode($post['url']);
 		if ($post['image-url']){
 			$image_width = 278;
 			$image_height = intval(($image_width / $post['img_width'])*$post['img_height']);
@@ -12,19 +14,31 @@ function display_blogs($from, $to){
 				$post['thumb'] ,
 				$post['blogname'] ,
 				$post['title'] ,
-				$post['url'] ,
+				$target_url ,
 				$post['image-url'],
 				$image_width,
 				$image_height,
-				$post['twitter']);
+				$post['twitter'],
+				$post['visits']);
 		} else {
 			draw_blog_entry_with_excerpt(
 				$post['thumb'] ,
 				$post['blogname'] ,
 				$post['title'] ,
-				$post['url'] ,
+				$target_url ,
 				$post['excerpt'],
-				$post['twitter']);
+				$post['twitter'],
+				$post['visits']);
+		}
+		$counter++;
+		if (($counter ==3) && exists_new_conversation()) { //if there's a conversation, show it at number 4
+			$conv_id = exists_new_conversation();
+			show_conversation($conv_id);
+		}
+
+		if ($counter ==8) 
+		{ // after the 8th post, show a tip
+			show_tip(2);
 		}
 	}
 		echo 
@@ -35,11 +49,8 @@ function display_blogs($from, $to){
    		threshold : 500
 	});
 	$("img.lazy").removeClass("lazy");
-</script>'
+</script>';
 
-
-
-;
 }
 
 function get_posts_from_database($from,$to){
@@ -109,7 +120,9 @@ function get_posts_from_database($from,$to){
 		"description" => $blogdescription,
 		"twitter" => $blogtwitter,
 		"img_width"	=> $blog_image_width,
-		"img_height" => $blog_image_height
+		"img_height" => $blog_image_height,
+		"visits" => $rows['post_visits']
+
 		);
 	};
 	$newposts = array_slice($posts, -$amountOfRecords, $amountOfRecords, true);
@@ -238,7 +251,6 @@ function dig_suitable_image($content)
 *
 ********************************************************************/ 
 {
-require_once "includes/simple_html_dom.php";
 $firstImage ="";
 $html = str_get_html($content);
 foreach ($html->find('img[src]') as $img) 

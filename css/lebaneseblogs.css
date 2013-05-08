@@ -10,8 +10,18 @@ a.btn.btn-info{
 	text-decoration: none;
 }
 
+.lb_red{
+	color: #A33E46;
+}
+
 .page_wrapper a{
 	text-decoration: underline;
+}
+
+.paper {
+	background: white;
+	width: 100%;
+	padding: 1em 0 ;
 }
 
 a:hover{
@@ -127,6 +137,8 @@ div.page_wrapper{
 	padding: 0 15px;
 	font-family: "open-sans",sans-serif;
 	font-size: 1.1em;
+	max-width: 230px;
+	overflow: hidden;
 }
 
 div.sharing_tools ul
@@ -173,6 +185,178 @@ div.sharing_tools li:hover {
 .navbar-inverse .btn-navbar:hover{
 	background-color:#6C2A33 ;
 }
+
+
+/*************************/
+/* Special area          */
+/*************************/
+
+div .blogentry.special , div .blogentry.special h2, div .blogentry.special h4, div .blogentry.special p, div .blogentry.special h3{
+	font-family: "Bitter",sans-serif;
+}
+
+div .blogentry.special img{
+	float: left;
+	margin-right:1em;
+}
+
+div .blogentry.special h2{
+
+	font-size: 1.3em;
+	color: white;
+	line-height: 1.2em;
+	margin-top: 0;
+	margin-bottom: 1.2em;
+}
+
+div .blogentry.special h3{
+	margin-bottom: 1em;
+	font-size:1.4em;
+	line-height: 1.3em;
+
+}
+
+table h4 {
+	top: .5em;
+	left: 40px;
+	font-size:1em;
+	line-height: 1em;
+	margin: 0;
+	font-weight: normal;
+}
+
+table{
+	width: 100%;
+	padding: 5px;
+	margin-top: 5px;
+}
+
+table td {
+	text-align: left;
+	vertical-align: top;
+}
+
+.wrapper_special hr{
+	margin: 8px 0;
+}
+
+.wrapper_special hr.clear{
+	opacity: 0;
+}
+
+.wrapper_special h5{
+	margin-top: 2px;
+	font-size: 12px;
+	font-family: arial,sans-serif;
+	color: rgb(180,180,180);
+	font-weight: normal;
+	margin-bottom: 0;
+}
+
+div .blogentry.special {
+	background: white url('grey-bkg.gif') repeat-x;
+	border: none;
+}
+
+
+/*************************/
+/* Settings for TIPs  */
+/*************************/
+
+
+div .blogentry.tip {
+	background: white url('yellow-bkg.gif') repeat-x;
+	border:none;
+}
+
+.blogentry.tip img {
+	border:none;
+}
+
+.blogentry.tip h1 {
+	font-size: 2.2em;
+	font-family: "Bitter",serif;
+	color: beige;
+	text-align: center;
+}
+.blogentry.tip h2 {
+	font-size: 1.6em;
+	margin-top:0.5em;
+	text-align: center;
+}
+
+.blogentry.tip a{
+	color: #cb834d;
+}
+
+.blogentry.tip p{
+	padding: 1em 2em;
+	font-family: "Bitter",serif;
+
+}
+
+/*************************/
+/* Settings 4 Conversations  */
+/*************************/
+div .blogentry.conv {
+	background: white url('orange-bkg.gif') repeat-x;
+	border:none;
+}
+
+div .blogentry.conv h2{
+	font-family: "Bitter",sans-serif;
+	font-size: 1.3em;
+	color: white;
+	line-height: 1.2em;
+	margin-top: 0;
+	margin-bottom: 1.2em;
+}
+
+img.conv-thumb{
+	margin-right: 5px;
+	overflow: auto;
+}
+
+div .blogentry.conv p{
+	font-family: "Bitter",serif;
+	font-size: 16px;
+	padding: 8px;
+	background: rgb(241, 241, 220)
+}
+
+div .blogentry.conv h3{
+	font-size: 20px;
+	margin-top: 0;
+}
+
+div .blogentry.conv h4{
+	color: rgb(172, 61, 61);
+	font-size: 16px;
+}
+
+/*Bubbles*/
+
+.bubble {
+
+    margin: 10px 0 25px 0;
+    padding: 1px;
+    padding-left: 10px;
+    position: relative;
+    clear: both;
+}
+.bubble:after {
+   content: "";
+   position: absolute;
+   top: 100%;
+   left: 15px;
+   border-top: 15px solid blue;
+   border-top-color: inherit; 
+   border-left: 15px solid transparent;
+   border-right: 15px solid transparent; 
+}
+
+
+
 /*************************/
 /* Settings for Tablets  */
 /*************************/

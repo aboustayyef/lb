@@ -11,5 +11,6 @@ require_once("includes/core.php");
 
 $to = $start_from + 15; // change figure if we want
 display_blogs($start_from+1, $to); 
+follow_our_bloggers(5);
 
 ?>

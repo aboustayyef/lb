@@ -6,7 +6,13 @@
 ?>
     <div id="entries-main-container">
       <div class ="loader" style ="width:100%;text-align:center"><img src="img/interface/ajax-loader.gif"></div>
-      <?php display_blogs(0, 17); ?>
+      
+    <?php   
+      top_5_posts(24);
+      display_blogs(0, 17);
+      show_tip(1);
+
+    ?>
     </div> <!-- /container -->
     <div class ="endloader" style ="width:100%;text-align:center;margin:2em 0"><img src="img/interface/ajax-loader.gif"></div>
     <!-- Le javascript

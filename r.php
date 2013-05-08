@@ -22,6 +22,14 @@ require_once("includes/config.php");
 global $db_username, $db_password , $db_host , $db_database;
 $db = new PDO('mysql:dbname='.$db_database.';dbhost='.$db_host. '', $db_username, $db_password );
 
+$query = 'INSERT INTO exit_log (exit_time, exit_url) VALUES ("'.time().'","'.$url.'") ';
+$stmt = $db->prepare($query);
+$stmt->execute();
+
+$query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
+$stmt = $db->prepare($query);
+$stmt->execute();
+
 // enter here code to query post record with specified URL, then add +1 to new post_clicks field.
 
 }

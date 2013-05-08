@@ -31,9 +31,8 @@ function fixDimensions(){
 	desiredWidth = getDesiredWidth();
 
 	//fix post entries next
-	$('#entries-main-container').width(desiredWidth);
-	var columns = getColumnNumbers();
-
+		$('#entries-main-container').width(desiredWidth);
+		var columns = getColumnNumbers();
 		$('#entries-main-container').BlocksIt({
 			numOfCol: columns,
 			offsetX: unitMargin,
@@ -45,7 +44,7 @@ function fixDimensions(){
 // scrolling math 
 
 var workInProgress = "no";
-var position = 18; // initial value is the one right after the first bunch
+var position = 16; // initial value is the one right after the first bunch
 
 function do_scroll_math() {
     var wh = $(window).height();
@@ -59,21 +58,19 @@ function do_scroll_math() {
             $.post(url, {
                 start_from: position
             }, function (data) {
-                $("#entries-main-container").append(data);
+	            $("#entries-main-container").append(data);
                	var columns = getColumnNumbers();
-                $('#entries-main-container').BlocksIt({
+				$('#entries-main-container').BlocksIt({
 					numOfCol: columns,
 					offsetX: unitMargin,
 					offsetY: unitMargin,
 					blockElement: '.blogentry'
-                });
+				});
                 
                 $('.blogentry').fadeTo('slow', 1);
-
-                position = position + 20;
+                position = position + 14;
                 workInProgress = "no";
                 $(document).scrollTop = s;
-
             });
         }
     }
@@ -83,9 +80,10 @@ function do_scroll_math() {
 // When document loads
 $(document).ready(function(){
 	fixDimensions();
-	$('.loader').fadeTo('fast',0);
-   	$('.blogentry').fadeTo('slow', 1);
-
+	$('#entries-main-container').waitForImages(function() {
+		$('.loader').fadeTo('fast',0);
+	   	$('.blogentry').fadeTo('slow', 1);
+	});
 	do_scroll_math();
 }); 
 
