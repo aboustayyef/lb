@@ -56,6 +56,13 @@ div.page_wrapper{
 	margin: 1.1em auto;
 }
 
+img#mobile-logo{
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
 .descriptionbar {
 	width: 100%;
 	background: rgb(190,190,190);
@@ -384,6 +391,21 @@ body{
 
 .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
 	margin: 0;
+}
+
+img#mobile-logo{
+	display: block;
+}
+
+div.logobar{
+	display: none;
+}
+
+.descriptionbar h5 {
+	font-size: 1em;
+	line-height: 1em;
+	margin:0;
+	margin-bottom: 4px; 
 }
 
 .container{

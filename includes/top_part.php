@@ -57,6 +57,8 @@ include_once("includes/simplepie.php");
             <span class="icon-bar"></span>
           </button>
           <!-- <a class="brand" href=".">Lebaneseblogs.com</a> -->
+          <img id ="mobile-logo" src ="img/interface/white-logo-horizontal-h100.png" height ="50">
+
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li <?php if ($page == "home") {echo 'class ="active"';}?>><a href=".">Home</a></li>
