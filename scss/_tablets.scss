@@ -1,0 +1,16 @@
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+/* Styles */
+
+    .navbar-fixed-top {
+        margin-bottom: 0;
+    }
+
+    form.form-search input{
+        display: block;
+        position: absolute;
+        right: 60px;
+        top: 9px;
+        z-index: 9999;
+    }
+
+}

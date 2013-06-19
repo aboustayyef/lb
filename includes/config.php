@@ -5,6 +5,10 @@
 ********************************************************************/ 
 global $db_username, $db_password , $db_host , $db_database;
 
+global $lb_root;
+
+$lb_root = __DIR__;
+
 $db_username = "mustapha";
 $db_password = "mm000741";
 $db_host ="localhost";

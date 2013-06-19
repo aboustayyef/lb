@@ -1,4 +1,8 @@
 <?php 
+
+require_once("includes/config.php");
+require_once("includes/connection.php");
+
 if (isset($_GET["r"])){
 	$target_url = urldecode($_GET["r"]);
 }
@@ -16,11 +20,9 @@ function go_to($url){
 
 function register_exit($url){
 
-require_once("includes/config.php");
 
 //prepare and connect to database
-global $db_username, $db_password , $db_host , $db_database;
-$db = new PDO('mysql:dbname='.$db_database.';dbhost='.$db_host. '', $db_username, $db_password );
+global $db;
 
 $query = 'INSERT INTO exit_log (exit_time, exit_url) VALUES ("'.time().'","'.$url.'") ';
 $stmt = $db->prepare($query);

@@ -11,17 +11,15 @@ ini_set('display_errors', '1');
 ************************************************************************************************/ 
 
 require_once("includes/simplepie.php");
-require_once "includes/config.php";
-require_once("includes/functions.php");
-require_once("includes/core.php");
+include_once("includes/config.php");
+include_once("includes/connection.php");
+require_once("includes/core-functions.php");
 require_once("includes/simple_html_dom.php");
 
-$maxitems = 3;
+$maxitems = 0;
 
 //prepare and connect to database
-global $db_username, $db_password , $db_host , $db_database;
-$db = new PDO('mysql:dbname='.$db_database.';dbhost='.$db_host. '', $db_username, $db_password );
-
+global $db;
 
 //error handling
 if (!($db)) {
@@ -31,14 +29,6 @@ if (!($db)) {
 
 // get all feeds
 $query = $db->query('SELECT blog_rss_feed FROM blogs');
-
-/*echo "<pre>",print_r($list_of_posts,true),"</pre>"; */
-
-//make sure everything is in utf8 for arabic
-$db->query("SET NAMES 'utf8'");
-$db->query("SET CHARACTER SET utf8");
-$db->query("ALTER DATABASE lebanese_blogs DEFAULT CHARACTER SET utf8 COLLATE=utf8_general_ci");
-
 $feeds = $query->fetchAll();
 
 // loop through feeds
@@ -63,7 +53,7 @@ foreach ($feeds as $feed)
 			if (isset($canonical_resource[0]['data'])) { //resolves feedburner proxies
 				$blog_post_link = $canonical_resource[0]['data'];
 			}
-
+			$blog_post_link = urldecode($blog_post_link);
 			echo $blog_post_link,"<br/>";
 			$domain = get_domain($blog_post_link); //get_domain() is a function from functions.php. It fetches the url's domain. Example: beirutspring
 			$blog_post_timestamp =  strtotime($item->get_date()); // get post's timestamp;	
@@ -83,7 +73,7 @@ foreach ($feeds as $feed)
 				echo "<hr>";
 				break;
 				
-			} else if ((time()-$blog_post_timestamp) > 2629740) { //post is more than one month old ;
+			} else if ((time()-$blog_post_timestamp) > (2629740*3)) { //post is more than 3 month old ;
 				echo '<span style ="color:red">post is more than one month old</span></br>';
 				echo "<hr>";
 				break;
