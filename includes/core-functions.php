@@ -53,10 +53,10 @@ function draw_blog_entry($key, $post){
 		}
 
 	?>
-
+	<div class="shareicon"><img src ="img/interface/icon-share-48.png" width ="24px"></div>
 	<?php
 
-	sharing_tools($post['title'],$post['twitter'],$post['url'], $post['visits']);
+	sharing_tools($post['title'],$post['twitter'],$post['url'], $post['visits'], $post['domain']);
 	echo "</div>";
 }
 
@@ -472,15 +472,17 @@ function draw_tip($tip_title, $tip_body, $tip_image, $tip_link = NULL){
 
 
 
-function sharing_tools($post_title,$post_twitter,$post_url, $post_visits){
+function sharing_tools($post_title,$post_twitter,$post_url, $post_visits, $blog_id){
 	$tweetcredit = ($post_twitter)?" by @$post_twitter":"";
 	$url_to_incode = "$post_title $post_url".$tweetcredit." via lebaneseblogs.com";
 	$twitterUrl = urlencode($url_to_incode);
 	echo '
 <div class ="sharing_tools">
 		<ul>
-			<li> <a href="https://twitter.com/intent/tweet?text='.$twitterUrl.'" title="Click to send this post to Twitter!" target="_blank"><img src ="img/interface/share-icon-twitter.png" style ="border:none" width ="16"></a></li>
-			<li> <a href="http://www.facebook.com/sharer.php?u='.$post_url.'"><img src ="img/interface/share-icon-facebook.png" width ="16"></a> </li>';
+			<li> <a href="https://twitter.com/intent/tweet?text='.$twitterUrl.'" title="Click to send this post to Twitter!" target="_blank"><img src ="img/interface/share-twitter.png" width ="24" height = "24"></a></li>
+			<li> <a href="http://www.facebook.com/sharer.php?u='.$post_url.'"><img src ="img/interface/share-facebook.png" width ="24" height = "24"></a> </li>';
+			echo '<li class ="button btn btn-small"><a href ="./blogger/?id=' . $blog_id . '">About This Blog</a></li>';
+
 			if (admin_logged_in()) {
 				echo "<li>$post_visits</li>";
 			}

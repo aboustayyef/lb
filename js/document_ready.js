@@ -48,6 +48,14 @@ function fixDimensions(){
 			offsetY: unitMargin,
 			blockElement: '.blogentry'
 		});
+
+    // sharing tools
+    $('.blogentry').mouseenter(function(){
+        $(".sharing_tools",this).fadeTo('fast',1);
+    });
+    $('.blogentry').mouseleave(function(){
+        $(".sharing_tools",this).fadeTo('fast',0);
+    });
 }
 
 // scrolling math 
@@ -88,11 +96,12 @@ $(document).ready(function(){
 	   	$('.blogentry').fadeTo('slow', 1);
 	});
     $("#whichchannel").change(function(){
-    if ($(this).val()!='') {
-        window.location.href=$(this).val() ;
-    }
+        if ($(this).val()!='') {
+            window.location.href=$(this).val() ;
+        }
     });
 	do_scroll_math();
+
 }); 
 
 // When document scrolls

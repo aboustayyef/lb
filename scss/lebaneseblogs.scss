@@ -2,6 +2,10 @@
     This section complements bootstrap. Don't touch the original files.
 */
 $lb_red : #A33E46;
+$lb_dark_red: #7A323B;
+
+@import "sharing_tools";
+
 
 a{
     color: #444;

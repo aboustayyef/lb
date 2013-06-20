@@ -1,0 +1,41 @@
+div.shareicon{
+	direction:ltr;
+	opacity:.1;
+	margin-top:20px;
+	margin-bottom:-8px;
+	border:none;
+}
+
+div.sharing_tools{
+	position:absolute;
+	width:295px;
+	bottom:-1px;
+	border-bottom-right-radius:5px;
+	border-bottom-left-radius:5px;
+	direction:ltr;
+	background: lighten(silver,20%);
+	padding: 6px 3px 3px 3px;
+	margin-top:-20px;
+	margin-left: -11px;
+	margin-right: -11px;
+	opacity:0;
+	border-top: 1px solid silver;
+
+	ul{
+		overflow: hidden;
+		background: none;
+	    list-style-type: none;
+	    margin-bottom: 0px;
+	    margin-left: 40px;
+	    padding-left: 0px;
+	}
+	li{
+		background:none;
+	    float: left;
+	    margin-right: 10px;
+	    vertical-align: top;
+	    img{
+	    	border:none;
+	    }
+    }
+}

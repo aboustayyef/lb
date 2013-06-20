@@ -24,8 +24,9 @@
         border-left:none;
         border-right: 5px rgb(238,238,238) solid;
         font-size: 1.1em;
+        line-height: 1.3em;
         max-width: 230px;
-        overflow: hidden;
+        overflow: auto;
     }
     .post_title a{
         font-weight: bold;
@@ -74,27 +75,4 @@
     font-size: 1.1em;
     max-width: 230px;
     overflow: hidden;
-}
-
-
-
-div.sharing_tools ul
-{
-    overflow: auto;
-    list-style-type: none;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    margin-left: 4px;
-    padding-left: 0px;
-}
-
-div.sharing_tools li
-{
-    opacity: .3;
-    float: left;
-    margin-right: 10px;
-}
-
-div.sharing_tools li:hover {
-    opacity:1;
 }
