@@ -1,6 +1,14 @@
 
+    <!-- Javascript dependencies -->
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="<?php echo $root_is_at . '/' ;?>js/blocksit.min.js"></script>
+    <script src="<?php echo $root_is_at . '/' ;?>js/jquery.waitforimages.min.js"></script>
+    <script src="<?php echo $root_is_at . '/' ;?>js/jquery.lazyload.min.js"></script>
 
-    <script src="js/bootstrap.js"></script>
+    <!-- Main Javascript -->
+    <script src="<?php echo $root_is_at . '/' ;?>js/document_ready.js?<?php echo time(); ?>"></script>
+
     <!-- Start of StatCounter Code for Default Guide -->
                 <script type="text/javascript">
                 var sc_project=8489889; 

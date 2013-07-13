@@ -40,7 +40,7 @@ $channel_descriptions = array(
                   ?>
                   >
                   <?php echo $ch_description ?>
-                  </option>              
+                </option>              
               <?php
             }
           ?>        
@@ -71,7 +71,6 @@ $channel_descriptions = array(
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/document_ready.js?<?php echo time(); ?>"></script>
 <?php 
   include_once("includes/bottom_part.php");
  ?>

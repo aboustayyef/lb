@@ -1,168 +1,19 @@
-/*
-    This section complements bootstrap. Don't touch the original files.
-*/
-$lb_red : #A33E46;
-$lb_dark_red: #7A323B;
 
+@import "reset"; // css reset
+@import "settings"; // variables and properties
+
+@import "general"; // basic elements like h1, a, body ...etch
+@import "header"; // top header and its items
+
+@import "body"; // elements in the body of the page
 @import "sharing_tools";
 
-
-a{
-    color: #444;
-}
-
-a.btn.btn-info{
-    text-decoration: none;
-}
-
-.lb_red{
-    color: $lb_red;
-}
-
-.paper {
-    background: white;
-    width: 100%;
-    padding: 1em 0 ;
-}
-
-a:hover{
-    color: #3B967C;
-}
-
-a.btn {
-    text-decoration: none;
-}
-
-body {
-    background: url('noise.png') rgb(218, 218, 218);
-}
-
-div.logobar {
-    width: 100%;
-    background-color: $lb_red;
-}
-
-div.logobar .container {
-    text-align: center;
-}
-
-div.page_wrapper{
-    background: white;
-    min-height: 700px;
-    width:90%;
-    margin: 1em auto;
-    padding-top: 1em;
-    box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-    -moz-box-shadow:0 1px 2px rgba(34,25,25,0.4);
-    -webkit-box-shadow:0 1px 3px rgba(34,25,25,0.4);
-}
-
-.page_wrapper a{
-    text-decoration: underline;
-}
-
-.full-white{
-    margin: 0;
-    background: white;
-    padding: 4em 0;
-    border-bottom: 5px $lb_red solid;
-    min-height: 900px;
-}
-
-.logobar img {
-    margin: 1.1em auto;
-}
-
-img#mobile-logo{
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: none;
-}
-
-.descriptionbar {
-    width: 100%;
-    background: rgb(190,190,190);
-    border-top: solid 1px silver;
-    border-bottom: solid 1px black;
-/*  box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-    -moz-box-shadow:0 1px 2px rgba(34,25,25,0.4);
-    -webkit-box-shadow:0 1px 3px rgba(34,25,25,0.4);*/
-
-}
-
-select{
-    margin-bottom: 0;
-    width: 270px;
-}
-
-.descriptionbar h5 {
-    font-size: 1.2em;
-    font-weight: normal;
-    font-family: 'Bitter', serif;
-    color: #7A323B;
-    margin: 5px 0;
-}
-
-#entries-main-container, #lb_interface {
-    position:relative;
-    top: 0.5em;
-    margin: 0 auto;
-}
-
-#interface_items{
-    padding: 10px;
-}
-
-@import "blogentry";
-
-.navbar-inverse .navbar-inner{
-    background-color: #7A323B;
-    background-image: none;
-    border-color: #6C2A33;
-    -webkit-box-shadow:none;
-}
-
-.navbar-inverse .navbar-inner a{
-    color: white;
-}
-
-.navbar-inverse .navbar-inner .active a{
-    background-color: #6C2A33;
-}
-
-.navbar-inverse .btn-navbar{
-    background-image: none;
-    background-color: #6C2A33;
-}
-
-.navbar-inverse .btn-navbar:hover{
-    background-color:#6C2A33 ;
-}
+@import "blog_details";
+@import "search_results";
 
 div.wrapper_special h5 a{
     color: silver;
     font-family: verdana, "sans-serif";
-}
-
-#about_info p {
-    line-height: 2em;
-}
-
-#about_info p.lead {
-    color: $lb_red;
-}
-
-#secondcolumn h3 {
-    color:$lb_red;
-}
-
-#about_info a{
-    text-decoration: underline;
-}
-
-.lb_underline{
-    text-decoration: underline;
 }
 
 /************
@@ -236,177 +87,35 @@ table td {
     vertical-align: top;
 }
 
-.wrapper_special hr{
-    margin: 8px 0;
+div.wrapper_special {
+    hr{
+        margin: 8px 0;
+        .clear{
+            opacity: 0;
+        }
+    }
+
+    h5{
+        margin-top: 2px;
+        font-size: 12px;
+        font-family: arial,sans-serif;
+        color: rgb(180,180,180);
+        font-weight: normal;
+        margin-bottom: 0;
+    }
+
 }
 
-.wrapper_special hr.clear{
-    opacity: 0;
-}
-
-.wrapper_special h5{
-    margin-top: 2px;
-    font-size: 12px;
-    font-family: arial,sans-serif;
-    color: rgb(180,180,180);
-    font-weight: normal;
-    margin-bottom: 0;
-}
 
 div .blogentry.special {
     background: white url('top_bkg_.gif') repeat-x;
     border: none;
 }
 
+@import "search_results";
+@import "tips";
 
-/*************************/
-/* Settings for TIPs  */
-/*************************/
-
-
-div .blogentry.tip {
-    background: white url('yellow-bkg.gif') repeat-x;
-    border:none;
-}
-
-.blogentry.tip img {
-    border:none;
-}
-
-.blogentry.tip h1 {
-    font-size: 2.2em;
-    font-family: "Bitter",serif;
-    color: beige;
-    text-align: center;
-}
-.blogentry.tip h2 {
-    font-size: 1.6em;
-    margin-top:0.5em;
-    text-align: center;
-}
-
-.blogentry.tip a{
-    color: #cb834d;
-}
-
-.blogentry.tip p{
-    padding: 1em 2em;
-    font-family: "Bitter",serif;
-
-}
-
-/*************************/
-/* Settings 4 Conversations  */
-/*************************/
-div .blogentry.conv {
-    background: white url('orange-bkg.gif') repeat-x;
-    border:none;
-}
-
-div .blogentry.conv h2{
-    font-family: "Bitter",sans-serif;
-    font-size: 1.3em;
-    color: white;
-    line-height: 1.2em;
-    margin-top: 0;
-    margin-bottom: 1.2em;
-}
-
-img.conv-thumb{
-    margin-right: 5px;
-    overflow: auto;
-}
-
-div .blogentry.conv p{
-    font-family: "Bitter",serif;
-    font-size: 16px;
-    padding: 8px;
-    background: rgb(241, 241, 220)
-}
-
-div .blogentry.conv h3{
-    font-size: 20px;
-    margin-top: 0;
-}
-
-div .blogentry.conv h4{
-    color: rgb(172, 61, 61);
-    font-size: 16px;
-}
-
-/*Bubbles*/
-
-.bubble {
-
-    margin: 10px 0 25px 0;
-    padding: 1px;
-    padding-left: 10px;
-    position: relative;
-    clear: both;
-}
-.bubble:after {
-   content: "";
-   position: absolute;
-   top: 100%;
-   left: 15px;
-   border-top: 15px solid blue;
-   border-top-color: inherit; 
-   border-left: 15px solid transparent;
-   border-right: 15px solid transparent; 
-}
-
-/*******************************************************************
-*   search results
-*
-********************************************************************/ 
-
-form.form-search {
-    display: block;
-    position: absolute;
-    right: 25px;
-    top: 4px;
-    z-index: 9999;
-}
-
-form.form-search-mobile {
-    margin:  3px 10%;
-}
-
-span.search_string{
-    font-weight: normal;
-    font-style: italic;
-    font-size: .8em;
-}
-
-span.search_string:before{
-    content: "‘";
-}
-
-span.search_string:after{
-    content: "’";
-}
-
-div.resultline{
-    border-top: 1px solid silver;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-h3.search_results{
-    color: $lb_red;
-}
-
-.search_footer{
-    position: absolute;
-    bottom:-50px;
-    width:75%;
-}
-
-.daysago{
-    opacity: .3;
-}
-
-@import "smartphones";
-@import "tablets";
+//@import "smartphones";
+//@import "tablets";
 
 

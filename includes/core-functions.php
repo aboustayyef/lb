@@ -8,15 +8,6 @@ function display_blogs($posts){
 		mapkeys($key);
 	}
 	;?>
-	<!-- Lazy load images -->
-	<script>
-		$(".blogentry").css("display","block");
-		$("img.lazy").lazyload({ 
-	   		effect : "fadeIn",
-	   		threshold : 500
-		});
-		$("img.lazy").removeClass("lazy");
-	</script>
 
 	<?php
 }
@@ -34,25 +25,27 @@ function draw_blog_entry($key, $post){
 			<div class="post_title"><a href="<?php echo $target_url ;?>"><?php echo $post['title']; ?></a></div>
 		</div>
 	</div>
-	<?php 
+	<div id ="<?php echo 'content-post-' . $key; ?>">
+		<?php 
 
-		if (isset($post['image-url'])) {
-			$image_width = 278;
-			$image_height = intval(($image_width / $post['img_width'])*$post['img_height']);
-			;?>
-			
-			<a href="<?php echo $target_url ;?>"><img class="lazy" data-original="<?php echo $post['image-url'] ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<? echo $image_height ; ?>"></a>
-			
-			<?php
-		} else {
-			;?>
-			
-			<div class ="excerpt"><blockquote><?php echo $post['excerpt']; ?></blockquote>	</div>
-			
-			<?php
-		}
+			if (isset($post['image-url'])) {
+				$image_width = 278;
+				$image_height = intval(($image_width / $post['img_width'])*$post['img_height']);
+				;?>
+				
+				<a href="<?php echo $target_url ;?>"><img class="lazy" data-original="<?php echo $post['image-url'] ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<? echo $image_height ; ?>"></a>
+				
+				<?php
+			} else {
+				;?>
+				
+				<div class ="excerpt"><blockquote><?php echo $post['excerpt']; ?></blockquote>	</div>
+				
+				<?php
+			}
 
-	?>
+		?>
+	</div>
 	<div class="shareicon"><img src ="img/interface/icon-share-48.png" width ="24px"></div>
 	<?php
 
@@ -481,7 +474,7 @@ function sharing_tools($post_title,$post_twitter,$post_url, $post_visits, $blog_
 		<ul>
 			<li> <a href="https://twitter.com/intent/tweet?text='.$twitterUrl.'" title="Click to send this post to Twitter!" target="_blank"><img src ="img/interface/share-twitter.png" width ="24" height = "24"></a></li>
 			<li> <a href="http://www.facebook.com/sharer.php?u='.$post_url.'"><img src ="img/interface/share-facebook.png" width ="24" height = "24"></a> </li>';
-			echo '<li class ="button btn btn-small"><a href ="./blogger/?id=' . $blog_id . '">About This Blog</a></li>';
+			echo '<li class ="box"><a href ="./blogger/?id=' . $blog_id . '">About This Blog</a></li>';
 
 			if (admin_logged_in()) {
 				echo "<li>$post_visits</li>";

@@ -30,12 +30,22 @@ div.sharing_tools{
 	    padding-left: 0px;
 	}
 	li{
+		list-style-type: none;
+		font-family: verdana,sans-serif;
+		font-size: 12px;
 		background:none;
 	    float: left;
 	    margin-right: 10px;
 	    vertical-align: top;
+	    &.box{
+	    	line-height: 12px;
+	    	background:none;
+			padding:5px;
+			border:1px silver solid;
+	    }
 	    img{
 	    	border:none;
+
 	    }
     }
 }

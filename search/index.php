@@ -14,8 +14,8 @@ $number_of_results = 0;
 
 
 ?>
-<div class ="full-white">
-<div class ="container">
+<div id="entries-main-container">
+<div class="text_content">
 
 <?php if (isset($search_phrase)) 
 {
@@ -185,23 +185,16 @@ $number_of_results = 0;
         ;?>
         
             <h3 class ="search_results">Images search for <?php echo '<span class ="search_string">'.$search_phrase.'</span>' ?></h3>
+            <div id="imageresults">
             <?php 
                 //echo "<pre>",print_r($images_result,true), "</pre>"; 
                 $maximum_size=150; //pixels
-                echo '<div id ="image_results" style ="position:relative;opacity:0">';
                 foreach ($images_result as $image) {
-                    if ($image['post_image_width']>=$image['post_image_height']) {
-                        echo '<div class ="thumb"><a href ="'.$image['post_image_url'].'"><img class="lazy" data-original="'.$image['post_image'].'" src="img/interface/grey.gif" width="'.$maximum_size.'" height="'.($maximum_size/$image['post_image_aspect_ratio']).'"></a></div>';
-                    }else{
-                        echo '<div class ="thumb"><a href ="'.$image['post_image_url'].'"><img class="lazy" data-original="'.$image['post_image'].'" src="img/interface/grey.gif" height="'.$maximum_size.'" width ="'.($maximum_size*$image['post_image_aspect_ratio']).'"></a></div>';
-                    }
-                    
+                        echo '<a href ="'.$image['post_image_url'].'"><img class="lazy" data-original="'.$image['post_image'].'" src = "' . $root_is_at . '/img/interface/grey.gif" height="'.$maximum_size.'" width ="'.($maximum_size*$image['post_image_aspect_ratio']).'"></a>';                
                 }
-                echo "</div>";
             ?>
-        
+            </div>
         <?php       } ?>
-
 
         </div>
     </div>  
@@ -209,52 +202,9 @@ $number_of_results = 0;
 
 </div>
 
-<script type="text/javascript">
-
-/*functions*/
-
-var maximum_size = 150;
-var wdth = $(window).width();
-var cols = ((wdth - (wdth % maximum_size)) / maximum_size)-1;
-cols = Math.round(cols*.6);
-
-
-var doit;
-function resizedw(){
-    fixDimensions();
-
-}
-$(window).resize(function() {
-    clearTimeout(doit);
-    doit = setTimeout(function() {
-        var wdth = $(window).width();
-        var cols = ((wdth - (wdth % maximum_size)) / maximum_size);
-        cols = Math.round(cols*.6);
-        $('#image_results').BlocksIt({
-            blockElement: '.thumb',
-            numOfCol: cols
-        });
-    }, 100);
-});
-
-
-$(document).ready(function() {
-    $('#image_results').BlocksIt({
-        blockElement: '.thumb',
-        numOfCol: cols
-    });
-    $('#image_results').fadeTo('slow', 1);
-    $("img.lazy").lazyload({ 
-        effect : "fadeIn",
-        threshold : 500
-    });
-});
-
-</script>
-
 <?php
 
 }
-include_once("includes/bottom_part.php");
+include_once("$root_is_at/includes/bottom_part.php");
 
 ?>

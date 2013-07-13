@@ -1,3 +1,5 @@
+// codescript code to concatenate all js files and reduce http requests
+
 // parameters
 var padding = 10;
 var border = 1;
@@ -5,12 +7,11 @@ var content = 278;
 var unitWidth = content+(border*2)+(padding*2); // 300
 var unitMargin = 10;
 var unitTotalWidth = unitWidth + (2*unitMargin); //320
-var chan = getURLParameter('channel');
 
 function getURLParameter(name) {
-    return decodeURI(
-        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
-    );
+    var lb_regex = new RegExp(name + '=' + '(.+?)(&|$)');
+    var lb_param = decodeURI((lb_regex.exec(location.search)||[,null])[1]);
+        return lb_param;
 }
 
 // this calculates the exact width of area where cards will show
@@ -35,9 +36,7 @@ function getColumnNumbers(){
 }
 
 function fixDimensions(){
-	desiredWidth = getDesiredWidth();
-    var wdth = $(window).width();
-    var extraSpace = wdth % unitTotalWidth;
+	var desiredWidth = getDesiredWidth();
 	//fix post entries next
 		$('#entries-main-container').width(desiredWidth);
         $('#lb_interface').width(desiredWidth);
@@ -49,7 +48,7 @@ function fixDimensions(){
 			blockElement: '.blogentry'
 		});
 
-    // sharing tools
+    // sharing tools. Added them here because they need to be applied each time a new section shows up in infinite scrolling
     $('.blogentry').mouseenter(function(){
         $(".sharing_tools",this).fadeTo('fast',1);
     });
@@ -70,52 +69,82 @@ function do_scroll_math() {
     var chan = getURLParameter('channel');
 
     if (s >= (dh - wh - 1000)) { // when we're almost at the bottom of the document
-        if (workInProgress == "no") { // used to prevent overlapping background loading
+        if (workInProgress === "no") { // used to prevent overlapping background loading
             workInProgress = "yes";
             var url = "show_more_posts.php";
             $.post(url, { start_from: position, channel: chan}, function (data) {
-	            $("#entries-main-container").append(data);
-               	fixDimensions();
+                $("#entries-main-container").append(data);
+                fixDimensions();
                 
                 $('.blogentry').fadeTo('slow', 1);
                 position = position + 14;
-                workInProgress = "no";
                 $(document).scrollTop = s;
+                $("img.lazy").lazyload({
+                    effect : "fadeIn",
+                    threshold : 500
+                });
+                $("img.lazy").removeClass("lazy");
+                workInProgress = "no";
+
             });
         }
     }
 }
 
-
 // When document loads
-$(document).ready(function(){
-	fixDimensions();
-    $('#lb_interface .blogentry').fadeTo('fast', 1);
-	$('#entries-main-container').waitForImages(function() {
-		$('.loader').fadeTo('fast',0);
-	   	$('.blogentry').fadeTo('slow', 1);
-	});
-    $("#whichchannel").change(function(){
-        if ($(this).val()!='') {
-            window.location.href=$(this).val() ;
-        }
-    });
-	do_scroll_math();
 
-}); 
-
-// When document scrolls
-
-$(window).scroll(function () {
-        do_scroll_math();
+$("#whichchannel").change(function(){
+    if ($(this).val()!=='') {
+        window.location.href=$(this).val() ;
+    }
 });
 
-// When document is resized / code source: http://stackoverflow.com/questions/5489946/jquery-how-to-wait-for-the-end-or-resize-event-and-only-then-perform-an-ac
 
-var doit;
+//Navigation
+
+$('#menubutton').mouseup(function(){
+    $('ul.nav').toggle();
+    $('.navbutton').toggleClass('highlighted');
+});
+// capture escape key to exit menu
+$(document).keyup(function(e) {
+    if (e.keyCode === 27) {
+        $('ul.nav').hide('fast');
+        $('.navbutton').removeClass('highlighted');
+
+    }
+});
+
+$(document).ready(function(){
+    fixDimensions();
+    $('#lb_interface .blogentry').fadeTo('fast', 1);
+    $('#entries-main-container').waitForImages(function() {
+        $('.loader').fadeTo('fast',0);
+        $('.blogentry').fadeTo('slow', 1);
+    });
+    do_scroll_math();
+    $(".blogentry").css("display","block");
+    $("img.lazy").lazyload({
+        effect : "fadeIn",
+        threshold : 500
+    });
+    $("img.lazy").removeClass("lazy");
+});
+
+// When document is scrolled or resized / code source: http://stackoverflow.com/questions/5489946/jquery-how-to-wait-for-the-end-or-resize-event-and-only-then-perform-an-ac
+
+var do_scroll_it;
+$(window).scroll(function() {
+    clearTimeout(do_scroll_it);
+    do_scroll_it = setTimeout(function() {
+        do_scroll_math();
+    }, 100);
+});
+
+var do_resize_it;
 $(window).resize(function() {
-    clearTimeout(doit);
-    doit = setTimeout(function() {
+    clearTimeout(do_resize_it);
+    do_resize_it = setTimeout(function() {
         fixDimensions();
     }, 100);
 });

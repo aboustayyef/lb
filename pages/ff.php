@@ -7,8 +7,8 @@ include_once("$root_is_at/includes/top_part.php");
 ?>
 
 
-<div class ="paper">
-	<div class="container">
+    <div id="entries-main-container">
+        <div class="text_content">
 		<h1 class ="lb_red">#FF - Follow all our bloggers on twitter!</h1>
 		<hr>
 		<p>Note: This page is a bit heavy on Javascript from twitter, so your web browser will take a bit of time to render it. Please be patient if the page shows nothing but white.</p>
@@ -44,39 +44,6 @@ include_once("$root_is_at/includes/top_part.php");
 			</div>
 		</div>
 	</div>
-</div>
-
-<div id ="myModal" class="modal hide fade">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3>List of Blogs on lebaneseblogs.com</h3>
-  </div>
-  <div class="modal-body">
-  	<?php 
-
-  		global $db_username, $db_password , $db_host , $db_database;
-		$db = new PDO('mysql:dbname='.$db_database.';dbhost='.$db_host. '', $db_username, $db_password );
-
-		//make sure everything is in utf8 for arabic
-		$db->query("SET NAMES 'utf8'");
-		$db->query("SET CHARACTER SET utf8");
-		$db->query("ALTER DATABASE lebanese_blogs DEFAULT CHARACTER SET utf8 COLLATE=utf8_general_ci");	
-
-		$stmt = $db->query("SELECT * FROM blogs ORDER BY blog_name",PDO::FETCH_ASSOC);
-		$rows = $stmt->fetchAll();
-		echo "<ul>";
-		foreach ($rows as $row) {
-		 	echo "<li>", $row['blog_name'],"</li>";
-		 } 
-		 echo "</ul>";
-
-
-  	 ?>
-
-  </div>
-  <div class="modal-footer">
-    <a href="#" class="btn" data-dismiss="Close">modal</a>
-  </div>
 </div>
 
 <?php 

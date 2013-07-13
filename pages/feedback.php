@@ -7,12 +7,8 @@ $root_is_at = "..";
 include_once("$root_is_at/includes/top_part.php");
 ?>
 
-<div class ="page_wrapper">
-	<div class="container">
-		<div class="preset2 offset2 span8">
-		
-		<h2>Feedback</h2>
-
+    <div id="entries-main-container">
+    	<div class="text_content">
 
 			<?php 
 			if (isset($_POST["submit"])) {
@@ -25,7 +21,6 @@ include_once("$root_is_at/includes/top_part.php");
 			}
 			
 			?>
-		</div>
 	</div>
 </div>
 
@@ -34,15 +29,16 @@ include_once("$root_is_at/includes/top_part.php");
 
 function drawform($errormessage=NULL){
 	?>
-
-		<form method ="post" action ="feedback.php" >
-		  <legend>Send us a quick message: </legend>
-		  <fieldset>
-		    <textarea rows="5" class ="span6" placeholder="Example: I just wanted to tell you how awesome/terrible you are - fan@haters.com" name = "submittedText"></textarea>
-		    <span class="help-block">Tip: If you want us to respond to you, add your email address somewhere in the body of your feedback</span>
-		    <button type="submit" name ="submit" class="btn btn-large">Submit</button>
-		  </fieldset>
-		</form>
+		<div class="row">
+			<div class="span4">
+				<h3>Send us a quick message: </h3>
+				<form method ="post" action ="feedback.php" >
+			    	<textarea rows="5" cols ="45" class ="span6" placeholder="Example: I just wanted to tell you how awesome/terrible you are - fan@haters.com" name = "submittedText"></textarea>
+			    	<p class ="small">Tip: If you want us to respond to you, add your email address somewhere in the body of your feedback</p>
+			    	<button type="submit" name ="submit" class="btn btn-large">Submit</button>
+				</form>
+			</div>
+		</div>
 
 
 
