@@ -16,11 +16,17 @@ include_once("$root_is_at/includes/simple_html_dom.php");
     <meta name="author" content="Mustapha Hamoui">
     <meta property="og:image" content="http://lebaneseblogs.com/img/interface/facebook-og-image.jpg">
 
+    <!-- Main CSS -->
     <link href="<?php echo $root_is_at . '/' ;?>css/lebaneseblogs.css?<?php echo time(); ?>" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" type="text/css" href="<?php echo $root_is_at . '/' ;?>css/font-awesome/css/font-awesome.min.css">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
     <![endif]-->
+
+
 
     <!-- touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $root_is_at . '/' ;?>img/interface/lb-apple-icon-144x144.png">
@@ -28,7 +34,7 @@ include_once("$root_is_at/includes/simple_html_dom.php");
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo $root_is_at . '/' ;?>img/interface/lb-apple-icon-72x72.png">
     <link rel="apple-touch-icon-precomposed" href="<?php echo $root_is_at . '/' ;?>img/interface/lb-apple-icon-57x57.png">
     
-    <!-- Favicons -->
+    <!-- Favicon -->
     <link rel="shortcut icon" href="<?php echo $root_is_at . '/' ;?>img/interface/favicon.ico"> 
     
     <!-- Google Font -->

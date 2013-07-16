@@ -17,40 +17,50 @@ function draw_blog_entry($key, $post){
 	$target_url = "http://lebaneseblogs.com/r.php?r=".urlencode($post['url']);
 	;?>
 	
-	<div id="<?php echo 'post-',$key; ?>" class="blogentry<?php if (contains_arabic($post['title'])) {echo " rtl";} ?>" style ="opacity:0;">
-	<div class="post_info">
-		<a href ="<?php echo 'blogger/?id=' . $post['domain'] ?>"><img class ="blog_thumb" src="<?php echo $post['thumb'];?>" width ="50" height ="50"></a>
-		<div class="post_details">
-			<div class="blog_name"><a href ="<?php echo 'blogger/?id=' . $post['domain'] ?>"><?php echo $post['blogname']; ?></a></div>
-			<div class="post_title"><a href="<?php echo $target_url ;?>"><?php echo $post['title']; ?></a></div>
+	<div id="<?php echo 'post-',$key; ?>" class="content_module<?php if (contains_arabic($post['title'])) {echo " rtl";} ?>" style ="opacity:0;">
+		
+		<!--header-->
+		<div class="content_module_header blog_post_module">
+			<a href ="<?php echo 'blogger/?id=' . $post['domain'] ?>"><img class ="blog_thumb" src="<?php echo $post['thumb'];?>" width ="50" height ="50"></a>
+			<div class="post_details">
+				<div class="blog_name"><a href ="<?php echo 'blogger/?id=' . $post['domain'] ?>"><?php echo $post['blogname']; ?></a></div>
+			</div>
 		</div>
+		
+		<!--body-->
+		<div class ="content_module_body" id ="<?php echo 'content-post-' . $key; ?>">
+			<div class="post_title"><a href="<?php echo $target_url ;?>"><?php echo $post['title']; ?></a></div>
+			<?php 
+
+
+				if (isset($post['image-url'])) {
+					$image_width = 278;
+					$image_height = intval(($image_width / $post['img_width'])*$post['img_height']);
+					;?>
+					
+					<a href="<?php echo $target_url ;?>"><img class="lazy" data-original="<?php echo $post['image-url'] ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<? echo $image_height ; ?>"></a>
+					
+					<?php
+				} else {
+					;?>
+					
+					<div class ="excerpt"><blockquote><?php echo $post['excerpt']; ?></blockquote>	</div>
+					
+					<?php
+				}
+
+			?>
+		</div>
+
+		<!--footer-->
+		<div class ="sharing">
+			<div class="content_module_footer">
+				<?php sharing_tools($post['title'],$post['twitter'],$post['url'], $post['visits'], $post['domain']); ?>
+			</div>
+		</div>
+
 	</div>
-	<div id ="<?php echo 'content-post-' . $key; ?>">
-		<?php 
-
-			if (isset($post['image-url'])) {
-				$image_width = 278;
-				$image_height = intval(($image_width / $post['img_width'])*$post['img_height']);
-				;?>
-				
-				<a href="<?php echo $target_url ;?>"><img class="lazy" data-original="<?php echo $post['image-url'] ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<? echo $image_height ; ?>"></a>
-				
-				<?php
-			} else {
-				;?>
-				
-				<div class ="excerpt"><blockquote><?php echo $post['excerpt']; ?></blockquote>	</div>
-				
-				<?php
-			}
-
-		?>
-	</div>
-	<div class="shareicon"><img src ="img/interface/icon-share-48.png" width ="24px"></div>
-	<?php
-
-	sharing_tools($post['title'],$post['twitter'],$post['url'], $post['visits'], $post['domain']);
-	echo "</div>";
+<?php
 }
 
 
@@ -383,14 +393,24 @@ function center_item($to_be_centered){
 function top_5_posts($nb_hours,$channel=NULL){
 global $channel_descriptions;
 ?>
-<div id ="special1" class ="blogentry special" style="opacity:0 ; background: white url('css/top_bkg_<?php if (isset($channel)) {echo $channel; } ?>.gif') repeat-x">
-	<div class = "wrapper_special">
-		<img src ="img/interface/up.png" width ="35px" style ="border:none">
-		<?php if (isset($channel)) {
-			echo "<h2>Top posts in {$channel_descriptions[$channel]}</h2>";
-		} else {
-			echo "<h2>Top Recent Posts in all categories</h2>";
-		} ?>
+<div id ="top_posts" class ="content_module" style="opacity:0">
+	<div class = "content_module_header top_posts_module <?php if (isset($channel)) {echo $channel;} ?>">
+		<table>
+			<tr>
+				<td>
+					<img src ="img/interface/up.png" width ="35px" style ="border:none">
+				</td>
+				<td>
+					<?php if (isset($channel)) {
+						echo "<h2>Top posts in {$channel_descriptions[$channel]}</h2>";
+					} else {
+						echo "<h2>Top Recent Posts in all categories</h2>";
+					} ?>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class ="content_module_body">
 		
 <?php 
 	global $db;
@@ -422,7 +442,7 @@ global $channel_descriptions;
 		<table>
 			<tr>
 				<td width ="25"><a href ="<?php echo $blogger_url; ?>"><img src ="<?php echo $img ;?>" width ="25"></a></td>
-				<td><a href ="<?php echo $url ;?>"><h4><?php echo $title ;?></h4></a><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $post['blog_name'] ;?></a></h5></td>
+				<td><h4><a href ="<?php echo $url ;?>"><?php echo $title ;?></a></h4><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $post['blog_name'] ;?></a></h5></td>
 				
 			</tr>
 		</table>
@@ -446,20 +466,23 @@ function show_tip($which_tip){
 			break;
 		
 		case '1':
-			draw_tip("Smart Sharing", 'When you share using the <em>Lebanese Blogs</em> sharing button, the blogger who wrote the post will be automatically mentioned on twitter. <a href ="http://lebaneseblogs.com/blog/?p=44">Learn more<a>',"img/interface/tip-twitter-share.png");
+			draw_tip("Smart Sharing", 'When you share using the <em>Lebanese Blogs</em> sharing button, the blogger who wrote the post will be automatically mentioned on twitter. <a href ="http://lebaneseblogs.com/blog/?p=44">Learn more</a>',"img/interface/tip-twitter-share.png");
 			break;
 	}
 
 }
 
 function draw_tip($tip_title, $tip_body, $tip_image, $tip_link = NULL){
-	echo '<div id ="tip" class ="blogentry tip" style="opacity:0">';
-	echo '	<div class = "wrapper_special">';
-	echo '		<h1><img src ="img/interface/tips.png" width ="35"><br/>TIP</h1>';
-	echo '		<h2>'.$tip_title.'</h2>';
-	echo '		<p>'.$tip_body.'</p>';
-	echo '		<img src ="'.$tip_image.'" >';
-	echo '	</div>';
+	echo '<div id ="tip" class ="content_module" style="display:none">';
+	echo 	'<div class = "content_module_header">';
+	echo 		'<img src ="img/interface/tips.png" width ="35">';
+	echo 		'<h1>TIP</h1>';
+	echo 	'</div>';
+	echo 	'<div class = "content_module_body">';
+	echo 	'		<h2>'.$tip_title.'</h2>';
+	echo 	'		<p>'.$tip_body.'</p>';
+	echo 	'		<img src ="'.$tip_image.'" >';
+	echo 	'</div>';
 	echo '</div>';
 }
 
@@ -472,9 +495,9 @@ function sharing_tools($post_title,$post_twitter,$post_url, $post_visits, $blog_
 	echo '
 <div class ="sharing_tools">
 		<ul>
-			<li> <a href="https://twitter.com/intent/tweet?text='.$twitterUrl.'" title="Click to send this post to Twitter!" target="_blank"><img src ="img/interface/share-twitter.png" width ="24" height = "24"></a></li>
-			<li> <a href="http://www.facebook.com/sharer.php?u='.$post_url.'"><img src ="img/interface/share-facebook.png" width ="24" height = "24"></a> </li>';
-			echo '<li class ="box"><a href ="./blogger/?id=' . $blog_id . '">About This Blog</a></li>';
+			<li> <a href="https://twitter.com/intent/tweet?text='.$twitterUrl.'" title="Click to send this post to Twitter!" target="_blank"><i class="icon-twitter-sign icon-large"></i> Tweet</a> </li>
+			<li> <a href="http://www.facebook.com/sharer.php?u='.$post_url.'"><i class="icon-facebook-sign icon-large"></i> Share</a> </li>';
+			echo '<li><a href ="./blogger/?id=' . $blog_id . '"><i class="icon-question-sign icon-large"></i> About this blog</a> </li>';
 
 			if (admin_logged_in()) {
 				echo "<li>$post_visits</li>";
@@ -492,7 +515,7 @@ function follow_our_bloggers($no){
 	$posts = $stmt->fetchAll();
 		;?>
 		
-		<div id ="special2" class ="blogentry special" style="opacity:0">
+		<div id ="special2" class ="content_module special" style="opacity:0">
 		<div class = "wrapper_special">
 		<img src ="img/interface/white-logo.png" width ="35px" style ="border:none">
 		<h2>Follow our bloggers on twitter</h2>
@@ -539,7 +562,7 @@ function show_conversation($conv_id){
 	$stmt = $db->query($query, PDO::FETCH_ASSOC);
 	$posts= $stmt->fetchALL();
 
-	echo '<div id ="conversation" class ="blogentry conv" style="opacity:0">';
+	echo '<div id ="conversation" class ="content_module conv" style="opacity:0">';
 	echo '	<div class = "wrapper_special">';
 
 	echo '<div class ="wrapper_special"><img src ="img/interface/trending.png" height ="35" style ="border:0;float:left;margin-right:10px"><h2>Trending Topic</h2></div>';

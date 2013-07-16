@@ -59,3 +59,69 @@ select{
     margin-bottom: 0;
     width: 270px;
 }
+
+#modal_background{
+    position:absolute;
+    opacity:.8;
+    width:100%;
+    height:100%;
+    background:#222;
+    z-index: 555;
+}
+
+.top-right{
+    position: absolute;
+    color: white;
+    top: 10px;
+    right: 10px;
+}
+
+a .top-right{
+    text-decoration: none;
+}
+
+#channels_window{
+    position:absolute;
+    top:130px;
+    left:50%;
+    height:300px;
+    width:280px;
+    margin-left: -140px;
+    background:white;
+    z-index: 99999;
+    box-shadow: 0 0 20px black;
+    moz-box-shadow: 0 0 20px black;
+    webkit-box-shadow: 0 0 20px black;
+    h2{
+        margin: 0;
+        padding: 5px 20px;
+        color: white;
+        font-weight: normal;
+        background:$lb_red;
+    }
+    #window_chooser{
+
+        padding:0;
+        ul{
+            padding: 0;
+            a{
+                text-decoration:none
+            }
+            li{
+                margin:0;
+                list-style-type: none;
+                padding: 7px 20px;
+                border-bottom: 1px solid darken(white,5%);
+                &.selected{
+                    color:$lb_red;
+                    padding-left: 17px;
+                    border-left:3px solid grey;
+                }
+                &:hover{
+                    background: darken(white,5%);
+                }
+            }
+        }
+    }
+
+}

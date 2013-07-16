@@ -38,23 +38,29 @@ function getColumnNumbers(){
 function fixDimensions(){
 	var desiredWidth = getDesiredWidth();
 	//fix post entries next
-		$('#entries-main-container').width(desiredWidth);
-        $('#lb_interface').width(desiredWidth);
+		$('#content_wrapper').width(desiredWidth);
+        $('#channels_bar').width(desiredWidth);
 		var columns = getColumnNumbers();
-		$('#entries-main-container').BlocksIt({
+		$('#content_wrapper').BlocksIt({
 			numOfCol: columns,
 			offsetX: unitMargin,
 			offsetY: unitMargin,
-			blockElement: '.blogentry'
+			blockElement: '.content_module'
 		});
 
-    // sharing tools. Added them here because they need to be applied each time a new section shows up in infinite scrolling
-    $('.blogentry').mouseenter(function(){
-        $(".sharing_tools",this).fadeTo('fast',1);
+    //center navbar
+    var realwidth = 0;
+    var links = $('#channels_bar li');
+    links.each(function(){
+        if ($(this).is(':visible')) {
+            realwidth = realwidth + $(this).width();
+        }
     });
-    $('.blogentry').mouseleave(function(){
-        $(".sharing_tools",this).fadeTo('fast',0);
-    });
+    // add sum of right margins
+    realwidth = realwidth + (links.size())*40;
+    $('#channels_bar ul').css("width",realwidth+'px');
+    $('#channels_bar ul').css("margin", "0 auto");
+
 }
 
 // scrolling math 
@@ -73,10 +79,10 @@ function do_scroll_math() {
             workInProgress = "yes";
             var url = "show_more_posts.php";
             $.post(url, { start_from: position, channel: chan}, function (data) {
-                $("#entries-main-container").append(data);
+                $("#content_wrapper").append(data);
                 fixDimensions();
                 
-                $('.blogentry').fadeTo('slow', 1);
+                $('.content_module').fadeTo('slow', 1);
                 position = position + 14;
                 $(document).scrollTop = s;
                 $("img.lazy").lazyload({
@@ -91,14 +97,45 @@ function do_scroll_math() {
     }
 }
 
+function adjustChannelBar(){
+    var barWidth = $('#selector').width(); // width of the bar
+    var minimumMargin = 26; // margin between li's
+    var widthOfList = 0 ; // calculated width of ul
+    var itemsShowingOnList = 1 ; //minimum
+    $('#channels_bar ul').width((barWidth -(2*minimumMargin)));
+    $('#channels_bar li').css("margin-right", minimumMargin+"px");
+    $('#channels_bar li').each(function(){
+        widthOfList = widthOfList + $(this).width() + minimumMargin;
+        if ((widthOfList + $('#more').width()+ (minimumMargin)*3)>barWidth) { //
+            $(this).hide();
+            widthOfList = widthOfList - $(this).width() - minimumMargin;
+        } else {
+            $(this).show();
+            itemsShowingOnList++;
+        }
+    });
+    $('#more').show();
+    widthOfList = widthOfList - $('#more').width()+minimumMargin;
+    console.log(widthOfList);
+
+    //now center it
+    var finalWidth = 0;
+    $('#channels_bar li').each(function(){
+        if ($(this).is(':visible')) {
+            finalWidth = finalWidth + $(this).width() + minimumMargin;
+        }
+    });
+    finalWidth = finalWidth - minimumMargin; // remove the last right margin
+    console.log(finalWidth);
+    $('#channels_bar ul').css({
+        "width":finalWidth+(minimumMargin),
+        "padding":"0",
+        "margin":"0 auto",
+
+    });
+}
+
 // When document loads
-
-$("#whichchannel").change(function(){
-    if ($(this).val()!=='') {
-        window.location.href=$(this).val() ;
-    }
-});
-
 
 //Navigation
 
@@ -106,6 +143,7 @@ $('#menubutton').mouseup(function(){
     $('ul.nav').toggle();
     $('.navbutton').toggleClass('highlighted');
 });
+
 // capture escape key to exit menu
 $(document).keyup(function(e) {
     if (e.keyCode === 27) {
@@ -115,15 +153,34 @@ $(document).keyup(function(e) {
     }
 });
 
+$('i.top-right').click(function(){
+    $('#channels_window').hide();
+    $('#modal_background').hide();
+});
+
+$('#more').click(function(){
+    //$('#modal_background').show();
+    $('#channels_window').show();
+    $('#modal_background').show();
+    $(document).keyup(function(e) { // getout if escape key is pressed
+        if (e.keyCode === 27) {
+            $('#channels_window').hide();
+            $('#modal_background').hide();
+        }
+});
+
+});
+
 $(document).ready(function(){
     fixDimensions();
-    $('#lb_interface .blogentry').fadeTo('fast', 1);
-    $('#entries-main-container').waitForImages(function() {
+    $('#channels_bar .content_module').fadeTo('fast', 1);
+    $('#content_wrapper').waitForImages(function() {
         $('.loader').fadeTo('fast',0);
-        $('.blogentry').fadeTo('slow', 1);
+        $('.content_module').fadeTo('slow', 1);
     });
     do_scroll_math();
-    $(".blogentry").css("display","block");
+    adjustChannelBar();
+    $(".content_module").css("display","block");
     $("img.lazy").lazyload({
         effect : "fadeIn",
         threshold : 500
@@ -146,6 +203,7 @@ $(window).resize(function() {
     clearTimeout(do_resize_it);
     do_resize_it = setTimeout(function() {
         fixDimensions();
+        adjustChannelBar();
     }, 100);
 });
 

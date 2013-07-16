@@ -3,10 +3,10 @@
 $channel_descriptions = array(
         "fashion" => "Fashion &amp; Style",
         "society" => "Society &amp; Fun News",
-        "design"  => "Advertising &amp; Design",
+        "tech" => "Business &amp Tech",
         "politics" => "Politics &amp; Current Affairs",
+        "design"  => "Advertising &amp; Design",
         "food" => "Food &amp; Health",
-        "tech" => "Business, Tech &amp; Social Media",
   );
 
   if (isset($_GET['channel'])) {
@@ -22,34 +22,70 @@ $channel_descriptions = array(
   $root_is_at = "."; // important
   include_once("includes/top_part.php");
 ?>
-
-    <div id="lb_interface">
-      <div id ="selector" class ="blogentry" style="opacity:0">
-        <select id ="whichchannel">
-          <option value = ".">Pick a Channel</option>
+<div id="modal_background" style = "display:none">
+</div>
+<div id="channels_window" style = "display:none"> <!-- modal window -->
+  <a href ="#"><i class ="icon-remove-sign icon-large top-right"></i></a>
+  <h2>Pick a Channel</h2>
+  <div id="window_chooser">
+          <ul>
+            <a href=".">
+              <li <?php if (!isset($channel)) { echo 'class ="selected"';} ?>>
+                All
+              </li>
+            </a>
           <?php 
             foreach ($channel_descriptions as $this_channel => $ch_description) {
-              ;?>         
-                <option value =".?channel=<?php echo $this_channel ?>" 
+              ;?>  
+                <a href = "<?php echo '.?channel='.$this_channel; ?>"> 
+                  <li
                   <?php 
-                  if (isset($channel)) {
-                    if ($channel == $this_channel) { 
-                      echo "selected" ;
-                    } 
-                  }
-                  ?>
-                  >
-                  <?php echo $ch_description ?>
-                </option>              
+                    if (isset($channel)) {
+                      if ($channel == $this_channel) { 
+                        echo 'class ="selected"' ;
+                      } 
+                    }
+                    ?>
+                  >      
+                  <?php echo $ch_description ;?>
+                  </li>              
+                </a> 
               <?php
             }
           ?>        
-          <option value = ".">Everything</option>    
-        </select>
+        </ul>
+    </div>
+</div>
+
+    <div id="channels_bar">
+      <div id ="selector" class ="content_module" style="opacity:0">
+          <ul>
+            <li <?php if (!isset($channel)) { echo 'class ="selected"';} ?>>
+              <a href=".">All</a>
+            </li>
+          <?php 
+            foreach ($channel_descriptions as $this_channel => $ch_description) {
+              ;?>   
+                <li
+                <?php 
+                  if (isset($channel)) {
+                    if ($channel == $this_channel) { 
+                      echo 'class ="selected"' ;
+                    } 
+                  }
+                  ?>
+                >      
+                <a href = "<?php echo '.?channel='.$this_channel; ?>"><?php echo $ch_description ;?></a> 
+                </li>
+              <?php
+            }
+          ?>   
+          <a href="#"><li id ="more">More <i class ="icon-caret-down"></i></li></a>           
+        </ul>
       </div>
     </div>
 
-    <div id="entries-main-container">
+    <div id="content_wrapper">
       <div class ="loader" style ="width:100%;text-align:center"><img src="img/interface/ajax-loader.gif"></div>
       
 
