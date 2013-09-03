@@ -39,7 +39,7 @@ include_once("$root_is_at/includes/simple_html_dom.php");
     
     <!-- Google Font -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans|Bitter' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/droidarabickufi.css">
   </head>
 
   <body>   

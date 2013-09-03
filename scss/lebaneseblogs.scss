@@ -6,9 +6,11 @@
 @import "header"; // top header and its items
 
 @import "body"; // elements in the body of the page
+@import "bloggers";
 
 @import "blog_details";
 @import "search_results";
+
 
 div.wrapper_special h5 a{
     color: silver;

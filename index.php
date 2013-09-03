@@ -1,12 +1,13 @@
 <?php
 
 $channel_descriptions = array(
-        "fashion" => "Fashion &amp; Style",
-        "society" => "Society &amp; Fun News",
-        "tech" => "Business &amp Tech",
-        "politics" => "Politics &amp; Current Affairs",
-        "design"  => "Advertising &amp; Design",
-        "food" => "Food &amp; Health",
+        "fashion"   => "Fashion &amp; Style",
+        "society"   => "Society &amp; Fun News",
+        "media"     => "Music, TV &amp; Film",
+        "tech"      => "Business &amp Tech",
+        "politics"  => "Politics &amp; Current Affairs",
+        "design"    => "Advertising &amp; Design",
+        "food"      => "Food &amp; Health"
   );
 
   if (isset($_GET['channel'])) {
@@ -93,7 +94,7 @@ $channel_descriptions = array(
         if (!isset($channel)) {
           $channel = NULL;
         }
-        top_5_posts(24, $channel)
+        top_5_posts(12, $channel)
       ; ?>
 
 

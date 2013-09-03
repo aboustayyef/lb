@@ -1,0 +1,134 @@
+#blog_details{
+	margin: 1em auto;
+	.blog_wrapper{
+		overflow: auto;
+		margin-left: 10px;
+		margin-right: 10px;
+		padding: 1em;
+		background: white;
+		@media only screen and (max-width:480px){
+			margin-top: 50px;
+		}
+		.c1{
+			img{
+				float:left;
+				margin-right: 15px;
+				@media only screen and (max-width:480px){
+					float: none;
+				}
+			}
+
+			h1{
+				line-height: 50px;
+				margin:12px 0;
+				font-family: Bitter, Serif;
+				font-size: 2.5em;
+			}
+		}
+		.c2{
+			p{
+				max-width: 800px;
+				font-size: 16px;
+				line-height: 24px;
+				font-family: "open sans", sans-serif;
+			}
+			a{
+				color: $lb_red;
+				text-decoration: none;
+			}
+		}
+		ul{
+			vertical-align: top;
+			padding-left: 0;
+			li{
+				display: block;
+				float:left;
+				list-style-type: none;
+				margin-right: 10px;
+				margin-bottom: 0;
+				margin-top:10px;
+				button{
+					font-family: Arial;
+					color: #333333;
+					font-size: 12px;
+					font-weight: bold;
+					background:-ms-linear-gradient(top, #FEFEFE 0%, #DFDFDF 100%);
+					background:-moz-linear-gradient(top, #FEFEFE 0%, #DFDFDF 100%);
+					background: -o-linear-gradient(top, #FEFEFE 0%, #DFDFDF 100%);
+					background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FEFEFE), color-stop(1, #DFDFDF));
+					background: -webkit-linear-gradient(top, #FEFEFE 0%, #DFDFDF 100%);
+					border:1px solid silver;
+					border-radius:3px;
+					margin-top: 0;
+					padding-top:5px;
+					padding-bottom:5px;
+					i{
+						color: rgb(1,165,215);
+					}
+				}
+			}
+		}
+	}
+}
+
+#blogger_content_wrapper {
+    position:relative;
+    margin: 0 auto;   
+}
+
+[id^="blogger-post-"] {
+
+	.content_module_header{
+		border-bottom: none;
+	}
+	a h2{
+		color: rgb(100,100,100);
+		&:hover{
+			color:$lb_red;
+		}
+	}
+	h2{
+		font-size: 1.3em;
+		margin: .4em 0;
+		line-height: 1.2em;
+	}
+	.content_module_body{
+		blockquote{
+			background:darken(white,2%);
+			margin-left:-10px;
+			width:278px;
+			font-family: Bitter, Serif;
+			font-size:1.1em;
+			line-height: 1.5em;
+			color: #555;
+			padding: 10px;
+			display: block;
+			border-bottom: 1px solid $lb_red;
+			border-top: 1px solid $lb_red;
+		}
+		img{
+			margin-left: -10px;
+			border-top: 1px solid darken(white,10%);
+			border-bottom: 1px solid darken(white,10%);
+		}
+
+	}
+	&.rtl{
+		h2{
+			font-family: 'Droid Arabic Kufi', serif;
+			font-size: 1.2em;
+		}
+		direction: rtl;
+		.content_module_body{
+			img{
+				margin-right:-10px;
+			}
+			blockquote{
+				margin-right: -10px;
+				font-family: tahoma, sans-serif;
+				font-size: 1.3em;
+			}
+
+		}
+	}
+}

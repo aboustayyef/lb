@@ -16,6 +16,11 @@ include_once("includes/connection.php");
 require_once("includes/core-functions.php");
 require_once("includes/simple_html_dom.php");
 
+echo "--------------------------------------------------\n";
+echo date('d M Y , H:i:s');
+echo "\n--------------------------------------------------\n","<br>";
+
+
 $maxitems = 0;
 
 //prepare and connect to database
@@ -39,6 +44,7 @@ foreach ($feeds as $feed)
 
 	$sp_feed = new SimplePie(); // We'll process this feed with all of the default options.
 	$sp_feed->set_feed_url($workingfeed); // Set which feed to process.
+	$sp_feed->set_cache_location('cache');
 	$sp_feed->set_cache_duration(600); // Set cache to 10 mins
 	$sp_feed->strip_htmltags(false);
 	$sp_feed->init(); // Run SimplePie. 
@@ -54,7 +60,7 @@ foreach ($feeds as $feed)
 				$blog_post_link = $canonical_resource[0]['data'];
 			}
 			$blog_post_link = urldecode($blog_post_link);
-			echo $blog_post_link,"<br/>";
+			echo $blog_post_link,"<br/>\n";
 			$domain = get_domain($blog_post_link); //get_domain() is a function from functions.php. It fetches the url's domain. Example: beirutspring
 			$blog_post_timestamp =  strtotime($item->get_date()); // get post's timestamp;	
 
@@ -63,18 +69,18 @@ foreach ($feeds as $feed)
 			$posts = $query2->fetchAll();
 			$list_of_posts = array();
 			foreach ($posts as $post) {
-				$list_of_posts[] = $post[0]; 
+				$list_of_posts[] = preg_replace('#\bhttp(s?):\/\/#', '', $post[0]); // removes the http:// or https:// from post slug
 			}
 
-			echo "<pre>",print_r($list_of_posts,true),"</pre>";
+			//echo "<pre>",print_r($list_of_posts,true),"</pre>";
 
-			if (in_array($blog_post_link, $list_of_posts)) {
-				echo '<span style ="color:blue">post is already in the database</span></br>';
+			if (in_array(preg_replace('#\bhttp(s?):\/\/#', '', $blog_post_link), $list_of_posts)) {
+				echo '<span style ="color:blue">post is already in the database</span>',"\n";
 				echo "<hr>";
 				break;
 				
-			} else if ((time()-$blog_post_timestamp) > (2629740*3)) { //post is more than 3 month old ;
-				echo '<span style ="color:red">post is more than one month old</span></br>';
+			} else if ((time()-$blog_post_timestamp) > (2629740*12)) { //post is more than 3 month old ;
+				echo '<span style ="color:red">post is more than one year old</span>',"\n";
 				echo "<hr>";
 				break;
 			} else {
@@ -85,7 +91,7 @@ foreach ($feeds as $feed)
 				$blog_post_image = dig_suitable_image($blog_post_content) ;
 				$blog_post_excerpt = get_blog_post_excerpt($blog_post_content, 120);
 
-				// added image dimensions for new design that does lazy loading
+				// added image dimensions for lazy loading
 
 				if ($blog_post_image) {
 					list($width, $height, $type, $attr) = getimagesize($blog_post_image);
@@ -136,40 +142,8 @@ foreach ($feeds as $feed)
 				  var_dump($stmt->errorInfo());
 				
 				if ($stmt->rowCount()) {
-					Echo "<-- ok --><br/>";
+					echo "POST ADDED:  <em>$blog_post_title</em><br/><hr>\n";
 				}
-
-				echo "Timestamp: <em>$blog_post_timestamp</em><br/>";
-				echo "Title: <em>$blog_post_title</em><br/>";
-				echo "image source: $blog_post_image><br/>";
-				echo "Excerpt: <em>$blog_post_excerpt</em><br/>";
-				echo "Image height: ", $blog_post_image_height,"<br>";
-				echo "Image width: ", $blog_post_image_width,"<br>";
-
-				echo "<hr>";
-
-				/*
-				$stmt = $pdo->prepare('INSERT INTO table01
-				  (
-				   Time,
-				   variable1,
-				   variable2,
-				  )
-
-				VALUES
-				  (
-				    now(),
-				    :variable1,
-				    :variable2,
-				  )');
-
-
-
-				*/ 
-
-
-
-
 
 			}
 

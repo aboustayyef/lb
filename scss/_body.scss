@@ -1,7 +1,7 @@
 // general settings
 $module_padding: 10px;
 
-//big wrapper
+//big wrapper 
 #content_wrapper {
     position:relative;
     top: 15px;
@@ -58,7 +58,8 @@ $module_padding: 10px;
             border: 1px solid  rgb(240, 240, 240);
         }
         .blog_name{
-            font-family: "open-sans",sans-serif;
+            font-family: "open sans",sans-serif;
+            opacity: .9;
             font-size:14px;
             line-height: 16px;
             position: absolute;
@@ -104,14 +105,38 @@ $module_padding: 10px;
         border-top:1px solid silver;
         background: darken(white,3%);
     }
-
+    &.rtl{
+        direction: rtl;
+        font-family: tahoma ,sans-serif;
+        font-size: 15px;
+        line-height: 18px;
+        .post_title a{
+            font-family: 'Droid Arabic Kufi', serif;
+            font-weight: bold;
+            font-size:20px;
+            line-height: 24px;
+        }
+        .blog_name{
+            margin-left: -20px;
+        }
+        blockquote{
+            padding: 0 25px 0 0;
+            border-left:none;
+            border-right: 5px rgb(238,238,238) solid;
+            font-size: 1.2em;
+            line-height: 1.3em;
+            max-width: 230px;
+            overflow: auto;
+        }
+    }
 }
 
 //top posts module
 
 #top_posts{
     .content_module_header{ // #top_posts header
-
+        padding-bottom: 0;
+        padding-top:0.1em;
         background:$lb_red; // default color unless overridden by channel
 
         td{
@@ -120,9 +145,9 @@ $module_padding: 10px;
         h2{
             font-size: 1.3em;
             color: white;
-            line-height: 1.4em;
+            line-height: 1.3em;
             padding-top:0;
-            margin-top: 0;
+            margin-top: 0.3em;
             margin-bottom: .5em;
         }
         img{
@@ -154,14 +179,21 @@ $module_padding: 10px;
         &.tech{
             background: rgb(32,78,144);
         }
+        &.media{
+            background: rgb(128,23,24);
+        }
     }
     .content_module_body{ // top posts body
+        .top_thumbs{
+            width:74px;
+            height: 74px;
+            border:1px solid darken(white,10%);
+            overflow: hidden;
+        }
         hr{
             margin: 8px 0;
         }
-        img{
-            margin-right: 10px;
-        }
+
         a {color:#444;}
         h4 a, h5 a{ 
             font-family: "Bitter",serif;
@@ -196,6 +228,9 @@ $module_padding: 10px;
     }
     
     .content_module_footer{ // top posts footer
+        background:$lb_red;
+        margin-top: 1em;
+        padding:.3em;
     }
 }
 
@@ -222,31 +257,6 @@ $module_padding: 10px;
     }
     a{
         color: darken($tip_yellow, 30%);
-    }
-}
-
-
-.rtl{
-    direction: rtl;
-    font-family: tahoma ,sans-serif;
-    font-size: 15px;
-    line-height: 18px;
-    .post_title a{
-        font-weight: bold;
-        font-size:20px;
-        line-height: 24px;
-    }
-    .blog_name{
-        margin-left: -20px;
-    }
-    blockquote{
-        padding: 0 25px 0 0;
-        border-left:none;
-        border-right: 5px rgb(238,238,238) solid;
-        font-size: 1.2em;
-        line-height: 1.3em;
-        max-width: 230px;
-        overflow: auto;
     }
 }
 
@@ -332,17 +342,30 @@ $module_padding: 10px;
 /**
 *   items related to pages
 */ 
+#form_edit{
+    input{
+        min-width: 400px;
+        &.long{
+            min-width:800px;
+        }
+    }
+    textarea{
+        min-width: 400px;
+        min-height: 100px;
+    }
 
+    button.submit{
+        padding: 8px;
+        display: relative;
+    }
+
+}
 
 div.page_wrapper{
     background: white;
     min-height: 700px;
-    width:90%;
-    margin: 1em auto;
-    padding-top: 1em;
-    box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-    -moz-box-shadow:0 1px 2px rgba(34,25,25,0.4);
-    -webkit-box-shadow:0 1px 3px rgba(34,25,25,0.4);
+    width:100%;
+    padding: 3em 3em;
     a{
        text-decoration: underline; 
     }

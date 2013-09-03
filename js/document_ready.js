@@ -60,42 +60,23 @@ function fixDimensions(){
     realwidth = realwidth + (links.size())*40;
     $('#channels_bar ul').css("width",realwidth+'px');
     $('#channels_bar ul').css("margin", "0 auto");
-
 }
 
-// scrolling math 
-
-var workInProgress = "no";
-var position = 16; // initial value is the one right after the first bunch
-
-function do_scroll_math() {
-    var wh = $(window).height();
-    var dh = $(document).height();
-    var s = $(document).scrollTop();
-    var chan = getURLParameter('channel');
-
-    if (s >= (dh - wh - 1000)) { // when we're almost at the bottom of the document
-        if (workInProgress === "no") { // used to prevent overlapping background loading
-            workInProgress = "yes";
-            var url = "show_more_posts.php";
-            $.post(url, { start_from: position, channel: chan}, function (data) {
-                $("#content_wrapper").append(data);
-                fixDimensions();
-                
-                $('.content_module').fadeTo('slow', 1);
-                position = position + 14;
-                $(document).scrollTop = s;
-                $("img.lazy").lazyload({
-                    effect : "fadeIn",
-                    threshold : 500
-                });
-                $("img.lazy").removeClass("lazy");
-                workInProgress = "no";
-
-            });
-        }
-    }
+function bloggerFixDimensions(){
+    var desiredWidth = getDesiredWidth();
+    //fix post entries next
+        $('#blogger_content_wrapper').width(desiredWidth);
+        $('#blog_details').width(desiredWidth);
+        $('#blog_details').show();
+        var columns = getColumnNumbers();
+        $('#blogger_content_wrapper').BlocksIt({
+            numOfCol: columns,
+            offsetX: unitMargin,
+            offsetY: unitMargin,
+            blockElement: '.content_module'
+        });
 }
+
 
 function adjustChannelBar(){
     var barWidth = $('#selector').width(); // width of the bar
@@ -131,9 +112,50 @@ function adjustChannelBar(){
         "width":finalWidth+(minimumMargin),
         "padding":"0",
         "margin":"0 auto",
-
+    });
+    console.log($('#top_posts .content_module_header').css("background-color"));
+    $('#channels_bar li.selected').css({
+        "border-bottom": "3px solid " + $('#top_posts .content_module_header').css("background-color"), //gives color of bar underneath the same color of top posts background.
     });
 }
+
+// scrolling math 
+
+var workInProgress = "no";
+var position = 16; // initial value is the one right after the first bunch
+
+function do_scroll_math() {
+    var wh = $(window).height();
+    var dh = $(document).height();
+    var s = $(document).scrollTop();
+    var chan = getURLParameter('channel');
+
+    if (s >= (dh - wh - 1000)) { // when we're almost at the bottom of the document
+        if (workInProgress === "no") { // used to prevent overlapping background loading
+            workInProgress = "yes";
+            var url = "show_more_posts.php";
+            $.post(url, { start_from: position, channel: chan}, function (data) {
+                $("#content_wrapper").append(data);
+                fixDimensions();
+                bloggerFixDimensions();
+                adjustChannelBar();
+                
+                $('.content_module').fadeTo('slow', 1);
+                position = position + 14;
+                $(document).scrollTop = s;
+                $("img.lazy").lazyload({
+                    effect : "fadeIn",
+                    threshold : 500
+                });
+                $("img.lazy").removeClass("lazy");
+                workInProgress = "no";
+
+            });
+        }
+    }
+}
+
+
 
 // When document loads
 
@@ -153,39 +175,50 @@ $(document).keyup(function(e) {
     }
 });
 
-$('i.top-right').click(function(){
-    $('#channels_window').hide();
-    $('#modal_background').hide();
-});
-
 $('#more').click(function(){
-    //$('#modal_background').show();
-    $('#channels_window').show();
-    $('#modal_background').show();
+    //show the wind
+    $('#channels_window').toggle();
+    $('#channels_window').css("right","5%");
+    $('#channels_window').css("top", "130px");
     $(document).keyup(function(e) { // getout if escape key is pressed
         if (e.keyCode === 27) {
             $('#channels_window').hide();
-            $('#modal_background').hide();
         }
+    });
 });
+
+$('i.top-right').click(function(){
+    $('#channels_window').hide();
 
 });
 
 $(document).ready(function(){
-    fixDimensions();
-    $('#channels_bar .content_module').fadeTo('fast', 1);
-    $('#content_wrapper').waitForImages(function() {
-        $('.loader').fadeTo('fast',0);
-        $('.content_module').fadeTo('slow', 1);
-    });
     do_scroll_math();
-    adjustChannelBar();
     $(".content_module").css("display","block");
     $("img.lazy").lazyload({
         effect : "fadeIn",
         threshold : 500
     });
     $("img.lazy").removeClass("lazy");
+
+});
+
+// Things to load after everything else has loaded
+$(window).load(function(){
+    fixDimensions();
+    bloggerFixDimensions();
+    adjustChannelBar();
+
+    $('#channels_bar .content_module').fadeTo('fast', 1);
+    $('#content_wrapper').waitForImages(function() {
+        $('.loader').fadeTo('fast',0);
+        $('.content_module').fadeTo('slow', 1);
+    });
+    $('#blogger_content_wrapper').waitForImages(function() {
+        $('.loader').fadeTo('fast',0);
+        $('.content_module').fadeTo('slow', 1);
+    });
+
 });
 
 // When document is scrolled or resized / code source: http://stackoverflow.com/questions/5489946/jquery-how-to-wait-for-the-end-or-resize-event-and-only-then-perform-an-ac
@@ -203,6 +236,7 @@ $(window).resize(function() {
     clearTimeout(do_resize_it);
     do_resize_it = setTimeout(function() {
         fixDimensions();
+        bloggerFixDimensions();
         adjustChannelBar();
     }, 100);
 });

@@ -11,7 +11,7 @@ include_once("$root_is_at/includes/top_part.php");
 			<hr>
 			<div class="span6">
 				<h2>Submit your blog</h2>
-				<p>Before you submit your blog, make sure it is not already listed by checking the <a href="#bloglist">list of blogs</a></p>
+				<p>Before you submit your blog, make sure it is not already listed. To know if your blog is listed, use this website's search box above (you can search for your blog's url or title)
 				<hr>
 				<h2>For your blog to be considered, it needs to fulfill some criteria:</h2>
 				<ul>
@@ -34,7 +34,7 @@ include_once("$root_is_at/includes/top_part.php");
 			</div>
 			<div class="span5 last well">
 				<h2>Share the love</h2>
-				<p>If you're already on the <a href="#myModal" role="button" data-toggle="modal" style ="text-decoration:underline">list</a>, why don't you spread the word with a badge? Just pick a badge from below and copy-paste the code in your blog</p>
+				<p>If your blog is already listed, why don't you spread the word with a badge? Just pick a badge from below and copy-paste the code in your blog</p>
 				<hr>
 				<img src="<?php echo $root_is_at ; ?>/img/interface/badge160x160.png">
 					<textarea readonly rows ="5" cols="45" style="resize:none"><a href="http://lebaneseblogs.com"><img src="http://lebaneseblogs.com/img/interface/badge160x160.png"></a>
@@ -45,22 +45,7 @@ include_once("$root_is_at/includes/top_part.php");
 				</textarea>	
 				<hr>
 			</div>
-
-		    <h3 id ="bloglist">List of Blogs on lebaneseblogs.com</h3>
-		  	<?php 
-
-		  		global $db;
-				$stmt = $db->query("SELECT * FROM blogs ORDER BY blog_name",PDO::FETCH_ASSOC);
-				$rows = $stmt->fetchAll();
-				echo "<ul>";
-				foreach ($rows as $row) {
-				 	echo '<li><a href="' . $root_is_at . '/blogger/?id=' . $row['blog_id'] . '">'. $row['blog_name'],'</a></li>';
-				 } 
-				 echo "</ul>";
-		  	 ?>
-
-		    <a href="#" class="btn" data-dismiss="Close">modal</a>
-			</div>
+		</div>
 <?php 
 
 function drawform($errormessage=NULL){

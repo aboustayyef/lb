@@ -21,9 +21,9 @@ function draw_blog_entry($key, $post){
 		
 		<!--header-->
 		<div class="content_module_header blog_post_module">
-			<a href ="<?php echo 'blogger/?id=' . $post['domain'] ?>"><img class ="blog_thumb" src="<?php echo $post['thumb'];?>" width ="50" height ="50"></a>
+			<a href ="<?php echo '/' . $post['domain'] ?>"><img class ="blog_thumb" src="<?php echo $post['thumb'];?>" width ="50" height ="50"></a>
 			<div class="post_details">
-				<div class="blog_name"><a href ="<?php echo 'blogger/?id=' . $post['domain'] ?>"><?php echo $post['blogname']; ?></a></div>
+				<div class="blog_name"><a href ="<?php echo '/' . $post['domain'] ?>"><?php echo $post['blogname']; ?></a></div>
 			</div>
 		</div>
 		
@@ -55,7 +55,7 @@ function draw_blog_entry($key, $post){
 		<!--footer-->
 		<div class ="sharing">
 			<div class="content_module_footer">
-				<?php sharing_tools($post['title'],$post['twitter'],$post['url'], $post['visits'], $post['domain']); ?>
+				<?php sharing_tools($post['title'],$post['twitter'],$post['url'], $post['visits'], $post['domain'], $post['id']); ?>
 			</div>
 		</div>
 
@@ -74,7 +74,7 @@ function mapkeys($key){
 	} elseif ($key == 26) {
 		show_tip(2);
 	} elseif (($key > 30 ) && ($key%25 == 0)) {
-		follow_our_bloggers(5);
+		//follow_our_bloggers(5);
 	}
 }
 
@@ -147,7 +147,8 @@ function get_posts_from_database($from,$to, $tag = NULL){
 		"twitter" => $blogtwitter,
 		"img_width"	=> $blog_image_width,
 		"img_height" => $blog_image_height,
-		"visits" => $row['post_visits']
+		"visits" => $row['post_visits'],
+		"id" => $row['post_id']
 		);
 	};
 	$newposts = array_slice($posts, -$amountOfRecords, $amountOfRecords, true);
@@ -253,66 +254,68 @@ function get_blog_name($blog_post_link){
 	}
 }
 
-function dig_suitable_image($content)
+function dig_suitable_image($content) {
+
+
 /*******************************************************************
 *	This functions uses the PHP DOM Parser to extract images
 *
 ********************************************************************/ 
-{
 $firstImage ="";
 $html = str_get_html($content);
 foreach ($html->find('img[src]') as $img) 
 	{
 	    $image = $img->getAttribute('src');
+
+		//clean up string to remove parameters like ?w=xxx&h=sss
+		$image_parts = explode("?",$image);
+		$image_without_parameters = $image_parts[0];
+		$image = $image_without_parameters;
+
+		//remove automatic resizing applied by wordpress and go straight to original image
+		// for example, a file that ends with image-150x250.jpg becomes image.jpg 
+
+		$adjusted = preg_replace('/-[0-9]{3}x[0-9]{3}\.jpg$/', ".jpg", $image);
+		$image = $adjusted;
+
     	list($width, $height, $type, $attr) = getimagesize("$image");
     	if ($width>299) //only return images 300 px large or wider
     	{ 
-    		$firstImage = $img->getAttribute('src');
+    		$firstImage = $image;
     		break;
     	}
     }
 if ($firstImage) 
 	{
-	return $firstImage;
+		return $firstImage;
 	} 
 elseif (get_youtube_thumb($content)) 
 	{
-	return get_youtube_thumb($content);
+		return get_youtube_thumb($content);
 	} 
+elseif (get_vimeo_thumb($content))
+	{
+		return get_vimeo_thumb($content);
+	}
 else 
 	{
 	return NULL;
 	}
 }
 
-function dig_suitable_image_old($content) 
+function get_vimeo_thumb($content){
 /*******************************************************************
-*	this function tries to find an image in a blog
+*	Tries to get Vimeo content's preview
 *
 ********************************************************************/ 
-{
-	// I got the code below from: http://forums.wittysparks.com/topic/simple-way-to-extract-image-src-from-content-with-php
-	$contenttograbimagefrom = $content;
-	$firstImage = "";
-	// old regex // $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $contenttograbimagefrom, $ContentImages);
-	$output = preg_match_all('/<img.+src\s*=\s*[\'"]([^\'"]+)[\'"].*>/i', $contenttograbimagefrom, $ContentImages);
-	if (isset($ContentImages[1][0]))
-	{
-		$firstImage = $ContentImages[1][0]; // To grab the first image
-		list($width, $height, $type, $attr) = getimagesize("$firstImage");
-		if (300 < $width) 
-		{
-			return $firstImage;
-		}
-	} 
-	elseif (get_youtube_thumb($content)) 
-	{
-		return get_youtube_thumb($content);
-	} 
-	else 
-	{
-		return NULL;
-	}
+	preg_match_all("#(?:https?://)?(?:\w+\.)?vimeo.com/(?:video/|moogaloop\.swf\?clip_id=)(\w+)#", $content, $results);
+	if (isset($results[1][0])){
+		$imgid = $results[1][0];
+		$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$imgid.php"));
+		return $hash[0]['thumbnail_large']; 
+	} else {
+		return false;
+	};
 }
 
 function get_youtube_thumb($content)
@@ -402,9 +405,9 @@ global $channel_descriptions;
 				</td>
 				<td>
 					<?php if (isset($channel)) {
-						echo "<h2>Top posts in {$channel_descriptions[$channel]}</h2>";
+						echo "<h2>Hot posts in {$channel_descriptions[$channel]}</h2>";
 					} else {
-						echo "<h2>Top Recent Posts in all categories</h2>";
+						echo "<h2>Hot Posts</h2>";
 					} ?>
 				</td>
 			</tr>
@@ -417,14 +420,14 @@ global $channel_descriptions;
 	global $root_is_at;
 	$lb_now = time();
 	if (isset($channel)) {
-		$lb_before = $lb_now-($nb_hours*60*60*3); //three days
-		$stmt = $db->query('SELECT posts.post_url, posts.post_title, blogs.blog_name, posts.blog_id 
+		$lb_before = $lb_now-($nb_hours*60*60*3); //because channels have less posts, the top posts are set for three days
+		$stmt = $db->query('SELECT posts.post_image, posts.post_image_width, posts.post_image_height, posts.post_url, posts.post_title, blogs.blog_name, posts.blog_id 
 					FROM posts INNER JOIN blogs ON posts.blog_id = blogs.blog_id 
 					WHERE blogs.blog_tags LIKE "%'.$channel.'%" AND posts.post_timestamp > '.$lb_before.' 
 					ORDER BY post_visits DESC LIMIT 5', PDO::FETCH_ASSOC);
 	} else {
 		$lb_before= $lb_now-($nb_hours*60*60);
-		$stmt = $db->query("SELECT posts.post_url, posts.post_title, blogs.blog_name, posts.blog_id 
+		$stmt = $db->query("SELECT posts.post_image, posts.post_image_width, posts.post_image_height, posts.post_url, posts.post_title, blogs.blog_name, posts.blog_id 
 			FROM posts INNER JOIN blogs ON posts.blog_id = blogs.blog_id 
 			WHERE posts.post_timestamp > $lb_before 
 			ORDER BY post_visits DESC LIMIT 5", PDO::FETCH_ASSOC);
@@ -432,16 +435,52 @@ global $channel_descriptions;
 
 	$posts = $stmt->FetchAll();
 	foreach ($posts as $post) {
-		$img = "img/thumbs/".get_domain($post['post_url']).".jpg";
+		$img = $post['post_image'];
+		$img_height =$post['post_image_height'] ;
+		$img_width =$post['post_image_width'] ;
 		$title = $post['post_title'];
 		$url = $post['post_url'];
-		$blogger_url = $root_is_at . '/blogger/?id=' . $post['blog_id'];
+		$blogger_url = $root_is_at . '/' . $post['blog_id'];
 		
 		;?>
 		
 		<table>
 			<tr>
-				<td width ="25"><a href ="<?php echo $blogger_url; ?>"><img src ="<?php echo $img ;?>" width ="25"></a></td>
+				<?php
+				if (empty($post['post_image'])) {
+					;?>
+					<td width ="85px">
+						<a href ="<?php echo $url ;?>">
+							<div class="top_thumbs">
+								<img class="lazy" data-original ="<?php echo "img/interface/no-image.jpg" ;?>" src="img/interface/grey.gif" height ="75px">
+							</div>	
+						</a>
+					</td>				
+					<?php
+				}else {
+					if ($img_width >= $img_height) {
+						;?>				
+							<td width ="85px">
+								<a href ="<?php echo $url ;?>">
+									<div class="top_thumbs">
+										<img class="lazy" data-original ="<?php echo $img ;?>" src="img/interface/grey.gif" height ="75px">
+									</div>
+								</a>
+							</td>
+						<?php
+					} else {
+						;?>
+							<td width ="85px">
+								<a href ="<?php echo $url ;?>">
+									<div class="top_thumbs">
+										<img class="lazy" data-original ="<?php echo $img ;?>" src="img/interface/grey.gif" width = "75px">
+									</div>
+								</a>
+							</td>						
+						<?php
+					}
+				}
+				?>
 				<td><h4><a href ="<?php echo $url ;?>"><?php echo $title ;?></a></h4><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $post['blog_name'] ;?></a></h5></td>
 				
 			</tr>
@@ -450,7 +489,12 @@ global $channel_descriptions;
 		
 		<?php
 		//echo '<div class ="post_wrapper"><img src ="'.$img.'" width ="25"><div class ="info_wrapper"><a href ="'.$url.'"><h4>'.$title.'</h4></a></div>'.$post['blog_name'].'</div>';
-	} echo "</div></div>";
+	} echo "</div>";
+	;?>
+	
+	<div class ="content_module_footer"></div>
+	</div>
+	<?php
 }
 
 
@@ -488,7 +532,8 @@ function draw_tip($tip_title, $tip_body, $tip_image, $tip_link = NULL){
 
 
 
-function sharing_tools($post_title,$post_twitter,$post_url, $post_visits, $blog_id){
+function sharing_tools($post_title,$post_twitter,$post_url, $post_visits, $blog_id, $post_id){
+	global $root_is_at;
 	$tweetcredit = ($post_twitter)?" by @$post_twitter":"";
 	$url_to_incode = "$post_title $post_url".$tweetcredit." via lebaneseblogs.com";
 	$twitterUrl = urlencode($url_to_incode);
@@ -497,10 +542,11 @@ function sharing_tools($post_title,$post_twitter,$post_url, $post_visits, $blog_
 		<ul>
 			<li> <a href="https://twitter.com/intent/tweet?text='.$twitterUrl.'" title="Click to send this post to Twitter!" target="_blank"><i class="icon-twitter-sign icon-large"></i> Tweet</a> </li>
 			<li> <a href="http://www.facebook.com/sharer.php?u='.$post_url.'"><i class="icon-facebook-sign icon-large"></i> Share</a> </li>';
-			echo '<li><a href ="./blogger/?id=' . $blog_id . '"><i class="icon-question-sign icon-large"></i> About this blog</a> </li>';
+			echo '<li><a href ="./' . $blog_id . '"><i class="icon-question-sign icon-large"></i> About this blog</a> </li>';
 
 			if (admin_logged_in()) {
 				echo "<li>$post_visits</li>";
+				echo '<a href ="'.$root_is_at.'/admin/edit.php?id='.$post_id.'"><i class ="icon-edit icon-large"></i></a>';
 			}
 echo '</ul></div>';
 
