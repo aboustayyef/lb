@@ -19,7 +19,7 @@ function drawpage(){
 
 <html>
 <head>
-    <title></title>
+    <title>Admin Area</title>
 </head>
 <body>
 <h1>Admin page!</h1>
