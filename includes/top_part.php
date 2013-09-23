@@ -1,3 +1,12 @@
+
+<!-- 
+
+
+Deprecated, now using includes_new folder
+
+
+ -->
+ 
 <?php
 include_once("$root_is_at/includes/config.php");
 include_once("$root_is_at/includes/connection.php");

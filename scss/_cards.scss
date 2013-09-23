@@ -1,0 +1,284 @@
+
+.card{
+    width: 280;
+    padding: 0px; // devolve padding to sub-sections
+    margin: 10px;
+    background: white ;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+    -moz-box-shadow:0 1px 2px rgba(34,25,25,0.4);
+    -webkit-box-shadow:0 1px 3px rgba(34,25,25,0.4);
+    a{
+        text-decoration: none;
+    }
+}
+
+//header
+.card_header{
+    font-family: "Bitter",sans-serif;
+    padding: $module_padding;
+    position: relative;
+    border-bottom: 1px solid silver;
+}
+
+//body
+.card_body{
+    padding: $module_padding;
+    max-height: 450px;
+    overflow: hidden;
+}
+
+//footer
+.card_footer{
+    padding:$module_padding;
+    position:relative;
+}
+
+// ====== Then, we set the properties of particular modules ======///
+
+
+[id^="post-"]{ // All Blog Post Modules 
+    
+    .card_header{ // blog post header
+        background:#f2f2f2;
+        img{
+            border: 1px solid  rgb(240, 240, 240);
+        }
+        .blog_name{
+            font-family: "open sans",sans-serif;
+            opacity: .9;
+            font-size:14px;
+            line-height: 16px;
+            position: absolute;
+            width: 180px;
+            top: 10px;
+            left: 70px;
+        }
+    }
+    
+    .card_body{ // blog post body
+        .post_title a{
+            color: #444;
+            text-decoration: none;
+            font-family: "Bitter",serif;
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: bold;           
+        }
+        .post_title a:hover{
+            color: #3B967C;
+            text-decoration: none;
+        }
+        .post_title{
+            margin-top: 18px;
+            margin-bottom: 15px;
+        }
+        [id^="content-post-"]{
+            max-height: 500px;
+            overflow: hidden;
+        }   
+        blockquote{
+            padding: 0 15px;
+            font-family: "open-sans",sans-serif;
+            font-size: .9em;
+            line-height: 1.4em;
+            max-width: 230px;
+            overflow: hidden;
+        }
+    }
+
+    .card_footer{ // blog post footer
+        margin-top:1em;
+        border-top:1px solid silver;
+        background: darken(white,3%);
+    }
+    &.rtl{
+        direction: rtl;
+        font-family: tahoma ,sans-serif;
+        font-size: 15px;
+        line-height: 18px;
+        .post_title a{
+            font-family: 'Droid Arabic Kufi', serif;
+            font-weight: bold;
+            font-size:20px;
+            line-height: 24px;
+        }
+        .blog_name{
+            margin-left: -20px;
+        }
+        blockquote{
+            padding: 0 25px 0 0;
+            border-left:none;
+            border-right: 5px rgb(238,238,238) solid;
+            font-size: 1.2em;
+            line-height: 1.3em;
+            max-width: 230px;
+            overflow: auto;
+        }
+    }
+}
+
+//top posts module
+
+#top_posts{
+    .card_header{ // #top_posts header
+        padding-bottom: 0;
+        padding-top:0.1em;
+        background:$lb_red; // default color unless overridden by channel
+
+        td{
+            vertical-align: top;
+        }
+        h2{
+            font-size: 1.3em;
+            color: white;
+            line-height: 1.3em;
+            padding-top:0;
+            margin-top: 0.3em;
+            margin-bottom: .5em;
+        }
+        img{
+            float: left;
+            margin-right:1em;
+        }
+        h3{
+            margin-bottom: 1em;
+            font-size:1.4em;
+            line-height: 1.3em;
+        }
+
+        // Backgrounds for different channels
+        &.design{
+            background: #444;
+        }
+        &.fashion{
+            background: #F400A1;
+        }
+        &.politics{
+            background: #669900;
+        }
+        &.society{
+            background: rgb(68, 143, 166);
+        }
+        &.food{
+            background: rgb(255,102,0);
+        }
+        &.tech{
+            background: rgb(32,78,144);
+        }
+        &.media{
+            background: rgb(128,23,24);
+        }
+    }
+    .card_body{ // top posts body
+        .top_thumbs{
+            width:74px;
+            height: 74px;
+            border:1px solid darken(white,10%);
+            overflow: hidden;
+        }
+        hr{
+            margin: 8px 0;
+        }
+
+        a {color:#444;}
+        h4 a, h5 a{ 
+            font-family: "Bitter",serif;
+
+        }
+        h5 a{
+            margin-top: 2px;
+            font-size: 12px;
+            font-family: arial,sans-serif;
+            color: rgb(180,180,180);
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+
+        table{
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            h4 {
+                top: .5em;
+                left: 40px;
+                font-size:1em;
+                line-height: 1em;
+                margin: 0;
+                font-weight: normal;
+            }  
+            td {
+                text-align: left;
+                vertical-align: top;
+            }
+        }
+    }
+    
+    .card_footer{ // top posts footer
+        background:$lb_red;
+        margin-top: 1em;
+        padding:.3em;
+    }
+}
+
+#tip{
+    $tip_yellow:rgb(240,200,119);
+    text-align: center;
+    font-family: "Bitter", serif;
+    h2{
+        color: #333;
+    }
+    .card_header{
+        background:$tip_yellow;
+        h1{
+            font-size: 2.2em;
+            margin: 5px auto;
+            font-family: "Bitter",serif;
+            color: beige;
+            text-align: center;
+            line-height: 1em;
+        }
+    }
+    .card_body{
+        line-height: 1.5em;
+    }
+    a{
+        color: darken($tip_yellow, 30%);
+    }
+}
+
+//pick a channel
+#channels_bar { 
+    position:relative;
+    top: 15px;
+    margin: 0 auto;
+    @media only screen and (max-width : 700px){
+        margin-top: 30px;
+    }
+    #selector{
+        &.card{
+            background:darken(white,5%);
+            padding:0;
+            box-shadow: none;
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+        }
+        ul{
+            overflow: auto;
+            li{
+                padding: 10px 0;
+                margin-bottom: 0;
+                list-style-type: none;
+                display: block;
+                float: left;
+                margin-right:40px;
+                &.selected{
+                    border-bottom: 3px $lb_red solid;
+                }
+                &:hover{
+                    border-bottom: 3px silver solid;
+                }
+            }
+        }
+    }
+}

@@ -1,4 +1,8 @@
 <?php
+
+// deprecated, will start using contr_get_extra_posts.php
+
+
 	/*******************************************************************
 	*	This script handles adding items on the page for infinite scrolling effect
 	*
