@@ -14,13 +14,13 @@
   <div id ="channels">
 
       <div class = "label level1"><i class ="icon-star"></i>My Favorite Bloggers</div>
-      <div class = "selected label folder level1"><i class ="icon-folder-open-alt"></i> Everything</div>
-      <div class = "label level2"><i class="icon-umbrella"></i> Fashion &amp; Style</div>
-      <div class = "label level2"><i class="icon-coffee"></i> Food &amp; Health</div>
-      <div class = "label level2"><i class="icon-smile"></i> Society &amp; Fun News</div>
-      <div class = "label level2"><i class="icon-globe"></i> Politics &amp; Current Affairs</div>
-      <div class = "label level2"><i class="icon-laptop"></i> Business &amp; Tech</div>
-      <div class = "label level2"><i class="icon-music"></i> Music, TV &amp; Film</div>
+      <div class = "selected label folder level1"><i class ="icon-folder-open-alt"></i>All Categories</div>
+      <div class = "label level2"><i class="icon-umbrella"></i>Fashion &amp; Style</div>
+      <div class = "label level2"><i class="icon-coffee"></i>Food &amp; Health</div>
+      <div class = "label level2"><i class="icon-smile"></i>Society &amp; Fun News</div>
+      <div class = "label level2"><i class="icon-globe"></i>Politics &amp; Current Affairs</div>
+      <div class = "label level2"><i class="icon-laptop"></i>Business &amp; Tech</div>
+      <div class = "label level2"><i class="icon-music"></i>Music, TV &amp; Film</div>
       <div class ="label level1"><i class ="icon-envelope"></i>My Saved Posts</div>
 
   </div>
