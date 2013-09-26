@@ -1,3 +1,10 @@
+<!-- 
+
+
+Deprecated, now using includes_new folder
+
+
+ -->
 <?php 
 	// connect to database
 	global $db_username, $db_password , $db_host , $db_database;

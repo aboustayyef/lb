@@ -1,47 +1,13 @@
 
 @import "reset"; // css reset
-@import "settings"; // variables and properties
 
 @import "general"; // basic elements like h1, a, body ...etch
+@import "left-nav"; // left navigation
+
 @import "header"; // top header and its items
 
 @import "body"; // elements in the body of the page
+@import "cards"; // cards
 @import "bloggers";
 
-@import "blog_details";
 @import "search_results";
-
-
-div.wrapper_special h5 a{
-    color: silver;
-    font-family: verdana, "sans-serif";
-}
-
-/************
-* Bloggers  *
-*************/
-
-h1.details_of_blog{
-    font-size: 1.9em;
-    margin-bottom: 1em;
-}
-
-.details_of_blog > em {
-    color: $lb_red;
-    font-weight:normal;
-}
-
-.post_list {
-width: 100%;
-padding: 5px 0;
-border-top: 1px silver solid;
-font-weight: bold;
-}
-
-
-@import "search_results";
-
-//@import "smartphones";
-//@import "tablets";
-
-

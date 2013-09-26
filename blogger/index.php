@@ -1,7 +1,7 @@
 <?php
 
 $root_is_at = "..";
-require_once($root_is_at . '/classes/Blog_Details.php');
+require_once($root_is_at . '/classes/Blog.php');
 include_once("$root_is_at/includes/config.php");
 include_once("$root_is_at/includes/connection.php");
 include_once("$root_is_at/blogger/blogger_functions.php");
@@ -14,7 +14,8 @@ if (isset($_GET['id'])) {
 }
 
 //instantiate Blog_Details class
-$blog_at_hand = new Blog_Details($db, $blogger_id);
+$blog_at_hand = new Blog($db, $blogger_id);
+$blog_at_hand->prepare_details();
 
 $page = "bloggers";
 $title = $blog_at_hand->name() . " at Lebanese Blogs";
@@ -48,6 +49,8 @@ include_once("$root_is_at/includes/top_part.php"); ?>
                         }
                         echo '#'.$tag.'</a>&nbsp;&nbsp;';
                     }
+                    echo " posts per week: ".$blog_at_hand->posts_per_week(); 
+                    echo " total posts: ".$blog_at_hand->number_of_posts();
                     echo "</p>";
 
                     ?>

@@ -1,10 +1,3 @@
-<!-- 
-
-
-Deprecated, now using includes_new folder
-
-
- -->
 <?php
 /**
  * SimplePie

@@ -1,8 +1,12 @@
 <?php 
-/*******************************************************************
-*	Database Configuration and functions file
-*
-********************************************************************/ 
+
+
+
+// Deprecated, start using root-level config-sample file
+
+
+
+
 global $db_username, $db_password , $db_host , $db_database;
 
 global $lb_root;

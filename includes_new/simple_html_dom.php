@@ -1,11 +1,3 @@
-<!-- 
-
-
-Deprecated, now using includes_new folder
-
-
- -->
- 
 <?php
 /**
  * Website: http://sourceforge.net/projects/simplehtmldom/
