@@ -70,7 +70,7 @@ class View
 			global $channel_descriptions;	
 			global $db;
 			$top5 = new Posts($db);
-			$posts = $top5->get_Top_Posts($hours=480, $howmany = 5);
+			$posts = $top5->get_Top_Posts($hours=12, $howmany = 5);
 			include_once(ABSPATH.'views/top5.php');
 			$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
 		} else if ($key % 15 == 0) {
