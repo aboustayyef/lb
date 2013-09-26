@@ -1,56 +1,22 @@
-// general settings
-$module_padding: 10px;
-
 //big wrapper 
 #content_wrapper {
     position:relative;
-    top: 15px;
-    margin: 0 auto;   
+    top:1px;
 }
 
-
-//Sharing
-
-.sharing{
-    direction:ltr;
-
-    .sharing_tools{
-        direction:ltr;
-        padding:0;
-        margin:0;
-        height: 18px;
-        overflow: hidden;
-        ul{
-            display: block;
-            padding:0;
-            overflow: visible;
-            background: none;
-            list-style-type: none;
-            margin-bottom: 0px;
-        }
-        li{
-            display: inline;
-            opacity: .3;
-            padding-right: 10px;
-            margin-bottom: 0;
-            list-style-type: none;
-            font-family: verdana,sans-serif;
-            font-size: 12px;
-            background:none;
-            float: left;
-            &:hover{
-                opacity: 1;
-            }
-            img{
-                border:none;
-
-            }
-        }
-    }
+#view-area{
+    position:relative;
 }
 
+.endloader{
+    background:darken(beige,10);
+    padding:10px 20px;
+    text-align: right;
+}
 
-
+#posts{
+    overflow: scroll;
+}
 
 /**
 *   items related to pages

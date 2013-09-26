@@ -56,21 +56,12 @@ class View
 		include_once(ABSPATH.'views/draw_header.php')	;
 	}
 
-	function display_timeline($data, $start_counter){ // draw facebook style data
-		
-	}
-
-	function display_compact($data, $start_counter){ // draw facebook style data
-			;
-	}
-	
 	function draw_footer() { //footer of web page
 		include_once(ABSPATH.'views/draw_footer.php')	;
 	}
 /**
 *   Utility functions
 */ 
-
 
 	// This function allocates "slots" to material other than the blog posts (widgets, tips or ads)
 	function map_keys($key){

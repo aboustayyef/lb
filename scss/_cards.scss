@@ -5,9 +5,9 @@
     margin: 10px;
     background: white ;
     border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-    -moz-box-shadow:0 1px 2px rgba(34,25,25,0.4);
-    -webkit-box-shadow:0 1px 3px rgba(34,25,25,0.4);
+    box-shadow: 0 1px 3px rgba(34,25,25,0.6);
+    -moz-box-shadow:0 1px 2px rgba(34,25,25,0.6);
+    -webkit-box-shadow:0 1px 3px rgba(34,25,25,0.6);
     a{
         text-decoration: none;
     }
@@ -247,38 +247,94 @@
     }
 }
 
-//pick a channel
-#channels_bar { 
-    position:relative;
-    top: 15px;
-    margin: 0 auto;
-    @media only screen and (max-width : 700px){
-        margin-top: 30px;
+div .blogentry.tip {
+    background: white url('yellow-bkg.gif') repeat-x;
+    border:none;
+    img{
+        border:none;
     }
-    #selector{
-        &.card{
-            background:darken(white,5%);
-            padding:0;
-            box-shadow: none;
-            -moz-box-shadow: none;
-            -webkit-box-shadow: none;
+    a{
+        color: #cb834d;
+    }
+    p{
+        padding: 1em 2em;
+        font-size: 14px;
+        line-height: 20px;
+        font-family: "Bitter",serif;
+        margin: 0 0 10px;
+    }
+    h1{
+        font-size: 2.2em;
+        font-family: "Bitter",serif;
+        color: beige;
+        text-align: center;
+        margin-top:1em;
+        line-height: 1em;
+    }
+    h2 {
+        font-family: "helvetica neue", sans-serif;
+        color:#222;
+        font-weight: bold;
+        font-size: 1.3em;
+        margin-top:1.5em;
+        margin-bottom: 1em;
+        text-align: center;
+    }
+    .wrapper_special{
+        margin-top: -20px;
+    }
+}
+
+/* Sharing */
+
+div.shareicon{
+    direction:ltr;
+    opacity:.1;
+    margin-top:20px;
+    margin-bottom:-8px;
+    border:none;
+}
+
+div.sharing_tools{
+    position:absolute;
+    width:295px;
+    bottom:-1px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px;
+    direction:ltr;
+    background: lighten(silver,20%);
+    padding: 6px 3px 3px 3px;
+    margin-top:-20px;
+    margin-left: -11px;
+    margin-right: -11px;
+    opacity:0;
+    border-top: 1px solid silver;
+
+    ul{
+        overflow: hidden;
+        background: none;
+        list-style-type: none;
+        margin-bottom: 0px;
+        margin-left: 40px;
+        padding-left: 0px;
+    }
+    li{
+        list-style-type: none;
+        font-family: verdana,sans-serif;
+        font-size: 12px;
+        background:none;
+        float: left;
+        margin-right: 10px;
+        vertical-align: top;
+        &.box{
+            line-height: 12px;
+            background:none;
+            padding:5px;
+            border:1px silver solid;
         }
-        ul{
-            overflow: auto;
-            li{
-                padding: 10px 0;
-                margin-bottom: 0;
-                list-style-type: none;
-                display: block;
-                float: left;
-                margin-right:40px;
-                &.selected{
-                    border-bottom: 3px $lb_red solid;
-                }
-                &:hover{
-                    border-bottom: 3px silver solid;
-                }
-            }
+        img{
+            border:none;
+
         }
     }
 }

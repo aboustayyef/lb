@@ -1,3 +1,24 @@
+/************
+* Bloggers  *
+*************/
+
+h1.details_of_blog{
+    font-size: 1.9em;
+    margin-bottom: 1em;
+}
+
+.details_of_blog > em {
+    color: $lb_red;
+    font-weight:normal;
+}
+
+.post_list {
+width: 100%;
+padding: 5px 0;
+border-top: 1px silver solid;
+font-weight: bold;
+}
+
 #blog_details{
 	margin: 1em auto;
 	.blog_wrapper{

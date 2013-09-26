@@ -1,0 +1,89 @@
+$left_padding: 20px;
+#left-col-wrapper{
+    opacity: 0 ; //javascript will make this 1 once height is calculated and rendered
+    position: relative;
+    top:0;
+    width: 279px ; //280 with border
+    background-color: #f8f8f8; 
+    float: left;
+    border-right: 1px solid $interface_border_color;
+
+    @media only screen and (max-width : 768px){
+        display: none;
+        width:0;
+        .section{
+            display: none;
+        }
+    }
+
+    #users{
+        padding:$left_padding;
+    }
+    
+    #viewtype{
+        background-color:rgba(0,0,0,0.035);
+        border-top: lighten(black,79) 1px solid;
+
+    }
+
+    h4.sectionheader{
+        padding:0;
+        margin:0;
+        padding-top:5px;
+        color: lighten(black,30);
+        font-weight: normal;
+        padding-left:$left_padding;
+    }
+    #icons{
+        padding-top: 5px;
+        padding-bottom: 10px;
+        padding-left:$left_padding;   
+        img{
+            margin-right:6px;
+        }     
+    }
+
+    .label{
+
+        width:279px - $left_padding;
+        i{
+            margin-right:5px;
+            color: lighten(black,49);
+        }
+        padding-left: $left_padding;
+        &.level1{
+            border-top: 1px solid silver;
+            padding-top:10px;
+            padding-bottom:10px;
+            &.selected{
+                background-color: rgba(0,0,0,0.05);
+                border-bottom: darken(white,8) 1px solid;
+                border-top: lighten(black,79) 1px solid;
+                i{
+                    color: $lb_red;
+                }
+            }
+        }
+        &.level2{
+            padding-left:$left_padding+20px;
+            padding-top:7px;
+            padding-bottom:7px;
+            width:259px - $left_padding;
+            &.selected{
+                background-color: rgba(0,0,0,0.05);
+                border-bottom: darken(white,8) 1px solid;
+                border-top: lighten(black,79) 1px solid;
+                i{
+                    color: $lb_red;
+                }
+            }
+
+        }
+        &:hover{
+            background-color:rgba(0,0,0,0.05);
+            i{
+                color: $lb_red;
+            }
+        }
+    }
+}

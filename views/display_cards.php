@@ -2,7 +2,7 @@
 
 
 /**
-*   This script displays an amount of cards as per the $this->_posts data given
+*   This script displays an amount of cards as per the $data given
 */
 
 	// loops through the posts
@@ -15,7 +15,7 @@
 
 			;?>
 			
-			<!-- Card envelope -->
+			<!-- Card wrapper -->
 
 			<div class="card<?php if ($this->contains_arabic($post['post_title'])) {echo " rtl";} ?>" id="<?php echo 'post-',$_SESSION['posts_displayed']; ?>"  style ="opacity:0;">
 		
@@ -34,12 +34,12 @@
 				<div class="post_title"><a href="<?php echo $target_url ;?>"><?php echo $post['post_title']; ?></a></div>
 				<?php 
 
-					if (isset($post['post_image'])) {
+					if (isset($post['post_image']) && ($post['post_image_width'] > 0) && ($post['post_image_height']>0)) {
 						$image_width = 278;
 						$image_height = intval(($image_width / $post['post_image_width'])*$post['post_image_height']);
 						;?>
 						
-						<a href="<?php echo $target_url ;?>"><img class="lazy" data-original="<?php echo $post['post_image'] ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<? echo $image_height ; ?>"></a>
+						<a href="<?php echo $target_url ;?>"><img class="lazy" data-original="<?php echo $post['post_image'] ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<?php echo $image_height ; ?>"></a>
 						
 						<?php
 					} else {

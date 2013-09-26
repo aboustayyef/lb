@@ -1,108 +1,50 @@
 
-div.mainbar {
+div.mainbar-wrapper {
     position:relative;
     background-color: $lb_red;
     overflow: hidden;
-    padding:10px;
+    -webkit-box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
+    border-bottom-width: 0;
+    overflow: auto;
+    .nav-wrapper{
+        float:right;
+        ul{
+            display: block;
+            float: left;
+            margin:0;
+            margin-right: 20px;
+            padding:0;
+            li{
+                border-left: 1px lighten($lb_red, 15) solid;
+                display: block;
+                float: left;
+                padding:20px;
+                margin:0;
+                &:hover{
+                    background-color: darken($lb_red, 5);
+                }
+                &:first-child{
+                    border-left: none;
+                }
+                a{
+                    text-decoration: none;
+                    color:white;
+                }
+            }
+        }      
+    }
 }
 
 #logo{
-    width:275px;
-    margin:0 auto;
-    @media only screen and (max-width : 480px){
-        width:240px;
-        margin-left: 50px;
-        img{
-            height:40px;
-            width:240px;
-            margin-top: 5px;
-        }
-    }
+    float: left;
+    padding: 7px 20px;
 }
 
-#navigation{
-   .navbutton{
-        z-index: 999;
-        position:absolute;
-        left:10px;
-        top:18px;
-        width:20px;
-        height:17px;
-        padding:7px;
-        border:1px solid darken($lb_red,10%);
-        border-radius: 5px;
-    }
-
-    a{
-        font-size: .9em;
-        font-weight: none;
-        color:white;
-        font-family: Verdana, sans-serif;
-        text-decoration: none;
-    }
-    ul{
-        list-style-type: none;
-        position:absolute;
-        width:250px;
-        top:45px;
-        left:10px;
-        display: none;
-        padding-left:0;
-        z-index: 999;
-        @media only screen and (max-width:480px) {
-            top:65px;
-            left:0;
-            width:100%;
-        }
-        li{
-            margin:0;
-            padding:7px;
-            border-bottom: 1px solid lighten($lb_red,20%);
-            color:white;
-            background-color:darken($lb_red,14%);
-            :last-child{
-                border-bottom:none;
-            }
-            &:hover{
-                background-color:darken($lb_red,4%);
-            }
-
-            a{
-                color:white;
-                text-decoration:none;
-            }
-            @media only screen and (max-width:480px) {
-                padding:10px;
-
-            }
-
-        }
-    }
-} 
-
-
-div.lb_search{
-    display: block;
-    position: absolute;
-    overflow: auto;
-    top:20px;
-    right:15px;
-    input{
-        border-radius: 20px;
-        border:none;
-        padding:6px;
-        width:150px;
-    }
-    @media only screen and (max-width : 700px) {
-        right: 0;
-        left:0;
-        width:100%;
-        text-align: center;
-        top:66px;
-        background:lighten(#555,40%);
-        input{
-            margin:5px;
-            width:278px;
-        }
-    }
+.loader {
+     position:absolute;
+     padding:10px;
+     background-color:#B4B4B4;
+     width:100%;
+     text-align:center;
 }
