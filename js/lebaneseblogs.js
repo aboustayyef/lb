@@ -38,14 +38,14 @@ function getColumnNumbers(){
 function fixDimensions(){
 	var desiredWidth = getDesiredWidth();
 	//fix post entries next
-		$('#view-area').width(desiredWidth);
-        $('#view-area').css('margin-left',(extraSpace/2)-5); //allow 10px (5x2) for scroll bar
+		$('#posts').width(desiredWidth);
+        $('#posts').css('margin-left',(extraSpace/2)-5); //allow 10px (5x2) for scroll bar
 		var viewHeight = $(window).height()-$('.mainbar-wrapper').height(); //later remove footer too
-        $('#posts').css('height', viewHeight );
+        $('#view-area').css('height', viewHeight );
         $('#left-col-wrapper').css('height', viewHeight);
         $('#left-col-wrapper').fadeTo('slow',1);
         var columns = getColumnNumbers();
-		$('#view-area').BlocksIt({
+		$('#posts').BlocksIt({
 			numOfCol: columns,
 			offsetX: unitMargin,
 			offsetY: unitMargin,
@@ -53,7 +53,7 @@ function fixDimensions(){
 		});
         $("img.lazy").lazyload({
             effect : "fadeIn",
-            container: $("#posts")
+            container: $("#view-area")
         });
         $("img.lazy").removeClass("lazy");
 }
@@ -62,8 +62,8 @@ function fixDimensions(){
 var workInProgress = "no";
 
 function do_scroll_math(){
-    var docHeight = $('#view-area').height();
-    var howFarDown = Math.abs($('#view-area').position().top);
+    var docHeight = $('#posts').height();
+    var howFarDown = Math.abs($('#posts').position().top);
     var s = docHeight - howFarDown;
     console.log(s);
     if (s <= 1000) { // when we're almost at the bottom of the document
@@ -74,7 +74,7 @@ function do_scroll_math(){
 
             var url = "contr_get_extra_posts.php";
             $.post(url, function (data) {
-                $("#view-area").append(data);
+                $("#posts").append(data);
                 fixDimensions();
                 $('.card').fadeTo('slow', 1);
                 $(document).scrollTop = s;
@@ -95,7 +95,7 @@ $(document).ready(function(){
     $("img.lazy").lazyload({
         effect : "fadeIn",
         threshold : 500,
-        container: $("#posts")
+        container: $("#view-area")
     });
     $("img.lazy").removeClass("lazy");
 });
@@ -103,22 +103,35 @@ $(document).ready(function(){
 // Things to load after everything else has loaded
 $(window).load(function(){
     fixDimensions();
-    $('#view-area').waitForImages(function() {
+    $('#posts').waitForImages(function() {
         $('.loader').toggle();
         $('.card').fadeTo('slow', 1);
     });
 
 });
 
+$('#searchtoggle').click(function(){
+    $('#search').css('opacity','1');
+    $('#search').css('width','200px');
+    $('#search').focus();
+    $('#searchtoggle').toggle();
+});
+
+$('#search').focusout(function(){
+    $('#search').css('width','0');
+    $('#search').css('opacity','0');
+    $('#searchtoggle').toggle();
+});
+
 // When document is scrolled or resized / code source: http://stackoverflow.com/questions/5489946/jquery-how-to-wait-for-the-end-or-resize-event-and-only-then-perform-an-ac
 
 var do_scroll_it;
-$('#posts').scroll(function() {
+$('#view-area').scroll(function() {
     clearTimeout(do_scroll_it);
     do_scroll_it = setTimeout(function() {
         console.log('making the call');
         $("img.lazy").lazyload({
-            container: $("#posts"),
+            container: $("#view-area"),
             effect : "fadeIn",
         });
         $("img.lazy").removeClass("lazy");

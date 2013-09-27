@@ -52,9 +52,10 @@ global $channel_descriptions;
             <div class="nav-wrapper">
               <div id="menu">
                 <ul>
+                  <li><a href="#">Sign in  <i class ="icon-signin"></i></a></li>
                   <li><a href="#">FAQ - About</a></li>
                   <li><a href="#">Submit Blog</a></li>
-                  <li><a href="#">Search</a></li>
+                  <li class ="search"><a href="#"><i id ="searchtoggle" class ="icon-search icon-large"></i></a><input id ="search" type="text" placeholder ="search"></li>
                 </ul>
               </div>
             </div><!-- nav-wrapper -->
@@ -65,6 +66,6 @@ global $channel_descriptions;
         <img src="img/interface/loadinfo.net.gif">
       </div>
       <?php include_once(ABSPATH.'views/draw_left_column.php'); ?>
-    <div id ="posts">
-		  <div id="view-area">
+    <div id ="view-area">
+      <div id="posts">
 <?php ?>

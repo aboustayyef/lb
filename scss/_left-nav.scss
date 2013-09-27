@@ -42,7 +42,9 @@ $left_padding: 20px;
             margin-right:6px;
         }     
     }
-
+    a {
+        text-decoration: none;
+    }
     .label{
 
         width:279px - $left_padding;
@@ -58,7 +60,7 @@ $left_padding: 20px;
             &.selected{
                 background-color: rgba(0,0,0,0.05);
                 border-bottom: darken(white,8) 1px solid;
-                border-top: lighten(black,79) 1px solid;
+                border-top: lighten(black,90) 1px solid;
                 i{
                     color: $lb_red;
                 }
@@ -72,7 +74,7 @@ $left_padding: 20px;
             &.selected{
                 background-color: rgba(0,0,0,0.05);
                 border-bottom: darken(white,8) 1px solid;
-                border-top: lighten(black,79) 1px solid;
+                border-top: lighten(black,90) 1px solid;
                 i{
                     color: $lb_red;
                 }

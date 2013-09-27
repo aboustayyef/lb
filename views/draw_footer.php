@@ -1,8 +1,7 @@
+                </div> <!-- /posts -->
+            <div class="endloader">Loading more... </div>
         </div> <!-- /view-area -->
-<div class="endloader">Loading more... </div>
-
-</div> <!-- /posts -->
-</div> <!-- /pagewrapper -->
+    </div> <!-- /pagewrapper -->
 </div>
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
