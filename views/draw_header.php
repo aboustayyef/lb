@@ -67,5 +67,4 @@ global $channel_descriptions;
       </div>
       <?php include_once(ABSPATH.'views/draw_left_column.php'); ?>
     <div id ="view-area">
-      <div id="posts">
 <?php ?>

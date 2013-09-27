@@ -32,7 +32,7 @@ if (isset($_COOKIE["lblogs_default_view"])) {
 	$_SESSION['viewtype'] = $_COOKIE["lblogs_default_view"];
 } else {
 	$expire=time()+60*60*24*30; // one month
-	setcookie("lblogs_default_view", "cards", $expire); // "cards is the default"
+	setcookie("lblogs_default_view", "cards", $expire); // "cards is the default view"
 	$_SESSION['viewtype'] = "cards";
 }
 
@@ -52,9 +52,24 @@ $webpage->SetDescription();
 $posts = new Posts($db); 
 $data = $posts->get_interval_posts(1,20, $_SESSION['channel']); // Usage: get_interval_posts(from, howmany, tag)
 
-// Draw the whole thing
+// Begin Drawing
 $webpage->draw_header();
+
+
+/**
+*	Note on the structure of posts below: 
+** 
+*   The reason we didn't include begin_posts() and end_posts() in the header is because we want 
+*   to use the header for different pages (without posts div). We also didn't include them in the display_posts()
+*   because that method is used to append more posts to the posts <div>. 
+*	If we included it in the file, we will have recursive posts inside posts divs.
+*/ 
+
+$webpage->begin_posts(); 
 $webpage->display_posts($data); 
+$webpage->end_posts(); 
+
+
 $webpage->draw_footer();
 
 

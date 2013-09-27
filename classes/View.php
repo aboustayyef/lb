@@ -59,6 +59,13 @@ class View
 	function draw_footer() { //footer of web page
 		include_once(ABSPATH.'views/draw_footer.php')	;
 	}
+
+	function begin_posts(){
+		echo '<div id="posts">';
+	}
+	function end_posts(){
+		echo '</div> <!-- /posts -->';
+	}
 /**
 *   Utility functions
 */ 
