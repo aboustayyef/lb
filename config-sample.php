@@ -5,7 +5,7 @@
 ********************************************************************/ 
 
 define('ABSPATH', dirname(__FILE__).'/');
-
+define('WEBPATH', '');
 define('LBDB_USER', '');
 define('LBDB_PASS', '');
 define('LBDB_HOST', '');
