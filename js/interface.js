@@ -1,7 +1,5 @@
 // Javascript for interface behavior 
 
-
-
 /**
 *   sets dimensions of elements of the interface at load or at window size change
 */ 
@@ -9,8 +7,10 @@ function resizeInterface(){
 	console.log('resizeInterface');
 	var viewHeight = $(window).height() - $('.mainbar-wrapper').height(); //later remove footer too
     $('#view-area').css('height', viewHeight);
-    $('#left-col-wrapper').css('height', viewHeight);
-    $('#left-col-wrapper').fadeTo('slow', 1);
+    if ($(window).width() >= 760) { // vertical tablet or below doesn't show left column
+    	$('#left-col-wrapper').css('height', viewHeight);
+   	    $('#left-col-wrapper').fadeTo('slow', 1);
+    };
 }
 
 

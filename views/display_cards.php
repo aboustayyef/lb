@@ -6,6 +6,9 @@
 */
 
 	// loops through the posts
+
+echo '<pre>',print_r($data),'</pre>';
+
 		foreach ($data as $key => $post) {
 
 			$target_url = "http://lebaneseblogs.com/r.php?r=".urlencode($post['post_url']);
