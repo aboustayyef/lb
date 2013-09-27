@@ -50,7 +50,7 @@ $webpage->SetDescription();
 
 // Get initial posts. Initiate model.
 $posts = new Posts($db); 
-$data = $posts->get_interval_posts(1,20, $_SESSION['channel']); // Usage: get_interval_posts(from, howmany, tag)
+$data = $posts->get_interval_posts(0,20, $_SESSION['channel']); // Usage: get_interval_posts(from, howmany, tag)
 
 // Begin Drawing
 $webpage->draw_header();
