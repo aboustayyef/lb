@@ -33,6 +33,12 @@
 	.post_title{
 		width:500px;
 		margin-bottom: 20px;
+		.post_time {
+            font-size: 13px;
+            margin-left: 5px;
+            color: darken($lb_red,10);
+            opacity: .3;
+        }
 		a{
 			line-height: 26px;
 			text-decoration: none;

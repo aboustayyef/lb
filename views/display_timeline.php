@@ -31,7 +31,7 @@
 					<div class="blog_name"><a href ="<?php echo '/' . $post['blog_id'] ?>"><?php echo $post['blog_name'] ;?></a></div>
 					
 					<!-- post title -->
-					<div class="post_title <?php if ($this->contains_arabic($post['post_title'])) {echo " rtl";};?>"><a href="<?php echo $target_url ;?>"><?php echo $post['post_title']; ?></a></div>
+					<div class="post_title <?php if ($this->contains_arabic($post['post_title'])) {echo " rtl";};?>"><a href="<?php echo $target_url ;?>"><?php echo $post['post_title']; ?></a><span class="post_time"><?php echo Lb_functions::time_elapsed_string($post['post_timestamp']) ?></span></div>
 					
 					<!-- image or excerpt -->
 					<?php 

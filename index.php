@@ -14,6 +14,7 @@ include_once("includes_new/connection.php");
 include_once("classes/Posts.php");
 include_once("classes/View.php"); 
 include_once('classes/Image.php');
+include_once('classes/Lb_functions.php');
 global $channel_descriptions;
 
 

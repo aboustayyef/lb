@@ -11,6 +11,8 @@ session_start();
 	include_once("classes/Posts.php");
 	include_once("classes/View.php");
 	include_once("classes/Image.php");
+	include_once("classes/Lb_functions.php");
+
 
 // 	prepare class
 	$posts = new Posts($db);

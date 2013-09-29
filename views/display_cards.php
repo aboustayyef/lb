@@ -31,6 +31,7 @@
 
 			<!--card body-->
 			<div class ="card_body" id ="<?php echo 'content-post-' . $_SESSION['posts_displayed']; ?>">
+				<div class="post_time"><?php echo Lb_functions::time_elapsed_string($post['post_timestamp']) ?></div>
 				<div class="post_title"><a href="<?php echo $target_url ;?>"><?php echo $post['post_title']; ?></a></div>
 				<?php 
 
