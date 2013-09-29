@@ -4,6 +4,5 @@
 */
 
 	// loops through the posts
-		foreach ($data as $key => $post) {
-		}
+		
 ?>

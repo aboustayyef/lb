@@ -10,6 +10,7 @@ session_start();
 	include_once("includes_new/connection.php");
 	include_once("classes/Posts.php");
 	include_once("classes/View.php");
+	include_once("classes/Image.php");
 
 // 	prepare class
 	$posts = new Posts($db);

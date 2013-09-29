@@ -13,6 +13,7 @@ include_once("config.php");
 include_once("includes_new/connection.php");
 include_once("classes/Posts.php");
 include_once("classes/View.php"); 
+include_once('classes/Image.php');
 global $channel_descriptions;
 
 
@@ -28,10 +29,20 @@ $_SESSION['posts_displayed'] = 0; //number of posts shown
 $_SESSION['items_displayed'] = 0; // number of items shown (including other widgets)
 
 // initialze view type
-if (isset($_COOKIE["lblogs_default_view"])) {
+$expire=time()+60*60*24*30; // one month
+
+// url overrides Session
+if ((isset($_GET['view'])) && (($_GET['view'] == 'cards') || ($_GET['view'] == 'timeline') || ($_GET['view'] == 'compact'))) { 
+	setcookie("lblogs_default_view", $_GET['view'], $expire);
+	$_SESSION['viewtype'] = $_GET["view"];
+// session trumps cookie
+} else if (isset($_SESSION['viewtype'])) { 
+	# do nothing
+// cookie is better than nothing
+} else if (isset($_COOKIE["lblogs_default_view"])) {
 	$_SESSION['viewtype'] = $_COOKIE["lblogs_default_view"];
+// nothing still works
 } else {
-	$expire=time()+60*60*24*30; // one month
 	setcookie("lblogs_default_view", "cards", $expire); // "cards is the default view"
 	$_SESSION['viewtype'] = "cards";
 }

@@ -23,9 +23,15 @@ $left_padding: 20px;
     #viewtype{
         background-color:rgba(0,0,0,0.035);
         border-top: lighten(black,79) 1px solid;
-
     }
-
+    sup{
+        margin-left: 2px;
+        font-size: 11px;
+        color:$lb_red;
+        vertical-align: baseline;
+        position: relative;
+        top: -0.4em;
+       }
     h4.sectionheader{
         padding:0;
         margin:0;

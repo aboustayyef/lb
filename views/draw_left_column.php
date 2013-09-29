@@ -10,22 +10,46 @@ function ischannel($s, $channelname){
   }
 }
 
+//build url for current page
+$self_url = $_SERVER['PHP_SELF']; //script without parameters
+if (isset($_SESSION['channel'])) {
+  $self_url .= '?channel='.$_SESSION['channel'].'&view='; // add channel
+}else{
+  $self_url .= '?view=';
+}
 ?>
-
 <div id="left-col-wrapper">
   <div id ="viewtype">
-    <h4 class="sectionheader">View :</h4>
+    <h4 class="sectionheader">View<sup>New!</sup></h4>
     <div id="icons">
-      <img src="<?php echo WEBPATH . 'img/interface/view-icon-card-selected.png' ;?>" width ="46" height ="40" alt="">
-      <img src="<?php echo WEBPATH . 'img/interface/view-icon-timeline.png' ;?>" width ="46" height ="40" alt="">
-      <img src="<?php echo WEBPATH . 'img/interface/view-icon-compact.png' ;?>" width ="46" height ="40" alt="">
+      
+      <a href="<?php echo $self_url.'cards' ?>">
+      <img src="<?php echo WEBPATH . 'img/interface/view-icon-card';
+        if ($_SESSION['viewtype']=='cards') {
+          echo '-selected';
+        }
+        echo '.png' ;?>" width ="46" height ="40" alt=""></a>
+      
+      <a href="<?php echo $self_url.'timeline' ?>">
+      <img src="<?php echo WEBPATH . 'img/interface/view-icon-timeline';
+        if ($_SESSION['viewtype']=='timeline') {
+          echo '-selected';
+        }
+        echo '.png' ;?>" width ="46" height ="40" alt=""></a>
+
+      <a href="<?php echo $self_url.'compact' ?>">  
+      <img src="<?php echo WEBPATH . 'img/interface/view-icon-compact';
+        if ($_SESSION['viewtype']=='compact') {
+          echo '-selected';
+        }
+        echo '.png' ;?>" width ="46" height ="40" alt=""></a>
     </div>
   </div>
 
   <div id ="channels">
 
-      <div class = "label level1"><i class ="icon-star"></i>My Favorite Bloggers</div>
-      <div class ="label level1"><i class ="icon-envelope"></i>My Saved Posts</div>
+      <div class = "label level1"><i class ="icon-star"></i>My Favorite Bloggers<sup>New!</sup></div>
+      <div class ="label level1"><i class ="icon-envelope"></i>My Saved Posts<sup>New!</sup></div>
       
       <a href="<?php echo WEBPATH ?>">
         <div class = " <?php ischannel($s, null); ?> label folder level1">

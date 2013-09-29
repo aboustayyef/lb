@@ -19,12 +19,12 @@
         switch ($_SESSION['viewtype']) {
             case 'cards':
                 ?>
-                    <script src="<?php echo WEBPATH ;?>js/cards.js?<?php //echo time(); ?>"></script>
+                    <script src="<?php echo WEBPATH ;?>js/cards.js?<?php echo time(); ?>"></script>
                 <?php
                 break;
             case 'timeline':
                 ?>
-                    <script src="<?php echo WEBPATH ;?>js/timeline.js?<?php //echo time(); ?>"></script>
+                    <script src="<?php echo WEBPATH ;?>js/timeline.js?<?php echo time(); ?>"></script>
                 <?php
                 break;
             case 'compact':
