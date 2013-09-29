@@ -1,6 +1,5 @@
 <?php 
 
-
 /**
 *   This script displays an amount of cards as per the $data given
 */
@@ -22,7 +21,7 @@
 		
 			<!--card header-->
 		
-			<div class="card_header blog_post_module">
+			<div class="card_header">
 				<a href ="<?php echo '/' . $post['post_id'] ?>"><img class ="blog_thumb" src="<?php echo "img/thumbs/".$post['blog_id'].".jpg";?>" width ="50" height ="50"></a>
 				<div class="post_details">
 					<div class="blog_name"><a href ="<?php echo '/' . $post['blog_id'] ?>"><?php echo $post['blog_name'] ;?></a></div>
