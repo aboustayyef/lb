@@ -39,7 +39,7 @@ global $channel_descriptions;
   </head>
 
   <body>
-    <div id="menu-about">
+    <div class = "menu" id="menu-about">
       <ul>
         <a href="#"><li>about</li></a>
         <a href="#"><li>bloggers</li></a>
@@ -52,8 +52,9 @@ global $channel_descriptions;
       <div class="mainbar-wrapper">
   	    <div class="mainbar">
       		<!-- logo -->
+          <div id="hamburger"><i class ="icon-reorder icon-large"></i></div>
         		<div id ="logo">
-          		<a href="<?php echo WEBPATH ;?>">
+            		<a href="<?php echo WEBPATH ;?>">
             		<img class='desktop-logo' src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white.png" >
           		  <img src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white-mobile.png" alt="" class="mobile-logo">
               </a>

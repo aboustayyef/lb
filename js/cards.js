@@ -107,10 +107,8 @@ $(document).ready(function() {
 // Things to load after everything else has loaded
 $(window).load(function() {
     fixCards();
-    $('#posts').waitForImages(function() {
-        $('.loader').toggle();
-        $('.card').fadeTo('slow', 1);
-    });
+    $('.loader').toggle();
+    $('.card').fadeTo('slow', 1);
 
 });
 

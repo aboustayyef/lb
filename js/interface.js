@@ -48,4 +48,6 @@ $(window).resize(function() {
 
 $('#show-about').click(function(){
     $('#menu-about').toggle();
+    $('#show-about li').toggleClass('selected');
+    //$('window').scrollTop(1);
 });

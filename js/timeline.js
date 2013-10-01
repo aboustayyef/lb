@@ -13,10 +13,8 @@ function showLazyImages(){
 
 $(window).load(function() {
     showLazyImages();
-    $('#posts').waitForImages(function() {
-        $('.loader').toggle();
-        $('.timeline').fadeTo('slow', 1);
-    });
+    $('.loader').toggle();
+    $('.timeline').fadeTo('slow', 1);
 });
 
 $(document).ready(function() {
