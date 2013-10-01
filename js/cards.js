@@ -15,7 +15,11 @@ var extraSpace;
 
 // this calculates the exact width of area where cards will show
 function getDesiredWidth() {
-    var wdth = $(window).width() - $('#left-col-wrapper').outerWidth();
+    var wdth = $(window).width();
+    if ($(window).width()>=760) {
+        wdth = $(window).width() - $('#left-col-wrapper').outerWidth();
+    }
+
     extraSpace = wdth % unitTotalWidth;
     var desiredWidth = wdth - extraSpace;
     if (desiredWidth > (unitTotalWidth * 5)) {
@@ -40,7 +44,11 @@ function fixCards() {
     var desiredWidth = getDesiredWidth();
     //fix post entries next
     $('#posts').width(desiredWidth);
-    $('#posts').css('margin-left', (extraSpace / 2) - 5); //allow 10px (5x2) for scroll bar
+    if ($(window).width() >= 760) {
+        $('#posts').css('margin-left', (extraSpace / 2) - 5); //allow 10px (5x2) for scroll bar
+    }else{
+    $('#posts').css('margin-left', (extraSpace / 2));
+    } //allow 10px (5x2) for scroll bar
 
     var columns = getColumnNumbers();
     $('#posts').BlocksIt({

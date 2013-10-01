@@ -16,7 +16,12 @@
 
 #view-area{
     overflow: scroll;
+    -webkit-overflow-scrolling: touch;
 }
+
+/* #view-area > *{
+    -webkit-transform: translateZ(0px);
+}*/
 
 /**
 *   items related to pages

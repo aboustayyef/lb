@@ -2,21 +2,21 @@
 
 /**
 *   sets dimensions of elements of the interface at load or at window size change
-*/ 
+*/
 function resizeInterface(){
 	console.log('resizeInterface');
 	var viewHeight = $(window).height() - $('.mainbar-wrapper').height(); //later remove footer too
     $('#view-area').css('height', viewHeight);
     if ($(window).width() >= 760) { // vertical tablet or below doesn't show left column
-    	$('#left-col-wrapper').css('height', viewHeight);
-   	    $('#left-col-wrapper').fadeTo('slow', 1);
-    };
+        $('#left-col-wrapper').css('height', viewHeight);
+        $('#left-col-wrapper').fadeTo('slow', 1);
+    }
 }
 
 
 /**
 *   behavior of searchbox
-*/ 
+*/
 $('#searchtoggle').click(function(){
     $('#search').css('opacity','1');
     $('#search').css('width','200px');
@@ -42,4 +42,10 @@ $(window).resize(function() {
     do_resize_interface = setTimeout(function() {
         resizeInterface();
     }, 100);
+});
+
+// Menus and mouse clicks
+
+$('#show-about').click(function(){
+    $('#menu-about').toggle();
 });

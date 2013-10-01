@@ -1,0 +1,4 @@
+// Javascript for interface behavior 
+/**
+*   sets dimensions of elements of the interface at load or at window size change
+*/function resizeInterface(){console.log("resizeInterface");var e=$(window).height()-$(".mainbar-wrapper").height();$("#view-area").css("height",e);if($(window).width()>=760){$("#left-col-wrapper").css("height",e);$("#left-col-wrapper").fadeTo("slow",1)}}$("#searchtoggle").click(function(){$("#search").css("opacity","1");$("#search").css("width","200px");$("#search").focus();$("#searchtoggle").toggle()});$("#search").focusout(function(){$("#search").css("width","0");$("#search").css("opacity","0");$("#searchtoggle").toggle()});$(window).load(function(){resizeInterface()});var do_resize_interface;$(window).resize(function(){clearTimeout(do_resize_interface);do_resize_interface=setTimeout(function(){resizeInterface()},100)});$("#show-about").click(function(){$("#menu-about").toggle()});

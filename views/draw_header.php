@@ -39,6 +39,14 @@ global $channel_descriptions;
   </head>
 
   <body>
+    <div id="menu-about">
+      <ul>
+        <a href="#"><li>about</li></a>
+        <a href="#"><li>bloggers</li></a>
+        <a href="#"><li>feedback</li></a>
+        <a href="#"><li class ="last" >blog</li></a>
+      </ul>
+    </div>
   	<div id ="pagewrapper">
       <!-- Navigation -->
       <div class="mainbar-wrapper">
@@ -46,18 +54,16 @@ global $channel_descriptions;
       		<!-- logo -->
         		<div id ="logo">
           		<a href="<?php echo WEBPATH ;?>">
-            		<img src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white.png" width ="250" height = "40">
-          		</a>
+            		<img class='desktop-logo' src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white.png" >
+          		  <img src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white-mobile.png" alt="" class="mobile-logo">
+              </a>
         		</div>
             <div class="nav-wrapper">
-              <div id="menu">
                 <ul>
-                  <li><a href="#">Sign in  <i class ="icon-signin"></i></a></li>
-                  <li><a href="#">FAQ - About</a></li>
-                  <li><a href="#">Submit Blog</a></li>
-                  <li class ="search"><a href="#"><i id ="searchtoggle" class ="icon-search icon-large"></i></a><input id ="search" type="text" placeholder ="search"></li>
+                  <a  href="#"><li><i class ="icon-signin icon-large"></i></li></a>
+                  <a id ="show-about" href="#menu-about"><li><i id ="info" class ="icon-info-sign icon-large"></i></li></a>
+                  <a href="#"><li class ="search"><i id ="searchtoggle" class ="icon-search icon-large"></i><input id ="search" type="text" placeholder ="search"></li></a>
                 </ul>
-              </div>
             </div><!-- nav-wrapper -->
       	</div> <!-- /mainbar -->
       </div>
