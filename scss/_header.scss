@@ -5,6 +5,7 @@ $menus-background:darken($lb_red, 8);
 $menus-foreground:white;
 
 div.mainbar-wrapper {
+    z-index: 300;
     top:0;
     padding:0;
     margin:0;
@@ -62,9 +63,8 @@ div.mainbar-wrapper {
     #logo{
         overflow:hidden;
         float: left;
-        padding: 10px 5px;
+        padding: 10px 20px;
         display: block;
-        width: 290px;
         @media only screen and (max-width:510px){
             width:90px;
             padding:14px 0;
@@ -98,22 +98,30 @@ div.mainbar-wrapper {
             padding: 22px 12px;
             border-right: 1px solid darken($lb_red, 10);
             float: left;
-            background: silver; 
+            background: #f8f8f8; 
         }
     }
-    .loader {
-         position:absolute;
-         padding:2%;
-         background-color:#B4B4B4;
-         width:96%;
-         text-align:center;
-    }
 }
-
+.loader {
+    display: block;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-left: -24px;
+    margin-top: -24px;
+}
 
 #menu-about{
     &.menu{
-        right: 59px;
+        right: 50px;
+    }
+}
+
+#menu-search{
+    &.menu{
+        right: 0px;
     }
 }
 
@@ -122,9 +130,25 @@ div.mainbar-wrapper {
     display:none;
     position: absolute;
     top: 63px;
-    z-index:300;
+    z-index:320;
     -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
+    form{
+        padding: 10px;
+        p{
+            background:darken(white,20);
+            font-weight: normal;
+            color:lighten(black,20);
+            padding:10px;
+            font-size: 13px;
+            line-height: 14px;
+            width:280px;
+        }
+        input{
+            padding:5px;
+            width:290px;
+        }
+    }
     ul{
         background:inherit;
         padding:0;
@@ -135,7 +159,7 @@ div.mainbar-wrapper {
             li{
                 margin:0;
                 list-style-type: none;
-                padding:10px;
+                padding:10px 30px;
                 border-bottom: 1px darken(white,30) solid;
                 &.last{
                     border-bottom:none;

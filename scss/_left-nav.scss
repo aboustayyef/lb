@@ -1,6 +1,6 @@
 $left_padding: 20px;
 #left-col-wrapper{
-    opacity: 0 ; //javascript will make this 1 once height is calculated and rendered
+    display: none ; //javascript will make this 1 once height is calculated and rendered
     position: relative;
     top:0;
     width: 279px ; //280 with border
@@ -10,12 +10,18 @@ $left_padding: 20px;
 
     @media only screen and (max-width : 768px){
         display: none;
-        width:0;
         .section{
             display: none;
         }
+        &.float_it{
+            display: block;
+            position: absolute;
+            z-index: 500;
+            height:100%;
+            box-shadow: 0 4px 5px #444;
+            border-top:none;
+        }  
     }
-
     #users{
         padding:$left_padding;
     }

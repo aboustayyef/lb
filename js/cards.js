@@ -16,7 +16,7 @@ var extraSpace;
 // this calculates the exact width of area where cards will show
 function getDesiredWidth() {
     var wdth = $(window).width();
-    if ($(window).width()>=760) {
+    if ($(window).width()>768) {
         wdth = $(window).width() - $('#left-col-wrapper').outerWidth();
     }
 
@@ -44,7 +44,7 @@ function fixCards() {
     var desiredWidth = getDesiredWidth();
     //fix post entries next
     $('#posts').width(desiredWidth);
-    if ($(window).width() >= 760) {
+    if ($(window).width() > 768) {
         $('#posts').css('margin-left', (extraSpace / 2) - 5); //allow 10px (5x2) for scroll bar
     }else{
     $('#posts').css('margin-left', (extraSpace / 2));

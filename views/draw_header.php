@@ -38,6 +38,8 @@ global $channel_descriptions;
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/droidarabickufi.css">
   </head>
 
+
+<!-- About Menu -->
   <body>
     <div class = "menu" id="menu-about">
       <ul>
@@ -47,12 +49,22 @@ global $channel_descriptions;
         <a href="#"><li class ="last" >blog</li></a>
       </ul>
     </div>
+
+<!-- Search Menu -->
+    <div class="menu" id ="menu-search">
+      <form action="">
+        <input id="search-box" type="text">
+        <p>Search thousand of lebanese blog posts. <span class ="strong lbred"><br>Tip:</span> try searching for stores or brands.</p>
+      </form>
+    </div>
+
+
   	<div id ="pagewrapper">
       <!-- Navigation -->
       <div class="mainbar-wrapper">
   	    <div class="mainbar">
       		<!-- logo -->
-          <div id="hamburger"><i class ="icon-reorder icon-large"></i></div>
+          <a href ="#left-col-wrapper"><div id="hamburger"><i class ="icon-reorder icon-large"></i></div></a>
         		<div id ="logo">
             		<a href="<?php echo WEBPATH ;?>">
             		<img class='desktop-logo' src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white.png" >
@@ -61,17 +73,16 @@ global $channel_descriptions;
         		</div>
             <div class="nav-wrapper">
                 <ul>
-                  <a  href="#"><li><i class ="icon-signin icon-large"></i></li></a>
-                  <a id ="show-about" href="#menu-about"><li><i id ="info" class ="icon-info-sign icon-large"></i></li></a>
-                  <a href="#"><li class ="search"><i id ="searchtoggle" class ="icon-search icon-large"></i><input id ="search" type="text" placeholder ="search"></li></a>
+                  <a href="#"><li><i class ="icon-signin icon-large"></i></li></a>
+                  <a href="#menu-about" id ="show-about" ><li><i id ="info" class ="icon-info-sign icon-large"></i></li></a>
+                  <a href="#menu-search" id="show-search"><li><i id ="search" class ="icon-search icon-large"></i></li></a>
                 </ul>
             </div><!-- nav-wrapper -->
       	</div> <!-- /mainbar -->
       </div>
+              <img class ="loader" src="img/interface/loadinfo.net.gif">
+
 		<div id="content_wrapper"> <!-- the middle section between the header and the footer -->
-			<div class ="loader">
-        <img src="img/interface/loadinfo.net.gif">
-      </div>
       <?php include_once(ABSPATH.'views/draw_left_column.php'); ?>
     <div id ="view-area">
 <?php ?>

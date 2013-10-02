@@ -8,7 +8,6 @@
     <!-- JS Dependencies -->
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="<?php echo WEBPATH ;?>js/blocksit.min.js"></script>
-    <script src="<?php echo WEBPATH ;?>js/jquery.waitforimages.min.js"></script>
     <script src="<?php echo WEBPATH ;?>js/jquery.lazyload.min.js"></script>
 
     <!-- App JS -->

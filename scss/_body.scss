@@ -23,13 +23,11 @@
 
 #view-area{
     overflow: scroll;
-    -webkit-overflow-scrolling: touch;
 }
 
-/* #view-area > *{
+#posts > *{
     -webkit-transform: translateZ(0px);
-}*/
-
+}
 /**
 *   items related to pages
 */ 
@@ -47,7 +45,6 @@
 
     button.submit{
         padding: 8px;
-        display: relative;
     }
 
 }
