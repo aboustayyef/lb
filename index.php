@@ -30,9 +30,15 @@ $_SESSION['posts_displayed'] = 0; //number of posts shown
 $_SESSION['items_displayed'] = 0; // number of items shown (including other widgets)
 
 // initialze view type
-$expire=time()+60*60*24*30; // one month
 
-// url overrides Session
+//cookie expiry time: one month
+$expire=time()+60*60*24*30; 
+
+
+//to know which view type to load, we first see if there's a url paramenter. If not, we see if there's a session variable. 
+// If not, then we look for cookie (stored from previous sessions)... If all else fails, "cards" is the default view.
+
+// url parameters trump Session
 if ((isset($_GET['view'])) && (($_GET['view'] == 'cards') || ($_GET['view'] == 'timeline') || ($_GET['view'] == 'compact'))) { 
 	setcookie("lblogs_default_view", $_GET['view'], $expire);
 	$_SESSION['viewtype'] = $_GET["view"];
@@ -62,7 +68,7 @@ $webpage->SetDescription();
 
 // Get initial posts. Initiate model.
 $posts = new Posts($db); 
-$data = $posts->get_interval_posts(0,20, $_SESSION['channel']); // Usage: get_interval_posts(from, howmany, tag)
+$data = $posts->get_interval_posts(0,25, $_SESSION['channel']); // Usage: get_interval_posts(from, howmany, tag)
 
 // Begin Drawing
 $webpage->draw_header();

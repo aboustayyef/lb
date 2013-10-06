@@ -80,7 +80,7 @@ global $channel_descriptions;
             </div><!-- nav-wrapper -->
       	</div> <!-- /mainbar -->
       </div>
-              <img class ="loader" src="img/interface/loadinfo.net.gif">
+              <img class ="loader" src="img/interface/lb-loader-animated-big.gif">
 
 		<div id="content_wrapper"> <!-- the middle section between the header and the footer -->
       <?php include_once(ABSPATH.'views/draw_left_column.php'); ?>

@@ -27,9 +27,9 @@ class View
 
 	function SetDescription(){
 		if (isset($_SESSION['channel']) && $_SESSION['channel'] !== NULL) {
-			$this->_description = "Browse the latest posts of the top Lebanese {$_SESSION['channel']} Bloggers";
+			$this->_description = "The best way to read and discover Lebanon's top {$_SESSION['channel']} Bloggers";
 		}else{
-			$this->_description = "Browse the latest posts of the top Lebanese Bloggers";
+			$this->_description = "The best way to read and discover Lebanon's top blogs";
 		}
 	}
 
