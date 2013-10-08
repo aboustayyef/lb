@@ -10,11 +10,12 @@ ini_set('display_errors', '1');
 *																								*
 ************************************************************************************************/ 
 
-require_once("includes/simplepie.php");
-include_once("includes/config.php");
-include_once("includes/connection.php");
-require_once("includes/core-functions.php");
-require_once("includes/simple_html_dom.php");
+include_once("config.php");
+include_once("includes_new/connection.php");
+
+require_once("includes_new/simplepie.php");
+require_once("includes_new/simple_html_dom.php");
+require_once("feeds_fetcher_functions.php");
 
 echo "--------------------------------------------------\n";
 echo date('d M Y , H:i:s');
@@ -33,18 +34,19 @@ if (!($db)) {
 }
 
 // get all feeds
-$query = $db->query('SELECT blog_rss_feed FROM blogs');
+$query = $db->query('SELECT `blog_rss_feed` , `blog_active` FROM `blogs`');
 $feeds = $query->fetchAll();
 
 // loop through feeds
 foreach ($feeds as $feed) 
 {	
+	if ($feed['blog_active'] == 1) { // ignore blog if it's marked as inactive
 	$workingfeed = $feed['blog_rss_feed'];
 	echo "<b>",$workingfeed,"</b><br/>";
 
 	$sp_feed = new SimplePie(); // We'll process this feed with all of the default options.
 	$sp_feed->set_feed_url($workingfeed); // Set which feed to process.
-	$sp_feed->set_cache_location('cache');
+	$sp_feed->set_cache_location(ABSPATH.'cache');
 	$sp_feed->set_cache_duration(600); // Set cache to 10 mins
 	$sp_feed->strip_htmltags(false);
 	$sp_feed->init(); // Run SimplePie. 
@@ -55,38 +57,47 @@ foreach ($feeds as $feed)
 		{
 			// post link
 			$blog_post_link = $item->get_permalink();
+
+			//resolves feedburner proxies
 			$canonical_resource = $item->get_item_tags("http://rssnamespace.org/feedburner/ext/1.0",'origLink');
-			if (isset($canonical_resource[0]['data'])) { //resolves feedburner proxies
+			if (isset($canonical_resource[0]['data'])) { 
 				$blog_post_link = $canonical_resource[0]['data'];
 			}
 			$blog_post_link = urldecode($blog_post_link);
 			echo $blog_post_link,"<br/>\n";
-			$domain = get_domain($blog_post_link); //get_domain() is a function from functions.php. It fetches the url's domain. Example: beirutspring
+
+			// get blogid , example: beirutspring.com -> beirutspring
+			$domain = get_domain($blog_post_link);
+
+			// get timestamp
 			$blog_post_timestamp =  strtotime($item->get_date()); // get post's timestamp;	
 
 			// check if this post is in the database
-			$query2 = $db->query('SELECT post_url FROM posts WHERE blog_id ="'.$domain.'"', PDO::FETCH_NUM);
-			$posts = $query2->fetchAll();
-			$list_of_posts = array();
-			foreach ($posts as $post) {
-				$list_of_posts[] = preg_replace('#\bhttp(s?):\/\/#', '', $post[0]); // removes the http:// or https:// from post slug
+			
+			//first, get the path
+			$post_path_parts = parse_url($blog_post_link);
+			$post_path = $post_path_parts['path']; // result example: "/a-new-10000-lebanese-lira-bill/"
+			if (@$post_path_parts['query']) { // has a query (example: ?pagewanted=.....)
+				$post_path = $post_path.'?'.$post_path_parts['query'];
 			}
+			if (@$post_path_parts['fragment']) { // has a fragment (example: #utm=.....)
+				$post_path = $post_path.'#'.$post_path_parts['fragment'];
+			}
+			echo '<!-- The post path is: '.$post_path.' -->';
+			// now check if this particular post is in database. we use a combination of $domain and $post_path and timestamp
+			$query2 = $db->query('SELECT `post_id` FROM `posts` WHERE `blog_id` = "' . $domain . '" AND `post_url` LIKE "%' . $post_path  . '" ', PDO::FETCH_NUM);
 
-			//echo "<pre>",print_r($list_of_posts,true),"</pre>";
+			if ($query2->rowCount() > 0) { // post exist in database
+				echo '<span style ="color:blue">post is already in the database</span><br>',"\n";
+				continue;
+			} else if ((time()-$blog_post_timestamp) > (3*30*24*60*60)) { //post is more than 3 month old ;
+				echo '<span style ="color:blue">post is older than three months</span><br>',"\n";
+				continue;
+			} else { // ok, new post, insert in database
 
-			if (in_array(preg_replace('#\bhttp(s?):\/\/#', '', $blog_post_link), $list_of_posts)) {
-				echo '<span style ="color:blue">post is already in the database</span>',"\n";
-				echo "<hr>";
-				break;
-				
-			} else if ((time()-$blog_post_timestamp) > (2629740*12)) { //post is more than 3 month old ;
-				echo '<span style ="color:red">post is more than one year old</span>',"\n";
-				echo "<hr>";
-				break;
-			} else {
 				$blog_post_title = clean_up($item->get_title(), 120);
 				$temp_content = $item->get_content();
-				$blog_post_content = html_entity_decode($temp_content, ENT_COMPAT, 'utf-8');
+				$blog_post_content = html_entity_decode($temp_content, ENT_COMPAT, 'utf-8'); // for arabic
 				
 				$blog_post_image = dig_suitable_image($blog_post_content) ;
 				$blog_post_excerpt = get_blog_post_excerpt($blog_post_content, 120);
@@ -148,7 +159,7 @@ foreach ($feeds as $feed)
 			}
 
 		}
-
+	}
 }
 
 

@@ -13,13 +13,11 @@ div.mainbar-wrapper {
     height:64px;
     position:relative;
     background-color: $lb_red;
-    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.8);
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.8);
+    @include drop-shadow();
     border-bottom-width: 0;
     overflow: hidden;
     .mainbar{
         .nav-wrapper{
-            font-size: 14px;
             float:right;
             ul{
                 display: block;
@@ -27,7 +25,6 @@ div.mainbar-wrapper {
                 margin:0;
                 padding:0;
                 a{
-                    text-decoration: none;
                     color:white;
                     li{
                         border-left: 1px lighten($lb_red, 15) solid;
@@ -67,7 +64,7 @@ div.mainbar-wrapper {
         display: block;
         @media only screen and (max-width:510px){
             width:90px;
-            padding:14px 0;
+            padding:14px 5px;
         }
 
         img.desktop-logo{
@@ -93,12 +90,11 @@ div.mainbar-wrapper {
         @media only screen and (max-width:768px){
             display:block;
             margin-top: 0;
-            color: lighten(black, 42);
+            color: white;
             margin-right: 10px;
             padding: 22px 12px;
-            border-right: 1px solid darken($lb_red, 10);
             float: left;
-            background: #f8f8f8; 
+            background: $lb_red; 
         }
     }
 }
@@ -165,7 +161,7 @@ div.mainbar-wrapper {
                     border-bottom:none;
                 }
                 &:hover{
-                    background:darken(white,5);
+                    background:darken($lb_red,5);
                 }
             }
         }

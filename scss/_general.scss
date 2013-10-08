@@ -1,20 +1,4 @@
 // general settings
-$module_padding: 10px;
-$left-sidebar-width : 260px; //(+20 padding)
-$lb_red : #A33E46;
-$lb_dark_red: #7A323B;
-$interface_border_color: rgb(160,160,160);
-
-hr {
-    margin: 20px 0;
-    border: 0;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #fff;
-}
-
-.highlighted{
-    background-color:darken($lb_red,14%);
-}
 
 .strong{
     font-weight: bold;
@@ -24,52 +8,58 @@ hr {
     color: $lb_red;
 }
 
+html{
+    font-size: 62.5%;
+}
+
+.headlinefont{
+    font-family: "Bitter",sans-serif;
+}
+
+.secondaryfont{
+    font-family: "open sans",sans-serif;
+}
+
+.arabicfont{
+    font-family: 'Droid Arabic Kufi', serif;
+}
+
 input:focus, textarea:focus {
     outline: none;
 }
 
 body{
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    line-height: 18px;
-    background: #c5c5c5;
+    font-size: 1.4em;
+    line-height: 1.6em;
     padding:0;
     margin: 0;
 }
 
-strong{
-    font-weight:bold;
-}
-
 a{
-    color: #444;
-    a:hover{
-        color: #3B967C;
-    }
+    text-decoration:none;
+    color: #555;
 }
 
 ul{
-    padding:0 2em;
-    li{
-        list-style-type: circle;
-        margin-bottom: .5em;
-    }
+    margin:0;
+    padding:0;
+    list-style-type:none;
 }
 
-p{
-    margin: .5em 0;
-}
 
 h1,h2,h3,h4{
     font-weight: bold;
     line-height: 1.6em;
-    margin: 1em 0;
+    margin: 0;
 }
 
-h1 {font-size:1.6em;}
-h2 {font-size:1.4em;}
-h3 {font-size:1.2em;}
-h4 {font-size:1.1em;}
+h1 {font-size:2em;}
+h2 {font-size:1.8em;}
+h3 {font-size:1.6em;}
+p{
+    margin: .5em 0;
+}
 
 textarea, input{
     padding:.4em .4em;
@@ -79,32 +69,8 @@ textarea, input{
     border:silver 1px solid;
 }
 
-.small{
-    font-size:.9em;
-    color:grey;
-}
-
-select{
-    margin-bottom: 0;
-    width: 270px;
-}
-
-#modal_background{
-    position:absolute;
-    opacity:.8;
-    width:100%;
-    height:100%;
-    background:#222;
-    z-index: 555;
-}
-
-.top-right{
-    position: absolute;
-    color: white;
-    top: 10px;
-    right: 10px;
-}
-
-a .top-right{
-    text-decoration: none;
+@mixin drop-shadow ($x: 1px, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+  -webkit-box-shadow: $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  -moz-box-shadow:    $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  box-shadow:         $x $y $blur $spread rgba(0, 0, 0, $alpha);
 }

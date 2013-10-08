@@ -5,16 +5,13 @@
     margin: 10px;
     background: white ;
     border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(34,25,25,0.6);
-    -moz-box-shadow:0 1px 2px rgba(34,25,25,0.6);
-    -webkit-box-shadow:0 1px 3px rgba(34,25,25,0.6);
+    @include drop-shadow();
     a{
         text-decoration: none;
     }
     
     //header
     .card_header{
-        font-family: "Bitter",sans-serif;
         padding: $module_padding;
         position: relative;
         border-bottom: 1px solid silver;
@@ -23,7 +20,6 @@
             border: 1px solid  rgb(240, 240, 240);
         }
         .blog_name{
-            font-family: "open sans",sans-serif;
             opacity: .9;
             font-size:14px;
             line-height: 16px;
@@ -49,7 +45,6 @@
         } 
         blockquote{
             padding: 0 15px;
-            font-family: "open-sans",sans-serif;
             font-size: .9em;
             line-height: 1.4em;
             max-width: 230px;
@@ -61,7 +56,6 @@
             a{
                 color: #444;
                 text-decoration: none;
-                font-family: "Bitter",serif;
                 font-size: 18px;
                 line-height: 18px;
                 font-weight: bold; 
@@ -85,7 +79,6 @@
         font-size: 15px;
         line-height: 18px;
         .post_title a{
-            font-family: 'Droid Arabic Kufi', serif;
             font-weight: bold;
             font-size:20px;
             line-height: 24px;

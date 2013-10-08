@@ -1,7 +1,5 @@
 $compact-padding:10px;
-a{
-	text-decoration:none;
-}
+
 .compact {
 	width: 100%;
 	overflow: hidden;
@@ -52,6 +50,7 @@ a{
 		text-decoration: none;
 	}
 	.compact-preview{
+		position:relative;
 		display: block;
 		height: 40px;
 		overflow: hidden; 

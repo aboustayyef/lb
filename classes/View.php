@@ -14,22 +14,40 @@ class View
 	function __construct() {}
 
 	function SetPage($page){ // for navigation
-		$this->_page = $page;
+		if ($page == "about") {
+			$this->_page = $page;
+		} else {
+			$this->_page = 'home';
+		}
+		
 	}
 
 	function SetTitle(){
-		if (isset($_SESSION['channel']) && $_SESSION['channel'] !== NULL) {
-			$this->_title = "Top {$_SESSION['channel']} blogs in Lebanon | Lebanese Blogs";
-		}else{
-			$this->_title = "Lebanese Blogs | Latest posts from the best Blogs";
+		
+		if ($this->_page == "home") {
+			if (isset($_SESSION['channel']) && $_SESSION['channel'] !== NULL) {
+				$this->_title = "Top {$_SESSION['channel']} blogs in Lebanon | Lebanese Blogs";
+			}else{
+				$this->_title = "Lebanese Blogs | Latest posts from the best Blogs";
+			}
 		}
+
+		if ($this->_page == "about"){
+			$this->_title = "Lebanese Blogs | About";
+		} 
 	}
 
 	function SetDescription(){
-		if (isset($_SESSION['channel']) && $_SESSION['channel'] !== NULL) {
-			$this->_description = "The best way to read and discover Lebanon's top {$_SESSION['channel']} Bloggers";
-		}else{
-			$this->_description = "The best way to read and discover Lebanon's top blogs";
+		if ($this->_page == "home") {
+			if (isset($_SESSION['channel']) && $_SESSION['channel'] !== NULL) {
+				$this->_description = "The best way to read and discover Lebanon's top {$_SESSION['channel']} Bloggers";
+			}else{
+				$this->_description = "The best way to read and discover Lebanon's top blogs";
+			}
+		}
+
+		if ($this->_page == "about"){
+			$this->_description = "Know more about us";
 		}
 	}
 
@@ -59,7 +77,9 @@ class View
 	function draw_footer() { //footer of web page
 		include_once(ABSPATH.'views/draw_footer.php')	;
 	}
-
+	function draw_pages() { //pages (about ...etc)
+		include_once(ABSPATH.'views/draw_pages.php')	;
+	}
 	function begin_posts(){
 		echo '<div id="posts">';
 	}
@@ -105,7 +125,5 @@ class View
 		</script>
 		<?php
 	}
-
-
 }
 ?>

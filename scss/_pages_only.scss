@@ -1,0 +1,93 @@
+/**
+*   This is CSS for only the pages
+*/ 
+
+.loader , .endloader{
+	display:none;
+}
+
+em{
+	font-style: italic;
+}
+
+.box{
+	background: lighten($lb_red, 55);
+	border:1px lighten($lb_red, 45) solid;
+	padding: 1em;
+}
+
+.lead{
+	font-size: 1.1em;
+	line-height:1.5em;
+}
+
+h3{
+	font-size: 1.3em;
+	color:darken($lb_red, 5)
+}
+
+p{
+	margin: 1em 0;
+	line-height:1.6em;
+	strong{
+		font-weight: bold;
+	}
+	i{
+		color:$lb_red;
+	}
+}
+
+.button{
+	background: $lb_red;
+	color: white;
+	border: lighten($lb_red, 10) 1px solid;
+	margin-left:1em;
+	padding: .45em .4em;
+	font-size: .8em;
+	line-height: 1.3em;
+	width:15%;
+}
+
+ul#section-choose{
+	z-index:100;
+	display:block;
+	width:30em;
+	height:2em;
+	margin: 1em auto;
+	li{
+		a{
+			color: $lb_red;
+			text-decoration: none;
+		}
+		float: left;
+		padding:0.3em 1.2em;
+		font-size: 1.2em;
+		border-right: 0.1em silver solid;
+		&:last-child{
+			border-right:none;
+		}
+	}
+}
+
+input{
+	margin: 2em 0;
+	width:70%;
+}
+
+ul#criteria {
+	margin-bottom:1em;
+	list-style-type: disc;
+	li{
+		margin-left: 1em;
+		line-height: 1.1em;
+		margin-bottom: 1em;
+	}
+}
+
+.section{
+	font-size:1.1em;
+	max-width:38em;
+	margin: 3em auto;
+	padding: 0 1em;
+
+}

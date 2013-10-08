@@ -13,7 +13,12 @@ global $channel_descriptions;
     <meta property="og:image" content="http://lebaneseblogs.com/img/interface/facebook-og-image.jpg">
 
     <!-- Main CSS -->
-    <link href="<?php echo WEBPATH ;?>css/lebaneseblogs.css?<?php echo time(); ?>" rel="stylesheet">
+    <?php if ($this->_page == "home") {
+      ;?><link href="<?php echo WEBPATH ;?>css/lebaneseblogs.css?<?php echo time(); ?>" rel="stylesheet"><?php
+    } else {
+      ;?><link href="<?php echo WEBPATH ;?>css/pages.css?<?php echo time(); ?>" rel="stylesheet"><?php
+    }?>
+    
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEBPATH ;?>css/font-awesome/css/font-awesome.min.css">
@@ -43,10 +48,8 @@ global $channel_descriptions;
   <body>
     <div class = "menu" id="menu-about">
       <ul>
-        <a href="#"><li>about</li></a>
-        <a href="#"><li>bloggers</li></a>
-        <a href="#"><li>feedback</li></a>
-        <a href="#"><li class ="last" >blog</li></a>
+        <a href="<?php echo WEBPATH.'about' ?>"><li>about</li></a>
+        <a href="<?php echo WEBPATH.'blog'; ?>"><li class ="last" >blog</li></a>
       </ul>
     </div>
 
@@ -64,7 +67,12 @@ global $channel_descriptions;
       <div class="mainbar-wrapper">
   	    <div class="mainbar">
       		<!-- logo -->
-          <a href ="#left-col-wrapper"><div id="hamburger"><i class ="icon-reorder icon-large"></i></div></a>
+          <?php if ($this->_page == "home") {
+            ;?>
+              <a href ="#left-col-wrapper"><div id="hamburger"><i class ="icon-reorder icon-large"></i></div></a>
+            <?php
+          } ?>
+          
         		<div id ="logo">
             		<a href="<?php echo WEBPATH ;?>">
             		<img class='desktop-logo' src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white.png" >
@@ -83,6 +91,8 @@ global $channel_descriptions;
               <img class ="loader" src="img/interface/lb-loader-animated-big.gif">
 
 		<div id="content_wrapper"> <!-- the middle section between the header and the footer -->
-      <?php include_once(ABSPATH.'views/draw_left_column.php'); ?>
+      <?php if ($this->_page == "home") {
+        include_once(ABSPATH.'views/draw_left_column.php');
+      } ?>
     <div id ="view-area">
 <?php ?>

@@ -1,3 +1,8 @@
+$module_padding: 10px;
+$left-sidebar-width : 260px; //(+20 padding)
+$lb_red : #A33E46;
+$lb_dark_red: #7A323B;
+$interface_border_color: rgb(160,160,160);
 
 @import "reset"; // css reset
 
@@ -10,6 +15,5 @@
 @import "cards"; // cards
 @import "timeline"; // Timeline
 @import "compact"; // compact
-@import "bloggers";
 
 @import "search_results";

@@ -49,7 +49,7 @@ var do_scroll_math = function() {
     var howFarDown = Math.abs($('#posts').position().top);
     var s = docHeight - howFarDown;
     console.log(s);
-    if (s <= ($(window).height()+30)) { // when we're almost at the bottom of the document
+    if (s <= 1500) { // when we're almost at the bottom of the document
         if (workInProgress === "no") { // used to prevent overlapping background loading
             workInProgress = "yes";
             $('.endloader').css("bottom", 0);

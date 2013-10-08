@@ -18,7 +18,7 @@
 			
 			<!-- compact post wrapper -->
 
-			<a href="#" onclick="handleClicks(<?php echo $_SESSION['posts_displayed']; ?>)"><div class="compact" data-post-number="<?php echo $_SESSION['posts_displayed']; ?>" style ="opacity:0">
+			<a onclick="handleClicks(<?php echo $_SESSION['posts_displayed']; ?>)"><div class="compact" data-post-number="<?php echo $_SESSION['posts_displayed']; ?>" style ="opacity:0">
 		
 			
 				

@@ -18,6 +18,16 @@ include_once('classes/Lb_functions.php');
 global $channel_descriptions;
 
 
+if (isset($_GET['pagewanted'])) { // for non-app pages (about..etc)
+	$webpage = new View();
+	$webpage->SetPage($_GET['pagewanted']);
+	$webpage->SetTitle();
+	$webpage->SetDescription();
+	$webpage->draw_header();
+	$webpage->draw_pages();
+	$webpage->draw_footer();
+} else {
+
 // initialize Channel, a session wide variable.
 if (isset($_GET['channel'])) {
     $_SESSION['channel'] = $_GET['channel'];
@@ -67,8 +77,24 @@ $webpage->SetTitle();
 $webpage->SetDescription();
 
 // Get initial posts. Initiate model.
-$posts = new Posts($db); 
-$data = $posts->get_interval_posts(0,25, $_SESSION['channel']); // Usage: get_interval_posts(from, howmany, tag)
+$posts = new Posts($db);
+
+// Depending on mode, get amount of posts;
+switch ($_SESSION['viewtype']) {
+	case 'cards':
+		$initial_posts_to_retreive = 20;
+		break;
+	case 'timeline':
+		$initial_posts_to_retreive = 20;
+		break;
+	case 'compact':
+		$initial_posts_to_retreive = 50;
+		break;	
+	default:
+		$initial_posts_to_retreive = 20;
+		break;
+}
+$data = $posts->get_interval_posts(0,$initial_posts_to_retreive, $_SESSION['channel']); // Usage: get_interval_posts(from, howmany, tag)
 
 // Begin Drawing
 $webpage->draw_header();
@@ -90,5 +116,5 @@ $webpage->end_posts();
 
 $webpage->draw_footer();
 
-
+}
 ?>

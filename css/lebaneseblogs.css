@@ -52,24 +52,29 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\000038}}
-hr {
-  margin: 20px 0;
-  border: 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #fff; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000315}}
-.highlighted {
-  background-color: #6f2a30; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\000033}}
 .strong {
   font-weight: bold; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000323}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\000037}}
 .lbred {
   color: #a33e46; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000311}}
+html {
+  font-size: 62.5%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000315}}
+.headlinefont {
+  font-family: "Bitter",sans-serif; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000319}}
+.secondaryfont {
+  font-family: "open sans",sans-serif; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000323}}
+.arabicfont {
+  font-family: 'Droid Arabic Kufi', serif; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000327}}
 input:focus, textarea:focus {
@@ -78,58 +83,45 @@ input:focus, textarea:focus {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000331}}
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  line-height: 18px;
-  background: #c5c5c5;
+  font-size: 1.4em;
+  line-height: 1.6em;
   padding: 0;
   margin: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000340}}
-strong {
-  font-weight: bold; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000339}}
+a {
+  text-decoration: none;
+  color: #555; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000344}}
-a {
-  color: #444; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000346}}
-  a a:hover {
-    color: #3B967C; }
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000351}}
-ul {
-  padding: 0 2em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000353}}
-  ul li {
-    list-style-type: circle;
-    margin-bottom: .5em; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000359}}
-p {
-  margin: .5em 0; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000363}}
 h1, h2, h3, h4 {
   font-weight: bold;
   line-height: 1.6em;
-  margin: 1em 0; }
+  margin: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000369}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000357}}
 h1 {
+  font-size: 2em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000358}}
+h2 {
+  font-size: 1.8em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000359}}
+h3 {
   font-size: 1.6em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000370}}
-h2 {
-  font-size: 1.4em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000360}}
+p {
+  margin: .5em 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000371}}
-h3 {
-  font-size: 1.2em; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000372}}
-h4 {
-  font-size: 1.1em; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000374}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000364}}
 textarea, input {
   padding: .4em .4em;
   font-size: .8em;
@@ -137,37 +129,7 @@ textarea, input {
   border-radius: 4px;
   border: silver 1px solid; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000382}}
-.small {
-  font-size: .9em;
-  color: grey; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000387}}
-select {
-  margin-bottom: 0;
-  width: 270px; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\0000392}}
-#modal_background {
-  position: absolute;
-  opacity: .8;
-  width: 100%;
-  height: 100%;
-  background: #222;
-  z-index: 555; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\00003101}}
-.top-right {
-  position: absolute;
-  color: white;
-  top: 10px;
-  right: 10px; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_general\.scss}line{font-family:\00003108}}
-a .top-right {
-  text-decoration: none; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\000032}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\000033}}
 #left-col-wrapper {
   display: none;
   position: relative;
@@ -177,13 +139,13 @@ a .top-right {
   float: left;
   border-right: 1px solid #a0a0a0; }
   @media only screen and (max-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\000032}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\000033}}
     #left-col-wrapper {
       display: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000314}}
       #left-col-wrapper .section {
         display: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000317}}
       #left-col-wrapper.float_it {
         display: block;
         position: absolute;
@@ -191,22 +153,22 @@ a .top-right {
         height: 100%;
         box-shadow: 0 4px 5px #444;
         border-top: none; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000326}}
   #left-col-wrapper #users {
     padding: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000330}}
   #left-col-wrapper #viewtype {
     background-color: rgba(0, 0, 0, 0.035);
     border-top: #c9c9c9 1px solid; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000333}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000334}}
   #left-col-wrapper sup {
-    margin-left: 2px;
+    margin-left: 0.5em;
     font-size: 11px;
     color: #a33e46;
     vertical-align: baseline;
     position: relative;
     top: -0.4em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000342}}
   #left-col-wrapper h4.sectionheader {
     padding: 0;
     margin: 0;
@@ -214,58 +176,45 @@ a .top-right {
     color: #4d4d4d;
     font-weight: normal;
     padding-left: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000350}}
   #left-col-wrapper #icons {
     padding-top: 5px;
     padding-bottom: 10px;
-    padding-left: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000353}}
-    #left-col-wrapper #icons img {
-      margin-right: 6px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000357}}
-  #left-col-wrapper a {
-    text-decoration: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000360}}
+    padding-left: 20px;
+    margin-right: 1em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000358}}
   #left-col-wrapper .label {
     width: 259px;
     padding-left: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000361}}
     #left-col-wrapper .label i {
       margin-right: 5px;
       color: #7d7d7d; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000368}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000366}}
     #left-col-wrapper .label.level1 {
       border-top: 1px solid silver;
       padding-top: 10px;
       padding-bottom: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000372}}
-      #left-col-wrapper .label.level1.selected {
-        background-color: rgba(0, 0, 0, 0.05);
-        border-bottom: #ebebeb 1px solid;
-        border-top: #e6e6e6 1px solid; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000376}}
-        #left-col-wrapper .label.level1.selected i {
-          color: #a33e46; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000371}}
     #left-col-wrapper .label.level2 {
       padding-left: 40px;
       padding-top: 7px;
       padding-bottom: 7px;
       width: 239px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000386}}
-      #left-col-wrapper .label.level2.selected {
-        background-color: rgba(0, 0, 0, 0.05);
-        border-bottom: #ebebeb 1px solid;
-        border-top: #e6e6e6 1px solid; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000390}}
-        #left-col-wrapper .label.level2.selected i {
-          color: #a33e46; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000378}}
     #left-col-wrapper .label:hover {
       background-color: rgba(0, 0, 0, 0.05); }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000380}}
       #left-col-wrapper .label:hover i {
         color: #a33e46; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000385}}
+  #left-col-wrapper .selected {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-bottom: #ebebeb 1px solid;
+    border-top: #e6e6e6 1px solid; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_left-nav\.scss}line{font-family:\0000389}}
+    #left-col-wrapper .selected i {
+      color: #a33e46; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\000037}}
 div.mainbar-wrapper {
@@ -277,41 +226,40 @@ div.mainbar-wrapper {
   height: 64px;
   position: relative;
   background-color: #a33e46;
-  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
   border-bottom-width: 0;
   overflow: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000320}}
   div.mainbar-wrapper .mainbar .nav-wrapper {
-    font-size: 14px;
     float: right; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000322}}
     div.mainbar-wrapper .mainbar .nav-wrapper ul {
       display: block;
       float: left;
       margin: 0;
       padding: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000327}}
       div.mainbar-wrapper .mainbar .nav-wrapper ul a {
-        text-decoration: none;
         color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000332}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000329}}
         div.mainbar-wrapper .mainbar .nav-wrapper ul a li {
           border-left: 1px #c6686f solid;
           display: block;
           float: left;
           padding: 23px 15px;
           margin: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000335}}
           div.mainbar-wrapper .mainbar .nav-wrapper ul a li:hover {
             background-color: #91373e; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000338}}
           div.mainbar-wrapper .mainbar .nav-wrapper ul a li.selected {
             background: #853339;
             color: white;
             -webkit-box-shadow: 1px 0 1px 0 rgba(0, 0, 0, 0.5);
             box-shadow: 1px 0 1px 0 rgba(0, 0, 0, 0.5); }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000345}}
           div.mainbar-wrapper .mainbar .nav-wrapper ul a li input {
             opacity: 0;
             width: 0;
@@ -320,50 +268,49 @@ div.mainbar-wrapper {
             transition: all 0.3s;
             -webkit-transition: all 0.3s;
             border: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000360}}
   div.mainbar-wrapper #logo {
     overflow: hidden;
     float: left;
     padding: 10px 20px;
     display: block; }
     @media only screen and (max-width: 510px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000360}}
       div.mainbar-wrapper #logo {
         width: 90px;
-        padding: 14px 0; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000373}}
+        padding: 14px 5px; } }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000370}}
     div.mainbar-wrapper #logo img.desktop-logo {
       width: 250px;
       height: 40px; }
       @media only screen and (max-width: 510px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000373}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000370}}
         div.mainbar-wrapper #logo img.desktop-logo {
           display: none; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000380}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000377}}
     div.mainbar-wrapper #logo img.mobile-logo {
       display: none;
       width: 90px;
       height: 40px; }
       @media only screen and (max-width: 510px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000380}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000377}}
         div.mainbar-wrapper #logo img.mobile-logo {
           display: block; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000391}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000388}}
   div.mainbar-wrapper #hamburger {
     display: none; }
     @media only screen and (max-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000391}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\0000388}}
       div.mainbar-wrapper #hamburger {
         display: block;
         margin-top: 0;
-        color: #6b6b6b;
+        color: white;
         margin-right: 10px;
         padding: 22px 12px;
-        border-right: 1px solid #7e3036;
         float: left;
-        background: #f8f8f8; } }
+        background: #a33e46; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003105}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003101}}
 .loader {
   display: block;
   width: 72px;
@@ -374,15 +321,15 @@ div.mainbar-wrapper {
   margin-left: -36px;
   margin-top: -36px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003117}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003113}}
 #menu-about.menu {
   right: 50px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003123}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003119}}
 #menu-search.menu {
   right: 0px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003124}}
 .menu {
   background: #853339;
   display: none;
@@ -391,10 +338,10 @@ div.mainbar-wrapper {
   z-index: 320;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5); }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003136}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003132}}
   .menu form {
     padding: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003138}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003134}}
     .menu form p {
       background: #cccccc;
       font-weight: normal;
@@ -403,31 +350,31 @@ div.mainbar-wrapper {
       font-size: 13px;
       line-height: 14px;
       width: 280px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003147}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003143}}
     .menu form input {
       padding: 5px;
       width: 290px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003152}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003148}}
   .menu ul {
     background: inherit;
     padding: 0;
     margin: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003156}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003152}}
     .menu ul a {
       text-decoration: none;
       color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003159}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003155}}
       .menu ul a li {
         margin: 0;
         list-style-type: none;
         padding: 10px 30px;
         border-bottom: 1px #b3b3b3 solid; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003164}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003160}}
         .menu ul a li.last {
           border-bottom: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003167}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_header\.scss}line{font-family:\00003163}}
         .menu ul a li:hover {
-          background: #f2f2f2; }
+          background: #91373e; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\000032}}
 #page_wrapper {
@@ -435,114 +382,26 @@ div.mainbar-wrapper {
   margin: 0;
   overflow: hidden; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\000038}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\000039}}
 #content_wrapper {
   position: relative;
   top: 0px;
   overflow: hidden; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000314}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000316}}
+#view-area {
+  background: #c5c5c5;
+  overflow: scroll; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000321}}
 #posts {
   position: relative; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000325}}
 .endloader {
   background: #eaeab4;
-  padding: 10px 20px;
+  padding: 10px 40px;
   text-align: right; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000324}}
-#view-area {
-  overflow: scroll; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000328}}
-#posts > * {
-  -webkit-transform: translateZ(0px); }
-
-/**
-*   items related to pages
-*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000335}}
-#form_edit input {
-  min-width: 400px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000337}}
-  #form_edit input.long {
-    min-width: 800px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000341}}
-#form_edit textarea {
-  min-width: 400px;
-  min-height: 100px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000346}}
-#form_edit button.submit {
-  padding: 8px; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000352}}
-div.page_wrapper {
-  background: white;
-  min-height: 700px;
-  width: 100%;
-  padding: 3em 3em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000357}}
-  div.page_wrapper a {
-    text-decoration: underline; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000362}}
-.alert-success {
-  display: block;
-  padding: 1em;
-  background: #e8f8cf;
-  margin-top: .5em; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000369}}
-.text_content {
-  font-family: "Helvetica Neue" Sans-serif;
-  background: white;
-  padding: 2em;
-  max-width: 900px;
-  margin: -15px auto;
-  overflow: auto; }
-  @media only screen and (max-width: 670px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000369}}
-    .text_content {
-      padding: 3%;
-      width: 94%;
-      margin: 19px 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000380}}
-      .text_content textarea {
-        width: 250px; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000385}}
-  .text_content .lead {
-    margin-bottom: 1.6em;
-    font-size: 1.3em;
-    line-height: 1.6em;
-    color: #a33e46; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000391}}
-  .text_content .row {
-    font-size: 1.2em;
-    line-height: 1.4em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000394}}
-    .text_content .row p {
-      margin: 1em 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\0000399}}
-  .text_content h3 {
-    color: #a33e46; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\00003103}}
-  .text_content .span4 {
-    width: 47%;
-    float: left;
-    margin-right: 6%; }
-    @media only screen and (max-width: 670px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\00003103}}
-      .text_content .span4 {
-        width: 90%;
-        margin: 0 auto; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\00003112}}
-  .text_content .last {
-    margin-right: 0; }
-    @media only screen and (max-width: 670px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_body\.scss}line{font-family:\00003112}}
-      .text_content .last {
-        margin: 0 auto; } }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\000032}}
 .card {
@@ -551,25 +410,23 @@ div.page_wrapper {
   margin: 10px;
   background: white;
   border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(34, 25, 25, 0.6);
-  -moz-box-shadow: 0 1px 2px rgba(34, 25, 25, 0.6);
-  -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.6); }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000311}}
+  -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25); }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\000039}}
   .card a {
     text-decoration: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000314}}
   .card .card_header {
-    font-family: "Bitter",sans-serif;
     padding: 10px;
     position: relative;
     border-bottom: 1px solid silver;
     background: #f2f2f2; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000319}}
     .card .card_header img {
       border: 1px solid #f0f0f0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000322}}
     .card .card_header .blog_name {
-      font-family: "open sans",sans-serif;
       opacity: .9;
       font-size: 14px;
       line-height: 16px;
@@ -577,67 +434,64 @@ div.page_wrapper {
       width: 180px;
       top: 10px;
       left: 70px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000333}}
   .card .card_body {
     padding: 10px;
     max-height: 450px;
     overflow: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000337}}
     .card .card_body .post_time {
       font-size: 13px;
       color: #7e3036;
       opacity: .3; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000342}}
     .card .card_body [id^="content-post-"] {
       max-height: 500px;
       overflow: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000350}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000346}}
     .card .card_body blockquote {
       padding: 0 15px;
-      font-family: "open-sans",sans-serif;
       font-size: .9em;
       line-height: 1.4em;
       max-width: 230px;
       overflow: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000353}}
     .card .card_body .post_title {
       margin-top: 0;
       margin-bottom: 15px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000356}}
       .card .card_body .post_title a {
         color: #444;
         text-decoration: none;
-        font-family: "Bitter",serif;
         font-size: 18px;
         line-height: 18px;
         font-weight: bold; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000368}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000362}}
         .card .card_body .post_title a:hover {
           color: #3B967C;
           text-decoration: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000375}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000369}}
   .card .card_footer {
     padding: 10px;
     position: relative;
     margin-top: 1em;
     border-top: 1px solid silver;
     background: #f7f7f7; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000376}}
   .card.rtl {
     direction: rtl;
     font-family: tahoma ,sans-serif;
     font-size: 15px;
     line-height: 18px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000381}}
     .card.rtl .post_title a {
-      font-family: 'Droid Arabic Kufi', serif;
       font-weight: bold;
       font-size: 20px;
       line-height: 24px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000393}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000386}}
     .card.rtl .blog_name {
       margin-left: -20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\0000389}}
     .card.rtl blockquote {
       padding: 0 25px 0 0;
       border-left: none;
@@ -647,92 +501,92 @@ div.page_wrapper {
       max-width: 230px;
       overflow: auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003112}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003105}}
 #top_posts .card_header {
   padding: 7px 15px;
   background: #a33e46; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003115}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003108}}
   #top_posts .card_header h2 {
     font-size: 1.2em;
     line-height: 1.3em;
     color: white;
     margin: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003121}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003114}}
   #top_posts .card_header.selector {
     background: #f2f2f2; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003123}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003116}}
     #top_posts .card_header.selector i {
       color: #a33e46;
       margin-right: 5px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003129}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003122}}
   #top_posts .card_header h3 {
     margin-bottom: 1em;
     font-size: 1.4em;
     line-height: 1.3em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003136}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003129}}
 #top_posts .card_body {
   padding: 0;
   overflow: auto;
   max-height: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003140}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003133}}
   #top_posts .card_body .list_item {
     clear: both;
     padding: 15px;
     border-bottom: 1px #cdcdcd dotted;
     overflow: auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003145}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003138}}
     #top_posts .card_body .list_item:last-child {
       margin-bottom: 0;
       border-bottom: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003149}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003142}}
     #top_posts .card_body .list_item .thumb {
       float: left;
       width: 74px;
       height: 74px;
       border: 1px solid #e6e6e6;
       overflow: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003157}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003150}}
     #top_posts .card_body .list_item a {
       color: #444; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003158}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003151}}
     #top_posts .card_body .list_item h4 a {
       font-size: 15px;
       line-height: 15px;
       margin-top: 0;
       margin-bottom: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003164}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003157}}
     #top_posts .card_body .list_item h4, #top_posts .card_body .list_item h5 {
       margin-left: 85px;
       margin-top: 0;
       margin-bottom: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003169}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003162}}
     #top_posts .card_body .list_item h4 a, #top_posts .card_body .list_item h5 a {
       font-family: "Bitter",serif;
       display: block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003173}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003166}}
     #top_posts .card_body .list_item h5 a {
       margin-top: 2px;
       font-size: 12px;
       font-family: arial,sans-serif;
       color: #b4b4b4;
       font-weight: normal; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003183}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003176}}
 #top_posts .card_footer {
   background: grey;
   margin-top: 1em;
   padding: .3em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003190}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003183}}
 #tip {
   text-align: center;
   font-family: "Bitter", serif; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003194}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003187}}
   #tip h2 {
     color: #333; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003197}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003190}}
   #tip .card_header {
     background: #f0c877; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003199}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003192}}
     #tip .card_header h1 {
       font-size: 2.2em;
       margin: 5px auto;
@@ -740,31 +594,31 @@ div.page_wrapper {
       color: beige;
       text-align: center;
       line-height: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003208}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003201}}
   #tip .card_body {
     line-height: 1.5em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003211}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003204}}
   #tip a {
     color: #ba8314; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003216}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003209}}
 div .blogentry.tip {
   background: white url("yellow-bkg.gif") repeat-x;
   border: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003219}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003212}}
   div .blogentry.tip img {
     border: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003222}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003215}}
   div .blogentry.tip a {
     color: #cb834d; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003225}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003218}}
   div .blogentry.tip p {
     padding: 1em 2em;
     font-size: 14px;
     line-height: 20px;
     font-family: "Bitter",serif;
     margin: 0 0 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003232}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003225}}
   div .blogentry.tip h1 {
     font-size: 2.2em;
     font-family: "Bitter",serif;
@@ -772,7 +626,7 @@ div .blogentry.tip {
     text-align: center;
     margin-top: 1em;
     line-height: 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003240}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003233}}
   div .blogentry.tip h2 {
     font-family: "helvetica neue", sans-serif;
     color: #222;
@@ -781,12 +635,12 @@ div .blogentry.tip {
     margin-top: 1.5em;
     margin-bottom: 1em;
     text-align: center; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003249}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003242}}
   div .blogentry.tip .wrapper_special {
     margin-top: -20px; }
 
 /* Sharing */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003256}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003249}}
 div.shareicon {
   direction: ltr;
   opacity: .1;
@@ -794,7 +648,7 @@ div.shareicon {
   margin-bottom: -8px;
   border: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003264}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003257}}
 div.sharing_tools {
   position: absolute;
   width: 295px;
@@ -809,7 +663,7 @@ div.sharing_tools {
   margin-right: -11px;
   opacity: 0;
   border-top: 1px solid silver; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003279}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003272}}
   div.sharing_tools ul {
     overflow: hidden;
     background: none;
@@ -817,7 +671,7 @@ div.sharing_tools {
     margin-bottom: 0px;
     margin-left: 40px;
     padding-left: 0px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003287}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003280}}
   div.sharing_tools li {
     list-style-type: none;
     font-family: verdana,sans-serif;
@@ -826,13 +680,13 @@ div.sharing_tools {
     float: left;
     margin-right: 10px;
     vertical-align: top; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003295}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003288}}
     div.sharing_tools li.box {
       line-height: 12px;
       background: none;
       padding: 5px;
       border: 1px silver solid; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003301}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_cards\.scss}line{font-family:\00003294}}
     div.sharing_tools li img {
       border: none; }
 
@@ -918,11 +772,7 @@ div.sharing_tools {
     .timeline {
       padding-left: 20px; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\000032}}
-a {
-  text-decoration: none; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\000033}}
 .compact {
   width: 100%;
   overflow: hidden;
@@ -930,238 +780,96 @@ a {
   background: white;
   margin-bottom: 0px;
   border-bottom: 1px solid #f2f2f2; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000312}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000310}}
   .compact > * {
     line-height: 20px;
     font-size: 13px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000315}}
   .compact .post_title, .compact .excerpt-preview, .compact .blog_name, .compact .post_time {
     overflow: hidden;
     padding: 10px;
     overflow: hidden;
     height: 14px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000322}}
   .compact .blog_name, .compact .post_title {
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000326}}
   .compact .post_time {
     float: right;
     position: absolute;
     right: 10px;
     top: 0; }
     @media only screen and (max-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000326}}
       .compact .post_time {
         width: 0;
         padding: 0; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000339}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000337}}
   .compact .blog_name {
     width: 140px;
     margin-right: 10px;
     text-decoration: none;
     font-weight: bold; }
     @media only screen and (max-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000339}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000337}}
       .compact .blog_name {
         width: 100px; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000347}}
   .compact .excerpt-preview {
     opacity: 1;
     color: #b3b3b3;
     text-decoration: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000352}}
   .compact .compact-preview {
+    position: relative;
     display: block;
     height: 40px;
     overflow: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000359}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000358}}
   .compact .compact-details {
     display: none;
     clear: both;
     margin-top: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000364}}
   .compact.open .compact-preview {
     background: #f2f2f2; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000368}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000367}}
   .compact.open .excerpt-preview {
     opacity: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000371}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000370}}
   .compact.open .compact-details {
     width: 480px;
     margin: 0 auto;
     display: block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000375}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000374}}
     .compact.open .compact-details img {
       max-width: 480px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000378}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000377}}
     .compact.open .compact-details h4 {
       margin-bottom: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000380}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000379}}
       .compact.open .compact-details h4 a {
         color: #8d8d8d;
         font-weight: normal; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000385}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000384}}
     .compact.open .compact-details h2 {
       margin-top: 5px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000386}}
       .compact.open .compact-details h2 a {
         line-height: 26px;
         font-family: "Bitter",serif;
         font-size: 20px;
         font-weight: bold;
         color: #a33e46; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000394}}
     .compact.open .compact-details .compact-excerpt {
       margin: 15px 0;
       font-family: Georgia, "Times new roman", sans-serif;
       font-size: 16px;
       line-height: 22px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_compact\.scss}line{font-family:\0000399}}
       .compact.open .compact-details .compact-excerpt a {
         color: #a33e46; }
-
-/************
-* Bloggers  *
-*************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\000035}}
-h1.details_of_blog {
-  font-size: 1.9em;
-  margin-bottom: 1em; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000310}}
-.details_of_blog > em {
-  color: #a33e46;
-  font-weight: normal; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000315}}
-.post_list {
-  width: 100%;
-  padding: 5px 0;
-  border-top: 1px silver solid;
-  font-weight: bold; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000322}}
-#blog_details {
-  margin: 1em auto; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000324}}
-  #blog_details .blog_wrapper {
-    overflow: auto;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 1em;
-    background: white; }
-    @media only screen and (max-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000324}}
-      #blog_details .blog_wrapper {
-        margin-top: 50px; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000334}}
-    #blog_details .blog_wrapper .c1 img {
-      float: left;
-      margin-right: 15px; }
-      @media only screen and (max-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000334}}
-        #blog_details .blog_wrapper .c1 img {
-          float: none; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000342}}
-    #blog_details .blog_wrapper .c1 h1 {
-      line-height: 50px;
-      margin: 12px 0;
-      font-family: Bitter, Serif;
-      font-size: 2.5em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000350}}
-    #blog_details .blog_wrapper .c2 p {
-      max-width: 800px;
-      font-size: 16px;
-      line-height: 24px;
-      font-family: "open sans", sans-serif; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000356}}
-    #blog_details .blog_wrapper .c2 a {
-      color: #a33e46;
-      text-decoration: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000361}}
-    #blog_details .blog_wrapper ul {
-      vertical-align: top;
-      padding-left: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000364}}
-      #blog_details .blog_wrapper ul li {
-        display: block;
-        float: left;
-        list-style-type: none;
-        margin-right: 10px;
-        margin-bottom: 0;
-        margin-top: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000371}}
-        #blog_details .blog_wrapper ul li button {
-          font-family: Arial;
-          color: #333333;
-          font-size: 12px;
-          font-weight: bold;
-          background: -ms-linear-gradient(top, #fefefe 0%, #dfdfdf 100%);
-          background: -moz-linear-gradient(top, #fefefe 0%, #dfdfdf 100%);
-          background: -o-linear-gradient(top, #fefefe 0%, #dfdfdf 100%);
-          background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fefefe), color-stop(1, #dfdfdf));
-          background: -webkit-linear-gradient(top, #fefefe 0%, #dfdfdf 100%);
-          border: 1px solid silver;
-          border-radius: 3px;
-          margin-top: 0;
-          padding-top: 5px;
-          padding-bottom: 5px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000386}}
-          #blog_details .blog_wrapper ul li button i {
-            color: #01a5d7; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\0000395}}
-#blogger_content_wrapper {
-  position: relative;
-  margin: 0 auto; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\00003102}}
-[id^="blogger-post-"] .content_module_header {
-  border-bottom: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\00003105}}
-[id^="blogger-post-"] a h2 {
-  color: #646464; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\00003107}}
-  [id^="blogger-post-"] a h2:hover {
-    color: #a33e46; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\00003111}}
-[id^="blogger-post-"] h2 {
-  font-size: 1.3em;
-  margin: .4em 0;
-  line-height: 1.2em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\00003117}}
-[id^="blogger-post-"] .content_module_body blockquote {
-  background: #fafafa;
-  margin-left: -10px;
-  width: 278px;
-  font-family: Bitter, Serif;
-  font-size: 1.1em;
-  line-height: 1.5em;
-  color: #555;
-  padding: 10px;
-  display: block;
-  border-bottom: 1px solid #a33e46;
-  border-top: 1px solid #a33e46; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\00003130}}
-[id^="blogger-post-"] .content_module_body img {
-  margin-left: -10px;
-  border-top: 1px solid #e6e6e6;
-  border-bottom: 1px solid #e6e6e6; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\00003137}}
-[id^="blogger-post-"].rtl {
-  direction: rtl; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\00003138}}
-  [id^="blogger-post-"].rtl h2 {
-    font-family: 'Droid Arabic Kufi', serif;
-    font-size: 1.2em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\00003144}}
-  [id^="blogger-post-"].rtl .content_module_body img {
-    margin-right: -10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Stayyef\/Dropbox\/_websites_\/lebanese_blogs\/scss\/_bloggers\.scss}line{font-family:\00003147}}
-  [id^="blogger-post-"].rtl .content_module_body blockquote {
-    margin-right: -10px;
-    font-family: tahoma, sans-serif;
-    font-size: 1.3em; }
 
 /*******************************************************************
 *   search results

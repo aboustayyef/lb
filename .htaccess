@@ -147,6 +147,8 @@ FileETag None
 
 <IfModule mod_rewrite.c>
   RewriteEngine On    # Turn on the rewriting engine
+  RewriteRule ^about/?$ \?pagewanted=about [NC,L] #exception for blog
+  
   RewriteRule ^blog/?$ blog/ [NC,L] #exception for blog
   RewriteRule ^blogger/?$ blogger/ [NC,L] #exception for blogger
   RewriteRule ^search/?$ search/ [NC,L] #exception for search
