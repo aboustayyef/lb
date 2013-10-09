@@ -7,10 +7,10 @@
 <hr>
 
 	<div class ="section" id="about">
-		<h3>About</h3>
+		<h3>What is <em>Lebanese Blogs?</em></h3>
 		<p class ="lead box"><em>Lebanese Blogs</em> is the best place to read, discover and share the latest posts from Lebanon's top bloggers</p>
 
-		<p>It was born out of the realization that there must be a more fun way to discover and read blogs and find out what's going on without the guilt of an unread inbox.</p>
+		<p><em>Lebanese Blogs</em> was born out of the realization that there must be a more fun way to discover and read blogs and find out what's going on without the guilt of an unread inbox.</p>
 
 		<h3>How does this thing work?</h3>
 
@@ -18,7 +18,7 @@
 
 		<h3>How are blogs chosen?</h3>
 
-		<p>In order to provide the best and most relevant experience to browsers, blogs that are indexed in Lebanese Blogs should satisfy some criteria. The blog has to be related to Lebanon and the blogger has to have a track record sustainable blogging. Read more about these criteria in the "submit" section below.</p>
+		<p>In order to provide the best and most relevant experience to readers, blogs that are indexed in Lebanese Blogs should satisfy some criteria. The blog has to be related to Lebanon and the blogger has to have a track record sustainable blogging. Read more about these criteria in the "submit" section below.</p>
 
 		<h3>Can I get my blog in there?</h3>
 
@@ -44,10 +44,10 @@
 		</ul>
 
 		<h3>Ready to submit?</h3>
-		
+
 		<div id ="submitform">
 			<form action="">
-				<input id ="submitblog" type="text">
+				<input id ="submitblog" type="text" placeholder = "http://yourblogaddress.com">
 				<input type="submit" name="submit" class="button" id="submit_btn" value="Send" /> 
 			</form>
 		</div>
