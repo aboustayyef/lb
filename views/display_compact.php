@@ -6,7 +6,14 @@
 
 // load image class for calculating image dimensions
 
+;?>
+
+
+
+<?php
+
 	// loops through the posts
+
 		foreach ($data as $key => $post) {
 
 			$target_url = "http://lebaneseblogs.com/r.php?r=".urlencode($post['post_url']);
@@ -18,9 +25,7 @@
 			
 			<!-- compact post wrapper -->
 
-			<a onclick="handleClicks(<?php echo $_SESSION['posts_displayed']; ?>)"><div class="compact" data-post-number="<?php echo $_SESSION['posts_displayed']; ?>" style ="opacity:0">
-		
-			
+			<div class="compact" data-post-number="<?php echo $_SESSION['posts_displayed']; ?>" style ="opacity:0">	
 				
 					<!-- The stuff that show are wrapped in a compact-preview class -->
 					
@@ -67,7 +72,6 @@
 							<?php?>
 					</div> <!-- /compact-details (the hidden part) -->				
 				</div> <!-- /compact -->
-			</a>
 			<?php
 
 			// update counters

@@ -1,26 +1,48 @@
 // function to fix the widths of the excerpts
 var workInProgress = 'no';
 
-function showLazyImages(postNumber){
-    var ourImage = $('.compact[data-post-number="' + postNumber + '"').find($('img'));
+var selection = {
+    position : 0,
+    moveUp : function(){
+        if (selection.position >0) {
+            selection.position = selection.position - 1;
+        }
+    },
+    moveDown : function(){
+        //if (selection.position < $('.compact').length){
+           selection.position = parseInt(selection.position,10) + 1;
+//        }
+    },
+    show : function(){
+        $('.compact.selected').removeClass('selected');
+        $('.compact[data-post-number='+selection.position+']').addClass('selected');
+    },
+};
+
+
+function showLazyImages(post){
+    var ourImage = post.find($('img'));
         ourImage.attr('src',ourImage.attr('data-original'));
     $("img.lazy").removeClass("lazy");
 }
 
-var handleClicks = function(postNumber){
-        workInProgress='yes';
-        var thePost = $('.compact[data-post-number="' + postNumber + '"');
-        if (thePost.hasClass('open')) {
-            thePost.removeClass('open');
-            workInProgress='no';
+
+var handleClicks = function(post){
+        console.log(post);
+        var whichPost = post.attr('data-post-number');
+        selection.position=whichPost;
+        selection.show();
+        if (post.hasClass('open')) {
+            //clicking on an open post will only close it.
+            post.removeClass('open');
         }else{
+            // close currently open class
             $('.compact.open').removeClass('open');
-            thePost.addClass('open');
-            var position = thePost.find($('.blog_name')).offset().top;
-            console.log(position);
-            showLazyImages(postNumber);
-            $('#view-area').scrollTop(41*postNumber);
-            workInProgress='no';
+            
+            // open selected class class
+            post.addClass('open');
+            showLazyImages(post);
+            $('#view-area').scrollTop(41*(whichPost));
         }
 };
 
@@ -33,12 +55,14 @@ var fixExcerptWidths = function(){
         var desiredExcerptWidth = viewWidth - blogNameWidth - postTitleWidth - postTimeWidth -20;
         
         var excerpt = $(this).find($('.excerpt-preview'));
-        if (desiredExcerptWidth < 10) { // too short excerpt
-            excerpt.css('display','none');
-            $(this).find($('.post_title')).css('width',viewWidth - blogNameWidth - postTimeWidth -20 );
-        }else{
-            excerpt.css('display','block');
-            excerpt.outerWidth(desiredExcerptWidth);
+        if ($('.compact').outerWidth() > 480) {
+            if (desiredExcerptWidth < 10) { // too short excerpt
+                excerpt.css('display','none');
+                $(this).find($('.post_title')).css('width',viewWidth - blogNameWidth - postTimeWidth -20 );
+            }else{
+                excerpt.css('display','block');
+                excerpt.outerWidth(desiredExcerptWidth);
+            }
         }
         $(this).css('opacity','1');
     });
@@ -60,6 +84,9 @@ var do_scroll_math = function() {
                 $("#posts").append(data);
                 fixExcerptWidths();
                 $('.compact').fadeTo('slow', 1);
+                $('.compact').on('click',function(){
+                    handleClicks($(this));
+                });
                 $(document).scrollTop = s;
             });
             $(".compact").css("opacity", '1');
@@ -69,10 +96,36 @@ var do_scroll_math = function() {
     }
 };
 
-$(document).ready(function() {
-    showLazyImages();
-    handleClicks();
+$(document).ready(function(){
+    selection.show();
+    $('.compact').on('click',function(){
+        handleClicks($(this));
+    });
 });
+
+
+
+/**
+*   Handle keystroke navigations
+*/
+
+$(document).on('keydown', function(event){
+    var keyPressed = event.which;
+    console.log('key pressed: '+keyPressed);
+    if ((keyPressed === 74) || (keyPressed === 40)) { //j or Down arrow
+       
+        selection.moveDown();
+        selection.show();
+
+    } else if ((keyPressed === 75) || (keyPressed === 38)) { //k or up arrow
+        
+        selection.moveUp();
+        selection.show();
+
+    } else if ((keyPressed === 13) || (keyPressed === 32) || (keyPressed === 79)) { //Spacebar or Enter Key or 'o' button
+        handleClicks($('.compact.selected'));
+        }
+    });
 
 $(window).load(function() {
         $('.loader').hide();

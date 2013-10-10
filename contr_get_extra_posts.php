@@ -21,7 +21,14 @@ session_start();
 	$start_from = $_SESSION['posts_displayed']; 
 	$channel= $_SESSION['channel'];
 //	model
-	$data = $posts->get_interval_posts($start_from+1,POSTS_PER_REFRESH, $channel);
+	
+	if ($_SESSION['viewtype'] =='compact') {
+		$posts_per_refresh = 50;
+	} else {
+		$posts_per_refresh = 20;
+	}
+
+	$data = $posts->get_interval_posts($start_from+1,$posts_per_refresh, $channel);
 
 // 	load the view
 	$viewposts = new View();

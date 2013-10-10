@@ -1,6 +1,17 @@
 $compact-padding:10px;
-
+body{
+	cursor: pointer;
+}
 .compact {
+	&.selected{
+		$light_red: lighten($lb_red, 40);
+		border-bottom:1px solid $light_red;
+		border-left:2px solid $light_red;
+		@media only screen and (max-width:480px){
+			border-bottom:none;
+			border-left:none;
+		}
+	}
 	width: 100%;
 	overflow: hidden;
 	display: block;
@@ -23,37 +34,61 @@ $compact-padding:10px;
 		float:left;
 	}
 
+	.post_title{
+		@media only screen and (max-width:480px){
+			width:120px;
+		}
+	}
+
 	.post_time{
 		float: right;
 		position: absolute;
 		right: $compact-padding;
 		top:0;
 		@media only screen and (max-width:480px){
-			width:0;
-			padding:0;
+			display:none;
 		}
 	}
 
-	.blog_name {
-		width:140px;
-		margin-right: $compact-padding;
-		text-decoration: none;
-		font-weight:bold;
-		@media only screen and (max-width:480px){
-			width:100px;
-		}
-	}
+
 
 	.excerpt-preview{
 		opacity: 1;
 		color: lighten(black, 70);
 		text-decoration: none;
+
 	}
 	.compact-preview{
 		position:relative;
 		display: block;
 		height: 40px;
 		overflow: hidden; 
+		@media only screen and (max-width:480px){
+			height:46px;
+		}
+		.excerpt-preview{
+			@media only screen and (max-width:480px){
+				display: none
+			}
+		}
+		.blog_name {
+			width:140px;
+			margin-right: $compact-padding;
+			text-decoration: none;
+			font-weight:bold;
+			@media only screen and (max-width:480px){
+				width:300px;
+				padding: 3px 10px;
+				line-height: 1.2em;
+			}
+		}
+		.post_title{
+			@media only screen and (max-width:480px){
+				width:300px;
+				padding: 3px 10px;
+				line-height: 1.2em;
+			}	
+		}
 	}
 	.compact-details{
 		display: none;
@@ -71,8 +106,16 @@ $compact-padding:10px;
 			width:480px;
 			margin: 0 auto;
 			display: block;
+			@media only screen and (max-width:480px){
+				width:90%;
+				margin:5%;
+			}
 			img{
 				max-width: 480px;
+				height:auto;
+				@media only screen and (max-width:480px){
+					max-width: 280px;
+				}
 			}
 			h4 {
 				margin-bottom: 0;
@@ -84,7 +127,7 @@ $compact-padding:10px;
 			h2 {
 				margin-top: 5px;
 				a{
-					line-height: 26px;
+					line-height: 22px;
 					font-family: "Bitter",serif;
 					font-size: 20px;
 					font-weight: bold;
