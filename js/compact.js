@@ -1,6 +1,9 @@
 // function to fix the widths of the excerpts
 var workInProgress = 'no';
 
+
+// selection ***********
+
 var selection = {
     position : 0,
     moveUp : function(){
@@ -20,10 +23,10 @@ var selection = {
 };
 
 
+
 function showLazyImages(post){
     var ourImage = post.find($('img'));
         ourImage.attr('src',ourImage.attr('data-original'));
-    $("img.lazy").removeClass("lazy");
 }
 
 
@@ -68,9 +71,46 @@ var fixExcerptWidths = function(){
     });
 };
 
+
+// object that handles scrolling of the pageview
+
+var posts ={
+    reset : function(){
+        
+        // how many posts are loaded?
+        this.number = $('.compact').length;
+        
+        // What is the height of (each) post? 
+        this.postheight = $('.compact').eq(0).outerHeight();
+        
+        // how many posts exist per view (window)
+        this.perView = Math.floor($('#view-area').height()/this.postheight);
+
+        // How many posts are above the first visible post? (at load: 0)
+        this.amountScrolled = Math.floor(Math.abs($('#view-area').scrollTop())/this.postheight);
+        this.firstPost = 0;
+    },
+    scrollDown : function(howManyRows){
+        this.reset();
+        // first make sure we're not at the bottom
+        var destination = (this.amountScrolled * this.postheight)+(this.postheight * howManyRows);
+        $('#view-area').scrollTop(destination);
+    },
+    scrollUp : function(howManyRows){
+        this.reset();
+        // first make sure we're not at the top
+        var destination = (this.amountScrolled * this.postheight)-(this.postheight * howManyRows);
+        if (destination > 0) {
+            $('#view-area').scrollTop(destination);
+        } else {
+            $('#view-area').scrollTop(0);
+        }
+    },
+};
+
 var do_scroll_math = function() {
     var docHeight = $('#posts').height();
-    var howFarDown = Math.abs($('#posts').position().top);
+    var howFarDown = $('#view-area').scrollTop();
     var s = docHeight - howFarDown;
     console.log(s);
     if (s <= 1500) { // when we're almost at the bottom of the document
@@ -129,6 +169,14 @@ $(document).on('keydown', function(event){
 
 $(window).load(function() {
         $('.loader').hide();
+
+    posts.reset();
+    console.log("posts position :"+posts.firstPost);
+    console.log("posts number : "+posts.number);
+    console.log("post height : "+posts.postheight);
+    console.log("posts per view : "+posts.perView);
+    console.log("posts amount Scrolled : "+posts.amountScrolled);
+
         fixExcerptWidths();
 });
 

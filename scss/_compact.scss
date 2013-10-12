@@ -3,6 +3,7 @@ body{
 	cursor: pointer;
 }
 .compact {
+	border-left:2px solid white;
 	&.selected{
 		$light_red: lighten($lb_red, 40);
 		border-bottom:1px solid $light_red;

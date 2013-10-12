@@ -42,3 +42,19 @@ $('#show-search li').click(function(){
     $('#show-search li').toggleClass('selected');
     $('#menu-search').toggle();}
 });
+
+/*******************************************************************
+*    MODAL Class
+********************************************************************/
+var modal = {
+    hide: function(){
+        $('#modal').css('display','none');
+    },
+    show: function(){
+        $('#modal').css('display','block');
+    },
+    message: function(message){
+        $('#modal-body').html("<p>"+message+"<p>");
+        modal.show();
+    }
+};

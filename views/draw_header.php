@@ -46,6 +46,7 @@ global $channel_descriptions;
 
 <!-- About Menu -->
   <body>
+    <?php include_once ABSPATH."views/modules/modal.inc"; ?>
     <div class = "menu" id="menu-about">
       <ul>
         <a href="<?php echo WEBPATH.'about' ?>"><li>about</li></a>

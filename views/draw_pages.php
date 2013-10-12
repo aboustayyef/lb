@@ -46,18 +46,20 @@
 		<h3>Ready to submit?</h3>
 
 		<div id ="submitform">
-			<form action="">
 				<input id ="submitblog" type="text" placeholder = "http://yourblogaddress.com">
-				<input type="submit" name="submit" class="button" id="submit_btn" value="Send" /> 
-			</form>
+				<input type="submit" name="submit" class="button" id="submitBlog" value="Send" /> 
 		</div>
 	
 	<p id="message"></p>
 	</div>
-
+<hr>
 	<div class ="section" id="feedback">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, natus nesciunt. Iste, consequuntur, voluptate, consectetur, quas culpa animi doloremque delectus libero non nemo veritatis accusamus minus est quaerat cum reprehenderit.</p>
 		
-		<p>At, in deleniti repudiandae cupiditate similique earum nemo maiores atque facilis est. Minus, dolores, pariatur, ipsa rem consequuntur consectetur voluptatum tempore deserunt laborum eligendi facere ea ex exercitationem odit minima.</p>
+		<h3>Feedback?</h3>
+		<form action="">
+			<textarea name="feedback" id="feedback" cols="30" rows="10" placeholder ="Example: I just wanted to tell you how awesome/terrible you are - fan@haters.com"></textarea>
+			<input type="submit" name="submit" class="button" id="submitFeedback" value="Send" /> 
+		</form>
+		<p>Any suggestion, advice or rant? Use this form to send it. If you want us to respond, add your email address somewhere in the body of your feedback</p>
 	</div>
 </div>

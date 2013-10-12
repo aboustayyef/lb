@@ -106,6 +106,42 @@ textarea, input {
   border-radius: 4px;
   border: silver 1px solid; }
 
+#modal {
+  display: none;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7); }
+  #modal .modal-header {
+    padding: 0;
+    overflow: auto;
+    width: 100%;
+    padding: 1px;
+    margin-bottom: -20px; }
+    #modal .modal-header .modal-dismiss {
+      margin-top: -2px;
+      color: grey;
+      cursor: pointer;
+      float: right;
+      padding: 5px 3px;
+      background: transparent;
+      border: 0;
+      font-size: 21px;
+      line-height: 21px;
+      font-weight: bold; }
+  #modal #modal-window {
+    width: 30%;
+    min-width: 300px;
+    margin: 10% auto;
+    background: white; }
+    #modal #modal-window p {
+      padding: 10px 30px; }
+    #modal #modal-window hr {
+      margin: 0; }
+
 div.mainbar-wrapper {
   z-index: 300;
   top: 0;
@@ -272,21 +308,24 @@ p {
   background: #a33e46;
   color: white;
   border: #bf555e 1px solid;
-  margin-left: 1em;
   padding: .45em .4em;
   font-size: .8em;
   line-height: 1.3em;
-  width: 15%; }
+  width: 20%; }
+
+textarea, input {
+  width: 96%;
+  margin: 15px 0; }
 
 ul#section-choose {
   z-index: 100;
   display: block;
-  width: 30em;
+  width: 23em;
   height: 2em;
   margin: 1em auto; }
   ul#section-choose li {
     float: left;
-    padding: 0.3em 1.2em;
+    padding: 0.3em 0.5em;
     font-size: 1.2em;
     border-right: 0.1em silver solid; }
     ul#section-choose li a {
@@ -294,10 +333,6 @@ ul#section-choose {
       text-decoration: none; }
     ul#section-choose li:last-child {
       border-right: none; }
-
-input {
-  margin: 2em 0;
-  width: 70%; }
 
 ul#criteria {
   margin-bottom: 1em;

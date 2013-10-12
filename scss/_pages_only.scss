@@ -41,17 +41,21 @@ p{
 	background: $lb_red;
 	color: white;
 	border: lighten($lb_red, 10) 1px solid;
-	margin-left:1em;
 	padding: .45em .4em;
 	font-size: .8em;
 	line-height: 1.3em;
-	width:15%;
+	width:20%;
+
+}
+textarea, input{
+	width:96%;
+	margin: 15px 0;
 }
 
 ul#section-choose{
 	z-index:100;
 	display:block;
-	width:30em;
+	width:23em;
 	height:2em;
 	margin: 1em auto;
 	li{
@@ -60,7 +64,7 @@ ul#section-choose{
 			text-decoration: none;
 		}
 		float: left;
-		padding:0.3em 1.2em;
+		padding:0.3em 0.5em;
 		font-size: 1.2em;
 		border-right: 0.1em silver solid;
 		&:last-child{
@@ -69,10 +73,6 @@ ul#section-choose{
 	}
 }
 
-input{
-	margin: 2em 0;
-	width:70%;
-}
 
 ul#criteria {
 	margin-bottom:1em;

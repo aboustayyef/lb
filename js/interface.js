@@ -17,7 +17,6 @@ function resizeInterface(){
     }
 }
 
-
 // Things to do after everything else has loaded
 $(window).load(function() {
 	resizeInterface();

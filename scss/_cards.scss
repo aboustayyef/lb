@@ -50,6 +50,9 @@
             max-width: 230px;
             overflow: hidden;
         }
+        img{
+            border: lighten(silver, 10) solid 1px;
+        }
         .post_title {
             margin-top: 0;
             margin-bottom: 15px;

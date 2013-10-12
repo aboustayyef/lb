@@ -69,6 +69,50 @@ textarea, input{
     border:silver 1px solid;
 }
 
+// modal window
+
+#modal{
+    display: none;
+    .modal-header{
+        padding:0;
+        overflow: auto;
+        width: 100%;
+        padding:1px;
+        margin-bottom: -20px;
+        .modal-dismiss{
+            margin-top:-2px;
+            color:grey;
+            cursor:pointer;
+            float: right;
+            padding:5px 3px;
+            background:transparent;
+            border:0;
+            font-size: 21px;
+            line-height: 21px;
+            font-weight: bold;
+        }
+    }
+    z-index: 1000;
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background: rgba(0,0,0,.7);
+    #modal-window{
+        width:30%;
+        min-width: 300px;
+        margin: 10% auto;
+        background: white;
+        p{
+            padding:10px 30px;
+        }
+        hr{
+            margin: 0;
+        }
+    }
+}
+
 @mixin drop-shadow ($x: 1px, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
   -webkit-box-shadow: $x $y $blur $spread rgba(0, 0, 0, $alpha);
   -moz-box-shadow:    $x $y $blur $spread rgba(0, 0, 0, $alpha);

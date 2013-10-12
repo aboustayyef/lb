@@ -107,9 +107,9 @@ $(document).ready(function() {
 // Things to load after everything else has loaded
 $(window).load(function() {
     fixCards();
-    $('.loader').toggle();
-    $('.card').fadeTo('slow', 1);
-
+    $('.loader').fadeTo('fast', 0, function(){
+        $('.card').fadeTo('slow', 1);
+    });
 });
 
 // When document is scrolled or resized / code source: http://stackoverflow.com/questions/5489946/jquery-how-to-wait-for-the-end-or-resize-event-and-only-then-perform-an-ac
