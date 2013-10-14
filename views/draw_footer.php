@@ -39,13 +39,13 @@
                 break;
             case 'compact':
                 ?>
-                    <script src="<?php echo WEBPATH ;?>js/compact.js?<?php //echo time(); ?>"></script>
+                    <script src="<?php echo WEBPATH ;?>js/compact.js?<?php echo time(); ?>"></script>
                 <?php
                 break;
             
             default:
                 ?>
-                    <script src="<?php echo WEBPATH ;?>js/cards.js?<?php //echo time(); ?>"></script>
+                    <script src="<?php echo WEBPATH ;?>js/cards.js?<?php echo time(); ?>"></script>
                 <?php
                 break;
         }
