@@ -19,8 +19,9 @@ if (isset($_SESSION['channel'])) {
 }
 ?>
 <div id="left-col-wrapper">
+  <button class="leftNav-dismiss">×</button>
   <div id ="viewtype">
-    <h4 class="sectionheader">View<sup>New!</sup></h4>
+    <h4 class="sectionheader">Posts Layout <sup>New!</sup></h4>
     <div id="icons">
       
       <a href="<?php echo $self_url.'cards' ?>">
@@ -28,33 +29,36 @@ if (isset($_SESSION['channel'])) {
         if ($_SESSION['viewtype']=='cards') {
           echo '-selected';
         }
-        echo '.png' ;?>" width ="46" height ="40" alt=""></a>
+        echo '.png' ;?>" width ="25" height ="25" alt=""></a>
       
       <a href="<?php echo $self_url.'timeline' ?>">
       <img src="<?php echo WEBPATH . 'img/interface/view-icon-timeline';
         if ($_SESSION['viewtype']=='timeline') {
           echo '-selected';
         }
-        echo '.png' ;?>" width ="46" height ="40" alt=""></a>
+        echo '.png' ;?>" width ="25" height ="25" alt=""></a>
 
       <a href="<?php echo $self_url.'compact' ?>">  
       <img src="<?php echo WEBPATH . 'img/interface/view-icon-compact';
         if ($_SESSION['viewtype']=='compact') {
           echo '-selected';
         }
-        echo '.png' ;?>" width ="46" height ="40" alt=""></a>
+        echo '.png' ;?>" width ="25" height ="25" alt=""></a>
     </div>
   </div>
 
   <div id ="channels">
+    <h4 class="sectionheader">User Area</h4>
 
       <div class = "label level1"><i class ="icon-star"></i>My Favorite Bloggers<sup>New!</sup></div>
       <div class ="label level1"><i class ="icon-envelope"></i>My Saved Posts<sup>New!</sup></div>
       
+
+      <h4 class="sectionheader">Channels</h4>
       <a href="<?php echo WEBPATH ?>">
         <div class = " <?php ischannel($s, null); ?> label folder level1">
           <i class ="icon-folder-open-alt"></i>
-          All Categories
+          All
         </div>
       </a>
       <a href ="<?php echo WEBPATH . '?channel=fashion'; ?>">

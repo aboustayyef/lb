@@ -1,4 +1,4 @@
-            <div class="endloader">Loading more... </div>
+            <div class="endloader"><img src ="<?php echo WEBPATH ;?>img/interface/ajax-loader.gif"></div>
         </div> <!-- /view-area -->
     </div> <!-- /pagewrapper -->
 </div>
@@ -8,7 +8,6 @@
     <!-- JS Dependencies -->
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="<?php echo WEBPATH ;?>js/menus.js?<?php //echo time(); ?>"></script>
     <?php if ($this->_page =="about") {
         ?><script src="<?php echo WEBPATH ;?>js/pages.js?<?php //echo time(); ?>"></script>
     <?php } ?>
@@ -22,37 +21,32 @@
     <script src="<?php echo WEBPATH ;?>js/jquery.lazyload.min.js"></script>
 
     <!-- App JS -->
-    <script src="<?php echo WEBPATH ;?>js/interface.js?<?php //echo time(); ?>"></script>
-    
-
     <?php 
         switch ($_SESSION['viewtype']) {
             case 'cards':
                 ?>
-                    <script src="<?php echo WEBPATH ;?>js/cards.js?<?php echo time(); ?>"></script>
+                    <script src="<?php echo WEBPATH ;?>js/cards-ck.js?<?php echo time(); ?>"></script>
                 <?php
                 break;
             case 'timeline':
                 ?>
-                    <script src="<?php echo WEBPATH ;?>js/timeline.js?<?php echo time(); ?>"></script>
+                    <script src="<?php echo WEBPATH ;?>js/timeline-ck.js?<?php echo time(); ?>"></script>
                 <?php
                 break;
             case 'compact':
                 ?>
-                    <script src="<?php echo WEBPATH ;?>js/compact.js?<?php echo time(); ?>"></script>
+                    <script src="<?php echo WEBPATH ;?>js/compact-ck.js?<?php echo time(); ?>"></script>
                 <?php
                 break;
             
             default:
                 ?>
-                    <script src="<?php echo WEBPATH ;?>js/cards.js?<?php echo time(); ?>"></script>
+                    <script src="<?php echo WEBPATH ;?>js/cards-ck.js?<?php echo time(); ?>"></script>
                 <?php
                 break;
         }
 }
 ?>
-   
-
     <!-- Start of StatCounter Code for Default Guide -->
                 <script type="text/javascript">
                 var sc_project=8489889; 

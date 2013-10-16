@@ -1,4 +1,0 @@
-// Javascript for interface behavior 
-/**
-*   sets dimensions of elements of the interface at load or at window size change
-*/function resizeInterface(){console.log("resizeInterface");var e=$(window).height()-$(".mainbar-wrapper").height();$("#view-area").css("height",e);console.log($(window).width());if($(window).width()>768){$("#left-col-wrapper").css("height",e);console.log("about to show left column from resizeInterface");$("#left-col-wrapper").show()}else $("#left-col-wrapper").hide()}$(window).load(function(){resizeInterface();$("#view-area").css("-webkit-overflow-scrolling","touch")});var do_resize_interface;$(window).resize(function(){clearTimeout(do_resize_interface);do_resize_interface=setTimeout(function(){resizeInterface()},100)});

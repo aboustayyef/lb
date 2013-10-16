@@ -10,21 +10,6 @@ var closeMenus = function(){ // function to close other menus when one is opened
     $('#menu-about').hide(); $('#menu-search').hide();$('#menu-login').hide();
 };
 
-$('#hamburger').on('click', function(){
-    var c = $('#left-col-wrapper');
-    var d = c.css('display');
-
-    if (d==='block') {
-        closeMenus();
-    }else{
-        closeMenus();
-        c.css('display','block');
-        c.addClass('float_it');
-        console.log(c.css());
-    }
-
-});
-
 $('#show-about li').click(function(){
     if ($('#show-about li').hasClass('selected')) {
        closeMenus();
@@ -42,6 +27,51 @@ $('#show-search li').click(function(){
     $('#show-search li').toggleClass('selected');
     $('#menu-search').toggle();}
 });
+
+var leftNav = {
+    toggle: function(){
+        $('#left-col-wrapper').toggle();
+        $('#hamburger').toggle();
+    },
+    hide: function(){
+        $('#left-col-wrapper').css("display","none");
+        $('#hamburger').css("display","block");
+    },
+    show: function(){
+        $('#left-col-wrapper').css("display", "block");
+        $('#hamburger').css("display","none");
+    },
+    visible: function(){
+        if ($('#left-col-wrapper').css("display") === "block") {
+            return true;
+        }else {
+            return false;
+        }
+    },
+    init: function(){
+        if ($(window).width()>768) { //by default, show left nave for larger windows
+            leftNav.show();
+        }else{
+            leftNav.hide(); // hide left nav for small screens
+        }
+    }
+};
+
+
+/********************
+*   Event Handlers
+*********************/ 
+
+$('#hamburger').on('click', function(){
+    leftNav.show();
+    posts.flow();
+});
+
+$('.leftNav-dismiss').on('click', function(){
+    leftNav.hide();
+    posts.flow();
+});
+
 
 /*******************************************************************
 *    MODAL Class

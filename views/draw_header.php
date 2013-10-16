@@ -62,7 +62,12 @@ global $channel_descriptions;
       </form>
     </div>
 
+    <!-- Left Nav -->
+    <?php if ($this->_page == "home") {
+        include_once(ABSPATH.'views/draw_left_column.php');
+    } ?>
 
+    <!-- rest of page -->
   	<div id ="pagewrapper">
       <!-- Navigation -->
       <div class="mainbar-wrapper">
@@ -70,7 +75,7 @@ global $channel_descriptions;
       		<!-- logo -->
           <?php if ($this->_page == "home") {
             ;?>
-              <a href ="#left-col-wrapper"><div id="hamburger"><i class ="icon-reorder icon-large"></i></div></a>
+              <a href ="#left-col-wrapper"><div id="hamburger"><i class ="icon-reorder icon-2x"></i></div></a>
             <?php
           } ?>
           
@@ -92,8 +97,5 @@ global $channel_descriptions;
               <img class ="loader" src="img/interface/lb-loader-animated-big.gif">
 
 		<div id="content_wrapper"> <!-- the middle section between the header and the footer -->
-      <?php if ($this->_page == "home") {
-        include_once(ABSPATH.'views/draw_left_column.php');
-      } ?>
     <div id ="view-area">
 <?php ?>

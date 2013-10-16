@@ -147,7 +147,6 @@ div.mainbar-wrapper {
   top: 0;
   padding: 0;
   margin: 0;
-  width: 100%;
   height: 64px;
   position: relative;
   background-color: #a33e46;
@@ -209,16 +208,17 @@ div.mainbar-wrapper {
         div.mainbar-wrapper #logo img.mobile-logo {
           display: block; } }
   div.mainbar-wrapper #hamburger {
-    display: none; }
+    display: none;
+    margin-top: 0;
+    color: white;
+    margin-right: 10px;
+    border-right: 1px solid #e2b2b6;
+    padding: 17px 12px;
+    float: left;
+    background: #a33e46; }
     @media only screen and (max-width: 768px) {
       div.mainbar-wrapper #hamburger {
-        display: block;
-        margin-top: 0;
-        color: white;
-        margin-right: 10px;
-        padding: 22px 12px;
-        float: left;
-        background: #a33e46; } }
+        display: block; } }
 
 .loader {
   display: block;

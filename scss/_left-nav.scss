@@ -4,13 +4,31 @@ $left_padding: 20px;
     display: none ; //javascript will make this 1 once height is calculated and rendered
     position: relative;
     top:0;
-    width: 279px ; //280 with border
+    width: 239px ; //280 with border
     background-color: #f8f8f8; 
     float: left;
     border-right: 1px solid $interface_border_color;
 
+    button.leftNav-dismiss{
+            margin-top:10px;
+            margin-right:10px;
+            color:white;
+            cursor:pointer;
+            float: right;
+            padding:2px;
+            background:transparent;
+            border:0;
+            font-size: 18px;
+            border: 1px lighten(black,80) solid;
+            border-radius: 20px;
+            line-height: 15px;
+            background:lighten(black,85);
+            &:focus {
+                outline:none;
+            }
+    }
+
     @media only screen and (max-width : 768px){
-        display: none;
         .section{
             display: none;
         }
@@ -28,10 +46,10 @@ $left_padding: 20px;
     }
     
     #viewtype{
-        background-color:rgba(0,0,0,0.035);
-        border-top: lighten(black,79) 1px solid;
     }
     sup{
+        text-transform: capitalize;
+        font-weight: normal;
         margin-left: 0.5em;
         font-size: 11px;
         color:$lb_red;
@@ -40,38 +58,45 @@ $left_padding: 20px;
         top: -0.4em;
        }
     h4.sectionheader{
+        text-transform: uppercase;
         padding:0;
         margin:0;
-        padding-top:5px;
-        color: lighten(black,30);
-        font-weight: normal;
+        margin-left: -10px;
+        padding-top:20px;
+        color: $lb_red;
+        font-weight: bold;
         padding-left:$left_padding;
     }
     #icons{
         padding-top: 5px;
-        padding-bottom: 10px;
         padding-left:$left_padding; 
-        margin-right:1em;  
+        margin-right:1em;
+        img{
+            margin-right: 10px;
+            border: 1px solid lighten(black,80);
+            &.selected{
+                border: 1px solid $lb_red;
+            }
+        }  
    
     }
 
     .label{
 
-        width:279px - $left_padding;
+        width:239px - $left_padding;
         i{
             margin-right:5px;
             color: lighten(black,49);
         }
         padding-left: $left_padding;
         &.level1{
-            border-top: 1px solid silver;
-            padding-top:10px;
-            padding-bottom:10px;
+            padding-top:2px;
+            padding-bottom:2px;
         }
         &.level2{
             padding-left:$left_padding+20px;
-            padding-top:7px;
-            padding-bottom:7px;
+            padding-top:5px;
+            padding-bottom:5px;
             width:259px - $left_padding;
             }
 
@@ -83,7 +108,7 @@ $left_padding: 20px;
         }
     }
 .selected{
-    background-color: rgba(0,0,0,0.05);
+    background-color: lighten(black, 88);
     border-bottom: darken(white,8) 1px solid;
     border-top: lighten(black,90) 1px solid;
     i{
