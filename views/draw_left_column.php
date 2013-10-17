@@ -47,11 +47,14 @@ if (isset($_SESSION['channel'])) {
     </div>
   </div>
 
-  <div id ="channels">
-    <h4 class="sectionheader">User Area</h4>
+<h4 class="sectionheader">Statistics <sup>New!</sup></h4>
+<div class="label level1"><a href="#"><i class ="icon-bar-chart"></i>Top Posts &amp; Blogs</a></div>
 
-      <div class = "label level1"><i class ="icon-star"></i>My Favorite Bloggers<sup>New!</sup></div>
-      <div class ="label level1"><i class ="icon-envelope"></i>My Saved Posts<sup>New!</sup></div>
+  <div id ="channels">
+    <h4 class="sectionheader">User Area<sup>New!</sup></h4>
+
+      <div class = "label level1"><i class ="icon-star"></i>My Favorite Bloggers</div>
+      <div class ="label level1"><i class ="icon-envelope"></i>My Saved Posts</div>
       
 
       <h4 class="sectionheader">Channels</h4>
