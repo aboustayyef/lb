@@ -8,7 +8,8 @@ $left_padding: 20px;
     background-color: darken(white,2); 
     float: left;
     border-right: 1px solid $interface_border_color;
-
+    overflow-y: scroll;
+    overflow-x: hidden;
     button.leftNav-dismiss{
             margin-top:10px;
             margin-right:10px;

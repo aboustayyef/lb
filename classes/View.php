@@ -14,7 +14,7 @@ class View
 	function __construct() {}
 
 	function SetPage($page){ // for navigation
-		if ($page == "about") {
+		if (($page !== NULL) && ($page !=="")) {
 			$this->_page = $page;
 		} else {
 			$this->_page = 'home';
