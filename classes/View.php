@@ -7,52 +7,143 @@
 class View
 {
 	protected $_page; // internal reference to page ("home", "about"..etc)
+	protected $_view; // which view kind
 	protected $_title; // title of a website
 	protected $_description; // description of page
 	protected $_posts; //initial set of posts to display
 
-	function __construct() {}
-
-	function SetPage($page){ // for navigation
-		if (($page !== NULL) && ($page !=="")) {
-			$this->_page = $page;
+	function __construct($pagewanted=null, $view=null, $channel=null) {
+		
+		// Which page is this? is it a browse page? an about page or a 'top' page?
+		if ((isset($pagewanted))) {
+			$this->_page = $pagewanted;
 		} else {
-			$this->_page = 'home';
+			$this->_page = "browse"; //default
 		}
-		
-	}
 
-	function SetTitle(){
-		
-		if ($this->_page == "home") {
-			if (isset($_SESSION['channel']) && $_SESSION['channel'] !== NULL) {
-				$this->_title = "Top {$_SESSION['channel']} blogs in Lebanon | Lebanese Blogs";
-			}else{
-				$this->_title = "Lebanese Blogs | Latest posts from the best Blogs";
+		// 	If we are browsing posts, which view type are we using? (cards, timeline or compact?)
+		if ($this->_page == "browse") {
+
+			//	Is the view type set in the URL parameters?
+			if ((isset($view)) && ($view !== "")) { // url parameter
+				$this->_view = $view;
+				$_SESSION['viewtype'] = $view;
+
+			// if not, is it set in the Session? 
+			} else if (isset($_SESSION['viewtype'])) { // session
+				$this->_view = $_SESSION['viewtype'];
+
+			// if not, is it set in a cookie?
+			} else if (isset($_COOKIE["lblogs_default_view"])) {//cookie
+				$this->_view = $_COOKIE["lblogs_default_view"];
+				$_SESSION['viewtype'] = $view;
+
+			// if not, "cards" is the default
+			} else{
+				$expire=time()+60*60*24*30; 
+				setcookie("lblogs_default_view", "cards", $expire); // "cards is the default view"
+				$_SESSION['viewtype'] = "cards";
+				$this->_view = "cards";
+			}
+
+		// Which channel is being requested? (if any)
+			if ((isset($channel)) && ($channel !== "")) {
+				$this->_channel = $channel;
+				$_SESSION['channel'] = $channel;
+			} else {
+				$this->_channel = "all"; //default
 			}
 		}
-
-		if ($this->_page == "about"){
-			$this->_title = "Lebanese Blogs | About";
-		} 
 	}
 
-	function SetDescription(){
-		if ($this->_page == "home") {
-			if (isset($_SESSION['channel']) && $_SESSION['channel'] !== NULL) {
-				$this->_description = "The best way to read and discover Lebanon's top {$_SESSION['channel']} Bloggers";
-			}else{
-				$this->_description = "The best way to read and discover Lebanon's top blogs";
-			}
-		}
+	function DrawHeader(){
+		$this->SetTitleAndDescription();
+		// depending on constructor outcomes, get $this->_title and $this->_description
+		include_once(ABSPATH.'views/draw_header.php');
+	}
 
-		if ($this->_page == "about"){
-			$this->_description = "Know more about us";
+	function DrawContent(){
+
+		global $db;
+		switch ($this->_page) {
+			case 'about':
+				include_once(ABSPATH.'views/draw_pages.php');
+				break;
+
+			case 'browse':
+				// initialize general counter of all posts
+				$_SESSION['posts_displayed'] = 0; //number of posts shown
+				$_SESSION['items_displayed'] = 0; // number of items shown (including other widgets)
+				
+				// Get initial posts. Initiate model.
+				$posts = new Posts($db);
+				// the compact mode gets more initial posts;
+				if ($this->_view == "compact") {
+					$initial_posts_to_retreive = 50;
+				}else{
+					$initial_posts_to_retreive = 20;
+				}
+				$data = $posts->get_interval_posts(0,$initial_posts_to_retreive, $_SESSION['channel']); 
+				//envelope the posts;
+				echo '<div id="posts">';
+					$this->display_posts($data);
+				echo '</div> <!-- /posts -->';
+
+			case 'top':
+				#code;
+				break;
+
+			default:
+				# code...
+				break;
+		}
+		// left column ?
+		// Dynamic or static content?
+		// Infinite scrolling or not?
+	}
+
+	function DrawFooter(){
+		include_once(ABSPATH.'views/draw_footer.php')	;
+	}
+
+
+// Assisting Functions
+/********************************************************************************************************************************************/
+
+	function SetTitleAndDescription(){ 
+
+		// this method comes up with the title and description of the page depending on the page wanted ()
+		// sets the values of $this->_title and $this->_description
+		switch ($this->_page) {
+
+			case 'browse':
+				if ($this->_channel == "all") {
+					$this->_title = "Lebanese Blogs | Latest posts from the best Blogs";
+					$this->_description ="The best way to read and discover Lebanon's top blogs";
+				} else {
+					$this->_title = "Top {$this->_channel} blogs in Lebanon | Lebanese Blogs";
+					$this->_description ="The best way to read and discover Lebanon's top {$this->_channel} bloggers";
+				}
+				break;
+			
+			case 'about':
+				$this->_title = "Lebanese Blogs | About";
+				$this->_description = "Get to know why Lebanese Blogs is so awesome";
+				break;
+			
+			case 'top':
+				$this->_title = "Lebanese Blogs | Top Posts";
+				$this->_description = "Top posts today at Lebanese Blogs";
+				break;
+			
+			default:
+				die('pagewanted is not set correctly');
+				break;
 		}
 	}
 
 	function display_posts($data){
-		switch ($_SESSION['viewtype']) {
+		switch ($this->_view) {
 			case 'cards':
 				include_once(ABSPATH.'views/display_cards.php')	;
 				break;
@@ -70,25 +161,11 @@ class View
 				break;
 		}
 	}
-	function draw_header(){ // draws the head part of the website
-		include_once(ABSPATH.'views/draw_header.php')	;
-	}
 
-	function draw_footer() { //footer of web page
-		include_once(ABSPATH.'views/draw_footer.php')	;
-	}
-	function draw_pages() { //pages (about ...etc)
-		include_once(ABSPATH.'views/draw_pages.php')	;
-	}
-	function begin_posts(){
-		echo '<div id="posts">';
-	}
-	function end_posts(){
-		echo '</div> <!-- /posts -->';
-	}
 /**
 *   Utility functions
-*/ 
+*********************************************************************************************************************************************/
+ 
 
 	// This function allocates "slots" to material other than the blog posts (widgets, tips or ads)
 	function map_keys($key){

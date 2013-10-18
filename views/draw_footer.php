@@ -12,7 +12,7 @@
         ?><script src="<?php echo WEBPATH ;?>js/pages.js?<?php //echo time(); ?>"></script>
     <?php } ?>
 <?php
-    if ($this->_page=="home") {
+    if ($this->_page=="browse") {
 
     // dependencies below only load in the home page (viewing blog posts) 
 ?>

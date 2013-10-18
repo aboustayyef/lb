@@ -13,7 +13,7 @@ global $channel_descriptions;
     <meta property="og:image" content="http://lebaneseblogs.com/img/interface/facebook-og-image.jpg">
 
     <!-- Main CSS -->
-    <?php if ($this->_page == "home") {
+    <?php if ($this->_page == "browse") {
       ;?><link href="<?php echo WEBPATH ;?>css/lebaneseblogs.css?<?php echo time(); ?>" rel="stylesheet"><?php
     } else {
       ;?><link href="<?php echo WEBPATH ;?>css/pages.css?<?php echo time(); ?>" rel="stylesheet"><?php
@@ -63,7 +63,7 @@ global $channel_descriptions;
     </div>
 
     <!-- Left Nav -->
-    <?php if ($this->_page == "home") {
+    <?php if ($this->_page == "browse") {
         include_once(ABSPATH.'views/draw_left_column.php');
     } ?>
 
@@ -73,7 +73,7 @@ global $channel_descriptions;
       <div class="mainbar-wrapper">
   	    <div class="mainbar">
       		<!-- logo -->
-          <?php if ($this->_page == "home") {
+          <?php if ($this->_page == "browse") {
             ;?>
               <a href ="#left-col-wrapper"><div id="hamburger"><i class ="icon-reorder icon-2x"></i></div></a>
             <?php
