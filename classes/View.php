@@ -9,6 +9,7 @@ class View
 	protected $_page; // internal reference to page ("home", "about"..etc)
 	protected $_view; // which view kind
 	protected $_title; // title of a website
+	protected $_left_column; // "yes" or "no";
 	protected $_description; // description of page
 	protected $_posts; //initial set of posts to display
 
@@ -19,6 +20,19 @@ class View
 			$this->_page = $pagewanted;
 		} else {
 			$this->_page = "browse"; //default
+		}
+
+		// decide if the page has a left column or not;
+		switch ($this->_page) {
+			case 'browse':
+				$this->_left_column = "yes";
+				break;		
+			case 'top':
+				$this->_left_column = "yes";
+				break;
+			default:
+				$this->_left_column = "no";
+				break;
 		}
 
 		// 	If we are browsing posts, which view type are we using? (cards, timeline or compact?)
@@ -46,14 +60,20 @@ class View
 				$this->_view = "cards";
 			}
 
+			;?>		
+			
+			<?php
+
 		// Which channel is being requested? (if any)
 			if ((isset($channel)) && ($channel !== "")) {
 				$this->_channel = $channel;
 				$_SESSION['channel'] = $channel;
 			} else {
 				$this->_channel = "all"; //default
+				$_SESSION['channel'] = NULL;
 			}
 		}
+
 	}
 
 	function DrawHeader(){
@@ -83,14 +103,15 @@ class View
 				}else{
 					$initial_posts_to_retreive = 20;
 				}
-				$data = $posts->get_interval_posts(0,$initial_posts_to_retreive, $_SESSION['channel']); 
+				$data = $posts->get_latest_posts($initial_posts_to_retreive, $_SESSION['channel']); 
 				//envelope the posts;
 				echo '<div id="posts">';
 					$this->display_posts($data);
 				echo '</div> <!-- /posts -->';
+				break;
 
 			case 'top':
-				#code;
+				include_once(ABSPATH.'views/draw_top.php');
 				break;
 
 			default:

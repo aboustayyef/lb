@@ -8,45 +8,12 @@
     <!-- JS Dependencies -->
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <?php if ($this->_page =="about") {
-        ?><script src="<?php echo WEBPATH ;?>js/pages.js?<?php //echo time(); ?>"></script>
-    <?php } ?>
-<?php
-    if ($this->_page=="browse") {
-
-    // dependencies below only load in the home page (viewing blog posts) 
-?>
-
     <script src="<?php echo WEBPATH ;?>js/blocksit.min.js"></script>
     <script src="<?php echo WEBPATH ;?>js/jquery.lazyload.min.js"></script>
 
     <!-- App JS -->
-    <?php 
-        switch ($_SESSION['viewtype']) {
-            case 'cards':
-                ?>
-                    <script src="<?php echo WEBPATH ;?>js/cards-ck.js?<?php echo time(); ?>"></script>
-                <?php
-                break;
-            case 'timeline':
-                ?>
-                    <script src="<?php echo WEBPATH ;?>js/timeline-ck.js?<?php echo time(); ?>"></script>
-                <?php
-                break;
-            case 'compact':
-                ?>
-                    <script src="<?php echo WEBPATH ;?>js/compact-ck.js?<?php echo time(); ?>"></script>
-                <?php
-                break;
-            
-            default:
-                ?>
-                    <script src="<?php echo WEBPATH ;?>js/cards-ck.js?<?php echo time(); ?>"></script>
-                <?php
-                break;
-        }
-}
-?>
+    <script src="<?php echo WEBPATH ;?>js/lebaneseblogs.js?<?php echo time(); ?>"></script>
+
     <!-- Start of StatCounter Code for Default Guide -->
                 <script type="text/javascript">
                 var sc_project=8489889; 

@@ -109,7 +109,7 @@ textarea, input {
 #modal {
   display: none;
   z-index: 1000;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -157,34 +157,34 @@ div.mainbar-wrapper {
   overflow: hidden; }
   div.mainbar-wrapper .mainbar .nav-wrapper {
     float: right; }
-    div.mainbar-wrapper .mainbar .nav-wrapper ul {
+    div.mainbar-wrapper .mainbar .nav-wrapper ul#menu-icons {
       display: block;
       float: left;
       margin: 0;
       padding: 0; }
-      div.mainbar-wrapper .mainbar .nav-wrapper ul a {
-        color: white; }
-        div.mainbar-wrapper .mainbar .nav-wrapper ul a li {
-          border-left: 1px #c6686f solid;
-          display: block;
-          float: left;
-          padding: 23px 15px;
-          margin: 0; }
-          div.mainbar-wrapper .mainbar .nav-wrapper ul a li:hover {
-            background-color: #91373e; }
-          div.mainbar-wrapper .mainbar .nav-wrapper ul a li.selected {
-            background: #853339;
-            color: white;
-            -webkit-box-shadow: 1px 0 1px 0 rgba(0, 0, 0, 0.5);
-            box-shadow: 1px 0 1px 0 rgba(0, 0, 0, 0.5); }
-          div.mainbar-wrapper .mainbar .nav-wrapper ul a li input {
-            opacity: 0;
-            width: 0;
-            padding: 5px;
-            height: 8px;
-            transition: all 0.3s;
-            -webkit-transition: all 0.3s;
-            border: none; }
+      div.mainbar-wrapper .mainbar .nav-wrapper ul#menu-icons li {
+        border-left: 1px #c6686f solid;
+        display: block;
+        float: left;
+        padding: 23px 15px;
+        margin: 0; }
+        div.mainbar-wrapper .mainbar .nav-wrapper ul#menu-icons li:hover {
+          background-color: #91373e; }
+        div.mainbar-wrapper .mainbar .nav-wrapper ul#menu-icons li.selected {
+          background: #853339;
+          color: white;
+          -webkit-box-shadow: 1px 0 1px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 0 1px 0 rgba(0, 0, 0, 0.5); }
+        div.mainbar-wrapper .mainbar .nav-wrapper ul#menu-icons li i {
+          color: white; }
+        div.mainbar-wrapper .mainbar .nav-wrapper ul#menu-icons li input {
+          opacity: 0;
+          width: 0;
+          padding: 5px;
+          height: 8px;
+          transition: all 0.3s;
+          -webkit-transition: all 0.3s;
+          border: none; }
   div.mainbar-wrapper #logo {
     overflow: hidden;
     float: left;
@@ -213,12 +213,14 @@ div.mainbar-wrapper {
     color: white;
     margin-right: 10px;
     border-right: 1px solid #e2b2b6;
-    padding: 17px 12px;
+    padding: 18px 12px;
     float: left;
-    background: #a33e46; }
+    background: #943840; }
     @media only screen and (max-width: 768px) {
       div.mainbar-wrapper #hamburger {
         display: block; } }
+    div.mainbar-wrapper #hamburger i {
+      font-size: 1.7em; }
 
 .loader {
   display: block;

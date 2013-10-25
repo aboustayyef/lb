@@ -11,11 +11,11 @@ span.search_string{
 }
 
 span.search_string:before{
-    content: "‘";
+    content: "";
 }
 
 span.search_string:after{
-    content: "’";
+    content: "";
 }
 
 div.resultline{

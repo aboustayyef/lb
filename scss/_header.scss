@@ -18,38 +18,38 @@ div.mainbar-wrapper {
     .mainbar{
         .nav-wrapper{
             float:right;
-            ul{
+            ul#menu-icons{
                 display: block;
                 float: left;
                 margin:0;
                 padding:0;
-                a{
-                    color:white;
-                    li{
-                        border-left: 1px lighten($lb_red, 15) solid;
-                        display: block;
-                        float: left;
-                        padding: 23px 15px;
-                        margin:0;
-                        &:hover{
-                            background-color: darken($lb_red, 5);
-                        }
-                        &.selected{
-                            background: $menus-background;
-                            color: $menus-foreground;
-                            -webkit-box-shadow: 1px 0 1px 0 rgba(0,0,0,0.5);
-                            box-shadow: 1px 0 1px 0 rgba(0,0,0,0.5);
-                        }
+                li{
+                    border-left: 1px lighten($lb_red, 15) solid;
+                    display: block;
+                    float: left;
+                    padding: 23px 15px;
+                    margin:0;
+                    &:hover{
+                        background-color: darken($lb_red, 5);
+                    }
+                    &.selected{
+                        background: $menus-background;
+                        color: $menus-foreground;
+                        -webkit-box-shadow: 1px 0 1px 0 rgba(0,0,0,0.5);
+                        box-shadow: 1px 0 1px 0 rgba(0,0,0,0.5);
+                    }
+                    i{
+                        color:white;
+                    }
 
-                        input{
-                            opacity:0;
-                            width:0;
-                            padding: 5px;
-                            height: 8px;
-                            transition:  all 0.3s;
-                            -webkit-transition:  all 0.3s;
-                            border:none;
-                        }
+                    input{
+                        opacity:0;
+                        width:0;
+                        padding: 5px;
+                        height: 8px;
+                        transition:  all 0.3s;
+                        -webkit-transition:  all 0.3s;
+                        border:none;
                     }
                 }
             }      
@@ -90,11 +90,14 @@ div.mainbar-wrapper {
         color: white;
         margin-right: 10px;
         border-right: 1px solid lighten($lb_red, 35);
-        padding: 17px 12px;
+        padding: 18px 12px;
         float: left;
-        background: $lb_red; 
+        background: darken($lb_red,4); 
         @media only screen and (max-width:768px){
             display: block;
+        }
+        i{
+            font-size: 1.7em;
         }
     }
 }

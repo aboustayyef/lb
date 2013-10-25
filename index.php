@@ -23,8 +23,11 @@ global $channel_descriptions;
 // 	"about" for pages with info and no sidebar (header + footer + static content)
 // 	"top" for statistics (header + footer +sidebar + dynamic content)
 
+$pagewanted = isset($_GET['pagewanted'])? $_GET['pagewanted'] : NULL;
+$view = isset($_GET['view']) ? $_GET['view'] : NULL;
+$channel = isset($_GET['channel']) ? $_GET['channel'] : NULL;
 
-$webpage = new View($_GET['pagewanted'], $_GET['view'], $_GET['channel']);
+$webpage = new View($pagewanted, $view, $channel);
 $webpage->DrawHeader();
 $webpage->DrawContent();
 $webpage->DrawFooter();

@@ -19,6 +19,7 @@ if (isset($_SESSION['channel'])) {
 }
 ?>
 <div id="left-col-wrapper">
+  <!-- <?php echo $_SESSION['viewtype'] ?> -->
   <button class="leftNav-dismiss">×</button>
   <div id ="viewtype">
     <h4 class="sectionheader">Posts Layout <sup>New!</sup></h4>
@@ -48,7 +49,7 @@ if (isset($_SESSION['channel'])) {
   </div>
 
 <h4 class="sectionheader">Statistics <sup>New!</sup></h4>
-<div class="label level1"><a href="#"><i class ="icon-bar-chart"></i>Top Posts &amp; Blogs</a></div>
+<div class="label level1"><a href="<?php echo WEBPATH . '?pagewanted=top'; ?>"><i class ="icon-bar-chart"></i>Top Posts &amp; Blogs</a></div>
 
   <div id ="channels">
     <h4 class="sectionheader">User Area<sup>New!</sup></h4>

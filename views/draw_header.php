@@ -13,12 +13,11 @@ global $channel_descriptions;
     <meta property="og:image" content="http://lebaneseblogs.com/img/interface/facebook-og-image.jpg">
 
     <!-- Main CSS -->
-    <?php if ($this->_page == "browse") {
+    <?php if ($this->_left_column == "yes") {
       ;?><link href="<?php echo WEBPATH ;?>css/lebaneseblogs.css?<?php echo time(); ?>" rel="stylesheet"><?php
     } else {
       ;?><link href="<?php echo WEBPATH ;?>css/pages.css?<?php echo time(); ?>" rel="stylesheet"><?php
     }?>
-    
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEBPATH ;?>css/font-awesome/css/font-awesome.min.css">
@@ -46,6 +45,12 @@ global $channel_descriptions;
 
 <!-- About Menu -->
   <body>
+    <script>
+      // important: These js variables tell javascript what to initialize
+      global_page = "<?php echo $this->_page ?>"; 
+      global_viewtype = "<?php echo $this->_view ?>";
+
+    </script>
     <?php include_once ABSPATH."views/modules/modal.inc"; ?>
     <div class = "menu" id="menu-about">
       <ul>
@@ -63,7 +68,7 @@ global $channel_descriptions;
     </div>
 
     <!-- Left Nav -->
-    <?php if ($this->_page == "browse") {
+    <?php if ($this->_left_column == "yes") {
         include_once(ABSPATH.'views/draw_left_column.php');
     } ?>
 
@@ -73,7 +78,7 @@ global $channel_descriptions;
       <div class="mainbar-wrapper">
   	    <div class="mainbar">
       		<!-- logo -->
-          <?php if ($this->_page == "browse") {
+          <?php if (($this->_page == "browse") || ($this->_page == "top")){
             ;?>
               <a href ="#left-col-wrapper"><div id="hamburger"><i class ="icon-reorder icon-2x"></i></div></a>
             <?php
@@ -86,16 +91,15 @@ global $channel_descriptions;
               </a>
         		</div>
             <div class="nav-wrapper">
-                <ul>
-                  <a href="#"><li><i class ="icon-signin icon-large"></i></li></a>
-                  <a href="#menu-about" id ="show-about" ><li><i id ="info" class ="icon-info-sign icon-large"></i></li></a>
-                  <a href="#menu-search" id="show-search"><li><i id ="search" class ="icon-search icon-large"></i></li></a>
+                <ul id ="menu-icons">
+                  <li data-menu="menu-about"><i id ="info" class ="icon-info-sign icon-large"></i></li>
+                  <li data-menu="menu-search"><i id ="search" class ="icon-search icon-large"></i></li>
                 </ul>
             </div><!-- nav-wrapper -->
       	</div> <!-- /mainbar -->
       </div>
-              <img class ="loader" src="img/interface/lb-loader-animated-big.gif">
+              <img class ="loader" src="img/interface/lb-loader-animated-big-red.gif">
 
 		<div id="content_wrapper"> <!-- the middle section between the header and the footer -->
-    <div id ="view-area">
+    <div id ="view-area" style ="opacity:0">
 <?php ?>

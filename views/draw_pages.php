@@ -1,9 +1,10 @@
 <ul id="section-choose">
 	<li><a href="#about">About</a></li>
-	<li><a href="#bloggers">Submit a Blog</a></li>
+	<li><a href="#submit">Submit a Blog</a></li>
 	<li><a href="#feedback">Feedback</a></li>
 </ul>
-<div id="sections">
+
+<div id="view-area">
 <hr>
 
 	<div class ="section" id="about">
@@ -55,11 +56,10 @@
 <hr>
 	<div class ="section" id="feedback">
 		
-		<h3>Feedback?</h3>
-		<form action="">
+		<h3>Feedback</h3>
+		<p>Any suggestion, advice or rant? Use this form to send it. If you want us to respond, add your email address somewhere in the body of your feedback</p>
+
 			<textarea name="feedback" id="feedback" cols="30" rows="10" placeholder ="Example: I just wanted to tell you how awesome/terrible you are - fan@haters.com"></textarea>
 			<input type="submit" name="submit" class="button" id="submitFeedback" value="Send" /> 
-		</form>
-		<p>Any suggestion, advice or rant? Use this form to send it. If you want us to respond, add your email address somewhere in the body of your feedback</p>
 	</div>
 </div>

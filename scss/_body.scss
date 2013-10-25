@@ -15,7 +15,8 @@
 //right of center (without left nav)
 #view-area{
     background: #c5c5c5;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #posts{

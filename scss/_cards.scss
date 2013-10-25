@@ -1,6 +1,9 @@
  
 .card{
     width: 280px;
+    &.wide{
+        width:inherit;
+    }
     padding: 0px; // devolve padding to sub-sections
     margin: 10px;
     background: white ;
@@ -9,7 +12,7 @@
     a{
         text-decoration: none;
     }
-    
+
     //header
     .card_header{
         padding: $module_padding;
