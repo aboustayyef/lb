@@ -52,6 +52,21 @@ class Posts
 
     }
 
+    public function get_blogger_posts($number_of_posts = 10, $whichblogger = NULL) { //default is 10 posts
+        // get blog's details
+
+        $this->_query = 
+        'SELECT
+         blogs.blog_id, blogs.blog_name ,blogs.blog_description, blogs.blog_tags, blogs.blog_url,
+         posts.post_url, posts.post_title, posts.post_image,posts.post_image_height, posts.post_image_width, posts.post_excerpt
+         FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE blogs.blog_id = "'.trim($whichblogger).'" ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
+
+        $this->_query_result = $this->_db->query($this->_query);
+        $this->_rows = $this->_query_result->fetchAll(PDO::FETCH_ASSOC);
+        return $this->_rows;
+    }
+
+
     public function get_top_posts($hours, $howmany = 5){
 
         // calculate the time cutoff 

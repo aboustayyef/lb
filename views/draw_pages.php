@@ -30,7 +30,7 @@
 
 	</div>
 <hr>
-	<div class ="section" id="submit">
+	<div id ="submit" class ="section">
 		
 		<h3>Submit a Blog</h3>
 		<p>Before you submit a blog, make sure it fulfills the criteria below and that it is not already listed. To know if your blog is listed, use this website's search box above (you can search for your blog's url or title)</p>
@@ -46,12 +46,8 @@
 
 		<h3>Ready to submit?</h3>
 
-		<div id ="submitform">
-				<input id ="submitblog" type="text" placeholder = "http://yourblogaddress.com">
-				<input type="submit" name="submit" class="button" id="submitBlog" value="Send" /> 
-		</div>
-	
-	<p id="message"></p>
+		<input id ="submitblog" type="text" placeholder = "http://yourblogaddress.com">
+		<a href ="" id="submitBlog" class ="btn btn-red"/>Submit Blog</a> 
 	</div>
 <hr>
 	<div class ="section" id="feedback">
@@ -60,6 +56,7 @@
 		<p>Any suggestion, advice or rant? Use this form to send it. If you want us to respond, add your email address somewhere in the body of your feedback</p>
 
 			<textarea name="feedback" id="feedback" cols="30" rows="10" placeholder ="Example: I just wanted to tell you how awesome/terrible you are - fan@haters.com"></textarea>
-			<input type="submit" name="submit" class="button" id="submitFeedback" value="Send" /> 
+			<a href ="" id="submitFeedback" class ="btn btn-red"/>Submit Feedback</a> 
 	</div>
+	<hr>
 </div>

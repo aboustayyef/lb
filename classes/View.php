@@ -12,8 +12,9 @@ class View
 	protected $_left_column; // "yes" or "no";
 	protected $_description; // description of page
 	protected $_posts; //initial set of posts to display
+	protected $_blogger; // if we're in the blogger page
 
-	function __construct($pagewanted=null, $view=null, $channel=null) {
+	function __construct($pagewanted=null, $view=null, $channel=null, $bloggerid=null) {
 		
 		// Which page is this? is it a browse page? an about page or a 'top' page?
 		if ((isset($pagewanted))) {
@@ -22,17 +23,11 @@ class View
 			$this->_page = "browse"; //default
 		}
 
-		// decide if the page has a left column or not;
-		switch ($this->_page) {
-			case 'browse':
-				$this->_left_column = "yes";
-				break;		
-			case 'top':
-				$this->_left_column = "yes";
-				break;
-			default:
-				$this->_left_column = "no";
-				break;
+		// does page have a left column?
+		if ($this->hasLeftColumn($this->_page)) {
+			$this->_left_column = "yes";
+		} else {
+			$this->_left_column = "no";
 		}
 
 		// 	If we are browsing posts, which view type are we using? (cards, timeline or compact?)
@@ -74,6 +69,15 @@ class View
 			}
 		}
 
+		if ($this->_page == 'blogger') {
+			if (isset($bloggerid) && $bloggerid !=="") {
+				$this->_blogger = $bloggerid;
+			}else{
+				die('No bloggerid specified');
+			}
+			
+		}
+
 	}
 
 	function DrawHeader(){
@@ -86,8 +90,13 @@ class View
 
 		global $db;
 		switch ($this->_page) {
+			
 			case 'about':
 				include_once(ABSPATH.'views/draw_pages.php');
+				break;
+
+			case 'blogger':
+				include_once(ABSPATH.'views/draw_blogger.php');
 				break;
 
 			case 'browse':
@@ -156,7 +165,12 @@ class View
 				$this->_title = "Lebanese Blogs | Top Posts";
 				$this->_description = "Top posts today at Lebanese Blogs";
 				break;
-			
+
+			case 'blogger':
+				$this->_title = "[Blog Name] on Lebanese Blogs";
+				$this->_description = "Posts of blog [Blog Name] on Lebanese Blogs";
+				break;
+
 			default:
 				die('pagewanted is not set correctly');
 				break;
@@ -223,5 +237,25 @@ class View
 		</script>
 		<?php
 	}
+
+	function hasLeftColumn($whichPage){
+		$LeftColumns = array (
+			'browse' 	=> "yes",
+			'top'		=> "yes",
+			'about'		=> "no",
+			'search'	=> 	"no",
+			'blogger'	=>	"no"
+		);
+		if (array_key_exists($whichPage, $LeftColumns)) {
+			if ($LeftColumns[$whichPage] == "yes") {
+				return TRUE;
+			} else {
+				return FALSE;
+			}
+		} else {
+			return FALSE; // default is FALSE if it's not in the array
+		}
+	}
+
 }
 ?>

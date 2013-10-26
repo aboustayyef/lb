@@ -147,12 +147,12 @@ FileETag None
 
 <IfModule mod_rewrite.c>
   RewriteEngine On    # Turn on the rewriting engine
-  RewriteRule ^about/?$ \?pagewanted=about [NC,L] #exception for blog
-  
+  RewriteRule ^about/?$ \?pagewanted=about [NC,L] #exception for about page
+  RewriteRule ^phpmyadmin$ http://198.199.102.92/phpmyadmin [NC,L] #exception for phpmyadmin
   RewriteRule ^blog/?$ blog/ [NC,L] #exception for blog
   RewriteRule ^blogger/?$ blogger/ [NC,L] #exception for blogger
   RewriteRule ^search/?$ search/ [NC,L] #exception for search
-  RewriteRule ^([a-zA-Z0-9-]+)/?$  blogger/index.php?id=$1    [NC,L]    # Handle requests
+  RewriteRule ^([a-zA-Z0-9-]+)/?$  ?pagewanted=blogger&bloggerid=$1    [NC,L]    # Handle requests for bloggers
 </IfModule>
 
 

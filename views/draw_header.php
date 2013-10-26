@@ -13,11 +13,18 @@ global $channel_descriptions;
     <meta property="og:image" content="http://lebaneseblogs.com/img/interface/facebook-og-image.jpg">
 
     <!-- Main CSS -->
-    <?php if ($this->_left_column == "yes") {
-      ;?><link href="<?php echo WEBPATH ;?>css/lebaneseblogs.css?<?php echo time(); ?>" rel="stylesheet"><?php
-    } else {
-      ;?><link href="<?php echo WEBPATH ;?>css/pages.css?<?php echo time(); ?>" rel="stylesheet"><?php
-    }?>
+    <?php 
+      if ($this->_page == "blogger") {
+        ;?><link href="<?php echo WEBPATH ;?>css/blogger.css?<?php echo time(); ?>" rel="stylesheet"><?php
+      }else {
+        if ($this->_left_column == "yes") {
+          ;?><link href="<?php echo WEBPATH ;?>css/lebaneseblogs.css?<?php echo time(); ?>" rel="stylesheet"><?php
+        } else {
+          ;?><link href="<?php echo WEBPATH ;?>css/pages.css?<?php echo time(); ?>" rel="stylesheet"><?php
+        }
+      }
+    ?>
+    <?php ?>
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEBPATH ;?>css/font-awesome/css/font-awesome.min.css">

@@ -1,11 +1,22 @@
 <?php 
+//echo '<pre>',var_dump($_SERVER),'</pre>';
+
 /*******************************************************************
 *	Database Configuration and functions file
 *
 ********************************************************************/ 
 
 define('ABSPATH', dirname(__FILE__).'/');
-define('WEBPATH', '');
+
+// Find web root of app
+$url = '']; // example: http://localhost or http://lebaneseblogs.com
+
+$self = explode('/', $_SERVER['PHP_SELF']);
+array_pop($self); // removes last item from the array, which is config.php in this case
+$root_directory = implode('/', $self); 
+$url = $url . $root_directory . '/';
+
+define('WEBPATH', $url); 
 define('LBDB_USER', '');
 define('LBDB_PASS', '');
 define('LBDB_HOST', '');
@@ -26,7 +37,7 @@ $channel_descriptions = array(
 *   Environment
 */ 
 
-define('POSTS_PER_REFRESH', 10); // posts added for infinite scrolling. reduce if loading is slow
+define('POSTS_PER_REFRESH', 14); // posts added for infinite scrolling. reduce if loading is slow
 
 
 /* for online use

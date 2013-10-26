@@ -26,8 +26,10 @@ global $channel_descriptions;
 $pagewanted = isset($_GET['pagewanted'])? $_GET['pagewanted'] : NULL;
 $view = isset($_GET['view']) ? $_GET['view'] : NULL;
 $channel = isset($_GET['channel']) ? $_GET['channel'] : NULL;
+$bloggerid = isset($_GET['bloggerid']) ? $_GET['bloggerid'] : NULL;
 
-$webpage = new View($pagewanted, $view, $channel);
+
+$webpage = new View($pagewanted, $view, $channel, $bloggerid);
 $webpage->DrawHeader();
 $webpage->DrawContent();
 $webpage->DrawFooter();

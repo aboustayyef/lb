@@ -290,8 +290,39 @@ var lbApp ={
 		},
 	},
 
+	bloggerPage:{
+		window: $('.bloggerPosts'),
+		flow: function(){
+			this.cardWidth = 320; //278px + 2 (border 1 px) + 20 (margin 10px);
+			this.columns = Math.floor(lbApp.interface.viewArea.window.outerWidth()/this.cardWidth);
+			this.windowWidth = this.columns * this.cardWidth;
+			
+			this.window.css("width",this.windowWidth);
+			this.window.css("margin","0 auto");
 
-	
+			$('.blogMeta').css({
+				"width"		:	this.window.width() - 60,
+				"margin"	:	"0 auto"
+			});
+
+			this.window.BlocksIt({
+				numOfCol: this.columns,
+				offsetX: 10,
+				offsetY: 10,
+				blockElement: '.card'
+			});
+		},
+		loadImages: function(){
+			$("img.lazy").lazyload({
+					threshold: 500,
+					effect: "fadeIn",
+				});
+			$("img.lazy").removeClass("lazy");
+			var t = $('.blogger').scrollTop();
+			$(window).scrollTop(t+1); //nudge 1 pixel to counter lazy load bug.
+		}
+	},
+
 	aboutPage: {
 		init: function(){
 			
@@ -308,7 +339,7 @@ var lbApp ={
 
 			// Accept form input
 
-			$('input#submitBlog').on('click',function(){
+			$('#submitBlog').on('click',function(){
 				var re = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/ ;
 				var submission = $('#submitblog').val();
 				if (re.test(submission)) { //value is URL
@@ -329,8 +360,9 @@ var lbApp ={
 				}else{
 					lbApp.interface.modal.message("Sorry, you should submit a URL");
 				}
+				return false;
 			});
-			$('input#submitFeedback').on('click',function(){
+			$('#submitFeedback').on('click',function(){
 				var submission = $('textarea#feedback').val();
 				if (submission !== '') { //value is not empty
 					var formData = {
@@ -350,6 +382,7 @@ var lbApp ={
 				}else{
 					lbApp.interface.modal.message("Sorry, Feedback message cannot be left empty");
 				}
+				return false;
 			});
 		}
 	}
@@ -362,14 +395,23 @@ $(window).load(function(){
 		lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
 		lbApp.posts.images.show(); // load lazy images
 		lbApp.posts.show(); // show everything
-		lbApp.interface.revealContent();
 		lbApp.interface.viewArea.handleScroll();
 		if (global_viewtype === "compact") {
 			lbApp.interface.compactView.init();
 		}
+		lbApp.interface.revealContent();
+
 	}
 	if ((global_page === "about")) {
 		lbApp.aboutPage.init();
+		lbApp.interface.revealContent();
+	}
+	if ((global_page === "blogger")) {
+		lbApp.bloggerPage.flow();
+		lbApp.interface.revealContent();
+		lbApp.bloggerPage.loadImages();
+		$('.endloader').hide();
+
 	}
 	if ((global_page === "top")) {
 		lbApp.interface.revealContent();
@@ -380,8 +422,13 @@ var do_resize;
 $(window).resize(function() {
     clearTimeout(do_resize);
     do_resize = setTimeout(function() {
-        lbApp.interface.setDimensions();
-        lbApp.posts.flow();
+        if (global_page === "browse") {
+			lbApp.interface.setDimensions();
+			lbApp.posts.flow();
+        }
+        if (global_page === "blogger") {
+			lbApp.bloggerPage.flow();
+        }
     }, 300);
 });
 
