@@ -469,7 +469,31 @@ div.mainbar-wrapper {
     position: relative;
     margin-top: 1em;
     border-top: 1px solid silver;
-    background: #f7f7f7; }
+    background: #f7f7f7;
+    direction: ltr; }
+    .card .card_footer.nopadding {
+      padding: 0; }
+    .card .card_footer ul {
+      overflow: auto; }
+      .card .card_footer ul li {
+        opacity: .65;
+        font-size: 12px;
+        float: left;
+        margin-right: 15px;
+        padding: 7px 12px; }
+        .card .card_footer ul li:hover {
+          opacity: 1; }
+        .card .card_footer ul li:first-child {
+          padding-left: 10px; }
+        .card .card_footer ul li:last-child {
+          margin-right: 0;
+          padding-right: 0; }
+        .card .card_footer ul li.save {
+          background: #f2f2f2;
+          border-right: 1px solid #cccccc; }
+        .card .card_footer ul li i {
+          margin-right: 3px;
+          font-size: 0.9em; }
   .card.rtl {
     direction: rtl;
     font-family: tahoma ,sans-serif;
@@ -489,180 +513,6 @@ div.mainbar-wrapper {
       line-height: 1.3em;
       max-width: 230px;
       overflow: auto; }
-
-/* #top_posts{
-    
-    .card_header{ // #top_posts header
-        padding:7px 15px;
-        background: $lb_red;
-         h2{
-            font-size: 1.2em;
-            line-height: 1.3em;
-            color: white;
-            margin: 0;
-        }
-        &.selector{
-            background: #f2f2f2;
-            i{
-                color: $lb_red;
-                margin-right: 5px;
-            }
-        }
-
-        h3{
-            margin-bottom: 1em;
-            font-size:1.4em;
-            line-height: 1.3em;
-        }
-    }
-
-    .card_body{ // top posts body
-        padding:0;
-        overflow: auto;
-        max-height: none;
-        .list_item{
-            clear: both;
-            padding:15px;
-            border-bottom: 1px lighten(silver,5) dotted;
-            overflow: auto;
-            &:last-child{
-                margin-bottom: 0;
-                border-bottom:none;
-            }
-            .thumb{
-                float:left;
-                width:74px;
-                height: 74px;
-                border:1px solid darken(white,10%);
-                overflow: hidden;
-            }
-
-            a {color:#444;}
-            h4 a{
-                font-size: 15px;
-                line-height: 15px;
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-            h4, h5{
-                margin-left: 85px;
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-            h4 a, h5 a{ 
-                font-family: "Bitter",serif;
-                display: block;
-            }
-            h5 a{
-                margin-top: 2px;
-                font-size: 12px;
-                font-family: arial,sans-serif;
-                color: rgb(180,180,180);
-                font-weight: normal;
-            }
-        }
-    }
-    
-    .card_footer{ // top posts footer
-        background:grey;
-        margin-top: 1em;
-        padding:.3em;
-    }
-} */
-#tip {
-  text-align: center;
-  font-family: "Bitter", serif; }
-  #tip h2 {
-    color: #333; }
-  #tip .card_header {
-    background: #f0c877; }
-    #tip .card_header h1 {
-      font-size: 2.2em;
-      margin: 5px auto;
-      font-family: "Bitter",serif;
-      color: beige;
-      text-align: center;
-      line-height: 1em; }
-  #tip .card_body {
-    line-height: 1.5em; }
-  #tip a {
-    color: #ba8314; }
-
-div .blogentry.tip {
-  background: white url("yellow-bkg.gif") repeat-x;
-  border: none; }
-  div .blogentry.tip img {
-    border: none; }
-  div .blogentry.tip a {
-    color: #cb834d; }
-  div .blogentry.tip p {
-    padding: 1em 2em;
-    font-size: 14px;
-    line-height: 20px;
-    font-family: "Bitter",serif;
-    margin: 0 0 10px; }
-  div .blogentry.tip h1 {
-    font-size: 2.2em;
-    font-family: "Bitter",serif;
-    color: beige;
-    text-align: center;
-    margin-top: 1em;
-    line-height: 1em; }
-  div .blogentry.tip h2 {
-    font-family: "helvetica neue", sans-serif;
-    color: #222;
-    font-weight: bold;
-    font-size: 1.3em;
-    margin-top: 1.5em;
-    margin-bottom: 1em;
-    text-align: center; }
-  div .blogentry.tip .wrapper_special {
-    margin-top: -20px; }
-
-/* Sharing */
-div.shareicon {
-  direction: ltr;
-  opacity: .1;
-  margin-top: 20px;
-  margin-bottom: -8px;
-  border: none; }
-
-div.sharing_tools {
-  position: absolute;
-  width: 295px;
-  bottom: -1px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  direction: ltr;
-  background: #f3f3f3;
-  padding: 6px 3px 3px 3px;
-  margin-top: -20px;
-  margin-left: -11px;
-  margin-right: -11px;
-  opacity: 0;
-  border-top: 1px solid silver; }
-  div.sharing_tools ul {
-    overflow: hidden;
-    background: none;
-    list-style-type: none;
-    margin-bottom: 0px;
-    margin-left: 40px;
-    padding-left: 0px; }
-  div.sharing_tools li {
-    list-style-type: none;
-    font-family: verdana,sans-serif;
-    font-size: 12px;
-    background: none;
-    float: left;
-    margin-right: 10px;
-    vertical-align: top; }
-    div.sharing_tools li.box {
-      line-height: 12px;
-      background: none;
-      padding: 5px;
-      border: 1px silver solid; }
-    div.sharing_tools li img {
-      border: none; }
 
 .blogger {
   min-height: 800px;
