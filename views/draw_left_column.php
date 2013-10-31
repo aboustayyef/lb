@@ -19,6 +19,7 @@ if (isset($_SESSION['channel'])) {
 }
 ?>
 <div id="left-col-wrapper">
+  <div class="left-col-inner">
   <!-- <?php echo $_SESSION['viewtype'] ?> -->
   <button class="leftNav-dismiss">×</button>
   <div id ="viewtype">
@@ -110,5 +111,5 @@ if (isset($_SESSION['channel'])) {
       </a> 
 
   </div>
-
+  </div> <!-- /left-col-inner -->
 </div> <!-- /left-col-wrapper -->

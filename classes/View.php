@@ -202,22 +202,6 @@ class View
 *********************************************************************************************************************************************/
  
 
-	// This function allocates "slots" to material other than the blog posts (widgets, tips or ads)
-	function map_keys($key){
-		echo '<!-- MAP KEYS CALLED -->';
-		if ($key == 0) { // show top posts
-			global $channel_descriptions;	
-			global $db;
-			$top5 = new Posts($db);
-			$posts = $top5->get_Top_Posts($hours=12, $howmany = 5);
-			include_once(ABSPATH.'views/top5.php');
-			$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
-		} else if ($key % 15 == 0) {
-			echo '<!--'.$key.' is a multiple of 15 -->';
-			$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
-		}
-	}
-
 	function contains_arabic($string){	//returns true if string has arabic characters
 
 		if (preg_match("/([ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]).+/", $string)){

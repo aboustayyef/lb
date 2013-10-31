@@ -33,23 +33,7 @@ var lbApp ={
 		// depending on the view type.
 		flow: function(){
 			if (global_viewtype === "cards") {
-				//calculate number of columns and width of posts area
-				this.cardWidth = 320; //278px + 2 (border 1 px) + 20 (margin 10px);
-				this.columns = Math.floor(lbApp.interface.viewArea.window.outerWidth()/this.cardWidth);
-				this.windowWidth = this.columns * this.cardWidth;
-				
-				//set width of posts window and center it
-				this.window.css("width",this.windowWidth);
-				this.window.css("margin","0 auto");
-
-				// use blocksit plugin to lay the cards out
-				this.window.BlocksIt({
-					numOfCol: this.columns,
-					offsetX: 10,
-					offsetY: 10,
-					blockElement: '.card'
-				});
-
+				lbApp.interface.cards.flow();
 			}else if (global_viewtype === "timeline"){
 				// series of timeline logic to reflow cards
 				// nothing special yet
@@ -70,7 +54,20 @@ var lbApp ={
 				lbApp.posts.busy = "no";
 			});
 			},
-
+		injectExtras: {
+			// this function adds the extra items to the cards view
+			// we will develop it later to also include other views
+			topRight: function(whichitem){
+				// add something to the upper right corner
+				$('[data-id="'+ Math.abs((lbApp.posts.columns-1)) +'"]').before("<div></div>").addClass('card').load("extras.php",{key:whichitem});
+			},
+			position: function(where, whichitem){
+				$('[data-id="'+ (where-1)+'"]').before("<div></div>").addClass('card').load("extras.php",{key:whichitem});
+			},
+			tip: function(where, title, text, image){
+				$('[data-id="'+ (where-1)+'"]').before("<div></div>").addClass('card').load("extras.php",{key:'tip', tipTitle:title, tipText:text, tipImage:image });
+			}
+		},
 		images : {
 			show: function(){
 				$("img.lazy").lazyload({
@@ -100,6 +97,27 @@ var lbApp ={
 			$('#view-area').css('-webkit-overflow-scrolling', 'touch');
 
 		},
+
+		cards: {
+			flow: function(){
+				//calculate number of columns and width of posts area
+				var cardWidth = 320; //278px + 2 (border 1 px) + 20 (margin 10px);
+				var columns = Math.floor($('#view-area').outerWidth()/cardWidth);
+				var windowWidth = columns * cardWidth;
+				console.log(windowWidth);
+				//set width of posts window and center it
+				$('#posts').css("width", windowWidth);
+				$('#posts').css("margin","0 auto");
+
+				// use blocksit plugin to lay the cards out
+				$('#posts').BlocksIt({
+					numOfCol: columns,
+					offsetX: 10,
+					offsetY: 10,
+					blockElement: '.card'
+				});
+			}
+		},
 		revealContent: function(){
 			$('.loader').fadeTo('fast',0, function(){
 				$('#view-area').fadeTo('fast',1);
@@ -128,7 +146,7 @@ var lbApp ={
 		setDimensions: function(){
 			// calculate the heights of the sidebar and the view area 
 			// to fit exactly in the window
-			lbApp.interface.sidebar.css("height", jQuery(window).outerHeight()-2); // 2px for the top border
+			lbApp.interface.sidebar.css("height", jQuery(window).outerHeight()); // 2px for the top border
 			lbApp.interface.viewArea.window.css("height", jQuery(window).outerHeight()-lbApp.interface.header.outerHeight());
 		},
 
@@ -408,13 +426,15 @@ $(window).load(function(){
 	}
 	if ((global_page === "blogger")) {
 		lbApp.bloggerPage.flow();
+		$('.endloader').hide();
 		lbApp.interface.revealContent();
 		lbApp.bloggerPage.loadImages();
-		$('.endloader').hide();
 
 	}
 	if ((global_page === "top")) {
+		lbApp.interface.cards.flow();
 		lbApp.interface.revealContent();
+
 	}
 });
 
@@ -428,6 +448,10 @@ $(window).resize(function() {
         }
         if (global_page === "blogger") {
 			lbApp.bloggerPage.flow();
+        }
+
+        if (global_page === "top") {
+			lbApp.interface.cards.flow();
         }
     }, 300);
 });

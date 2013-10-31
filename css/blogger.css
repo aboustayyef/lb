@@ -84,22 +84,27 @@ a.btn {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
-  padding: 10px 30px;
+  padding: 5px 15px;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-bottom-width: 2px; }
-
-a.btn.btn-red {
-  background-color: #a33e46;
-  border-color: #6c292e;
-  text-shadow: 0 1px 0 #6c292e;
-  color: #FFF; }
-
-a.btn.btn-red:hover {
-  background-color: #91373e;
-  border-color: #592226; }
+  a.btn.btn-red {
+    background-color: #a33e46;
+    border-color: #6c292e;
+    text-shadow: 0 1px 0 #6c292e;
+    color: #FFF; }
+    a.btn.btn-red:hover {
+      background-color: #91373e;
+      border-color: #592226; }
+  a.btn.btn-large {
+    padding: 10px 30px; }
+  a.btn.btn-small {
+    text-transform: capitalize;
+    font-size: 12px;
+    padding: 2px 2px;
+    line-height: 1em; }
 
 ul {
   margin: 0;
@@ -309,8 +314,6 @@ div.mainbar-wrapper {
   -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25); }
-  .card.wide {
-    width: inherit; }
   .card a {
     text-decoration: none; }
   .card .card_header {
@@ -318,6 +321,25 @@ div.mainbar-wrapper {
     position: relative;
     border-bottom: 1px solid silver;
     background: #f2f2f2; }
+    .card .card_header.strong {
+      font-weight: strong; }
+    .card .card_header.redheader {
+      background: #a33e46; }
+    .card .card_header.whiteheader {
+      background: white; }
+    .card .card_header.noborder {
+      border-bottom: none; }
+    .card .card_header.tip {
+      background: #ffcc66;
+      height: 30px; }
+      .card .card_header.tip:after {
+        content: "TIP";
+        position: absolute;
+        bottom: 10px;
+        left: 118px;
+        font-family: "Bitter",serif;
+        font-size: 22px;
+        color: white; }
     .card .card_header img {
       border: 1px solid #f0f0f0; }
     .card .card_header .blog_name {
@@ -328,10 +350,26 @@ div.mainbar-wrapper {
       width: 180px;
       top: 10px;
       left: 70px; }
+    .card .card_header h3 {
+      font-size: 1.2em;
+      line-height: 1.2em;
+      font-family: "Bitter",serif; }
+      .card .card_header h3.redfont {
+        color: #a33e46; }
+      .card .card_header h3.whitefont {
+        color: white; }
   .card .card_body {
     padding: 10px;
     max-height: 450px;
     overflow: hidden; }
+    .card .card_body.nopadding {
+      padding: 0; }
+    .card .card_body.elastic {
+      max-height: inherit; }
+    .card .card_body.redbody {
+      background: #a33e46; }
+    .card .card_body.silverbody {
+      background: #f7f7f7; }
     .card .card_body .post_time {
       font-size: 13px;
       color: #7e3036;
@@ -339,6 +377,9 @@ div.mainbar-wrapper {
     .card .card_body [id^="content-post-"] {
       max-height: 500px;
       overflow: hidden; }
+    .card .card_body p {
+      padding: 5px;
+      font-size: 16px; }
     .card .card_body blockquote {
       padding: 0 15px;
       font-size: .9em;
@@ -346,7 +387,8 @@ div.mainbar-wrapper {
       max-width: 230px;
       overflow: hidden; }
     .card .card_body img {
-      border: #dadada solid 1px; }
+      border: #dadada solid 1px;
+      margin-top: 10px; }
     .card .card_body .post_title {
       margin-top: 0;
       margin-bottom: 15px; }
@@ -359,6 +401,69 @@ div.mainbar-wrapper {
         .card .card_body .post_title a:hover {
           color: #3B967C;
           text-decoration: none; }
+    .card .card_body .list_type_a {
+      /* A list type a is a list that takes a div.thumb, an h3 (title) and h4 (description) */
+      clear: both;
+      padding-bottom: 15px;
+      padding-top: 15px;
+      border-bottom: 1px #cdcdcd dotted;
+      overflow: auto; }
+      .card .card_body .list_type_a:first-child {
+        padding-top: 0; }
+      .card .card_body .list_type_a:last-child {
+        margin-bottom: 0;
+        border-bottom: none; }
+      .card .card_body .list_type_a .thumb {
+        float: left;
+        width: 74px;
+        height: 74px;
+        border: 1px solid #e6e6e6;
+        overflow: hidden; }
+        .card .card_body .list_type_a .thumb img {
+          margin: 0; }
+      .card .card_body .list_type_a a {
+        color: #444; }
+      .card .card_body .list_type_a h4 a {
+        font-size: 15px;
+        line-height: 15px;
+        margin-top: 0;
+        margin-bottom: 0; }
+      .card .card_body .list_type_a h4, .card .card_body .list_type_a h5 {
+        margin-left: 85px;
+        margin-top: 0;
+        margin-bottom: 0; }
+      .card .card_body .list_type_a h4 a, .card .card_body .list_type_a h5 a {
+        font-family: "Bitter",serif;
+        display: block; }
+      .card .card_body .list_type_a h5 a {
+        margin-top: 2px;
+        font-size: 12px;
+        font-family: arial,sans-serif;
+        color: #b4b4b4;
+        font-weight: normal; }
+    .card .card_body .list_type_b {
+      padding: 10px;
+      box-shadow: 0 1px 1px 1px #e6e6e6;
+      margin-bottom: 10px;
+      clear: both;
+      overflow: auto;
+      background: white; }
+      .card .card_body .list_type_b img {
+        margin: 0; }
+      .card .card_body .list_type_b img.thumb {
+        float: left;
+        width: 50px;
+        height: 50px; }
+      .card .card_body .list_type_b h3 {
+        font-family: "Bitter",serif;
+        max-width: 200px;
+        font-size: 1.1em;
+        line-height: 1.2em;
+        margin-left: 65px; }
+      .card .card_body .list_type_b .button-wrapper {
+        margin-top: 5px;
+        display: block;
+        margin-left: 65px; }
   .card .card_footer {
     padding: 10px;
     position: relative;
@@ -385,66 +490,85 @@ div.mainbar-wrapper {
       max-width: 230px;
       overflow: auto; }
 
-#top_posts .card_header {
-  padding: 7px 15px;
-  background: #a33e46; }
-  #top_posts .card_header h2 {
-    font-size: 1.2em;
-    line-height: 1.3em;
-    color: white;
-    margin: 0; }
-  #top_posts .card_header.selector {
-    background: #f2f2f2; }
-    #top_posts .card_header.selector i {
-      color: #a33e46;
-      margin-right: 5px; }
-  #top_posts .card_header h3 {
-    margin-bottom: 1em;
-    font-size: 1.4em;
-    line-height: 1.3em; }
-#top_posts .card_body {
-  padding: 0;
-  overflow: auto;
-  max-height: none; }
-  #top_posts .card_body .list_item {
-    clear: both;
-    padding: 15px;
-    border-bottom: 1px #cdcdcd dotted;
-    overflow: auto; }
-    #top_posts .card_body .list_item:last-child {
-      margin-bottom: 0;
-      border-bottom: none; }
-    #top_posts .card_body .list_item .thumb {
-      float: left;
-      width: 74px;
-      height: 74px;
-      border: 1px solid #e6e6e6;
-      overflow: hidden; }
-    #top_posts .card_body .list_item a {
-      color: #444; }
-    #top_posts .card_body .list_item h4 a {
-      font-size: 15px;
-      line-height: 15px;
-      margin-top: 0;
-      margin-bottom: 0; }
-    #top_posts .card_body .list_item h4, #top_posts .card_body .list_item h5 {
-      margin-left: 85px;
-      margin-top: 0;
-      margin-bottom: 0; }
-    #top_posts .card_body .list_item h4 a, #top_posts .card_body .list_item h5 a {
-      font-family: "Bitter",serif;
-      display: block; }
-    #top_posts .card_body .list_item h5 a {
-      margin-top: 2px;
-      font-size: 12px;
-      font-family: arial,sans-serif;
-      color: #b4b4b4;
-      font-weight: normal; }
-#top_posts .card_footer {
-  background: grey;
-  margin-top: 1em;
-  padding: .3em; }
+/* #top_posts{
+    
+    .card_header{ // #top_posts header
+        padding:7px 15px;
+        background: $lb_red;
+         h2{
+            font-size: 1.2em;
+            line-height: 1.3em;
+            color: white;
+            margin: 0;
+        }
+        &.selector{
+            background: #f2f2f2;
+            i{
+                color: $lb_red;
+                margin-right: 5px;
+            }
+        }
 
+        h3{
+            margin-bottom: 1em;
+            font-size:1.4em;
+            line-height: 1.3em;
+        }
+    }
+
+    .card_body{ // top posts body
+        padding:0;
+        overflow: auto;
+        max-height: none;
+        .list_item{
+            clear: both;
+            padding:15px;
+            border-bottom: 1px lighten(silver,5) dotted;
+            overflow: auto;
+            &:last-child{
+                margin-bottom: 0;
+                border-bottom:none;
+            }
+            .thumb{
+                float:left;
+                width:74px;
+                height: 74px;
+                border:1px solid darken(white,10%);
+                overflow: hidden;
+            }
+
+            a {color:#444;}
+            h4 a{
+                font-size: 15px;
+                line-height: 15px;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            h4, h5{
+                margin-left: 85px;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            h4 a, h5 a{ 
+                font-family: "Bitter",serif;
+                display: block;
+            }
+            h5 a{
+                margin-top: 2px;
+                font-size: 12px;
+                font-family: arial,sans-serif;
+                color: rgb(180,180,180);
+                font-weight: normal;
+            }
+        }
+    }
+    
+    .card_footer{ // top posts footer
+        background:grey;
+        margin-top: 1em;
+        padding:.3em;
+    }
+} */
 #tip {
   text-align: center;
   font-family: "Bitter", serif; }
@@ -541,13 +665,10 @@ div.sharing_tools {
       border: none; }
 
 .blogger {
-  padding: 10px;
   min-height: 800px;
   background: #e6e6e6; }
   .blogger .bloggerPosts {
     position: relative; }
-    .blogger .bloggerPosts .card_body img {
-      margin-left: -10px; }
   .blogger .blogMeta {
     background: white;
     padding: 20px; }

@@ -48,6 +48,80 @@ class Lb_functions {
 	    }
 	}
 
+	static function display_posts($data){
+		switch ($_SESSION['viewtype']) {
+			case 'cards':
+				include_once(ABSPATH.'views/display_cards.php')	;
+				break;
+			
+			case 'timeline':
+				include_once(ABSPATH.'views/display_timeline.php');
+				break;
+			
+			case 'compact':
+				include_once(ABSPATH.'views/display_compact.php') ;
+				break;
+			
+			default:
+				# code...
+				break;
+		}
+	}
+
+	static function map_keys($key){
+		echo '<!-- MAP KEYS CALLED -->';
+		if ($key == 0) { // show top posts
+;?>
+			<div class="card">
+				<div class="card_header tip"></div>
+				<div class="card_body">
+					<p>Top Posts Now moved to the sidebar</p>
+				</div>
+			</div>
+<?php
+		} else if ($key == 7){
+			;?>
+			
+			<div class="card">
+				<div class="card_header tip"></div>
+				<div class="card_body">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, nobis, tenetur ad eos quia quae ut dolor voluptates et odio?</p>
+				</div>
+			</div>
+			
+			<?php
+		} else if ($key % 15 == 0) {
+			echo '<!--'.$key.' is a multiple of 15 -->';
+			$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
+		} else if ($key == 4){
+			;?>
+						
+			<div id="testcard" class="card">
+				<div class="card_header redheader">
+					<h3 class ="whitefont">Featured Bloggers</h3>
+				</div>
+				<div class="card_body elastic silverbody">
+					<div class="list_type_b">
+						<img src="img/thumbs/blogbaladi.jpg" alt="" class="thumb">
+						<h3>Blog Baladi</h3>
+						<div class ="button-wrapper"><a href="" class="btn btn-red btn-small">explore</a></div>
+					</div>
+					<div class="list_type_b">
+						<img src="img/thumbs/beirutspring.jpg" alt="" class="thumb">
+						<h3>Beirut Spring</h3>
+						<div class ="button-wrapper"><a href="" class="btn btn-red btn-small">explore</a></div>
+					</div>
+					<div class="list_type_b">
+						<img src="img/thumbs/beirutntsc.jpg" alt="" class="thumb">
+						<h3>Beirut NTSC</h3>
+						<div class ="button-wrapper"><a href="" class="btn btn-red btn-small">explore</a></div>
+					</div>
+				</div>
+			</div>
+						
+			<?php			
+		}
+	}
 }
 
 ?>

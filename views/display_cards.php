@@ -10,14 +10,11 @@
 
 			$target_url = "http://lebaneseblogs.com/r.php?r=".urlencode($post['post_url']);
 
-			// first, capture the $key so that extra widgets can show (example: top posts at 0 and tips)
-			$this->map_keys($_SESSION['items_displayed']);
-
 			;?>
 			
 			<!-- Card wrapper -->
 
-			<div class="card<?php if ($this->contains_arabic($post['post_title'])) {echo " rtl";} ?>" id="<?php echo 'post-',$_SESSION['posts_displayed']; ?>"  style ="opacity:0;">
+			<div class="card<?php if ($this->contains_arabic($post['post_title'])) {echo " rtl";} ?>" data-id="<?php echo $_SESSION['posts_displayed']; ?>"  style ="opacity:0;">
 		
 			<!--card header-->
 		

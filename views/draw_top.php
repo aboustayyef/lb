@@ -5,64 +5,66 @@
 */
 
 ;?>
-
+<div id="posts">
 <?php 
 	global $channel_descriptions;	
 	global $db;
 	$top5 = new Posts($db);
-	$posts = $top5->get_Top_Posts($hours=1000, $howmany = 5);
+	$posts_12hours = $top5->get_Top_Posts($hours=12, $howmany = 5);
+	$posts_3days = $top5->get_Top_Posts($hours=24*3, $howmany = 5);
+	$posts_7days = $top5->get_Top_Posts($hours=24*7, $howmany = 5);
+	$total_stats = array(
+		"Most Popular Posts: last 12 hours"	=>	$posts_12hours,
+		"Most Popular Posts: last 3 days"	=>	$posts_3days,
+		"Most Popular Posts: last 7 days"	=>	$posts_7days
+		);
+
+	foreach ($total_stats as $description => $stats) {
+
 ?>
-<div id = "top_area">
-<div id ="top_posts" class ="card wide">
-	<div class = "card_header <?php if (isset($_SESSION['channel'])) {echo $_SESSION['channel'];} ?>">
-		<?php if (isset($_SESSION['channel'])) {
-			$channel = $_SESSION['channel'];
-			echo "<h2>Hot posts in {$channel_descriptions[$channel]}</h2>";
-		} else {
-			echo "<h2>Hot Posts</h2>";
-		} ?>
+
+<div class ="card">
+	<div class="card_header redheader">
+		<h3 class ="whitefont"><?php echo $description; ?></h3>
 	</div>
-	<div class="card_header selector">
-		<a href="#"><i class ="icon-chevron-down"></i>  In the last 12 hours</a>
-	</div>
-	<div class ="card_body">
+	<div class ="card_body elastic">
 		
 <?php
 
-	foreach ($posts as $post) {
-		$img = $post['post_image'];
-		$img_height =$post['post_image_height'] ;
-		$img_width =$post['post_image_width'] ;
-		$title = $post['post_title'];
-		$url = $post['post_url'];
-		$blogger_url = WEBPATH . $post['blog_id'];
+	foreach ($stats as $stat) {
+		$img = $stat['post_image'];
+		$img_height =$stat['post_image_height'] ;
+		$img_width =$stat['post_image_width'] ;
+		$title = $stat['post_title'];
+		$url = $stat['post_url'];
+		$blogger_url = WEBPATH . $stat['blog_id'];
 		;?>
 		
-		<div class="list_item">
+		<div class="list_type_a">
 				<?php
-				if (empty($post['post_image'])) {
+				if (empty($stat['post_image'])) {
 					;?>
 						<a href ="<?php echo $url ;?>">
-								<div class="thumb"><img class="lazy" data-original ="<?php echo "img/interface/no-image.jpg" ;?>" src="img/interface/grey.gif" height ="75px"></div>
+								<div class="thumb"><img src="<?php echo "img/interface/no-image.jpg" ;?>" height ="75px"></div>
 						</a>
 					<?php
 				}else {
 					if ($img_width >= $img_height) {
 						;?>				
 							<a href ="<?php echo $url ;?>">
-									<div class="thumb"><img class="lazy" data-original ="<?php echo $img ;?>" src="img/interface/grey.gif" height ="75px"></div>
+									<div class="thumb"><img src="<?php echo $img ;?>" height ="75px"></div>
 							</a>
 						<?php
 					} else {
 						;?>
 							<a href ="<?php echo $url ;?>">
-									<div class="thumb"><img class="lazy" data-original ="<?php echo $img ;?>" src="img/interface/grey.gif" width = "75px"></div>
+									<div class="thumb"><img src="<?php echo $img ;?>" width = "75px"></div>
 							</a>
 						<?php
 					}
 				}
 				?>
-				<h4><a href ="<?php echo $url ;?>"><?php echo $title ;?></a></h4><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $post['blog_name'] ;?></a></h5>			
+				<h4><a href ="<?php echo $url ;?>"><?php echo $title ;?></a></h4><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $stat['blog_name'] ;?></a></h5>			
 		</div>
 		
 		<?php
@@ -72,7 +74,13 @@
 	
 	<!-- <div class ="card_footer"></div> -->
 	</div> 
-</div> <!-- /top_area -->
 <?php
-
+}
 ?>
+<div class="card">
+	<div class="card_header tip"></div>
+	<div class="card_body">
+		<p>More Statistics coming soon, stay tuned</p>
+	</div>
+</div>
+</div> <!-- posts -- >

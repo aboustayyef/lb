@@ -67,21 +67,21 @@ class Posts
     }
 
 
-    public function get_top_posts($hours, $howmany = 5){
+    public function get_top_posts($hours, $posts_to_show = 5, $channel = NULL){
 
         // calculate the time cutoff 
         $lb_now = time();
         $lb_before = $lb_now-($hours*60*60);
 
-        if (isset($_SESSION['channel'])){
+        if ($channel){
             $this->_query = 'SELECT posts.post_image, posts.post_image_width, posts.post_image_height, posts.post_url, posts.post_title, blogs.blog_name, posts.blog_id 
                     FROM posts INNER JOIN blogs ON posts.blog_id = blogs.blog_id 
                     WHERE blogs.blog_tags LIKE "%'.$_SESSION['channel'].'%" AND posts.post_timestamp > '.$lb_before.' 
-                    ORDER BY post_visits DESC LIMIT '.$howmany;
+                    ORDER BY post_visits DESC LIMIT '.$posts_to_show;
         } else {
             $this->_query = 'SELECT posts.post_image, posts.post_image_width, posts.post_image_height, posts.post_url, posts.post_title, blogs.blog_name, posts.blog_id 
             FROM posts INNER JOIN blogs ON posts.blog_id = blogs.blog_id 
-            WHERE posts.post_timestamp > '.$lb_before.' ORDER BY post_visits DESC LIMIT '.$howmany;
+            WHERE posts.post_timestamp > '.$lb_before.' ORDER BY post_visits DESC LIMIT '.$posts_to_show;
 
         }
 

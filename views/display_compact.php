@@ -18,9 +18,6 @@
 
 			$target_url = "http://lebaneseblogs.com/r.php?r=".urlencode($post['post_url']);
 
-			// first, capture the $key so that extra widgets can show (example: top posts at 0 and tips)
-			//$this->map_keys($_SESSION['items_displayed']);
-
 			;?>
 			
 			<!-- compact post wrapper -->

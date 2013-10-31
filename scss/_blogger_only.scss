@@ -1,14 +1,8 @@
 .blogger{
-	padding: 10px;
 	min-height:800px;
 	background: darken(white,10);
 	.bloggerPosts{
 		position:relative;
-		.card_body{
-			img{
-				margin-left: -10px;
-			}
-		}
 	}
 	.blogMeta{
 		background:white;

@@ -31,8 +31,10 @@ foreach ($blogger_posts as $key => $post) {
 ;?>
 
 <div class ="card">
-	<div class="card_body">
-		<div class="post_title"><a href="<?php echo $post['post_url'] ;?>"><?php echo $post['post_title']; ?></a></div>		
+	<div class="card_header noborder">
+		<a href="<?php echo $post['post_url'] ;?>"><h3><?php echo $post['post_title']; ?></h3></a>	
+	</div>
+	<div class="card_body nopadding">	
 		<?php 
 			if (isset($post['post_image']) && ($post['post_image_width'] > 0) && ($post['post_image_height']>0)) {
 				$image_width = 300;
