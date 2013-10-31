@@ -223,6 +223,9 @@
                 opacity: .65;
                 &:hover{
                     opacity: 1;
+                    i{
+                        color:$lb_red;
+                    }
                 }
                 font-size: 12px;
                 float: left;

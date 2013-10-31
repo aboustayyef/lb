@@ -483,6 +483,8 @@ div.mainbar-wrapper {
         padding: 7px 12px; }
         .card .card_footer ul li:hover {
           opacity: 1; }
+          .card .card_footer ul li:hover i {
+            color: #a33e46; }
         .card .card_footer ul li:first-child {
           padding-left: 10px; }
         .card .card_footer ul li:last-child {
