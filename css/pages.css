@@ -323,6 +323,9 @@ em {
   font-size: 1.1em;
   line-height: 1.5em; }
 
+i {
+  font-size: 1.1em; }
+
 h3 {
   font-size: 1.3em;
   color: #91373e; }
@@ -348,6 +351,10 @@ textarea, input {
   width: 96%;
   margin: 15px 0; }
 
+a {
+  color: #a33e46;
+  text-decoration: none; }
+
 ul#section-choose {
   z-index: 100;
   display: block;
@@ -359,9 +366,6 @@ ul#section-choose {
     padding: 0.3em 0.5em;
     font-size: 1.2em;
     border-right: 0.1em silver solid; }
-    ul#section-choose li a {
-      color: #a33e46;
-      text-decoration: none; }
     ul#section-choose li:last-child {
       border-right: none; }
 

@@ -12,10 +12,12 @@
 
     //header
     .card_header{
+        direction: ltr;
+        overflow:auto;
         padding: $module_padding;
         position: relative;
         border-bottom: 1px solid silver;
-        background:#f2f2f2;
+        background:darken(white,2);
         //options
         &.strong{
             font-weight: strong;
@@ -46,15 +48,31 @@
         }
         img{
             border: 1px solid  rgb(240, 240, 240);
+            float:left;
         }
         .blog_name{
-            opacity: .9;
-            font-size:14px;
-            line-height: 16px;
-            position: absolute;
+            font-size:18px;
+            line-height: 20px;
             width: 180px;
-            top: 10px;
-            left: 70px;
+            margin-left: 70px;
+            a{
+                color:black;
+            }
+        }
+        .blog_tools{
+            margin-top: 6px;
+            margin-left: 70px;
+            ul{
+                li{
+                    float: left;
+                    color: lighten(black,75);
+                    font-size: 12px;
+                    margin-right: 10px;
+                    &:hover{
+                        color:$lb_red;
+                    }
+                }
+            }
         }
         h3{
             font-size: 1.2em;
@@ -104,6 +122,7 @@
             line-height: 1.4em;
             max-width: 230px;
             overflow: hidden;
+            opacity: .6;
         }
         img{
             border: lighten(silver, 10) solid 1px;
@@ -258,9 +277,6 @@
             font-weight: bold;
             font-size:20px;
             line-height: 24px;
-        }
-        .blog_name{
-            margin-left: -20px;
         }
         blockquote{
             padding: 0 25px 0 0;

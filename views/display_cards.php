@@ -22,6 +22,12 @@
 				<a href ="<?php echo '/' . $post['post_id'] ?>"><img class ="blog_thumb" src="<?php echo "img/thumbs/".$post['blog_id'].".jpg";?>" width ="50" height ="50"></a>
 				<div class="post_details">
 					<div class="blog_name"><a href ="<?php echo WEBPATH. $post['blog_id'] ?>"><?php echo $post['blog_name'] ;?></a></div>
+					<div class="blog_tools">
+						<ul>
+							<!-- <li><i class ="icon-exclamation-sign"></i> About Blog</li> -->
+							<li><i class ="icon-star"></i> Add Blog to Favorites</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 

@@ -59,7 +59,7 @@ var lbApp ={
 			// we will develop it later to also include other views
 			topRight: function(whichitem){
 				// add something to the upper right corner
-				$('[data-id="'+ Math.abs((lbApp.posts.columns-1)) +'"]').before("<div></div>").addClass('card').load("extras.php",{key:whichitem});
+				$('[data-id="'+ Math.abs((lbApp.interface.columns-2)) +'"]').before("<div></div>").addClass('card').load("extras.php",{key:whichitem});
 			},
 			position: function(where, whichitem){
 				$('[data-id="'+ (where-1)+'"]').before("<div></div>").addClass('card').load("extras.php",{key:whichitem});
@@ -84,6 +84,7 @@ var lbApp ={
 	},
 
 	interface:{
+		columns : Math.floor($('#view-area').outerWidth()/320),
 		init: function(){
 			// depending on what page does, appropriate parts of the interface js will be activated.
 			

@@ -21,6 +21,9 @@ em{
 	line-height:1.5em;
 }
 
+i{
+	font-size:1.1em;
+}
 h3{
 	font-size: 1.3em;
 	color:darken($lb_red, 5)
@@ -52,6 +55,11 @@ textarea, input{
 	margin: 15px 0;
 }
 
+a{
+	color: $lb_red;
+	text-decoration: none;
+}
+
 ul#section-choose{
 	z-index:100;
 	display:block;
@@ -59,10 +67,6 @@ ul#section-choose{
 	height:2em;
 	margin: 1em auto;
 	li{
-		a{
-			color: $lb_red;
-			text-decoration: none;
-		}
 		float: left;
 		padding:0.3em 0.5em;
 		font-size: 1.2em;

@@ -11,11 +11,12 @@
 		<h3>What is <em>Lebanese Blogs?</em></h3>
 		<p class ="lead box"><em>Lebanese Blogs</em> is the best place to read, discover and share the latest posts from Lebanon's top bloggers</p>
 
-		<p><em>Lebanese Blogs</em> was born out of the realization that there must be a more fun way to discover and read blogs and find out what's going on without the guilt of an unread inbox.</p>
+		<h3>Why?</h3>
+		<p>Readers shouldn't waste their time searching for cool new Lebanese blogs and digging around for new posts. At the same time, bloggers shouldn't feel pressured to post everyday so that people read their posts. This website hopes to solve both these problems</p>
 
 		<h3>How does this thing work?</h3>
 
-		<p>There is a database with a list of carefully chosen blogs that is constantly being updated. The database is the basis for a feed fetching script that gathers the latest posts and stores them here for displaying</p>
+		<p>There is a list of carefully chosen blogs that is constantly being updated. This is the basis for a feed fetching script that gathers the latest posts and stores them here for displaying</p>
 
 		<h3>How are blogs chosen?</h3>
 
@@ -23,19 +24,20 @@
 
 		<h3>Can I get my blog in there?</h3>
 
-		<p>If you think your blog belongs here and satisfies the criteria, what are you waiting for? Submit it!</p>
+		<p>If you think your blog belongs here and satisfies the criteria, what are you waiting for? <a href ="#submit">Submit it!</a></p>
 		
 		<h3>Who is Behind This?</h3>
 		<p>My name is <a href ="http://facebook.com/mustapha">Mustapha Hamoui</a>. I design and develop websites as a hobby (a full stack web developer in the jargon). But I'm also a businessman and a blogger.</p>
 
+<a href="#pagewrapper"><i class ="icon-chevron-up"></i> back to top</a>
 	</div>
 <hr>
 	<div id ="submit" class ="section">
-		
+		<p>&nbsp;</p>
 		<h3>Submit a Blog</h3>
 		<p>Before you submit a blog, make sure it fulfills the criteria below and that it is not already listed. To know if your blog is listed, use this website's search box above (you can search for your blog's url or title)</p>
 		
-		<p><i class="icon-exclamation-sign icon-large"></i> <strong>For a blog to be accepted, it needs to fullfil the criteria below</strong></p>
+		<p><i class="icon-exclamation-sign"></i> <strong>For a blog to be accepted, it needs to fullfil the criteria below</strong></p>
 		<ul id ="criteria" class ="box">
 			<li>The blogger has to be either Lebanese, living in Lebanon or writing about Lebanon</li>
 			<li>The blogger should have a reasonable track record of regular blogging</li>
@@ -48,6 +50,9 @@
 
 		<input id ="submitblog" type="text" placeholder = "http://yourblogaddress.com">
 		<a href ="" id="submitBlog" class ="btn btn-red"/>Submit Blog</a> 
+		<br>
+		<a href="#pagewrapper"><i class ="icon-chevron-up"></i> back to top</a>
+
 	</div>
 <hr>
 	<div class ="section" id="feedback">
@@ -57,6 +62,10 @@
 
 			<textarea name="feedback" id="feedback" cols="30" rows="10" placeholder ="Example: I just wanted to tell you how awesome/terrible you are - fan@haters.com"></textarea>
 			<a href ="" id="submitFeedback" class ="btn btn-red"/>Submit Feedback</a> 
+	<br>
+	<a href="#pagewrapper"><i class ="icon-chevron-up"></i> back to top</a>
+
 	</div>
+
 	<hr>
 </div>
