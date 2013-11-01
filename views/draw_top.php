@@ -11,12 +11,12 @@
 	global $db;
 	$top5 = new Posts($db);
 	$posts_12hours = $top5->get_Top_Posts($hours=12, $howmany = 5);
-	$posts_3days = $top5->get_Top_Posts($hours=24*3, $howmany = 5);
 	$posts_7days = $top5->get_Top_Posts($hours=24*7, $howmany = 5);
+	$posts_30days = $top5->get_Top_Posts($hours=24*7*30, $howmany = 5);
 	$total_stats = array(
 		"Most Popular Posts: last 12 hours"	=>	$posts_12hours,
-		"Most Popular Posts: last 3 days"	=>	$posts_3days,
-		"Most Popular Posts: last 7 days"	=>	$posts_7days
+		"Most Popular Posts: last 7 days"	=>	$posts_7days,
+		"Most Popular Posts: last 30 days"	=>	$posts_30days
 		);
 
 	foreach ($total_stats as $description => $stats) {
