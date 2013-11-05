@@ -3,7 +3,7 @@ global $channel_descriptions;
 ;?>
 
 <!DOCTYPE html>
-<html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <meta charset="utf-8">
     <title><?php echo $this->_title;?></title>
@@ -45,8 +45,8 @@ global $channel_descriptions;
     <link rel="shortcut icon" href="<?php echo WEBPATH ;?>img/interface/favicon.ico"> 
     
     <!-- Google Font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans|Bitter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/droidarabickufi.css">
+      <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Bitter' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/droidarabickufi.css">
   </head>
 
 

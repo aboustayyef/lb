@@ -8,7 +8,11 @@
 
 		foreach ($data as $key => $post) {
 
+			// prepare URL of exit link
 			$target_url = "http://lebaneseblogs.com/r.php?r=".urlencode($post['post_url']);
+			
+			// add extra cards (if any)
+			Extras::control($_SESSION['posts_displayed']);
 
 			;?>
 			
@@ -21,7 +25,7 @@
 			<div class="card_header">
 				<a href ="<?php echo '/' . $post['post_id'] ?>"><img class ="blog_thumb" src="<?php echo "img/thumbs/".$post['blog_id'].".jpg";?>" width ="50" height ="50"></a>
 				<div class="post_details">
-					<div class="blog_name"><a href ="<?php echo WEBPATH. $post['blog_id'] ?>"><?php echo $post['blog_name'] ;?></a></div>
+					<div class="blog_name secondaryfont"><a href ="<?php echo WEBPATH. $post['blog_id'] ?>"><?php echo $post['blog_name'] ;?></a></div>
 					<div class="blog_tools">
 						<ul>
 							<!-- <li><i class ="icon-exclamation-sign"></i> About Blog</li> -->
@@ -35,7 +39,7 @@
 			<!--card body-->
 			<div class ="card_body" id ="<?php echo 'content-post-' . $_SESSION['posts_displayed']; ?>">
 				<div class="post_time"><?php echo Lb_functions::time_elapsed_string($post['post_timestamp']) ?></div>
-				<div class="post_title"><a href="<?php echo $target_url ;?>"><?php echo $post['post_title']; ?></a></div>
+				<div class="post_title secondaryfont"><a href="<?php echo $target_url ;?>"><?php echo $post['post_title']; ?></a></div>
 				<?php 
 
 					if (isset($post['post_image']) && ($post['post_image_width'] > 0) && ($post['post_image_height']>0)) {

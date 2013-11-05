@@ -49,16 +49,16 @@ table {
   font-weight: bold; }
 
 .lbred {
-  color: #a33e46; }
+  color: #b12530; }
 
 html {
   font-size: 62.5%; }
 
-.headlinefont {
+.primaryfont {
   font-family: "Bitter",sans-serif; }
 
 .secondaryfont {
-  font-family: "open sans",sans-serif; }
+  font-family: "Source Sans Pro",sans-serif; }
 
 .arabicfont {
   font-family: 'Droid Arabic Kufi', serif; }
@@ -84,26 +84,21 @@ a.btn {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
-  padding: 5px 15px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-bottom-width: 2px; }
+  padding: .6em 1.6em; }
   a.btn.btn-red {
-    background-color: #a33e46;
-    border-color: #6c292e;
-    text-shadow: 0 1px 0 #6c292e;
+    background-color: #b12530;
+    border-color: #72181f;
+    text-shadow: 0 1px 0 #72181f;
     color: #FFF; }
     a.btn.btn-red:hover {
-      background-color: #91373e;
-      border-color: #592226; }
+      background-color: #9c212a;
+      border-color: #5d1319; }
   a.btn.btn-large {
     padding: 10px 30px; }
   a.btn.btn-small {
     text-transform: capitalize;
     font-size: 12px;
-    padding: 2px 2px;
+    padding: 0.3em 0.3em;
     line-height: 1em; }
 
 ul {
@@ -112,7 +107,6 @@ ul {
   list-style-type: none; }
 
 h1, h2, h3, h4 {
-  font-weight: bold;
   line-height: 1.6em;
   margin: 0; }
 
@@ -178,7 +172,7 @@ div.mainbar-wrapper {
   margin: 0;
   height: 64px;
   position: relative;
-  background-color: #a33e46;
+  background-color: #b12530;
   -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
@@ -192,15 +186,15 @@ div.mainbar-wrapper {
       margin: 0;
       padding: 0; }
       div.mainbar-wrapper .mainbar .nav-wrapper ul#menu-icons li {
-        border-left: 1px #c6686f solid;
+        border-left: 1px #d94955 solid;
         display: block;
         float: left;
         padding: 23px 15px;
         margin: 0; }
         div.mainbar-wrapper .mainbar .nav-wrapper ul#menu-icons li:hover {
-          background-color: #91373e; }
+          background-color: #9c212a; }
         div.mainbar-wrapper .mainbar .nav-wrapper ul#menu-icons li.selected {
-          background: #853339;
+          background: #8f1e27;
           color: white;
           -webkit-box-shadow: 1px 0 1px 0 rgba(0, 0, 0, 0.5);
           box-shadow: 1px 0 1px 0 rgba(0, 0, 0, 0.5); }
@@ -241,10 +235,10 @@ div.mainbar-wrapper {
     margin-top: 0;
     color: white;
     margin-right: 10px;
-    border-right: 1px solid #e2b2b6;
+    border-right: 1px solid #eb9ea4;
     padding: 18px 12px;
     float: left;
-    background: #943840; }
+    background: #a0212b; }
     @media only screen and (max-width: 768px) {
       div.mainbar-wrapper #hamburger {
         display: block; } }
@@ -268,7 +262,7 @@ div.mainbar-wrapper {
   right: 0px; }
 
 .menu {
-  background: #853339;
+  background: #8f1e27;
   display: none;
   position: absolute;
   top: 63px;
@@ -303,7 +297,7 @@ div.mainbar-wrapper {
         .menu ul a li.last {
           border-bottom: none; }
         .menu ul a li:hover {
-          background: #91373e; }
+          background: #9c212a; }
 
 .card {
   width: 280px;
@@ -316,17 +310,19 @@ div.mainbar-wrapper {
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25); }
   .card a {
     text-decoration: none; }
+  .card.red {
+    background: #b12530; }
   .card .card_header {
     direction: ltr;
     overflow: auto;
     padding: 10px;
     position: relative;
     border-bottom: 1px solid silver;
-    background: #fafafa; }
+    background: #f2f2f2; }
     .card .card_header.strong {
       font-weight: strong; }
     .card .card_header.redheader {
-      background: #a33e46; }
+      background: #b12530; }
     .card .card_header.whiteheader {
       background: white; }
     .card .card_header.noborder {
@@ -339,12 +335,12 @@ div.mainbar-wrapper {
         position: absolute;
         bottom: 10px;
         left: 118px;
-        font-family: "Bitter",serif;
         font-size: 22px;
         color: white; }
     .card .card_header img {
       border: 1px solid #f0f0f0;
-      float: left; }
+      float: left;
+      border-radius: 50em; }
     .card .card_header .blog_name {
       font-size: 18px;
       line-height: 20px;
@@ -361,13 +357,12 @@ div.mainbar-wrapper {
         font-size: 12px;
         margin-right: 10px; }
         .card .card_header .blog_tools ul li:hover {
-          color: #a33e46; }
+          color: #b12530; }
     .card .card_header h3 {
       font-size: 1.2em;
-      line-height: 1.2em;
-      font-family: "Bitter",serif; }
+      line-height: 1.2em; }
       .card .card_header h3.redfont {
-        color: #a33e46; }
+        color: #b12530; }
       .card .card_header h3.whitefont {
         color: white; }
   .card .card_body {
@@ -379,13 +374,13 @@ div.mainbar-wrapper {
     .card .card_body.elastic {
       max-height: inherit; }
     .card .card_body.redbody {
-      background: #a33e46; }
+      background: #b12530; }
     .card .card_body.silverbody {
       background: #f7f7f7; }
     .card .card_body .post_time {
-      font-size: 13px;
-      color: #7e3036;
-      opacity: .3; }
+      font-size: 12px;
+      color: #871c25;
+      opacity: .2; }
     .card .card_body [id^="content-post-"] {
       max-height: 500px;
       overflow: hidden; }
@@ -403,14 +398,13 @@ div.mainbar-wrapper {
       border: #dadada solid 1px;
       margin-top: 10px; }
     .card .card_body .post_title {
-      margin-top: 0;
+      margin-top: 0.5em;
       margin-bottom: 15px; }
       .card .card_body .post_title a {
         color: #444;
         text-decoration: none;
-        font-size: 18px;
-        line-height: 18px;
-        font-weight: bold; }
+        font-size: 22px;
+        line-height: 24px; }
         .card .card_body .post_title a:hover {
           color: #3B967C;
           text-decoration: none; }
@@ -446,12 +440,10 @@ div.mainbar-wrapper {
         margin-top: 0;
         margin-bottom: 0; }
       .card .card_body .list_type_a h4 a, .card .card_body .list_type_a h5 a {
-        font-family: "Bitter",serif;
         display: block; }
       .card .card_body .list_type_a h5 a {
         margin-top: 2px;
         font-size: 12px;
-        font-family: arial,sans-serif;
         color: #b4b4b4;
         font-weight: normal; }
     .card .card_body .list_type_b {
@@ -468,7 +460,6 @@ div.mainbar-wrapper {
         width: 50px;
         height: 50px; }
       .card .card_body .list_type_b h3 {
-        font-family: "Bitter",serif;
         max-width: 200px;
         font-size: 1.1em;
         line-height: 1.2em;
@@ -477,6 +468,8 @@ div.mainbar-wrapper {
         margin-top: 5px;
         display: block;
         margin-left: 65px; }
+    .card .card_body .tip {
+      text-align: center; }
   .card .card_footer {
     padding: 10px;
     position: relative;
@@ -487,25 +480,21 @@ div.mainbar-wrapper {
     .card .card_footer.nopadding {
       padding: 0; }
     .card .card_footer ul {
+      height: 38px;
       overflow: auto; }
       .card .card_footer ul li {
         opacity: .65;
         font-size: 12px;
         float: left;
-        margin-right: 15px;
-        padding: 7px 12px; }
+        padding: 10px 22px;
+        border-right: 1px solid silver; }
         .card .card_footer ul li:hover {
-          opacity: 1; }
+          opacity: 1;
+          background: #f0f0f0; }
           .card .card_footer ul li:hover i {
-            color: #a33e46; }
-        .card .card_footer ul li:first-child {
-          padding-left: 10px; }
+            color: #b12530; }
         .card .card_footer ul li:last-child {
-          margin-right: 0;
-          padding-right: 0; }
-        .card .card_footer ul li.save {
-          background: #f2f2f2;
-          border-right: 1px solid #cccccc; }
+          border-right: none; }
         .card .card_footer ul li i {
           margin-right: 3px;
           font-size: 0.9em; }
@@ -515,7 +504,6 @@ div.mainbar-wrapper {
     font-size: 15px;
     line-height: 18px; }
     .card.rtl .post_title a {
-      font-weight: bold;
       font-size: 20px;
       line-height: 24px; }
     .card.rtl blockquote {

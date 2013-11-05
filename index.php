@@ -15,7 +15,9 @@ include_once("classes/Posts.php");
 include_once("classes/View.php"); 
 include_once('classes/Image.php');
 include_once('classes/Lb_functions.php');
+include_once('classes/Extras.php');
 global $channel_descriptions;
+
 
 
 // there are three kinds of pagewanted so far: 

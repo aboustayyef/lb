@@ -101,8 +101,8 @@ class View
 
 			case 'browse':
 				// initialize general counter of all posts
-				$_SESSION['posts_displayed'] = 0; //number of posts shown
-				$_SESSION['items_displayed'] = 0; // number of items shown (including other widgets)
+				$_SESSION['posts_displayed'] = 0; // initialize number of posts shown
+				$_SESSION['items_displayed'] = 0; // initialize number of items shown (including other widgets)
 				
 				// Get initial posts. Initiate model.
 				$posts = new Posts($db);

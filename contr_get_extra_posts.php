@@ -12,6 +12,7 @@ session_start();
 	include_once("classes/View.php");
 	include_once("classes/Image.php");
 	include_once("classes/Lb_functions.php");
+	include_once("classes/Extras.php");
 
 
 // 	prepare class

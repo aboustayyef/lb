@@ -54,11 +54,11 @@ table {
 html {
   font-size: 62.5%; }
 
-.headlinefont {
+.primaryfont {
   font-family: "Bitter",sans-serif; }
 
 .secondaryfont {
-  font-family: "open sans",sans-serif; }
+  font-family: "Source Sans Pro",sans-serif; }
 
 .arabicfont {
   font-family: 'Droid Arabic Kufi', serif; }
@@ -84,12 +84,7 @@ a.btn {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
-  padding: 5px 15px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-bottom-width: 2px; }
+  padding: .6em 1.6em; }
   a.btn.btn-red {
     background-color: #a33e46;
     border-color: #6c292e;
@@ -103,7 +98,7 @@ a.btn {
   a.btn.btn-small {
     text-transform: capitalize;
     font-size: 12px;
-    padding: 2px 2px;
+    padding: 0.3em 0.3em;
     line-height: 1em; }
 
 ul {
@@ -112,7 +107,6 @@ ul {
   list-style-type: none; }
 
 h1, h2, h3, h4 {
-  font-weight: bold;
   line-height: 1.6em;
   margin: 0; }
 

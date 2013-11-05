@@ -54,20 +54,7 @@ var lbApp ={
 				lbApp.posts.busy = "no";
 			});
 			},
-		injectExtras: {
-			// this function adds the extra items to the cards view
-			// we will develop it later to also include other views
-			topRight: function(whichitem){
-				// add something to the upper right corner
-				$('[data-id="'+ Math.abs((lbApp.interface.columns-2)) +'"]').before("<div></div>").addClass('card').load("extras.php",{key:whichitem});
-			},
-			position: function(where, whichitem){
-				$('[data-id="'+ (where-1)+'"]').before("<div></div>").addClass('card').load("extras.php",{key:whichitem});
-			},
-			tip: function(where, title, text, image){
-				$('[data-id="'+ (where-1)+'"]').before("<div></div>").addClass('card').load("extras.php",{key:'tip', tipTitle:title, tipText:text, tipImage:image });
-			}
-		},
+
 		images : {
 			show: function(){
 				$("img.lazy").lazyload({
@@ -84,7 +71,7 @@ var lbApp ={
 	},
 
 	interface:{
-		columns : Math.floor($('#view-area').outerWidth()/320),
+		columns : Math.floor(($('#view-area').outerWidth()-20)/320), // leave a minimum of 15px whitespace on either side
 		init: function(){
 			// depending on what page does, appropriate parts of the interface js will be activated.
 			
@@ -103,7 +90,7 @@ var lbApp ={
 			flow: function(){
 				//calculate number of columns and width of posts area
 				var cardWidth = 320; //278px + 2 (border 1 px) + 20 (margin 10px);
-				var columns = Math.floor($('#view-area').outerWidth()/cardWidth);
+				var columns = Math.floor(($('#view-area').outerWidth()-20)/cardWidth);
 				var windowWidth = columns * cardWidth;
 				console.log(windowWidth);
 				//set width of posts window and center it
@@ -149,6 +136,14 @@ var lbApp ={
 			// to fit exactly in the window
 			lbApp.interface.sidebar.css("height", jQuery(window).outerHeight()); // 2px for the top border
 			lbApp.interface.viewArea.window.css("height", jQuery(window).outerHeight()-lbApp.interface.header.outerHeight());
+
+			// a little hack to remove the unnecessary scroll bar from the sidebar
+			if ($('div.left-col-inner').height() > ($('#left-col-wrapper').height())) {
+				$('#left-col-wrapper').css("overflow-y","scroll");
+			} else {
+				$('#left-col-wrapper').css("overflow-y","hidden");
+			};
+
 		},
 
 		leftNav : {
@@ -273,7 +268,7 @@ var lbApp ={
 					if (this.position >0) {
 					this.position = this.position - 1;
 					}
-					},
+				},
 				moveDown : function(){
 					//if (this.position < $('.compact').length){
 					this.position = parseInt(this.position,10) + 1;

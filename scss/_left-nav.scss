@@ -9,7 +9,7 @@ $left_padding: 20px;
     float: left;
     z-index: 400;
     box-shadow: 1px 4px 1px 1px rgba(10,10,10,.2);
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
     button.leftNav-dismiss{
             margin-top:10px;
@@ -95,6 +95,21 @@ $left_padding: 20px;
         &.level1{
             padding-top:2px;
             padding-bottom:2px;
+            a{
+                &.facebook-signin-button{
+                    display: block;
+                    width:150px;
+                    height: 22px;
+                    background-image: url(../img/interface/facebook_signin.png);
+                    background-repeat: no-repeat;
+                    &:hover{
+                        background-position: 0 -24px;
+                    }
+                    &:active{
+                        background-position: 0 -48px;
+                    }
+                }
+            }
         }
         &.level2{
             padding-left:$left_padding+20px;
@@ -109,10 +124,17 @@ $left_padding: 20px;
                 color: $lb_red;
             }
         }
+        &.noHoverBackground{
+            &:hover{
+                background-color: inherit;
+            }
+        }
     }
 .left-col-inner{
     border-top: 2px solid $lb_red;
 }
+
+
 
 .selected{
     background-color: rgba(0,0,0,0.06);

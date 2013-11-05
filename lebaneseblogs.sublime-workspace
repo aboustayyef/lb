@@ -1,0 +1,283 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"back",
+				"background"
+			],
+			[
+				"border-r",
+				"border-right"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"log",
+				"logoutUrl"
+			],
+			[
+				"stat",
+				"statusUrl"
+			],
+			[
+				"logo",
+				"logoutUrl"
+			],
+			[
+				"us",
+				"user_profile"
+			],
+			[
+				"item",
+				"itemNumber"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			]
+		],
+		"width": 453.0
+	},
+	"console":
+	{
+		"height": 146.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_general.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_cards.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_timeline.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Posts.php",
+		"/Applications/MAMP/logs/php_error.log",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Extras.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/draw_header.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/display_cards.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/fbconfig.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_left-nav.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/draw_left_column.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/blogger.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/index.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_compact.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/test.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/lebaneseblogs.scss",
+		"/Users/stayyef/Downloads/facebook-php-sdk-master/examples/example.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/extras.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/contr_get_extra_posts.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/View.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Facebook.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/js/lebaneseblogs.js",
+		"/Users/stayyef/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/lebaneseblogs.sublime-project"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\\",
+			"family",
+			"  ?>\n  <?php"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"gener",
+				"lebanese_blogs/scss/_general.scss"
+			],
+			[
+				"draw",
+				"lebanese_blogs/views/draw_header.php"
+			],
+			[
+				"erro",
+				"logs/php_error.log"
+			],
+			[
+				"disp",
+				"lebanese_blogs/views/display_cards.php"
+			],
+			[
+				"post",
+				"lebanese_blogs/classes/Posts.php"
+			],
+			[
+				"fb",
+				"lebanese_blogs/fbconfig.php"
+			],
+			[
+				"drawleft",
+				"lebanese_blogs/views/draw_left_column.php"
+			],
+			[
+				"error",
+				"logs/php_error.log"
+			],
+			[
+				"cards",
+				"lebanese_blogs/scss/_cards.scss"
+			],
+			[
+				"lebanese",
+				"lebanese_blogs/scss/lebaneseblogs.scss"
+			],
+			[
+				"inde",
+				"lebanese_blogs/index.php"
+			],
+			[
+				"test",
+				"lebanese_blogs/test.php"
+			],
+			[
+				"left",
+				"lebanese_blogs/views/draw_left_column.php"
+			],
+			[
+				"posts",
+				"lebanese_blogs/classes/Posts.php"
+			],
+			[
+				"extr",
+				"lebanese_blogs/extras.php"
+			],
+			[
+				"view",
+				"lebanese_blogs/classes/View.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 182.0,
+	"status_bar_visible": true
+}
