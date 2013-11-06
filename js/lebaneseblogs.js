@@ -91,6 +91,9 @@ var lbApp ={
 				//calculate number of columns and width of posts area
 				var cardWidth = 320; //278px + 2 (border 1 px) + 20 (margin 10px);
 				var columns = Math.floor(($('#view-area').outerWidth()-20)/cardWidth);
+				if (columns < 1) {
+					columns = 1;
+				}
 				var windowWidth = columns * cardWidth;
 				console.log(windowWidth);
 				//set width of posts window and center it
