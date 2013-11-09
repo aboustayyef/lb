@@ -12,6 +12,25 @@ html{
     font-size: 62.5%;
     //result: 1em = 10px;
 }
+.strong{
+    font-weight: strong;
+}
+
+
+.background-greylightest{
+    background: darken(white, 5);
+}
+
+.background-red{
+    background:$lb_red;
+}
+.background-white{
+    background: white;
+}
+
+.background-bluegreen {
+    background: #048C97;
+}
 
 .primaryfont{
     font-family: "Bitter",sans-serif;
@@ -45,7 +64,6 @@ a{
 a.btn {
     display: inline-block;
     color: #666;
-    background-color: #eee;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 12px;
@@ -68,6 +86,9 @@ a.btn {
         font-size: 12px;
         padding: 0.3em 0.3em;
         line-height: 1em;
+    }
+    &.btn-whitetext{
+        color: white;
     }
 }
 

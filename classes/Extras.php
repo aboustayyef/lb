@@ -17,7 +17,7 @@ class Extras
 		
 		switch ($itemNumber) {
 
-			case 0: // card 8 , suggested bloggers
+			case 0: 
 				self::topFive(5, 12);
 				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
 				break;			
@@ -27,54 +27,89 @@ class Extras
 				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
 				break;
 
-			case 7: //very first card
-				self::tip("Test Tip", "This is a tip that was triggered from the control method of the Extras class");
+			case 7: // card 9, twitter tip
+				self::tip(0);
+				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
+				break;
+
+			case 12: //very first card
+				self::tip(1);
 				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
 				break;
 
 			default:
-				# nothing...
+				# nothing for now
 				break;
 		}
 	}
 
-	public static function tip($tipTitle, $tipBody , $tipImage = NULL){
+	public static function tip($whichtip){
+	
+
+		$all_tips = array(
+			array(
+				'title'=>'Smart Sharing',
+				'body'=> 'When you share using the Lebanese Blogs sharing button, the blogger who wrote the post will be automatically mentioned on twitter <a href ="#">learn more</a>',
+				'image'=> 'img/interface/twitter-share.png'
+			),
+			array(
+				'title'=>'A Bottomless Pit',
+				'body'=> 'Lebanese Blogs is an infinite scrolling website. This means that scrolling down never ends. It is like going back in time to see older posts.',
+				'image'=> 'img/interface/tip-arrows-infinite-scrolling.png'
+			),
+			array(
+				'title'=>'This is another tip',
+				'body'=> 'This is the body of the third tip, the description and everything that is here',
+				'image'=> 'img/interface/tip-arrows-infinite-scrolling.png'
+			),
+		);
 		?>
+
 		<div class="card tip">
-			<div class="card_header tip">
+			<div class="card_header primaryfont tip">
+				<h3><i class = "icon-lightbulb"></i> TIP</h3>
 			</div>
 			<div class="card_body tip">
-				<h3><?php echo $tipTitle ; ?></h3>
-				<p><?php echo $tipBody ; ?></p>
+				<h3 class ="primaryfont"><?php echo $all_tips[$whichtip]['title'] ; ?></h3>
+				<p class ="secondaryfont"><?php echo $all_tips[$whichtip]['body'] ; ?></p>
 			</div>
+			<?php 
+				if (!empty($all_tips[$whichtip]['image'])) {
+					;?> 
+					<div class="card_footer tip nopadding background-white">
+					<img src="<?php echo $all_tips[$whichtip]['image'] ; ?>">
+					</div>
+					<?php
+				}
+			?>
 		</div>
 		<?php
 	}
 
 	public static function featuredBloggers(){
-		?>
+		
+		global $db;
+		$blogs = new Posts($db);
+		$bloggers = $blogs->get_random_bloggers(3);?>
+
 		<div class="card">
-			<div class="card_header redheader">
-				<h3 class ="whitefont">Featured Bloggers</h3>
+			<div class="card_header primaryfont background-bluegreen">
+				<h3 class ="whitefont">Featured Blogs</h3>
 			</div>
 			<div class="card_body elastic silverbody">
+
+		<?php
+		foreach ($bloggers as $blogger) { ?>
 				<div class="list_type_b">
-					<img src="img/thumbs/blogbaladi.jpg" alt="" class="thumb">
-					<h3>Blog Baladi</h3>
-					<div class ="button-wrapper"><a href="" class="btn btn-red btn-small">explore</a></div>
+					<img src="img/thumbs/<?php echo $blogger['blog_id']; ?>.jpg" alt="" class="thumb">
+					<h3><?php echo $blogger['blog_name']; ?></h3>
+					<p><?php echo Lb_functions::limitWords(10, $blogger['blog_description']); ?></p>
+					<div class ="button-wrapper"><a href="<?php echo WEBPATH.$blogger['blog_id']; ?>" class="btn btn-whitetext btn-small background-bluegreen">explore</a></div>
 				</div>
-				<div class="list_type_b">
-					<img src="img/thumbs/beirutspring.jpg" alt="" class="thumb">
-					<h3>Beirut Spring</h3>
-					<div class ="button-wrapper"><a href="" class="btn btn-red btn-small">explore</a></div>
-				</div>
-				<div class="list_type_b">
-					<img src="img/thumbs/beirutntsc.jpg" alt="" class="thumb">
-					<h3>Beirut NTSC</h3>
-					<div class ="button-wrapper"><a href="" class="btn btn-red btn-small">explore</a></div>
-				</div>
+		<?php } ?>
 			</div>
 		</div>
+
 		<?php
 	}
 
@@ -85,7 +120,7 @@ class Extras
 		$stats = $top5->get_Top_Posts($hours, $howmany, $channel); 
 		;?>
 		<div class="card">
-			<div class="card_header redheader">
+			<div class="card_header primaryfont background-red">
 				<h3 class ="whitefont">Top Posts</h3>
 			</div>
 			

@@ -4,7 +4,7 @@
     padding: 0px; // devolve padding to sub-sections
     margin: 10px;
     background: white ;
-    border-radius: 2px;
+    //border-radius: 2px;
     @include drop-shadow();
     a{
         text-decoration: none;
@@ -12,7 +12,9 @@
     &.red{
         background: $lb_red;
     }
-
+    img{
+        display: block;
+    }
     //header
     .card_header{
         direction: ltr;
@@ -20,32 +22,17 @@
         padding: $module_padding;
         position: relative;
         border-bottom: 1px solid silver;
-        background:darken(white,5);
         //options
-        &.strong{
-            font-weight: strong;
-        }
-        &.redheader{
-            background:$lb_red;
-        }
-        &.whiteheader{
-            background: white;
-        }
         &.noborder{
             border-bottom:none;
         }
         &.tip{
+
             $background: #FFCC66;
             background: $background;
-            height:30px;
-
-            &:after{
-                content:"TIP";
-                position:absolute;
-                bottom:10px;
-                left:118px;
-                font-size: 22px;
-                color:lighten($background, 30);
+            color: darken($background, 50);
+            i{
+                color: darken($background, 30)
             }
         }
         img{
@@ -103,6 +90,19 @@
         }
         &.silverbody{
             background: darken(white,3);
+        }
+        &.tip{
+            padding:23px;
+            p{
+                padding: 0;
+                color: lighten(black, 40);
+            }
+            a{
+                color: $lb_red;
+            }
+            h3{
+                color: lighten(black, 20);
+            }
         }
         overflow: hidden;
         .post_time {
@@ -209,6 +209,13 @@
                 width:50px;
                 height:50px;
             }
+            p{
+                font-size: 13px;
+                margin: 0;
+                margin-left:60px;
+                color: lighten(black, 60);
+            }
+
             h3{
                 max-width: 200px;
                 font-size: 1.1em;
@@ -233,14 +240,18 @@
         &.nopadding{
             padding:0;
         }
+        &.tip{
+            img{
+                margin: 0 auto;
+            }
+        }
         position:relative;
-        margin-top:1em;
         border-top:1px solid silver;
         background: darken(white,3%);
         direction: ltr;
         ul{
             height:38px;
-            overflow:auto;
+            overflow:hidden;
             li{
                 opacity: .65;
                 &:hover{
@@ -252,7 +263,7 @@
                 }
                 font-size: 12px;
                 float: left;
-                padding:10px 22px;
+                padding:10px 20px;
                 border-right: 1px solid silver;
                 &:first-child{
                     //padding-left: $module_padding;

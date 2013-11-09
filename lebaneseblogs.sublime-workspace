@@ -93,13 +93,14 @@
 	"file_history":
 	[
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_general.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Extras.php",
+		"/Applications/MAMP/logs/php_error.log",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_cards.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/display_cards.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/extras.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_timeline.scss",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Posts.php",
-		"/Applications/MAMP/logs/php_error.log",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Extras.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/draw_header.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/display_cards.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/fbconfig.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_left-nav.scss",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/draw_left_column.php",
@@ -109,7 +110,6 @@
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/test.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/lebaneseblogs.scss",
 		"/Users/stayyef/Downloads/facebook-php-sdk-master/examples/example.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/extras.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/contr_get_extra_posts.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/View.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Facebook.php",
@@ -200,6 +200,22 @@
 		"selected_items":
 		[
 			[
+				"genera",
+				"lebanese_blogs/scss/_general.scss"
+			],
+			[
+				"displ",
+				"lebanese_blogs/views/display_cards.php"
+			],
+			[
+				"card",
+				"lebanese_blogs/scss/_cards.scss"
+			],
+			[
+				"extr",
+				"lebanese_blogs/classes/Extras.php"
+			],
+			[
 				"gener",
 				"lebanese_blogs/scss/_general.scss"
 			],
@@ -256,10 +272,6 @@
 				"lebanese_blogs/classes/Posts.php"
 			],
 			[
-				"extr",
-				"lebanese_blogs/extras.php"
-			],
-			[
 				"view",
 				"lebanese_blogs/classes/View.php"
 			]
@@ -277,7 +289,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 182.0,
 	"status_bar_visible": true
 }

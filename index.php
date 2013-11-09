@@ -19,19 +19,19 @@ include_once('classes/Extras.php');
 global $channel_descriptions;
 
 
-
+$pagewanted = isset($_GET['pagewanted'])? $_GET['pagewanted'] : NULL;
 // there are three kinds of pagewanted so far: 
 //	"browse" for pages with posts (header + footer + sidebar + infinite loading content)
 // 	"about" for pages with info and no sidebar (header + footer + static content)
 // 	"top" for statistics (header + footer +sidebar + dynamic content)
 
-$pagewanted = isset($_GET['pagewanted'])? $_GET['pagewanted'] : NULL;
 $view = isset($_GET['view']) ? $_GET['view'] : NULL;
 $channel = isset($_GET['channel']) ? $_GET['channel'] : NULL;
 $bloggerid = isset($_GET['bloggerid']) ? $_GET['bloggerid'] : NULL;
+$s = isset($_GET['s']) ? $_GET['s'] : NULL;
 
 
-$webpage = new View($pagewanted, $view, $channel, $bloggerid);
+$webpage = new View($pagewanted, $view, $channel, $bloggerid, $s);
 $webpage->DrawHeader();
 $webpage->DrawContent();
 $webpage->DrawFooter();

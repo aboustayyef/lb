@@ -54,6 +54,21 @@ table {
 html {
   font-size: 62.5%; }
 
+.strong {
+  font-weight: strong; }
+
+.background-greylightest {
+  background: #f2f2f2; }
+
+.background-red {
+  background: #b12530; }
+
+.background-white {
+  background: white; }
+
+.background-bluegreen {
+  background: #048C97; }
+
 .primaryfont {
   font-family: "Bitter",sans-serif; }
 
@@ -80,7 +95,6 @@ a {
 a.btn {
   display: inline-block;
   color: #666;
-  background-color: #eee;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
@@ -100,6 +114,8 @@ a.btn {
     font-size: 12px;
     padding: 0.3em 0.3em;
     line-height: 1em; }
+  a.btn.btn-whitetext {
+    color: white; }
 
 ul {
   margin: 0;
@@ -304,7 +320,6 @@ div.mainbar-wrapper {
   padding: 0px;
   margin: 10px;
   background: white;
-  border-radius: 2px;
   -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25); }
@@ -312,31 +327,21 @@ div.mainbar-wrapper {
     text-decoration: none; }
   .card.red {
     background: #b12530; }
+  .card img {
+    display: block; }
   .card .card_header {
     direction: ltr;
     overflow: auto;
     padding: 10px;
     position: relative;
-    border-bottom: 1px solid silver;
-    background: #f2f2f2; }
-    .card .card_header.strong {
-      font-weight: strong; }
-    .card .card_header.redheader {
-      background: #b12530; }
-    .card .card_header.whiteheader {
-      background: white; }
+    border-bottom: 1px solid silver; }
     .card .card_header.noborder {
       border-bottom: none; }
     .card .card_header.tip {
       background: #ffcc66;
-      height: 30px; }
-      .card .card_header.tip:after {
-        content: "TIP";
-        position: absolute;
-        bottom: 10px;
-        left: 118px;
-        font-size: 22px;
-        color: white; }
+      color: #664400; }
+      .card .card_header.tip i {
+        color: #cc8800; }
     .card .card_header img {
       border: 1px solid #f0f0f0;
       float: left;
@@ -377,6 +382,15 @@ div.mainbar-wrapper {
       background: #b12530; }
     .card .card_body.silverbody {
       background: #f7f7f7; }
+    .card .card_body.tip {
+      padding: 23px; }
+      .card .card_body.tip p {
+        padding: 0;
+        color: #666666; }
+      .card .card_body.tip a {
+        color: #b12530; }
+      .card .card_body.tip h3 {
+        color: #333333; }
     .card .card_body .post_time {
       font-size: 12px;
       color: #871c25;
@@ -459,6 +473,11 @@ div.mainbar-wrapper {
         float: left;
         width: 50px;
         height: 50px; }
+      .card .card_body .list_type_b p {
+        font-size: 13px;
+        margin: 0;
+        margin-left: 60px;
+        color: #999999; }
       .card .card_body .list_type_b h3 {
         max-width: 200px;
         font-size: 1.1em;
@@ -473,20 +492,21 @@ div.mainbar-wrapper {
   .card .card_footer {
     padding: 10px;
     position: relative;
-    margin-top: 1em;
     border-top: 1px solid silver;
     background: #f7f7f7;
     direction: ltr; }
     .card .card_footer.nopadding {
       padding: 0; }
+    .card .card_footer.tip img {
+      margin: 0 auto; }
     .card .card_footer ul {
       height: 38px;
-      overflow: auto; }
+      overflow: hidden; }
       .card .card_footer ul li {
         opacity: .65;
         font-size: 12px;
         float: left;
-        padding: 10px 22px;
+        padding: 10px 20px;
         border-right: 1px solid silver; }
         .card .card_footer ul li:hover {
           opacity: 1;

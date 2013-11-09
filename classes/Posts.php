@@ -9,7 +9,6 @@ class Posts
     //properties
     protected $_db; //connection resource
     protected $_posts;
-
     protected $_query;
     protected $_query_result;
     protected $_rows;
@@ -30,12 +29,12 @@ class Posts
             $this->_query = 'SELECT 
             posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 
-            blogs.blog_author_twitter_username FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE blogs.blog_tags LIKE "%'.trim($channel).'%" ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
+            blogs.blog_author_twitter_username, posts.post_timestamp FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE blogs.blog_tags LIKE "%'.trim($channel).'%" ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
         } else {
             $this->_query = 'SELECT 
             posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 
-            blogs.blog_author_twitter_username FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
+            blogs.blog_author_twitter_username, posts.post_timestamp FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
         }
         $this->_query_result = $this->_db->query($this->_query);
         $this->_rows = $this->_query_result->fetchAll(PDO::FETCH_ASSOC);
@@ -48,11 +47,11 @@ class Posts
         if (isset($channel)) {
             $this->_query = "SELECT posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 
-            blogs.blog_author_twitter_username  FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE blogs.blog_tags LIKE '%".trim($channel)."%' ORDER BY `post_timestamp` DESC LIMIT $from, $howmany";
+            blogs.blog_author_twitter_username , posts.post_timestamp FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE blogs.blog_tags LIKE '%".trim($channel)."%' ORDER BY `post_timestamp` DESC LIMIT $from, $howmany";
         } else {
             $this->_query = "SELECT posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 
-            blogs.blog_author_twitter_username  FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id ORDER BY `post_timestamp` DESC LIMIT $from, $howmany";
+            blogs.blog_author_twitter_username , posts.post_timestamp FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id ORDER BY `post_timestamp` DESC LIMIT $from, $howmany";
         }
 
         $this->_query_result = $this->_db->query($this->_query);
@@ -95,6 +94,13 @@ class Posts
         $this->_query_result = $this->_db->query($this->_query);
         $this->_rows = $this->_query_result->fetchAll(PDO::FETCH_ASSOC);
 
+        return $this->_rows;
+    }
+
+    public function get_random_bloggers($howmany){
+        $this->_query = 'SELECT `blog_id`, `blog_name`, `blog_description` FROM blogs ORDER BY RAND() LIMIT '.$howmany;
+        $this->_query_result = $this->_db->query($this->_query);
+        $this->_rows = $this->_query_result->fetchAll(PDO::FETCH_ASSOC);
         return $this->_rows;
     }
 

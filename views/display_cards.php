@@ -22,8 +22,9 @@
 		
 			<!--card header-->
 		
-			<div class="card_header">
-				<a href ="<?php echo '/' . $post['post_id'] ?>"><img class ="blog_thumb" src="<?php echo "img/thumbs/".$post['blog_id'].".jpg";?>" width ="50" height ="50"></a>
+			<div class="card_header background-greylightest">
+				<a href ="<?php echo WEBPATH. $post['blog_id'] ?>"><img class ="blog_thumb" src="<?php echo "img/thumbs/".$post['blog_id'].".jpg";?>" width ="50" height ="50"></a>
+				<!-- <a href ="<?php echo '/' . $post['blog_id'] ?>"><div style = "height:50px width:50px;" class="thumbnail thumb-<?php echo $post['blog_id'] ?> "></div></a> -->
 				<div class="post_details">
 					<div class="blog_name secondaryfont"><a href ="<?php echo WEBPATH. $post['blog_id'] ?>"><?php echo $post['blog_name'] ;?></a></div>
 					<div class="blog_tools">

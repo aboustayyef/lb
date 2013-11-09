@@ -48,6 +48,20 @@ class Lb_functions {
 	    }
 	}
 
+	public static function limitWords($wordswanted, $phrase){
+		$allWords = explode(" ", $phrase);
+		$newPhrase = "";
+		$suffix = "";
+		foreach ($allWords as $key=>$word) {
+			$newPhrase .= $word. " ";
+			if ($key == $wordswanted-1) {
+				$suffix = " ...";
+				break;
+			}
+		}
+		return trim($newPhrase).$suffix;
+	}
+
 	static function display_posts($data){
 		switch ($_SESSION['viewtype']) {
 			case 'cards':

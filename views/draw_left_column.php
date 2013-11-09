@@ -64,7 +64,7 @@ if (isset($_SESSION['channel'])) {
           <div class = "label level1">Hello <?php echo $fbFirstName ?></div>
           <div class = "label level1"><a class ="btn btn-small btn-red" href="<?php echo $logoutUrl ?>">Logout</a> </div> <?php 
         } else { ?>
-          <div class = "label level1 noHoverBackground"><a class ="facebook-signin-button" href="<?php echo $loginUrl ?>">&nbsp;</div><?php
+          <div class = "label level1 noHoverBackground"><a class ="facebook-signin-button" href="<?php echo $loginUrl ?>">&nbsp;</a></div><?php
         }
       ?>
       <div class = "label level1"><i class ="icon-star"></i>My Favorite Bloggers</div>

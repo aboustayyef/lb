@@ -13,8 +13,9 @@ class View
 	protected $_description; // description of page
 	protected $_posts; //initial set of posts to display
 	protected $_blogger; // if we're in the blogger page
+	protected $_searchTerm;
 
-	function __construct($pagewanted=null, $view=null, $channel=null, $bloggerid=null) {
+	function __construct($pagewanted=null, $view=null, $channel=null, $bloggerid=null, $s=null) {
 		
 		// Which page is this? is it a browse page? an about page or a 'top' page?
 		if ((isset($pagewanted))) {
@@ -78,6 +79,14 @@ class View
 			
 		}
 
+		if ($this->_page == 'search'){
+			if (isset($s) && !empty($s)) {
+				$this->_searchTerm = $s;
+			}else{
+				die('you need to specify a search term');
+			}
+		}
+
 	}
 
 	function DrawHeader(){
@@ -119,8 +128,8 @@ class View
 				echo '</div> <!-- /posts -->';
 				break;
 
-			case 'top':
-				include_once(ABSPATH.'views/draw_top.php');
+			case 'search':
+				include_once(ABSPATH.'views/draw_search.php');
 				break;
 
 			default:
@@ -169,6 +178,11 @@ class View
 			case 'blogger':
 				$this->_title = "[Blog Name] on Lebanese Blogs";
 				$this->_description = "Posts of blog [Blog Name] on Lebanese Blogs";
+				break;
+
+			case 'search':
+				$this->_title = "Search result for $this->_searchTerm";
+				$this->_description = "Search result for $this->_searchTerm";
 				break;
 
 			default:
@@ -228,7 +242,8 @@ class View
 			'top'		=> "yes",
 			'about'		=> "no",
 			'search'	=> 	"no",
-			'blogger'	=>	"no"
+			'blogger'	=>	"no",
+			'search'	=>	"no"
 		);
 		if (array_key_exists($whichPage, $LeftColumns)) {
 			if ($LeftColumns[$whichPage] == "yes") {
