@@ -6,109 +6,145 @@
 
 class Posts
 {
-    //properties
-    protected $_db; //connection resource
-    protected $_posts;
-    protected $_query;
-    protected $_query_result;
-    protected $_rows;
 
+    private static $user_bloggers = null;
 
-    /* 
-    *Constructor: connects to database
-    */
-
-    public function __construct($db)
+    public function __construct()
     {
-        $this->_db = $db;
+        //nothing
     }
              
-    public function get_latest_posts($number_of_posts = 10, $channel = NULL) { //default is 10 posts
+    public static function get_latest_posts($number_of_posts = 10, $channel = NULL) { //default is 10 posts
         // get blog's details
         if (isset($channel)) {
-            $this->_query = 'SELECT 
+            $query = 'SELECT 
             posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 
             blogs.blog_author_twitter_username, posts.post_timestamp FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE blogs.blog_tags LIKE "%'.trim($channel).'%" ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
         } else {
-            $this->_query = 'SELECT 
+            $query = 'SELECT 
             posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 
             blogs.blog_author_twitter_username, posts.post_timestamp FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
         }
-        $this->_query_result = $this->_db->query($this->_query);
-        $this->_rows = $this->_query_result->fetchAll(PDO::FETCH_ASSOC);
-        return $this->_rows;
+        DB::getInstance()->query($query);
+        if (DB::getInstance()->error()) {
+            echo "There's an error in the query";
+        } else {
+            return DB::getInstance()->results();
+        }
     }
 
 
-    public function get_interval_posts($from=0,$howmany=10, $channel = NULL){
+    public static function get_interval_posts($from=0,$howmany=10, $channel = NULL){
         
         if (isset($channel)) {
-            $this->_query = "SELECT posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
+            $query = "SELECT posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 
             blogs.blog_author_twitter_username , posts.post_timestamp FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE blogs.blog_tags LIKE '%".trim($channel)."%' ORDER BY `post_timestamp` DESC LIMIT $from, $howmany";
         } else {
-            $this->_query = "SELECT posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
+            $query = "SELECT posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 
             blogs.blog_author_twitter_username , posts.post_timestamp FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id ORDER BY `post_timestamp` DESC LIMIT $from, $howmany";
         }
 
-        $this->_query_result = $this->_db->query($this->_query);
-        $this->_rows = $this->_query_result->fetchAll(PDO::FETCH_ASSOC);
-
-        return $this->_rows;
+        DB::getInstance()->query($query);
+        if (DB::getInstance()->error()) {
+            echo "There's an error in the query";
+        } else {
+            return DB::getInstance()->results();
+        }
 
     }
 
-    public function get_blogger_posts($number_of_posts = 10, $whichblogger = NULL) { //default is 10 posts
+    public static function get_blogger_posts($number_of_posts = 10, $whichblogger = NULL) { //default is 10 posts
         // get blog's details
 
-        $this->_query = 
+        $query = 
         'SELECT
          blogs.blog_id, blogs.blog_name ,blogs.blog_description, blogs.blog_tags, blogs.blog_url,
          posts.post_url, posts.post_title, posts.post_image,posts.post_image_height, posts.post_image_width, posts.post_excerpt
          FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE blogs.blog_id = "'.trim($whichblogger).'" ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
 
-        $this->_query_result = $this->_db->query($this->_query);
-        $this->_rows = $this->_query_result->fetchAll(PDO::FETCH_ASSOC);
-        return $this->_rows;
+        DB::getInstance()->query($query);
+        if (DB::getInstance()->error()) {
+            echo "There's an error in the query";
+        } else {
+            return DB::getInstance()->results();
+        }
     }
 
 
-    public function get_top_posts($hours, $posts_to_show = 5, $channel = NULL){
+    public static function get_top_posts($hours, $posts_to_show = 5, $channel = NULL){
 
         // calculate the time cutoff 
         $lb_now = time();
         $lb_before = $lb_now-($hours*60*60);
         if ($channel){
-            $this->_query = 'SELECT posts.post_image, posts.post_image_width, posts.post_image_height, posts.post_url, posts.post_title, blogs.blog_name, posts.blog_id 
+            $query = 'SELECT posts.post_image, posts.post_image_width, posts.post_image_height, posts.post_url, posts.post_title, blogs.blog_name, posts.blog_id 
                     FROM posts INNER JOIN blogs ON posts.blog_id = blogs.blog_id 
-                    WHERE blogs.blog_tags LIKE "%'.$_SESSION['channel'].'%" AND posts.post_timestamp > '.$lb_before.' 
+                    WHERE blogs.blog_tags LIKE "%'.$channel.'%" AND posts.post_timestamp > '.$lb_before.' 
                     ORDER BY post_visits DESC LIMIT '.$posts_to_show;
         } else {
-            $this->_query = 'SELECT posts.post_image, posts.post_image_width, posts.post_image_height, posts.post_url, posts.post_title, blogs.blog_name, posts.blog_id 
+            $query = 'SELECT posts.post_image, posts.post_image_width, posts.post_image_height, posts.post_url, posts.post_title, blogs.blog_name, posts.blog_id 
             FROM posts INNER JOIN blogs ON posts.blog_id = blogs.blog_id 
             WHERE posts.post_timestamp > '.$lb_before.' ORDER BY post_visits DESC LIMIT '.$posts_to_show;
         }
-        $this->_query_result = $this->_db->query($this->_query);
-        $this->_rows = $this->_query_result->fetchAll(PDO::FETCH_ASSOC);
 
-        return $this->_rows;
+        DB::getInstance()->query($query);
+        if (DB::getInstance()->error()) {
+            echo "There's an error in the query";
+        } else {
+            return DB::getInstance()->results();
+        }
     }
 
-    public function get_random_bloggers($howmany){
-        $this->_query = 'SELECT `blog_id`, `blog_name`, `blog_description` FROM blogs ORDER BY RAND() LIMIT '.$howmany;
-        $this->_query_result = $this->_db->query($this->_query);
-        $this->_rows = $this->_query_result->fetchAll(PDO::FETCH_ASSOC);
-        return $this->_rows;
+    public static function get_favorite_bloggers_posts($user_id, $from, $howmany){
+
+        // get list of User's favorite blogs - don't make a singleton because the list can change
+        $sql1 = 'SELECT `blog_id` FROM users_blogs WHERE `user_facebook_id` = "'.$user_id.'"';
+        $blogs = DB::getInstance();
+        $allblogs = $blogs->query($sql1)->results();
+        $list = array();
+        foreach ($allblogs as $key => $blog) {
+            $list[] = $blog->blog_id;
+        }
+        $list = "'".join("', '", $list)."'";
+        
+        // get list of posts
+
+        $sql2 = "SELECT * FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE posts.blog_id IN ($list) ORDER BY posts.post_timestamp DESC LIMIT $from, $howmany ";
+        $posts = DB::getInstance()->query($sql2)->results();
+        return $posts;
     }
 
-    public function test(){
-        return "This is a test";
+    public static function get_random_bloggers($howmany){
+        $query = 'SELECT `blog_id`, `blog_name`, `blog_description` FROM blogs ORDER BY RAND() LIMIT '.$howmany;
+        DB::getInstance()->query($query);
+        if (DB::getInstance()->error()) {
+            echo "There's an error in the query";
+        } else {
+            return DB::getInstance()->results();
+        }
     }
 
+    public static function isFavorite($user_id, $blog_id){
+        $sql = 'SELECT * from users_blogs WHERE `user_facebook_id` = "' . $user_id . '" AND `blog_id` = "'  . $blog_id . '"';
+        if (DB::getInstance()->query($sql)->count() > 0) { // yes, it's a favorite
+            return true;
+        }
+        return false;
+    }
+
+    public static function toggleFavorite($user_id, $blog_id){
+        if (self::isFavorite($user_id, $blog_id)) { // blog is a favorite, remove
+            $sql = 'DELETE FROM users_blogs WHERE `user_facebook_id` = "' . $user_id . '" AND `blog_id` = "'  . $blog_id . '"';
+            DB::getInstance()->query($sql);
+        } else { // blog is not a favorite. Add new record
+            DB::getInstance()->insert('users_blogs', array(
+                    'user_facebook_id'  =>  $user_id , 
+                    'blog_id'           =>  $blog_id 
+                ));
+        }
+    }
 }
-
-
-

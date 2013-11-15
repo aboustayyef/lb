@@ -246,6 +246,12 @@ div.mainbar-wrapper {
       @media only screen and (max-width: 510px) {
         div.mainbar-wrapper #logo img.mobile-logo {
           display: block; } }
+  div.mainbar-wrapper #slogan {
+    display: none;
+    width: 480px;
+    float: left;
+    padding-top: 20px;
+    color: #f0d7d9; }
   div.mainbar-wrapper #hamburger {
     display: none;
     margin-top: 0;

@@ -1,10 +1,10 @@
 <?php $s = $_SESSION['channel']; 
 
 function ischannel($s, $channelname){
-  if ($channelname == NULL && $s == NULL) {
+  if ($channelname == NULL && $s == NULL  && $_SESSION['pagewanted']=='browse') {
     echo " selected ";
   }else{
-    if ($s == $channelname) {
+    if ($s == $channelname && $_SESSION['pagewanted']=='browse') {
       echo " selected ";
     }
   }
@@ -13,9 +13,9 @@ function ischannel($s, $channelname){
 //build url for current page
 $self_url = $_SERVER['PHP_SELF']; //script without parameters
 if (isset($_SESSION['channel'])) {
-  $self_url .= '?channel='.$_SESSION['channel'].'&view='; // add channel
+  $self_url .= '?channel='.$_SESSION['channel'].'&pagewanted='.$_SESSION['pagewanted'].'&view='; // add channel
 }else{
-  $self_url .= '?view=';
+  $self_url .= '?pagewanted='.$_SESSION['pagewanted'].'&view=';
 }
 ?>
 <div id="left-col-wrapper">
@@ -52,22 +52,19 @@ if (isset($_SESSION['channel'])) {
 <!-- <h4 class="sectionheader">Statistics <sup>New!</sup></h4>
 <div class="label level1"><a href="<?php echo WEBPATH . '?pagewanted=top'; ?>"><i class ="icon-bar-chart"></i>Top Posts &amp; Blogs</a></div> -->
 
-
-<?php 
-  require ABSPATH.'fbconfig.php'; 
-?>
-
   <div id ="channels">
     <h4 class="sectionheader">User Area<sup>New!</sup></h4>
-      <?php
-        if ($user) { ?>
-          <div class = "label level1">Hello <?php echo $fbFirstName ?></div>
-          <div class = "label level1"><a class ="btn btn-small btn-red" href="<?php echo $logoutUrl ?>">Logout</a> </div> <?php 
-        } else { ?>
-          <div class = "label level1 noHoverBackground"><a class ="facebook-signin-button" href="<?php echo $loginUrl ?>">&nbsp;</a></div><?php
-        }
+      <?php 
+        if (isset($_SESSION['LebaneseBlogs_user_id'])){ // user logged in
+          echo '<div class = "label level1 strong">Hello '.$_SESSION['LebaneseBlogs_Facebook_FirstName'].'</div>';
+          ?><div class ="label level1"><a href="<?php echo WEBPATH.'facebooklogout.php'; ?>" class ="btn btn-red btn-small"><i class ="icon-facebook" style ="color:white"></i>Sign out</a></div>
+          <?php
+        } 
       ?>
-      <div class = "label level1"><i class ="icon-star"></i>My Favorite Bloggers</div>
+        
+      <div class = "label level1 <?php if ( $_SESSION['pagewanted']=='favorites') { echo 'selected';} ?>">
+        <a href="<?php echo WEBPATH.'userlogin.php?from=favorites' ?>"><i class ="icon-star"></i>My Favorite Bloggers</a>
+      </div>
       <div class ="label level1"><i class ="icon-envelope"></i>My Saved Posts</div>
       
       <h4 class="sectionheader">Channels</h4>
@@ -121,7 +118,6 @@ if (isset($_SESSION['channel'])) {
         </div>     
       </a> 
 
-  </div>
-  <?php echo '<pre>', print_r($user_profile) ,'</pre>'; ?>
+    </div>
   </div> <!-- /left-col-inner -->
 </div> <!-- /left-col-wrapper -->

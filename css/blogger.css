@@ -246,6 +246,12 @@ div.mainbar-wrapper {
       @media only screen and (max-width: 510px) {
         div.mainbar-wrapper #logo img.mobile-logo {
           display: block; } }
+  div.mainbar-wrapper #slogan {
+    display: none;
+    width: 480px;
+    float: left;
+    padding-top: 20px;
+    color: #f4c8cb; }
   div.mainbar-wrapper #hamburger {
     display: none;
     margin-top: 0;
@@ -337,6 +343,19 @@ div.mainbar-wrapper {
     border-bottom: 1px solid silver; }
     .card .card_header.noborder {
       border-bottom: none; }
+    .card .card_header .add2fav {
+      margin-top: 8px;
+      border: 1px solid #e9e9e9;
+      background: #e9e9e9;
+      color: silver;
+      border-radius: 4px;
+      padding: 2px 5px;
+      width: 160px;
+      font-size: .9em; }
+      .card .card_header .add2fav a {
+        color: inherit; }
+        .card .card_header .add2fav a:hover {
+          color: grey; }
     .card .card_header.tip {
       background: #ffcc66;
       color: #664400; }

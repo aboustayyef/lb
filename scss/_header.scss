@@ -84,6 +84,14 @@ div.mainbar-wrapper {
         }
 
     }
+    #slogan{
+        display:none;
+        width: 480px;
+        float: left;
+        padding-top: 20px;
+        color: lighten($lb_red, 45);
+    }
+
     #hamburger{
         display:none;
         margin-top: 0;

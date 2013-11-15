@@ -45,7 +45,12 @@ var lbApp ={
 
 		addMore: function(){
 			lbApp.posts.busy = "yes"; //prevent concurrent loading of this function
-			var url = "contr_get_extra_posts.php";
+			var url;
+			if (global_page === "favorites") {
+				url = "contr_get_favorites_extra_posts.php";
+			} else {
+				url = "contr_get_extra_posts.php";
+			}
 			$.post(url, function(data) {
 				lbApp.posts.window.append(data);
 				lbApp.posts.flow();
@@ -55,6 +60,30 @@ var lbApp ={
 			});
 			},
 
+		favorites :{
+			init: function(){
+				var addToFavoritesHTML = '<a class="addToFavorites" href="#"><i class="icon-star"></i> Add Blog to Favorites</a>';
+				var removeFromFavoritesHTML = '<i class="icon-star" style="color:#FC0"></i> Favorite (<a class="removeFromFavorites" href="#">remove</a>)';
+				$('.favorite_toggle').on('click', function(){
+					var _blog = $(this).data('blog');
+					var _user = $(this).data('user');
+					$.post("contr_toggle_favorites.php",{user:_user,blog:_blog},
+						function(data){
+						$('.favorite_toggle[data-blog="'+_blog+'"]').each(function(){
+							var currentContent = $(this).html();
+							if (currentContent === addToFavoritesHTML) {
+								$(this).html(removeFromFavoritesHTML);
+							}else {
+								$(this).html(addToFavoritesHTML);
+							}
+							console.log(currentContent);
+							//$(this).html("<b>this</b> is a test");
+						});
+					});
+				});
+			}
+		},
+
 		images : {
 			show: function(){
 				$("img.lazy").lazyload({
@@ -63,9 +92,11 @@ var lbApp ={
 					container: $("#view-area")
 				});
 				$("img.lazy").removeClass("lazy");
+			},
+			nudge: function(){
 				var t = $('#view-area').scrollTop();
 				$('#view-area').scrollTop(t+1); //nudge 1 pixel to counter lazy load bug.
-			},
+			}
 		},
 
 	},
@@ -75,7 +106,7 @@ var lbApp ={
 		init: function(){
 			// depending on what page does, appropriate parts of the interface js will be activated.
 			
-			if ((global_page === "browse") || (global_page === "top")) { this.leftNav.init(); } // initialize left navigation ;
+			if ((global_page === "browse") || (global_page === "top") || (global_page === "favorites")) { this.leftNav.init(); } // initialize left navigation ;
 
 			this.setDimensions(); // corrects page dimensions
 			this.menus.init(); // initialize drop down menus
@@ -411,12 +442,14 @@ $(window).load(function(){
 		lbApp.posts.init();
 		lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
 		lbApp.posts.images.show(); // load lazy images
+		lbApp.posts.images.nudge();
 		lbApp.posts.show(); // show everything
 		lbApp.interface.viewArea.handleScroll();
 		if (global_viewtype === "compact") {
 			lbApp.interface.compactView.init();
 		}
 		lbApp.interface.revealContent();
+		lbApp.posts.favorites.init();
 
 	}
 	if ((global_page === "about")) {
@@ -435,6 +468,21 @@ $(window).load(function(){
 		lbApp.interface.revealContent();
 
 	}
+
+	if ((global_page === "favorites")){
+		lbApp.posts.init();
+		lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
+		lbApp.posts.images.show(); // load lazy images
+		lbApp.posts.images.nudge();
+		lbApp.posts.show(); // show everything
+		lbApp.interface.viewArea.handleScroll();
+		if (global_viewtype === "compact") {
+			lbApp.interface.compactView.init();
+		}
+		lbApp.interface.revealContent();
+		lbApp.posts.favorites.init();
+	}
+
 });
 
 var do_resize;
@@ -451,6 +499,10 @@ $(window).resize(function() {
 
         if (global_page === "top") {
 			lbApp.interface.cards.flow();
+        }
+        if (global_page === "favorites") {
+			lbApp.interface.setDimensions();
+			lbApp.posts.flow();
         }
     }, 300);
 });
