@@ -85,7 +85,7 @@ global $channel_descriptions;
       <div class="mainbar-wrapper">
   	    <div class="mainbar">
       		<!-- logo -->
-          <?php if (($this->_page == "browse") || ($this->_page == "top")){
+          <?php if (($this->_page == "browse") || ($this->_page == "top") || ($this->_page == "favorites") || ($this->_page == "saved")){
             ;?>
               <a href ="#left-col-wrapper"><div id="hamburger"><i class ="icon-reorder icon-2x"></i></div></a>
             <?php
@@ -97,6 +97,7 @@ global $channel_descriptions;
           		  <img src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white-mobile.png" alt="" class="mobile-logo">
               </a>
         		</div>
+            <div id="slogan" class="primaryfont">The best place to discover, read and organize Lebanon's top blogs</div>
             <div class="nav-wrapper">
                 <ul id ="menu-icons">
                   <li data-menu="menu-about"><i id ="info" class ="icon-info-sign icon-large"></i></li>

@@ -24,6 +24,15 @@ class View
 			$this->_page = "browse"; //default
 		}
 
+		$_SESSION['pagewanted']= $this->_page;
+
+		if ($this->_page == "favorites" && !isset($_SESSION['LebaneseBlogs_user_id'])) { 
+			// This is a backdoor to the favorites page, 
+			// possibly from returning from signout
+			// Best course is to redirect to homepage
+			header("location: ".WEBPATH);
+		}
+
 		// does page have a left column?
 		if ($this->hasLeftColumn($this->_page)) {
 			$this->_left_column = "yes";
@@ -32,7 +41,7 @@ class View
 		}
 
 		// 	If we are browsing posts, which view type are we using? (cards, timeline or compact?)
-		if ($this->_page == "browse") {
+		if (($this->_page == "browse") || ($this->_page == "favorites") || ($this->_page == "saved")) {
 
 			//	Is the view type set in the URL parameters?
 			if ((isset($view)) && ($view !== "")) { // url parameter
@@ -113,19 +122,48 @@ class View
 				$_SESSION['posts_displayed'] = 0; // initialize number of posts shown
 				$_SESSION['items_displayed'] = 0; // initialize number of items shown (including other widgets)
 				
-				// Get initial posts. Initiate model.
-				$posts = new Posts($db);
+
 				// the compact mode gets more initial posts;
 				if ($this->_view == "compact") {
 					$initial_posts_to_retreive = 50;
 				}else{
 					$initial_posts_to_retreive = 20;
 				}
-				$data = $posts->get_latest_posts($initial_posts_to_retreive, $_SESSION['channel']); 
+				$data = Posts::get_latest_posts($initial_posts_to_retreive, $_SESSION['channel']); 
 				//envelope the posts;
 				echo '<div id="posts">';
 					$this->display_posts($data);
 				echo '</div> <!-- /posts -->';
+				break;
+
+			case 'favorites':
+
+				if (isset($_SESSION['LebaneseBlogs_Facebook_User_ID'])){ // if user is signed in
+					$_SESSION['posts_displayed'] = 0; // initialize number of posts shown
+					$_SESSION['items_displayed'] = 0; // initialize number of items shown (including other widgets)
+
+					// the compact mode gets more initial posts;
+					if ($this->_view == "compact") {
+						$initial_posts_to_retreive = 50;
+					}else{
+						$initial_posts_to_retreive = 20;
+					}
+
+					$data = Posts::get_favorite_bloggers_posts($_SESSION['LebaneseBlogs_Facebook_User_ID'], 0, $initial_posts_to_retreive); 
+					
+					//envelope the posts;
+					echo '<div id="posts">';
+					if (count($data) == 0) { // no favorites yet
+						?>
+						<div class="card"><h2>You Have No Favorite Blogs Yet</h1></div>
+						<?php
+					} else {
+						$this->display_posts($data);
+					}			
+					echo '</div> <!-- /posts -->';
+				} else {
+					include_once(ABSPATH.'views/sign_out_message.php');
+				}
 				break;
 
 			case 'search':
@@ -158,10 +196,10 @@ class View
 			case 'browse':
 				if ($this->_channel == "all") {
 					$this->_title = "Lebanese Blogs | Latest posts from the best Blogs";
-					$this->_description ="The best way to read and discover Lebanon's top blogs";
+					$this->_description ="The best place to discover, read and organize Lebanon's top blogs";
 				} else {
 					$this->_title = "Top {$this->_channel} blogs in Lebanon | Lebanese Blogs";
-					$this->_description ="The best way to read and discover Lebanon's top {$this->_channel} bloggers";
+					$this->_description ="The best place to discover, read and organize Lebanon's top {$this->_channel} bloggers";
 				}
 				break;
 			
@@ -185,8 +223,18 @@ class View
 				$this->_description = "Search result for $this->_searchTerm";
 				break;
 
+			case 'favorites':
+				if (isset($_SESSION['LebaneseBlogs_Facebook_User_ID'])) { //signed in to facebook
+					$this->_title = "{$_SESSION['LebaneseBlogs_Facebook_FirstName']}'s Favorite Bloggers";
+					$this->_description = "Favorite Blogs";
+				}else{
+					$this->_title = "Choose your favorite blogs";
+					$this->_description = "Choose your favorite blogs";
+				}
+				break;
+
 			default:
-				die('pagewanted is not set correctly');
+				die('pagewanted is not set correctly! '.$this->_page);
 				break;
 		}
 	}
@@ -243,7 +291,8 @@ class View
 			'about'		=> "no",
 			'search'	=> 	"no",
 			'blogger'	=>	"no",
-			'search'	=>	"no"
+			'search'	=>	"no",
+			'favorites'	=> "yes"
 		);
 		if (array_key_exists($whichPage, $LeftColumns)) {
 			if ($LeftColumns[$whichPage] == "yes") {

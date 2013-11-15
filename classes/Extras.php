@@ -89,8 +89,8 @@ class Extras
 	public static function featuredBloggers(){
 		
 		global $db;
-		$blogs = new Posts($db);
-		$bloggers = $blogs->get_random_bloggers(3);?>
+
+		$bloggers = Posts::get_random_bloggers(3);?>
 
 		<div class="card">
 			<div class="card_header primaryfont background-bluegreen">
@@ -101,10 +101,10 @@ class Extras
 		<?php
 		foreach ($bloggers as $blogger) { ?>
 				<div class="list_type_b">
-					<img src="img/thumbs/<?php echo $blogger['blog_id']; ?>.jpg" alt="" class="thumb">
-					<h3><?php echo $blogger['blog_name']; ?></h3>
-					<p><?php echo Lb_functions::limitWords(10, $blogger['blog_description']); ?></p>
-					<div class ="button-wrapper"><a href="<?php echo WEBPATH.$blogger['blog_id']; ?>" class="btn btn-whitetext btn-small background-bluegreen">explore</a></div>
+					<img src="img/thumbs/<?php echo $blogger->blog_id; ?>.jpg" alt="" class="thumb">
+					<h3><?php echo $blogger->blog_name; ?></h3>
+					<p><?php echo Lb_functions::limitWords(10, $blogger->blog_description); ?></p>
+					<div class ="button-wrapper"><a href="<?php echo WEBPATH.$blogger->blog_id; ?>" class="btn btn-whitetext btn-small background-bluegreen">explore</a></div>
 				</div>
 		<?php } ?>
 			</div>
@@ -116,8 +116,7 @@ class Extras
 	public static function topFive($howmany=5, $hours=12, $channel = null){
 		
 		global $db;
-		$top5 = new Posts($db);
-		$stats = $top5->get_Top_Posts($hours, $howmany, $channel); 
+		$stats = Posts::get_Top_Posts($hours, $howmany, $channel); 
 		;?>
 		<div class="card">
 			<div class="card_header primaryfont background-red">
@@ -128,17 +127,17 @@ class Extras
 			
 			<?php
 			foreach ($stats as $stat) {
-				$img = $stat['post_image'];
-				$img_height =$stat['post_image_height'] ;
-				$img_width =$stat['post_image_width'] ;
-				$title = $stat['post_title'];
-				$url = $stat['post_url'];
-				$blogger_url = ABSPATH . $stat['blog_id'];
+				$img = $stat->post_image;
+				$img_height =$stat->post_image_height ;
+				$img_width =$stat->post_image_width ;
+				$title = $stat->post_title;
+				$url = $stat->post_url;
+				$blogger_url = ABSPATH . $stat->blog_id;
 				;?>
 			
 				<div class="list_type_a">
 					<?php
-					if (empty($stat['post_image'])) {
+					if (empty($stat->post_image)) {
 						;?>
 							<a href ="<?php echo $url ;?>">
 									<div class="thumb"><img src="<?php echo "img/interface/no-image.jpg" ;?>" height ="75px"></div>
@@ -160,7 +159,7 @@ class Extras
 						}
 					}
 					?>
-					<h4><a href ="<?php echo $url ;?>"><?php echo $title ;?></a></h4><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $stat['blog_name'] ;?></a></h5>			
+					<h4><a href ="<?php echo $url ;?>"><?php echo $title ;?></a></h4><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $stat->blog_name ;?></a></h5>			
 				</div>
 			<?php
 			} 

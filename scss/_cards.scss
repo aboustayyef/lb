@@ -26,6 +26,22 @@
         &.noborder{
             border-bottom:none;
         }
+        .add2fav{
+            margin-top: 8px;
+            border: 1px solid lighten(silver,16);
+            background: lighten(silver,16);
+            color: silver;
+            border-radius: 4px;
+            padding: 2px 5px;
+            width: 160px;
+            font-size: .9em;
+            a{
+                color: inherit;
+                &:hover{
+                    color:grey;
+                }
+            }
+        }
         &.tip{
 
             $background: #FFCC66;
