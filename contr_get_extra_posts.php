@@ -21,6 +21,6 @@
 	$data = Posts::get_interval_posts($start_from+1,$posts_per_refresh, $channel);
 
 // 	load the view
-	$viewposts = new View();
+	$viewposts = new View($_SESSION['pagewanted'], $_SESSION['viewtype'], $_SESSION['channel']);
 	$viewposts->display_posts($data);
 ?>

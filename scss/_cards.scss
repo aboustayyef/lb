@@ -119,6 +119,11 @@
             h3{
                 color: lighten(black, 20);
             }
+            img{
+                &.noborder{
+                    border:none;
+                }
+            }
         }
         overflow: hidden;
         .post_time {

@@ -1,11 +1,17 @@
 <?php 
 require_once('init.php');
 
+// Test getIdFromFacebookId
+
+$id = Users::getIdFromFacebookId('2147483647');
+echo "Facebook User Id '2147483647' corresponds to Lebanese Blogs ID $id ";
+
+
 // Test toggleFavorites
-$user_facebook_id = '812400331';
+/*$user_facebook_id = '812400331';
 $blog_id = 'blogbaladi';
 
-Posts::toggleFavorite($user_facebook_id, $blog_id);
+Posts::toggleFavorite($user_facebook_id, $blog_id);*/
 
 // Test for isFavorite method
 /*$user_facebook_id = '812400331';

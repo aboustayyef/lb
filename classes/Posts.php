@@ -16,7 +16,7 @@ class Posts
              
     public static function get_latest_posts($number_of_posts = 10, $channel = NULL) { //default is 10 posts
         // get blog's details
-        if (isset($channel)) {
+        if (isset($channel) && !empty($channel)) {
             $query = 'SELECT 
             posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 

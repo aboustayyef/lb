@@ -73,6 +73,14 @@ class Users{
 			return false;
 		}
 	}
+
+	public static function getIdFromFacebookId($facebook_id){
+		$users = DB::getInstance();
+		$users->get('users', array('user_facebook_id','=',$facebook_id));
+		$result = $users->results();
+		return $result[0]->user_id;
+	}
+
 }
 
 ?>

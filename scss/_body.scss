@@ -13,6 +13,22 @@
 }
 
 //right of center (without left nav)
+
+#message{
+    padding: 8px 25px;
+    background: whitesmoke;
+    border-bottom: 1px solid $lb_red;
+}
+
+#howto{
+    h3{
+        margin: 20px 0;
+    }
+    width:90%;
+    max-width:400px;
+    margin: 0 auto;
+}
+
 #view-area{
     background: #c5c5c5;
     overflow-y: scroll;

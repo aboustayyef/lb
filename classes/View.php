@@ -130,6 +130,7 @@ class View
 					$initial_posts_to_retreive = 20;
 				}
 				$data = Posts::get_latest_posts($initial_posts_to_retreive, $_SESSION['channel']); 
+				
 				//envelope the posts;
 				echo '<div id="posts">';
 					$this->display_posts($data);
@@ -151,18 +152,22 @@ class View
 
 					$data = Posts::get_favorite_bloggers_posts($_SESSION['LebaneseBlogs_Facebook_User_ID'], 0, $initial_posts_to_retreive); 
 					
-					//envelope the posts;
-					echo '<div id="posts">';
 					if (count($data) == 0) { // no favorites yet
 						?>
-						<div class="card"><h2>You Have No Favorite Blogs Yet</h1></div>
+						<div id = "message">
+							<?php include_once(ABSPATH.'views/favorites-starter.php') ?>
+						</div>
 						<?php
 					} else {
+						?><div id = "message" class = "primaryfont"><h3><?php echo $_SESSION['LebaneseBlogs_Facebook_FirstName'] ?>'s Favorite Blogs</h3></div><?php
+						
+						//envelope the posts;
+						echo '<div id="posts">';
 						$this->display_posts($data);
 					}			
 					echo '</div> <!-- /posts -->';
 				} else {
-					include_once(ABSPATH.'views/sign_out_message.php');
+					?><div id = "message" class = "primaryfont"><h3>You Are Now Signed out</h3></div><?php
 				}
 				break;
 

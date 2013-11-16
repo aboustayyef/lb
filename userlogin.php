@@ -89,7 +89,7 @@ if (isset($_SESSION['LebaneseBlogs_Facebook_User_ID'])){ // if user is signed in
 		
 			// Add Session Details
 		    $_SESSION['LebaneseBlogs_Facebook_User_ID']= $user->getFacebookUserDetails('id');
-	    	$_SESSION['LebaneseBlogs_user_id'] = DB::getInstance()->get('users', array('user_facebook_id','=',$user->getFacebookUserDetails('id')))->results()[0]->user_id;
+	    	$_SESSION['LebaneseBlogs_user_id'] = Users::getIdFromFacebookId($user->getFacebookUserDetails('id'));
 	    	$_SESSION['LebaneseBlogs_Facebook_FirstName'] = $user->getFacebookUserDetails('first_name');
 
 	    	// redirect using parameters from facebook login
@@ -103,6 +103,12 @@ if (isset($_SESSION['LebaneseBlogs_Facebook_User_ID'])){ // if user is signed in
 // redirect function
 
 function goback($params=null){
+
+	/* DEBUG 
+	echo "<pre>";
+	print_r($_SESSION);
+	echo "</pre>";*/
+
 	if (!isset($_GET['from'])) {
 		die('you need to use a from parameter for this page');
 	} else {

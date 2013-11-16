@@ -410,6 +410,8 @@ div.mainbar-wrapper {
         color: #b12530; }
       .card .card_body.tip h3 {
         color: #333333; }
+      .card .card_body.tip img.noborder {
+        border: none; }
     .card .card_body .post_time {
       font-size: 12px;
       color: #871c25;
