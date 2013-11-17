@@ -14,14 +14,19 @@ global $channel_descriptions;
 
     <!-- Main CSS -->
     <?php 
-      if ($this->_page == "blogger") {
-        ;?><link href="<?php echo WEBPATH ;?>css/blogger.css?<?php echo time(); ?>" rel="stylesheet"><?php
-      }else {
-        if ($this->_left_column == "yes") {
-          ;?><link href="<?php echo WEBPATH ;?>css/lebaneseblogs.css?<?php echo time(); ?>" rel="stylesheet"><?php
-        } else {
+      switch ($this->_page) {
+        case 'blogger':
+          ;?><link href="<?php echo WEBPATH ;?>css/blogger.css?<?php echo time(); ?>" rel="stylesheet"><?php
+          break;
+        case 'about':
           ;?><link href="<?php echo WEBPATH ;?>css/pages.css?<?php echo time(); ?>" rel="stylesheet"><?php
-        }
+          break;
+        case 'search':
+          ;?><link href="<?php echo WEBPATH ;?>css/search.css?<?php echo time(); ?>" rel="stylesheet"><?php
+          break;        
+        default:
+          ;?><link href="<?php echo WEBPATH ;?>css/lebaneseblogs.css?<?php echo time(); ?>" rel="stylesheet"><?php
+          break;
       }
     ?>
     <?php ?>

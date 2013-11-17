@@ -63,7 +63,7 @@ class Posts
         $query = 
         'SELECT
          blogs.blog_id, blogs.blog_name ,blogs.blog_description, blogs.blog_tags, blogs.blog_url,
-         posts.post_url, posts.post_title, posts.post_image,posts.post_image_height, posts.post_image_width, posts.post_excerpt
+         posts.post_url, posts.post_title, posts.post_image,posts.post_image_height, posts.post_image_width, posts.post_excerpt, blogs.blog_author_twitter_username
          FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE blogs.blog_id = "'.trim($whichblogger).'" ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
 
         DB::getInstance()->query($query);
@@ -147,4 +147,34 @@ class Posts
                 ));
         }
     }
+
+    public static function searchBlogNames($term){
+        $names = DB::getInstance();
+        $names->query('SELECT blog_id, blog_name, blog_url, blog_description FROM blogs WHERE MATCH(blog_name) AGAINST (\'"'.$term.'"\' IN BOOLEAN MODE) ORDER BY blog_name DESC');
+        return $names->results();
+    }
+
+    public static function searchBlogTitles($term){
+        $names = DB::getInstance();
+        $names->query('SELECT posts.post_title, posts.post_url, posts.post_timestamp, blogs.blog_name, posts.post_image, posts.post_image_height, posts.post_image_width
+                    FROM posts INNER JOIN blogs ON posts.blog_id = blogs.blog_id 
+                    WHERE MATCH(post_title) AGAINST (\'"'.$term.'"\' IN BOOLEAN MODE) ORDER BY post_timestamp DESC');
+        return $names->results();
+    }
+
+    public static function searchBlogContents($term){
+        $names = DB::getInstance();
+        $names->query('SELECT posts.post_title, posts.post_url, posts.post_timestamp, blogs.blog_name, posts.post_image, posts.post_image_height, posts.post_image_width  
+                    FROM posts INNER JOIN blogs ON posts.blog_id = blogs.blog_id 
+                    WHERE MATCH(post_title, post_content) AGAINST (\'"'.$term.'"\' IN BOOLEAN MODE) ORDER BY post_timestamp DESC');
+        return $names->results();
+    }
+
+
+
+
+
+
+
+
 }

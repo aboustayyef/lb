@@ -321,80 +321,40 @@ div.mainbar-wrapper {
         .menu ul a li:hover {
           background: #9c212a; }
 
-/**
-*   This is CSS for only the pages
-*/
-.loader, .endloader {
-  display: none; }
-
-em {
-  font-style: italic; }
-
-.box {
-  background: #fcf2f3;
-  border: 1px #f4c8cb solid;
-  padding: 1em; }
-
-.lead {
-  font-size: 1.1em;
-  line-height: 1.5em; }
-
-i {
-  font-size: 1.1em; }
-
-h3 {
-  font-size: 1.3em;
-  color: #9c212a; }
-
-p {
-  margin: 1em 0;
-  line-height: 1.6em; }
-  p strong {
-    font-weight: bold; }
-  p i {
-    color: #b12530; }
-
-.button {
-  background: #b12530;
-  color: white;
-  border: #d53441 1px solid;
-  padding: .45em .4em;
-  font-size: .8em;
-  line-height: 1.3em;
-  width: 20%; }
-
-textarea, input {
-  width: 96%;
-  margin: 15px 0; }
-
-a {
-  color: #b12530;
-  text-decoration: none; }
-
-ul#section-choose {
-  z-index: 100;
-  display: block;
-  width: 23em;
-  height: 2em;
-  margin: 1em auto; }
-  ul#section-choose li {
+#searchresults {
+  padding: 2em; }
+  #searchresults h2 {
+    font-size: 2em;
+    color: #b12530;
+    margin-bottom: 1.5em; }
+  #searchresults h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em; }
+    #searchresults h3.dimmed {
+      color: #b3b3b3; }
+  #searchresults #blognames {
+    overflow: hidden; }
+  #searchresults #blogtitles {
+    overflow: hidden; }
+  #searchresults #blogcontents {
+    overflow: hidden; }
+  #searchresults .blogname-posttitle {
+    margin-top: 2px;
+    margin-bottom: 4px;
+    overflow: auto;
+    clear: both; }
+  #searchresults .blogname {
     float: left;
-    padding: 0.3em 0.5em;
-    font-size: 1.2em;
-    border-right: 0.1em silver solid; }
-    ul#section-choose li:last-child {
-      border-right: none; }
+    color: #b12530;
+    margin-right: 5px;
+    font-weight: bold; }
+  #searchresults .posttitle {
+    float: left;
+    margin-right: 5px; }
+    #searchresults .posttitle a:hover {
+      text-decoration: underline; }
+  #searchresults .postdate {
+    color: #efb3b8; }
 
-ul#criteria {
-  margin-bottom: 1em;
-  list-style-type: disc; }
-  ul#criteria li {
-    margin-left: 1em;
-    line-height: 1.1em;
-    margin-bottom: 1em; }
-
-.section {
-  font-size: 1.1em;
-  max-width: 46em;
-  margin: 3em auto;
-  padding: 0 1em 3em 1em; }
+.endloader {
+  display: none; }

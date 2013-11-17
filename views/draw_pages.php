@@ -9,7 +9,7 @@
 
 	<div class ="section" id="about">
 		<h3>What is <em>Lebanese Blogs?</em></h3>
-		<p class ="lead box"><em>Lebanese Blogs</em> is the best place to read, discover and share the latest posts from Lebanon's top bloggers</p>
+		<p class ="lead box"><em>Lebanese Blogs</em> is The best place to discover, read and organize the latest posts from Lebanon's top bloggers</p>
 
 		<h3>Why?</h3>
 		<p>Readers shouldn't waste their time searching for cool new Lebanese blogs and digging around for new posts. At the same time, bloggers shouldn't feel pressured to post everyday so that people read their posts. This website hopes to solve both these problems</p>

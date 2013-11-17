@@ -8,9 +8,35 @@
 
 class Lb_functions {
 	
+	private static $tagrouter =  array(
+		'fashion' 	=>	'fashion',
+		'style'		=>	'fashion', 
+		'food'		=>	'food',
+		'health'	=>	'food',
+		'society'	=>	'society',
+		'politics'	=>	'politics',
+		'tech'		=>	'tech',
+		'business'	=>	'tech',
+		'media'		=>	'media',
+		'music'		=>	'media',
+		'tv'		=>	'media',
+		'film'		=>	'media',
+		'advertising'	=>	'design',
+		'design'	=>	'design'
+		);
+
+
 	function __construct()
 	{
 		# do nothing
+	}
+
+
+	static function tagtochannel($tag){
+		if (null !== self::$tagrouter[$tag]) {
+			return self::$tagrouter[$tag];
+		}
+		return 'TagError';
 	}
 
 

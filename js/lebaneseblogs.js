@@ -58,7 +58,7 @@ var lbApp ={
 				lbApp.posts.images.show();
 				lbApp.posts.busy = "no";
 			});
-			},
+		},
 
 		favorites :{
 			init: function(){
@@ -69,17 +69,17 @@ var lbApp ={
 					var _user = $(this).data('user');
 					$.post("contr_toggle_favorites.php",{user:_user,blog:_blog},
 						function(data){
-						$('.favorite_toggle[data-blog="'+_blog+'"]').each(function(){
-							var currentContent = $(this).html();
-							if (currentContent === addToFavoritesHTML) {
-								$(this).html(removeFromFavoritesHTML);
-							}else {
-								$(this).html(addToFavoritesHTML);
-							}
-							console.log(currentContent);
+							$('.favorite_toggle[data-blog="'+_blog+'"]').each(function(){
+								var currentContent = $(this).html();
+								if (currentContent === addToFavoritesHTML) {
+									$(this).html(removeFromFavoritesHTML);
+								}else {
+									$(this).html(addToFavoritesHTML);
+								}
+								console.log(currentContent);
 							//$(this).html("<b>this</b> is a test");
 						});
-					});
+						});
 				});
 			}
 		},
@@ -176,7 +176,7 @@ var lbApp ={
 				$('#left-col-wrapper').css("overflow-y","scroll");
 			} else {
 				$('#left-col-wrapper').css("overflow-y","hidden");
-			};
+			}
 
 		},
 
@@ -237,10 +237,10 @@ var lbApp ={
 			},
 			hide: function(){
 				$('#modal').css('display','none');
-				},
+			},
 			show: function(){
 				$('#modal').css('display','block');
-				},
+			},
 			message: function(message){
 				$('#modal-body').html("<p>"+message+"<p>");
 				lbApp.interface.modal.show();
@@ -284,28 +284,28 @@ var lbApp ={
 						var keyPressed = event.which;
 						if ((keyPressed === 74) || (keyPressed === 40)) { //j or Down arrow
 
-						theSelection.moveDown();
-						theSelection.show();
+							theSelection.moveDown();
+							theSelection.show();
 
 						} else if ((keyPressed === 75) || (keyPressed === 38)) { //k or up arrow
 
-						theSelection.moveUp();
-						theSelection.show();
+							theSelection.moveUp();
+							theSelection.show();
 
 						} else if ((keyPressed === 13) || (keyPressed === 32) || (keyPressed === 79)) { //Spacebar or Enter Key or 'o' button
 						lbApp.interface.compactView.handleClicks($('.compact.selected'));
-						}
-					});
+					}
+				});
 				},
 				position : 0,
 				moveUp : function(){
 					if (this.position >0) {
-					this.position = this.position - 1;
+						this.position = this.position - 1;
 					}
 				},
 				moveDown : function(){
 					//if (this.position < $('.compact').length){
-					this.position = parseInt(this.position,10) + 1;
+						this.position = parseInt(this.position,10) + 1;
 					//        }
 				},
 				show : function(){
@@ -333,14 +333,14 @@ var lbApp ={
 
 				// positions open post at top of image
 				$('#view-area').scrollTop(41*(whichPost));
-				}
 			}
-		},
+		}
 	},
+},
 
-	bloggerPage:{
-		window: $('.bloggerPosts'),
-		flow: function(){
+bloggerPage:{
+	window: $('.bloggerPosts'),
+	flow: function(){
 			this.cardWidth = 320; //278px + 2 (border 1 px) + 20 (margin 10px);
 			this.columns = Math.floor(lbApp.interface.viewArea.window.outerWidth()/this.cardWidth);
 			this.windowWidth = this.columns * this.cardWidth;
@@ -362,9 +362,9 @@ var lbApp ={
 		},
 		loadImages: function(){
 			$("img.lazy").lazyload({
-					threshold: 500,
-					effect: "fadeIn",
-				});
+				threshold: 500,
+				effect: "fadeIn",
+			});
 			$("img.lazy").removeClass("lazy");
 			var t = $('.blogger').scrollTop();
 			$(window).scrollTop(t+1); //nudge 1 pixel to counter lazy load bug.
@@ -433,13 +433,71 @@ var lbApp ={
 				return false;
 			});
 		}
-	}
+	},
+
+	searchPage: {
+		
+		init: function(){
+			searchTerm = $('#searchresults').data('term');
+			this.findBlogNames();
+			this.findPostTitles();
+			this.findPostContents();
+		},
+		findBlogNames: function(){
+			$.post("contr_search.php",{term:searchTerm, scope:"blognames"},
+				function(data){
+					$('#blognames').html(data);
+					if ($('#blognames').height()>250) { // hide for expansion
+						$('#blognames').height(250);
+						$('#blognames').after('<div class ="expand"><a class = "expandNames" href ="#">See All Results</a></div>');
+						$('.expandNames').on('click', function(){
+							$('#blognames').height('auto');
+							$(this).hide();
+						});
+					}
+					$('#blogtitles').html('<h3 class ="status">Searching for Blog Posts with the term \''+searchTerm+'\' in their titles</h3><img src="img/interface/ajax-loader.gif" alt="spinning wheel">');
+				}
+			);
+		},
+		findPostTitles: function(){
+			$.post("contr_search.php",{term:searchTerm, scope:"blogtitles"},
+				function(data){
+					$('#blogtitles').html(data);
+					if ($('#blogtitles').height()>250) { // hide for expansion
+						$('#blogtitles').height(250);
+						$('#blogtitles').after('<div class ="expand"><a class = "expandTitles" href ="#">See All Results</a></div>');
+						$('.expandTitles').on('click', function(){
+							$('#blogtitles').height('auto');
+							$(this).hide();
+						});
+					}
+					$('#blogcontents').html('<h3 class ="status">Searching for Blog Posts with the term \''+searchTerm+'\' in their text</h3><img src="img/interface/ajax-loader.gif" alt="spinning wheel">');
+
+				}
+			);
+		},
+		findPostContents: function(){
+			$.post("contr_search.php",{term:searchTerm, scope:"blogcontents"},
+				function(data){
+					$('#blogcontents').html(data);
+					if ($('#blogcontents').height()>250) { // hide for expansion
+						$('#blogcontents').height(250);
+						$('#blogcontents').after('<div class ="expand"><a class = "expandContents" href ="#">See All Results</a></div>');
+						$('.expandContents').on('click', function(){
+							$('#blogcontents').height('auto');
+							$(this).hide();
+						});
+					}
+				}
+			);
+		},
+	},
 };
 
-$(window).load(function(){
-	lbApp.interface.init();
-	if (global_page === "browse") {
-		lbApp.posts.init();
+	$(window).load(function(){
+		lbApp.interface.init();
+		if (global_page === "browse") {
+			lbApp.posts.init();
 		lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
 		lbApp.posts.images.show(); // load lazy images
 		lbApp.posts.images.nudge();
@@ -461,6 +519,7 @@ $(window).load(function(){
 		$('.endloader').hide();
 		lbApp.interface.revealContent();
 		lbApp.bloggerPage.loadImages();
+		lbApp.posts.favorites.init();
 
 	}
 	if ((global_page === "top")) {
@@ -468,7 +527,10 @@ $(window).load(function(){
 		lbApp.interface.revealContent();
 
 	}
+	if ((global_page === "search")) {
+		lbApp.interface.revealContent();
 
+	}
 	if ((global_page === "favorites")){
 		lbApp.posts.init();
 		lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
@@ -487,23 +549,23 @@ $(window).load(function(){
 
 var do_resize;
 $(window).resize(function() {
-    clearTimeout(do_resize);
-    do_resize = setTimeout(function() {
-        if (global_page === "browse") {
+	clearTimeout(do_resize);
+	do_resize = setTimeout(function() {
+		if (global_page === "browse") {
 			lbApp.interface.setDimensions();
 			lbApp.posts.flow();
-        }
-        if (global_page === "blogger") {
+		}
+		if (global_page === "blogger") {
 			lbApp.bloggerPage.flow();
-        }
+		}
 
-        if (global_page === "top") {
+		if (global_page === "top") {
 			lbApp.interface.cards.flow();
-        }
-        if (global_page === "favorites") {
+		}
+		if (global_page === "favorites") {
 			lbApp.interface.setDimensions();
 			lbApp.posts.flow();
-        }
-    }, 300);
+		}
+	}, 300);
 });
 

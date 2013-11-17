@@ -41,10 +41,22 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/brigittekm1.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/brigittekm1.jpg",
-      "initialSize" : 10200,
+      "initialSize" : 11100,
       "fileType" : 4096
+    },
+    "\/scss\/search.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/scss\/search.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/css\/search.css",
+      "fileType" : 4,
+      "debugStyle" : 0
     },
     "\/img\/thumbs\/alextohme.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -75,9 +87,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/247momonduty.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/247momonduty.jpg",
-      "initialSize" : 5261,
+      "initialSize" : 4360,
       "fileType" : 4096
     },
     "\/js\/_interface.js" : {
@@ -97,9 +109,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/ginosblog.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/ginosblog.jpg",
-      "initialSize" : 2540,
+      "initialSize" : 3382,
       "fileType" : 4096
     },
     "\/scss\/lebaneseblogs.scss" : {
@@ -120,9 +132,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/shalabieh.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/shalabieh.jpg",
-      "initialSize" : 740,
+      "initialSize" : 1581,
       "fileType" : 4096
     },
     "\/img\/thumbs\/MarketingInLebanon.jpg" : {
@@ -153,9 +165,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/dustywyndow.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/dustywyndow.jpg",
-      "initialSize" : 4158,
+      "initialSize" : 3263,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/nammourette.jpg" : {
@@ -266,7 +278,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/lobnene.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/lobnene.jpg",
-      "initialSize" : 4985,
+      "initialSize" : 5969,
       "fileType" : 4096
     },
     "\/img\/thumbs\/thinkdoms.jpg" : {
@@ -277,7 +289,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/thinkdoms.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/thinkdoms.jpg",
-      "initialSize" : 4848,
+      "initialSize" : 10381,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/inkontheside.jpg" : {
@@ -306,9 +318,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/poshlemon.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/poshlemon.jpg",
-      "initialSize" : 8605,
+      "initialSize" : 861,
       "fileType" : 4096
     },
     "\/img\/thumbs\/haykhabriyeh.jpg" : {
@@ -341,7 +353,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/nourishbodyandmind.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/nourishbodyandmind.jpg",
-      "initialSize" : 9272,
+      "initialSize" : 8647,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/bambisoapbox.jpg" : {
@@ -372,7 +384,7 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/trella.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/trella.jpg",
       "initialSize" : 8161,
       "fileType" : 4096
@@ -383,9 +395,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/viewoverbeirut.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/viewoverbeirut.jpg",
-      "initialSize" : 3870,
+      "initialSize" : 4712,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/younglevant.jpg" : {
@@ -440,7 +452,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/takesecurityback.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/takesecurityback.jpg",
-      "initialSize" : 2783,
+      "initialSize" : 5969,
       "fileType" : 4096
     },
     "\/css\/font-awesome\/less\/font-awesome.less" : {
@@ -488,9 +500,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/beirutreport.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/beirutreport.jpg",
-      "initialSize" : 5331,
+      "initialSize" : 6174,
       "fileType" : 4096
     },
     "\/js\/_cards.js" : {
@@ -534,7 +546,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/ethiopiansuicides.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/ethiopiansuicides.jpg",
-      "initialSize" : 1483,
+      "initialSize" : 644,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/cnas.jpg" : {
@@ -556,7 +568,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/hahussain.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/hahussain.jpg",
-      "initialSize" : 1498,
+      "initialSize" : 2338,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/meandbeirut.jpg" : {
@@ -587,9 +599,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/theminifashion.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/theminifashion.jpg",
-      "initialSize" : 11699,
+      "initialSize" : 9866,
       "fileType" : 4096
     },
     "\/img\/thumbs\/najissa.jpg" : {
@@ -609,9 +621,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/blogtoblague.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/blogtoblague.jpg",
-      "initialSize" : 4048,
+      "initialSize" : 4434,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/h20-platform.jpg" : {
@@ -631,9 +643,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/h20-platform.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/h20-platform.jpg",
-      "initialSize" : 6921,
+      "initialSize" : 7378,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/thebigsam.jpg" : {
@@ -817,9 +829,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/moulahazat.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/moulahazat.jpg",
-      "initialSize" : 1120,
+      "initialSize" : 1604,
       "fileType" : 4096
     },
     "\/img\/thumbs\/globalvoicesonline.jpg" : {
@@ -830,7 +842,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/globalvoicesonline.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/globalvoicesonline.jpg",
-      "initialSize" : 1988,
+      "initialSize" : 1146,
       "fileType" : 4096
     },
     "\/includes_new\/core-functions.php" : {
@@ -883,9 +895,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/pinkmoustachio.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/pinkmoustachio.jpg",
-      "initialSize" : 2688,
+      "initialSize" : 3529,
       "fileType" : 4096
     },
     "\/img\/interface\/logo_new_white_300x50x2.png" : {
@@ -916,9 +928,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/lebaneseblogs.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/lebaneseblogs.jpg",
-      "initialSize" : 2810,
+      "initialSize" : 3362,
       "fileType" : 4096
     },
     "\/img\/thumbs\/redlipshighheels.jpg" : {
@@ -1085,6 +1097,17 @@
       "initialSize" : 2161,
       "fileType" : 4096
     },
+    "\/img\/tips-graphics.sketch\/QuickLook\/Preview.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/img\/tips-graphics.sketch\/QuickLook\/Preview.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/img\/tips-graphics.sketch\/QuickLook\/Preview.png",
+      "initialSize" : 26954,
+      "fileType" : 8192
+    },
     "\/img\/thumbs\/tlkabtmovies.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1102,9 +1125,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/noteconnection.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/noteconnection.jpg",
-      "initialSize" : 2914,
+      "initialSize" : 3753,
       "fileType" : 4096
     },
     "\/img\/thumbs\/nourspot.jpg" : {
@@ -1246,9 +1269,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/alexandra-designs.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/alexandra-designs.jpg",
-      "initialSize" : 3955,
+      "initialSize" : 4940,
       "fileType" : 4096
     },
     "\/img\/thumbs\/chouchicblog.jpg" : {
@@ -1299,9 +1322,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/edithandomar.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/edithandomar.jpg",
-      "initialSize" : 750,
+      "initialSize" : 1588,
       "fileType" : 4096
     },
     "\/img\/thumbs\/michcafe.jpg" : {
@@ -1312,7 +1335,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/michcafe.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/michcafe.jpg",
-      "initialSize" : 1581,
+      "initialSize" : 2424,
       "fileType" : 4096
     },
     "\/img\/interface\/badge160x160.png" : {
@@ -1343,7 +1366,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/saghbini.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/saghbini.jpg",
-      "initialSize" : 1029,
+      "initialSize" : 1870,
       "fileType" : 4096
     },
     "\/views\/display_cards.php" : {
@@ -1396,7 +1419,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/jadaoun.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/jadaoun.jpg",
-      "initialSize" : 2504,
+      "initialSize" : 2106,
       "fileType" : 4096
     },
     "\/css\/font-awesome\/scss\/_core.scss" : {
@@ -1417,9 +1440,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/theterroristdonkey.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/theterroristdonkey.jpg",
-      "initialSize" : 1881,
+      "initialSize" : 1044,
       "fileType" : 4096
     },
     "\/img\/thumbs\/homoslibnani.jpg" : {
@@ -1439,9 +1462,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/saharghazale.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/saharghazale.jpg",
-      "initialSize" : 1078,
+      "initialSize" : 8854,
       "fileType" : 4096
     },
     "\/scss\/blogger.scss" : {
@@ -1654,7 +1677,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/octavianasr.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/octavianasr.jpg",
-      "initialSize" : 8817,
+      "initialSize" : 1072,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/seenbymaya.jpg" : {
@@ -1741,9 +1764,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/koufiya.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/koufiya.jpg",
-      "initialSize" : 10666,
+      "initialSize" : 12633,
       "fileType" : 4096
     },
     "\/img\/thumbs\/ivysays.jpg" : {
@@ -1765,7 +1788,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/lefigaro.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/lefigaro.jpg",
-      "initialSize" : 2274,
+      "initialSize" : 1434,
       "fileType" : 4096
     },
     "\/img\/thumbs\/thecodeship.jpg" : {
@@ -1776,7 +1799,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/thecodeship.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/thecodeship.jpg",
-      "initialSize" : 3838,
+      "initialSize" : 3523,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/gingerbeirut.jpg" : {
@@ -1798,7 +1821,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/consumedly.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/consumedly.jpg",
-      "initialSize" : 5699,
+      "initialSize" : 5752,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/donaldderek.jpg" : {
@@ -1920,9 +1943,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/hummusnation.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/hummusnation.jpg",
-      "initialSize" : 1259,
+      "initialSize" : 2099,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/beirutdriveby.jpg" : {
@@ -1955,7 +1978,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/jou3an.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/jou3an.jpg",
-      "initialSize" : 4453,
+      "initialSize" : 3558,
       "fileType" : 4096
     },
     "\/views\/draw_pages.php" : {
@@ -1975,7 +1998,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/piratebeirut.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/piratebeirut.jpg",
-      "initialSize" : 1961,
+      "initialSize" : 1126,
       "fileType" : 4096
     },
     "\/css\/font-awesome\/less\/core.less" : {
@@ -2102,7 +2125,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/smileyface80.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/smileyface80.jpg",
-      "initialSize" : 4560,
+      "initialSize" : 5537,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/probeirut.jpg" : {
@@ -2155,7 +2178,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/ghazayel.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/ghazayel.jpg",
-      "initialSize" : 3127,
+      "initialSize" : 4184,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/majnouna-blog.jpg" : {
@@ -2208,9 +2231,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/wanderingviola.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/wanderingviola.jpg",
-      "initialSize" : 3131,
+      "initialSize" : 3078,
       "fileType" : 4096
     },
     "\/img\/thumbs\/lamathinks.jpg" : {
@@ -2232,7 +2255,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/languidlyurged.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/languidlyurged.jpg",
-      "initialSize" : 6083,
+      "initialSize" : 5242,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/lamathinks.jpg" : {
@@ -2318,9 +2341,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/lunasafwan.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/lunasafwan.jpg",
-      "initialSize" : 4059,
+      "initialSize" : 3127,
       "fileType" : 4096
     },
     "\/img\/interface\/white-logo-horizontal-h100.png" : {
@@ -2356,15 +2379,24 @@
       "initialSize" : 4992,
       "fileType" : 4096
     },
+    "\/css\/search.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/css\/search.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
     "\/img\/thumbs\/ritachemaly.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/ritachemaly.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/ritachemaly.jpg",
-      "initialSize" : 1152,
+      "initialSize" : 1994,
       "fileType" : 4096
     },
     "\/classes\/DB.php" : {
@@ -2395,7 +2427,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/designfetish.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/designfetish.jpg",
-      "initialSize" : 6682,
+      "initialSize" : 8394,
       "fileType" : 4096
     },
     "\/img\/thumbs\/zahrlaymoun.jpg" : {
@@ -2510,9 +2542,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/mokhlibnene.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/mokhlibnene.jpg",
-      "initialSize" : 5908,
+      "initialSize" : 4869,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/wanderingviola.jpg" : {
@@ -2532,9 +2564,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/countlesslittlethings.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/countlesslittlethings.jpg",
-      "initialSize" : 4990,
+      "initialSize" : 5413,
       "fileType" : 4096
     },
     "\/img\/interface\/logo_new_360x60x2.png" : {
@@ -2565,9 +2597,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/beirutdriveby.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/beirutdriveby.jpg",
-      "initialSize" : 1212,
+      "initialSize" : 8963,
       "fileType" : 4096
     },
     "\/scss\/_body.scss" : {
@@ -2612,7 +2644,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/code4word.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/code4word.jpg",
-      "initialSize" : 4289,
+      "initialSize" : 4630,
       "fileType" : 4096
     },
     "\/img\/interface\/up.png" : {
@@ -2676,9 +2708,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/patymsnutritionworld.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/patymsnutritionworld.jpg",
-      "initialSize" : 14666,
+      "initialSize" : 12728,
       "fileType" : 4096
     },
     "\/img\/interface\/share-facebook-monotone.png" : {
@@ -2822,9 +2854,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/gghali.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/gghali.jpg",
-      "initialSize" : 4357,
+      "initialSize" : 5351,
       "fileType" : 4096
     },
     "\/img\/thumbs\/prettycapricieuse.jpg" : {
@@ -2888,7 +2920,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/speaktheblues.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/speaktheblues.jpg",
-      "initialSize" : 4826,
+      "initialSize" : 4489,
       "fileType" : 4096
     },
     "\/img\/interface\/tips.png" : {
@@ -2932,7 +2964,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/snapshotscenes.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/snapshotscenes.jpg",
-      "initialSize" : 3263,
+      "initialSize" : 4102,
       "fileType" : 4096
     },
     "\/img\/thumbs\/donkeshotat.jpg" : {
@@ -2965,7 +2997,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/younglevant.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/younglevant.jpg",
-      "initialSize" : 5037,
+      "initialSize" : 3978,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/lebaneseexpatriate.jpg" : {
@@ -3007,7 +3039,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/memy50shadesandl.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/memy50shadesandl.jpg",
-      "initialSize" : 3996,
+      "initialSize" : 4496,
       "fileType" : 4096
     },
     "\/img\/thumbs\/dexcomics.jpg" : {
@@ -3157,9 +3189,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/rationalrepublic.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/rationalrepublic.jpg",
-      "initialSize" : 428,
+      "initialSize" : 1268,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/kabobfest.jpg" : {
@@ -3223,9 +3255,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/nakedbana2.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/nakedbana2.jpg",
-      "initialSize" : 3447,
+      "initialSize" : 2498,
       "fileType" : 4096
     },
     "\/css\/font-awesome\/css\/font-awesome-ie7.min.css" : {
@@ -3243,9 +3275,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/rel4tivity.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/rel4tivity.jpg",
-      "initialSize" : 3674,
+      "initialSize" : 3621,
       "fileType" : 4096
     },
     "\/scss\/login.scss" : {
@@ -3323,7 +3355,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/thepresentperfect.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/thepresentperfect.jpg",
-      "initialSize" : 9136,
+      "initialSize" : 1399,
       "fileType" : 4096
     },
     "\/img\/thumbs\/davidlebovitz.jpg" : {
@@ -3334,7 +3366,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/davidlebovitz.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/davidlebovitz.jpg",
-      "initialSize" : 5890,
+      "initialSize" : 6791,
       "fileType" : 4096
     },
     "\/img\/thumbs\/harfnoon.jpg" : {
@@ -3343,9 +3375,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/harfnoon.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/harfnoon.jpg",
-      "initialSize" : 6645,
+      "initialSize" : 7422,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/rel4tivity.jpg" : {
@@ -3389,7 +3421,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/hummusforthought.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/hummusforthought.jpg",
-      "initialSize" : 4431,
+      "initialSize" : 4114,
       "fileType" : 4096
     },
     "\/img\/interface\/logo-horiz.png" : {
@@ -3432,9 +3464,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/racing-thoughts.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/racing-thoughts.jpg",
-      "initialSize" : 2720,
+      "initialSize" : 2164,
       "fileType" : 4096
     },
     "\/img\/thumbs\/monkyseemonkydo.jpg" : {
@@ -3476,9 +3508,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/ziadmajed.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/ziadmajed.jpg",
-      "initialSize" : 2070,
+      "initialSize" : 1230,
       "fileType" : 4096
     },
     "\/img\/thumbs\/beirut5ampere.jpg" : {
@@ -3522,7 +3554,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/southoak.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/southoak.jpg",
-      "initialSize" : 8843,
+      "initialSize" : 10721,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/cloudoflace.jpg" : {
@@ -3643,7 +3675,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/cloudoflace.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/cloudoflace.jpg",
-      "initialSize" : 2796,
+      "initialSize" : 3753,
       "fileType" : 4096
     },
     "\/css\/font-awesome\/css\/font-awesome.css" : {
@@ -3661,9 +3693,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/meemeee82.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/meemeee82.jpg",
-      "initialSize" : 4378,
+      "initialSize" : 4031,
       "fileType" : 4096
     },
     "\/img\/thumbs\/eyeontheeast.jpg" : {
@@ -3771,7 +3803,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/nasriatallah.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/nasriatallah.jpg",
-      "initialSize" : 5488,
+      "initialSize" : 5080,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/lbcblogs.jpg" : {
@@ -3857,7 +3889,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/FreeThinkingLebanon.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/FreeThinkingLebanon.jpg",
-      "initialSize" : 5649,
+      "initialSize" : 5132,
       "fileType" : 4096
     },
     "\/classes\/Users.php" : {
@@ -3955,7 +3987,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/2fkari.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/2fkari.jpg",
-      "initialSize" : 1398,
+      "initialSize" : 9163,
       "fileType" : 4096
     },
     "\/js\/pages-ck (Majdi-Hamouis-MacBook-Air's conflicted copy 2013-10-16).js" : {
@@ -3984,9 +4016,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/thejrexpress.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/thejrexpress.jpg",
-      "initialSize" : 4723,
+      "initialSize" : 3376,
       "fileType" : 4096
     },
     "\/img\/thumbs\/expatriateinlebanon.jpg" : {
@@ -4011,17 +4043,6 @@
       "initialSize" : 4360,
       "fileType" : 4096
     },
-    "\/img\/thumbs\/figo29.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/img\/thumbs\/figo29.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/img\/thumbs\/figo29.jpg",
-      "initialSize" : 2334,
-      "fileType" : 4096
-    },
     "\/img\/thumbs-originals\/greenresistance.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -4031,6 +4052,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs-originals\/greenresistance.jpg",
       "initialSize" : 1213,
+      "fileType" : 4096
+    },
+    "\/img\/thumbs\/figo29.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/img\/thumbs\/figo29.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/img\/thumbs\/figo29.jpg",
+      "initialSize" : 2387,
       "fileType" : 4096
     },
     "\/img\/interface\/icon-share-48.png" : {
@@ -4129,7 +4161,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/womanunveiled.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/womanunveiled.jpg",
-      "initialSize" : 4395,
+      "initialSize" : 3430,
       "fileType" : 4096
     },
     "\/css\/noise.png" : {
@@ -4186,9 +4218,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/johayna.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/johayna.jpg",
-      "initialSize" : 9022,
+      "initialSize" : 1264,
       "fileType" : 4096
     },
     "\/css\/font-awesome\/scss\/_path.scss" : {
@@ -4211,7 +4243,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/the-opinion.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/the-opinion.jpg",
-      "initialSize" : 4702,
+      "initialSize" : 5053,
       "fileType" : 4096
     },
     "\/img\/thumbs\/teacalls.jpg" : {
@@ -4269,15 +4301,35 @@
       "initialSize" : 320,
       "fileType" : 8192
     },
+    "\/views\/draw_search.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/views\/draw_search.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/img\/tips-graphics.sketch\/QuickLook\/Thumbnail.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/img\/tips-graphics.sketch\/QuickLook\/Thumbnail.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/img\/tips-graphics.sketch\/QuickLook\/Thumbnail.png",
+      "initialSize" : 48715,
+      "fileType" : 8192
+    },
     "\/img\/thumbs\/strawberryblu.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/strawberryblu.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/strawberryblu.jpg",
-      "initialSize" : 3820,
+      "initialSize" : 3873,
       "fileType" : 4096
     },
     "\/img\/thumbs\/sansglutenabeyrouth.jpg" : {
@@ -4288,7 +4340,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/sansglutenabeyrouth.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/sansglutenabeyrouth.jpg",
-      "initialSize" : 7769,
+      "initialSize" : 6933,
       "fileType" : 4096
     },
     "\/img\/thumbs\/theclosetclause.jpg" : {
@@ -4451,7 +4503,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/lebanonspring.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/lebanonspring.jpg",
-      "initialSize" : 2594,
+      "initialSize" : 1755,
       "fileType" : 4096
     },
     "\/img\/thumbs\/lynch.jpg" : {
@@ -4460,9 +4512,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/lynch.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/lynch.jpg",
-      "initialSize" : 1049,
+      "initialSize" : 1892,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/snapshotscenes.jpg" : {
@@ -4493,9 +4545,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/stateofmind13.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/stateofmind13.jpg",
-      "initialSize" : 5746,
+      "initialSize" : 1862,
       "fileType" : 4096
     },
     "\/css\/font-awesome\/scss\/_variables.scss" : {
@@ -4638,7 +4690,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/nadsreviews.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/nadsreviews.jpg",
-      "initialSize" : 6433,
+      "initialSize" : 7943,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/bikaffe.jpg" : {
@@ -4702,7 +4754,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/cnas.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/cnas.jpg",
-      "initialSize" : 1290,
+      "initialSize" : 9029,
       "fileType" : 4096
     },
     "\/classes\/facebook\/src\/base_facebook.php" : {
@@ -4722,29 +4774,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/brofessionalreview.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/brofessionalreview.jpg",
-      "initialSize" : 1907,
-      "fileType" : 4096
-    },
-    "\/img\/interface\/facebook_login_button_pressed_404x2.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/img\/interface\/facebook_login_button_pressed_404x2.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/img\/interface\/facebook_login_button_pressed_404x2.png",
-      "initialSize" : 6283,
-      "fileType" : 8192
-    },
-    "\/img\/thumbs\/remarkz.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/img\/thumbs\/remarkz.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/img\/thumbs\/remarkz.jpg",
-      "initialSize" : 3154,
+      "initialSize" : 1066,
       "fileType" : 4096
     },
     "\/js\/_timeline.js" : {
@@ -4757,6 +4787,28 @@
       "syntaxCheckerStyle" : 1,
       "outputAbbreviatedPath" : "\/js\/_timeline-ck.js",
       "fileType" : 64
+    },
+    "\/img\/thumbs\/remarkz.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/img\/thumbs\/remarkz.jpg",
+      "processed" : 1,
+      "outputAbbreviatedPath" : "\/img\/thumbs\/remarkz.jpg",
+      "initialSize" : 3992,
+      "fileType" : 4096
+    },
+    "\/img\/interface\/facebook_login_button_pressed_404x2.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/img\/interface\/facebook_login_button_pressed_404x2.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/img\/interface\/facebook_login_button_pressed_404x2.png",
+      "initialSize" : 6283,
+      "fileType" : 8192
     },
     "\/img\/thumbs-originals\/theadsgarage.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -4795,9 +4847,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/dirtykitchensecrets.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/dirtykitchensecrets.jpg",
-      "initialSize" : 8545,
+      "initialSize" : 7790,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/mexicaninbeirut.jpg" : {
@@ -4852,7 +4904,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/lebanesecomics.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/lebanesecomics.jpg",
-      "initialSize" : 6417,
+      "initialSize" : 6601,
       "fileType" : 4096
     },
     "\/img\/thumbs\/seenbymaya.jpg" : {
@@ -4925,9 +4977,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/thedscoop.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/thedscoop.jpg",
-      "initialSize" : 14575,
+      "initialSize" : 15413,
       "fileType" : 4096
     },
     "\/js\/_compact.js" : {
@@ -5140,9 +5192,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/BPqar.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/BPqar.jpg",
-      "initialSize" : 2037,
+      "initialSize" : 2878,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/seeqnce.jpg" : {
@@ -5162,9 +5214,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/einshtein.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/einshtein.jpg",
-      "initialSize" : 4063,
+      "initialSize" : 3655,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/beirutista.jpg" : {
@@ -5216,9 +5268,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/karlremarks.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/karlremarks.jpg",
-      "initialSize" : 2248,
+      "initialSize" : 2959,
       "fileType" : 4096
     },
     "\/img\/thumbs\/majnouna-blog.jpg" : {
@@ -5315,19 +5367,10 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/bambisoapbox.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/bambisoapbox.jpg",
-      "initialSize" : 1183,
+      "initialSize" : 2173,
       "fileType" : 4096
-    },
-    "\/r.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/r.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
     },
     "\/img\/thumbs-originals\/speaktheblues.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -5351,23 +5394,32 @@
       "initialSize" : 1513,
       "fileType" : 4096
     },
-    "\/img\/thumbs\/beirutbeltway.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/img\/thumbs\/beirutbeltway.jpg",
-      "processed" : 1,
-      "outputAbbreviatedPath" : "\/img\/thumbs\/beirutbeltway.jpg",
-      "initialSize" : 5532,
-      "fileType" : 4096
-    },
     "\/init.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/init.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/img\/thumbs\/beirutbeltway.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/img\/thumbs\/beirutbeltway.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/img\/thumbs\/beirutbeltway.jpg",
+      "initialSize" : 4692,
+      "fileType" : 4096
+    },
+    "\/r.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/r.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -5537,7 +5589,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/bloggingfairtradelebanon.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/bloggingfairtradelebanon.jpg",
-      "initialSize" : 5321,
+      "initialSize" : 4730,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/einshtein.jpg" : {
@@ -5570,7 +5622,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/hishamad.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/hishamad.jpg",
-      "initialSize" : 7547,
+      "initialSize" : 10893,
       "fileType" : 4096
     },
     "\/img\/thumbs\/missfarah.jpg" : {
@@ -5616,6 +5668,17 @@
       "outputAbbreviatedPath" : "\/img\/thumbs\/sillygoon.jpg",
       "initialSize" : 4392,
       "fileType" : 4096
+    },
+    "\/img\/common-styles.sketch\/QuickLook\/Preview.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/img\/common-styles.sketch\/QuickLook\/Preview.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/img\/common-styles.sketch\/QuickLook\/Preview.png",
+      "initialSize" : 2171,
+      "fileType" : 8192
     },
     "\/img\/thumbs\/healthnhorizons.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -5693,9 +5756,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/menaribo.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/menaribo.jpg",
-      "initialSize" : 4269,
+      "initialSize" : 4621,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/edithandomar.jpg" : {
@@ -5715,7 +5778,7 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/tajaddod-youth.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/tajaddod-youth.jpg",
       "initialSize" : 0,
       "fileType" : 4096
@@ -5759,7 +5822,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/nogarlicnoonions.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/nogarlicnoonions.jpg",
-      "initialSize" : 6182,
+      "initialSize" : 4099,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/racing-thoughts.jpg" : {
@@ -5781,7 +5844,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/mideastwire.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/mideastwire.jpg",
-      "initialSize" : 2793,
+      "initialSize" : 1953,
       "fileType" : 4096
     },
     "\/img\/thumbs\/beirutiyat.jpg" : {
@@ -6038,9 +6101,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/leelouzworld.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/leelouzworld.jpg",
-      "initialSize" : 2169,
+      "initialSize" : 2116,
       "fileType" : 4096
     },
     "\/img\/interface\/logo-horiz-red-mobile.png" : {
@@ -6135,9 +6198,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/artofthemideast.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/artofthemideast.jpg",
-      "initialSize" : 8530,
+      "initialSize" : 10505,
       "fileType" : 4096
     },
     "\/img\/thumbs\/marianachawi.jpg" : {
@@ -6146,9 +6209,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/marianachawi.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/marianachawi.jpg",
-      "initialSize" : 3707,
+      "initialSize" : 4764,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/ritakml.jpg" : {
@@ -6226,6 +6289,17 @@
       "initialSize" : 1968,
       "fileType" : 4096
     },
+    "\/img\/common-styles.sketch\/QuickLook\/Thumbnail.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/img\/common-styles.sketch\/QuickLook\/Thumbnail.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/img\/common-styles.sketch\/QuickLook\/Thumbnail.png",
+      "initialSize" : 21396,
+      "fileType" : 8192
+    },
     "\/img\/thumbs\/onthesidewalks.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -6288,9 +6362,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/bikaffe.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/bikaffe.jpg",
-      "initialSize" : 2840,
+      "initialSize" : 3784,
       "fileType" : 4096
     },
     "\/img\/thumbs\/fromagesandfridays.jpg" : {
@@ -6301,7 +6375,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/fromagesandfridays.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/fromagesandfridays.jpg",
-      "initialSize" : 11364,
+      "initialSize" : 10319,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/trendingbytes.jpg" : {
@@ -6321,9 +6395,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/tech-ticker.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/tech-ticker.jpg",
-      "initialSize" : 4295,
+      "initialSize" : 4189,
       "fileType" : 4096
     },
     "\/img\/thumbs\/kabobfest.jpg" : {
@@ -6389,7 +6463,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/lebaneseexpatriate.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/lebaneseexpatriate.jpg",
-      "initialSize" : 5094,
+      "initialSize" : 6030,
       "fileType" : 4096
     },
     "\/css\/font-awesome\/less\/font-awesome-ie7.less" : {
@@ -6563,9 +6637,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/confettiblues.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/confettiblues.jpg",
-      "initialSize" : 802,
+      "initialSize" : 1640,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/ginosblog.jpg" : {
@@ -6578,6 +6652,15 @@
       "outputAbbreviatedPath" : "\/img\/thumbs-originals\/ginosblog.jpg",
       "initialSize" : 2540,
       "fileType" : 4096
+    },
+    "\/contr_search.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/contr_search.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/img\/thumbs-originals\/sleeplessbeirut.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -6621,7 +6704,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/atrissi.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/atrissi.jpg",
-      "initialSize" : 5298,
+      "initialSize" : 4898,
       "fileType" : 4096
     },
     "\/js\/pages (Majdi-Hamouis-MacBook-Air's conflicted copy 2013-10-16).js" : {
@@ -6674,9 +6757,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/loveanon.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/loveanon.jpg",
-      "initialSize" : 6703,
+      "initialSize" : 2669,
       "fileType" : 4096
     },
     "\/css\/font-awesome\/less\/extras.less" : {
@@ -6735,9 +6818,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/whenhopespeaks.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/whenhopespeaks.jpg",
-      "initialSize" : 3550,
+      "initialSize" : 4396,
       "fileType" : 4096
     },
     "\/img\/thumbs\/deliberatedeception.jpg" : {
@@ -6821,9 +6904,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/beirutspring.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/beirutspring.jpg",
-      "initialSize" : 4138,
+      "initialSize" : 3030,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/bloggingfairtradelebanon.jpg" : {
@@ -6868,6 +6951,18 @@
       "outputStyle" : 0,
       "shouldRunBless" : 0,
       "outputAbbreviatedPath" : "\/css\/_pages_only.css",
+      "fileType" : 4,
+      "debugStyle" : 0
+    },
+    "\/scss\/_search_only.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/scss\/_search_only.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/css\/_search_only.css",
       "fileType" : 4,
       "debugStyle" : 0
     },
@@ -6921,9 +7016,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/plush-beirut.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/plush-beirut.jpg",
-      "initialSize" : 3923,
+      "initialSize" : 2939,
       "fileType" : 4096
     },
     "\/img\/thumbs\/smehio.jpg" : {
@@ -6945,7 +7040,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/shezshe.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/shezshe.jpg",
-      "initialSize" : 2288,
+      "initialSize" : 1968,
       "fileType" : 4096
     },
     "\/img\/interface\/view-icon-card.png" : {
@@ -7049,9 +7144,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/rachaelhalabi.jpg",
-      "processed" : 1,
+      "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/rachaelhalabi.jpg",
-      "initialSize" : 4957,
+      "initialSize" : 4560,
       "fileType" : 4096
     },
     "\/img\/thumbs\/musiqati.jpg" : {
@@ -7060,9 +7155,9 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/img\/thumbs\/musiqati.jpg",
-      "processed" : 0,
+      "processed" : 1,
       "outputAbbreviatedPath" : "\/img\/thumbs\/musiqati.jpg",
-      "initialSize" : 3705,
+      "initialSize" : 4070,
       "fileType" : 4096
     },
     "\/img\/thumbs\/cinegoon.jpg" : {
@@ -7305,17 +7400,6 @@
       "initialSize" : 4985,
       "fileType" : 4096
     },
-    "\/img\/thumbs\/al-bab.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/img\/thumbs\/al-bab.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/img\/thumbs\/al-bab.jpg",
-      "initialSize" : 5395,
-      "fileType" : 4096
-    },
     "\/img\/thumbs\/smex.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -7336,15 +7420,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/admin\/edit.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/admin\/edit.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/img\/thumbs\/majnouna-khatt.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -7354,6 +7429,26 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/majnouna-khatt.jpg",
       "initialSize" : 11215,
+      "fileType" : 4096
+    },
+    "\/admin\/edit.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/admin\/edit.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/img\/thumbs\/al-bab.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/img\/thumbs\/al-bab.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/img\/thumbs\/al-bab.jpg",
+      "initialSize" : 5395,
       "fileType" : 4096
     },
     "\/css\/print.css" : {
@@ -7373,7 +7468,7 @@
       "inputAbbreviatedPath" : "\/img\/thumbs\/qifanabki.jpg",
       "processed" : 0,
       "outputAbbreviatedPath" : "\/img\/thumbs\/qifanabki.jpg",
-      "initialSize" : 1155,
+      "initialSize" : 1993,
       "fileType" : 4096
     },
     "\/img\/thumbs-originals\/blogspot.jpg" : {

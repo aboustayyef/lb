@@ -4,8 +4,60 @@
 		"selected_items":
 		[
 			[
+				"tag",
+				"tagrouter"
+			],
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"list-s",
+				"list-style-type"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"blog_",
+				"blog_name"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"blog",
+				"blogDetails"
+			],
+			[
 				"margin",
-				"margin-top"
+				"margin-left"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"view",
+				"viewtype"
+			],
+			[
+				"includ",
+				"include_once"
+			],
+			[
+				"remove",
+				"removeFromFavoritesHTML"
+			],
+			[
+				"addt",
+				"addToFavoritesHTML"
+			],
+			[
+				"curr",
+				"currentContent"
 			],
 			[
 				"wid",
@@ -18,10 +70,6 @@
 			[
 				"font",
 				"font-size"
-			],
-			[
-				"fon",
-				"font-family"
 			],
 			[
 				"_",
@@ -99,6 +147,14 @@
 		"selected_items":
 		[
 			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reind",
+				"Indentation: Reindent Lines"
+			],
+			[
 				"html",
 				"Set Syntax: HTML"
 			],
@@ -144,51 +200,59 @@
 	},
 	"file_history":
 	[
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/js/lebaneseblogs.js",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_blogger_only.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/display_cards.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/contr_toggle_favorites.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/draw_blogger.php",
+		"/Applications/MAMP/logs/php_error.log",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Lb_functions.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_cards.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/blogger.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Posts.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_timeline.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/display_timeline.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_breakpoints_reference.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Extras.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/View.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/index.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_reset.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/favorites-starter.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/contr_get_extra_posts.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_body.scss",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/userlogin.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/facebooklogout.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Users.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/testdb.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/DB.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/draw_header.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/contr_get_favorites_extra_posts.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/login.scss",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/draw_left_column.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/draw_header.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/userlogin.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_left-nav.scss",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/draw_signin.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/admin/login.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_general.scss",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/lebaneseblogs.scss",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/js/lebaneseblogs.js",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/display_cards.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/init.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_cards.scss",
-		"/Applications/MAMP/logs/php_error.log",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/contr_toggle_favorites.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Posts.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Users.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/View.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/testdb.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/DB.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/facebooklogout.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/contr_get_favorites_extra_posts.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/blog/wp-includes/theme-compat/header.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/test.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_header.scss",
 		"/Users/stayyef/Library/Application Support/Sublime Text 2/Packages/User/prepre.sublime-snippet",
 		"/Applications/MAMP/logs/init.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/index.php",
 		"/Applications/MAMP/bin/php/php5.5.3/conf/php.ini",
 		"/Applications/MAMP/logs/views/draw_search.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/config.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/feeds_fetcher_functions.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/things.to.do.md",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/draw_top.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Extras.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/js/cards.js",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/extras.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_thumbnails.scss",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/compass/config.rb",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_timeline.scss",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/fbconfig.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/blogger.scss",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_compact.scss",
 		"/Users/stayyef/Downloads/facebook-php-sdk-master/examples/example.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/contr_get_extra_posts.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Facebook.php",
 		"/Users/stayyef/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/lebaneseblogs.sublime-project"
@@ -199,7 +263,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 95.0,
 		"where_history":
 		[
 		]
@@ -209,6 +273,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"</div>",
+			"add2fav",
+			"60px",
+			"($tag)",
+			"twitter",
+			"sharin",
+			"topFive",
+			"favorites",
+			"cards",
+			"favorit",
+			"handlescr",
+			"handle",
+			"addmore",
+			"scrolladd",
+			"scroll",
 			"15",
 			"favorit",
 			"addmo",
@@ -234,10 +313,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"$left_margin"
 		],
 		"reverse": false,
-		"show_context": true,
-		"use_buffer2": true,
+		"show_context": false,
+		"use_buffer2": false,
 		"whole_word": false,
 		"wrap": true
 	},
@@ -282,7 +362,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -291,20 +371,148 @@
 		"selected_items":
 		[
 			[
-				"left",
-				"lebanese_blogs/views/draw_left_column.php"
+				"lebanese",
+				"lebanese_blogs/js/lebaneseblogs.js"
+			],
+			[
+				"dis",
+				"lebanese_blogs/views/display_cards.php"
+			],
+			[
+				"contr",
+				"lebanese_blogs/contr_toggle_favorites.php"
 			],
 			[
 				"draw",
-				"lebanese_blogs/views/draw_header.php"
+				"lebanese_blogs/views/draw_blogger.php"
 			],
 			[
-				"login",
-				"lebanese_blogs/scss/login.scss"
+				"only",
+				"lebanese_blogs/scss/_blogger_only.scss"
+			],
+			[
+				"error",
+				"logs/php_error.log"
+			],
+			[
+				"lb",
+				"lebanese_blogs/classes/Lb_functions.php"
+			],
+			[
+				"blogger_on",
+				"lebanese_blogs/scss/_blogger_only.scss"
+			],
+			[
+				"blogger",
+				"lebanese_blogs/scss/blogger.scss"
+			],
+			[
+				"cards",
+				"lebanese_blogs/scss/_cards.scss"
+			],
+			[
+				"pos",
+				"lebanese_blogs/classes/Posts.php"
+			],
+			[
+				"disp",
+				"lebanese_blogs/views/display_cards.php"
+			],
+			[
+				"timeline",
+				"lebanese_blogs/scss/_timeline.scss"
+			],
+			[
+				"refer",
+				"lebanese_blogs/scss/_breakpoints_reference.scss"
+			],
+			[
+				"tim",
+				"lebanese_blogs/scss/_timeline.scss"
+			],
+			[
+				"displa",
+				"lebanese_blogs/views/display_timeline.php"
+			],
+			[
+				"erro",
+				"logs/php_error.log"
+			],
+			[
+				"extra",
+				"lebanese_blogs/classes/Extras.php"
+			],
+			[
+				"view",
+				"lebanese_blogs/classes/View.php"
+			],
+			[
+				"ind",
+				"lebanese_blogs/index.php"
+			],
+			[
+				"fav",
+				"lebanese_blogs/views/favorites-starter.php"
+			],
+			[
+				"inde",
+				"lebanese_blogs/index.php"
+			],
+			[
+				"posts",
+				"lebanese_blogs/classes/Posts.php"
+			],
+			[
+				"get",
+				"lebanese_blogs/contr_get_extra_posts.php"
 			],
 			[
 				"userlo",
 				"lebanese_blogs/userlogin.php"
+			],
+			[
+				"header",
+				"lebanese_blogs/views/draw_header.php"
+			],
+			[
+				"db",
+				"lebanese_blogs/classes/DB.php"
+			],
+			[
+				"testd",
+				"lebanese_blogs/testdb.php"
+			],
+			[
+				"users",
+				"lebanese_blogs/classes/Users.php"
+			],
+			[
+				"userlog",
+				"lebanese_blogs/userlogin.php"
+			],
+			[
+				"card",
+				"lebanese_blogs/views/display_cards.php"
+			],
+			[
+				"post",
+				"lebanese_blogs/classes/Posts.php"
+			],
+			[
+				"contr_get",
+				"lebanese_blogs/contr_get_favorites_extra_posts.php"
+			],
+			[
+				"leba",
+				"lebanese_blogs/js/lebaneseblogs.js"
+			],
+			[
+				"left",
+				"lebanese_blogs/views/draw_left_column.php"
+			],
+			[
+				"login",
+				"lebanese_blogs/scss/login.scss"
 			],
 			[
 				"user",
@@ -319,36 +527,12 @@
 				"lebanese_blogs/admin/login.php"
 			],
 			[
-				"leba",
-				"lebanese_blogs/scss/lebaneseblogs.scss"
-			],
-			[
 				"genera",
 				"lebanese_blogs/scss/_general.scss"
 			],
 			[
 				"lebane",
 				"lebanese_blogs/js/lebaneseblogs.js"
-			],
-			[
-				"lebanese",
-				"lebanese_blogs/js/lebaneseblogs.js"
-			],
-			[
-				"error",
-				"logs/php_error.log"
-			],
-			[
-				"dis",
-				"lebanese_blogs/views/display_cards.php"
-			],
-			[
-				"cards",
-				"lebanese_blogs/scss/_cards.scss"
-			],
-			[
-				"pos",
-				"lebanese_blogs/classes/Posts.php"
 			],
 			[
 				"displ",
@@ -363,44 +547,12 @@
 				"lebanese_blogs/init.php"
 			],
 			[
-				"db",
-				"lebanese_blogs/classes/DB.php"
-			],
-			[
-				"erro",
-				"logs/php_error.log"
-			],
-			[
-				"view",
-				"lebanese_blogs/classes/View.php"
-			],
-			[
 				"tesdb",
 				"lebanese_blogs/testdb.php"
 			],
 			[
-				"posts",
-				"lebanese_blogs/classes/Posts.php"
-			],
-			[
-				"users",
-				"lebanese_blogs/classes/Users.php"
-			],
-			[
-				"disp",
-				"lebanese_blogs/views/display_cards.php"
-			],
-			[
 				"drawh",
 				"lebanese_blogs/views/draw_header.php"
-			],
-			[
-				"header",
-				"lebanese_blogs/blog/wp-includes/theme-compat/header.php"
-			],
-			[
-				"testd",
-				"lebanese_blogs/testdb.php"
 			],
 			[
 				"face",
@@ -463,10 +615,6 @@
 				"lebanese_blogs/config.php"
 			],
 			[
-				"extra",
-				"lebanese_blogs/classes/Extras.php"
-			],
-			[
 				"cards.",
 				"lebanese_blogs/js/cards.js"
 			],
@@ -487,20 +635,12 @@
 				"lebanese_blogs/scss/_general.scss"
 			],
 			[
-				"post",
-				"lebanese_blogs/classes/Posts.php"
-			],
-			[
 				"fb",
 				"lebanese_blogs/fbconfig.php"
 			],
 			[
 				"drawleft",
 				"lebanese_blogs/views/draw_left_column.php"
-			],
-			[
-				"inde",
-				"lebanese_blogs/index.php"
 			],
 			[
 				"extr",
