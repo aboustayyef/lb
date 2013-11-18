@@ -1,21 +1,63 @@
 
 #searchresults{
+	hr{
+		clear:both;
+	}
 	padding:2em;
 	h2{
 		font-size: 2em;
 		color:$lb_red;
-		margin-bottom: 1.5em;
+		margin-bottom: 0.5em;
 	}
 	h3{
-		font-size: 1.5em;
+		padding: 2px 5px;
+		background: darken(white,5);
+		font-size: 1.3em;
 		margin-bottom:0.5em;
+		margin-top:0.5em;
 		&.dimmed{
 			color: lighten(black, 70);
+			background: beige;
 		}
 	}
 
+	.expandTitles, .expandContents{
+		display: block;
+		border:1px dotted $lb_red;
+		padding: 2px 5px;
+		margin-top: 5px;
+		background: #FFFAFA;
+	}
+
 	#blognames{
+		clear:both;
 		overflow: hidden;
+		li.resultItem {
+			display: block;
+			width:270px;
+			height:80px;
+			float: left;
+			border:1px solid silver;
+			margin-right: 20px;
+			margin-top: 10px;
+			margin-bottom:10px;
+			overflow: scroll;
+			padding:5px;
+			img{
+				float: left;
+			}
+			p{
+				margin-left: 65px;
+			}
+			a{
+				font-weight: bold;
+				color:$lb_red;
+			}
+			h4{
+				margin-left: 65px;
+			}
+
+		}
 	}
 
 	#blogtitles{
@@ -48,6 +90,7 @@
 		}
 	}
 	.postdate{
+		display: inline;
 		color:lighten($lb_red, 40);
 	}
 }

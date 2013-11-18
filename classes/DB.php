@@ -120,7 +120,8 @@ class DB {
 	}
 
 	public function first(){
-		return $this->results()[0];
+		$firstresult = $this->results();
+		return $firstresult[0];
 	}
 
 	public function error(){

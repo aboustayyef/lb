@@ -61,13 +61,12 @@ class Extras
 				'body'=> 'Some blog posts are just so amazing or useful that you need to keep them at hand for future reference. Saving Posts is a great way to do that. <img src ="img/interface/stack-of-cards.png" class ="noborder">',
 				),
 			array(
-				'title'=>"Don't Miss a Post",
-				'body'=> 'Having a list of favorite blogs is a great way to keep up with blogs that don\'t post often. Whenever you see a blog you like, just click on the "Add Blog to Favorites" button to add it to your list<img src ="img/interface/add-blog-button.png" class ="noborder">',
+				'title'=>'Smart Tweeting',
+				'body'=> 'When you share using the Lebanese Blogs "tweet" button, the blogger who wrote the post will be automatically mentioned on twitter <a href ="http://lebaneseblogs.com/blog/?p=44">learn more</a> <img src ="img/interface/smart-twitter-bird.png" class ="noborder">',
 				),
 			array(
-				'title'=>'Smart Sharing',
-				'body'=> 'When you share using the Lebanese Blogs sharing button, the blogger who wrote the post will be automatically mentioned on twitter <a href ="http://lebaneseblogs.com/blog/?p=44">learn more</a>',
-				'image'=> 'img/interface/twitter-share.png'
+				'title'=>"Don't Miss a Post",
+				'body'=> 'Having a list of favorite blogs is a great way to keep up with blogs that don\'t post often. Whenever you see a blog you like, just click on the "Add Blog to Favorites" button to add it to your list<img src ="img/interface/add-blog-button.png" class ="noborder">',
 				),
 			array(
 				'title'=>'A Bottomless Pit',

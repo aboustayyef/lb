@@ -436,7 +436,6 @@ bloggerPage:{
 	},
 
 	searchPage: {
-		
 		init: function(){
 			searchTerm = $('#searchresults').data('term');
 			this.findBlogNames();
@@ -447,42 +446,33 @@ bloggerPage:{
 			$.post("contr_search.php",{term:searchTerm, scope:"blognames"},
 				function(data){
 					$('#blognames').html(data);
-					if ($('#blognames').height()>250) { // hide for expansion
-						$('#blognames').height(250);
-						$('#blognames').after('<div class ="expand"><a class = "expandNames" href ="#">See All Results</a></div>');
-						$('.expandNames').on('click', function(){
-							$('#blognames').height('auto');
-							$(this).hide();
-						});
-					}
-					$('#blogtitles').html('<h3 class ="status">Searching for Blog Posts with the term \''+searchTerm+'\' in their titles</h3><img src="img/interface/ajax-loader.gif" alt="spinning wheel">');
 				}
 			);
 		},
 		findPostTitles: function(){
+		$('#blogtitles').html('<h3 class ="status">Searching for Blog Posts with the term \''+searchTerm+'\' in their titles</h3><img src="img/interface/ajax-loader.gif" alt="spinning wheel">');
 			$.post("contr_search.php",{term:searchTerm, scope:"blogtitles"},
 				function(data){
 					$('#blogtitles').html(data);
 					if ($('#blogtitles').height()>250) { // hide for expansion
 						$('#blogtitles').height(250);
-						$('#blogtitles').after('<div class ="expand"><a class = "expandTitles" href ="#">See All Results</a></div>');
+						$('#blogtitles').after('<div class ="expand"><a class = "expandTitles" href ="#"><i class ="icon icon-expand-alt"></i> See All Results</a></div>');
 						$('.expandTitles').on('click', function(){
 							$('#blogtitles').height('auto');
 							$(this).hide();
 						});
 					}
-					$('#blogcontents').html('<h3 class ="status">Searching for Blog Posts with the term \''+searchTerm+'\' in their text</h3><img src="img/interface/ajax-loader.gif" alt="spinning wheel">');
-
 				}
 			);
 		},
 		findPostContents: function(){
+		$('#blogcontents').html('<h3 class ="status">Searching for Blog Posts with the term \''+searchTerm+'\' in their text</h3><img src="img/interface/ajax-loader.gif" alt="spinning wheel">');
 			$.post("contr_search.php",{term:searchTerm, scope:"blogcontents"},
 				function(data){
 					$('#blogcontents').html(data);
 					if ($('#blogcontents').height()>250) { // hide for expansion
 						$('#blogcontents').height(250);
-						$('#blogcontents').after('<div class ="expand"><a class = "expandContents" href ="#">See All Results</a></div>');
+						$('#blogcontents').after('<div class ="expand"><a class = "expandContents" href ="#"><i class ="icon icon-expand-alt"></i> See All Results</a></div>');
 						$('.expandContents').on('click', function(){
 							$('#blogcontents').height('auto');
 							$(this).hide();
@@ -529,6 +519,7 @@ bloggerPage:{
 	}
 	if ((global_page === "search")) {
 		lbApp.interface.revealContent();
+		lbApp.searchPage.init();
 
 	}
 	if ((global_page === "favorites")){
