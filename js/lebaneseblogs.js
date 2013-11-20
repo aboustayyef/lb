@@ -485,10 +485,10 @@ bloggerPage:{
 };
 
 
-	$(window).load(function(){
-		lbApp.interface.init();
-		if (global_page === "browse") {
-			lbApp.posts.init();
+$(document).ready(function(){
+	lbApp.interface.init();
+	if (global_page === "browse") {
+		lbApp.posts.init();
 		lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
 		lbApp.posts.show(); // show everything
 		lbApp.interface.viewArea.handleScroll();
@@ -496,10 +496,7 @@ bloggerPage:{
 			lbApp.interface.compactView.init();
 		}
 		lbApp.interface.revealContent();
-		lbApp.posts.images.show(); // load lazy images. done after revealing content to prevent long loading time.
-		lbApp.posts.images.nudge();
 		lbApp.posts.favorites.init();
-
 	}
 	if ((global_page === "about")) {
 		lbApp.aboutPage.init();
@@ -532,11 +529,15 @@ bloggerPage:{
 			lbApp.interface.compactView.init();
 		}
 		lbApp.interface.revealContent();
-		lbApp.posts.images.show(); // load lazy images. done after revealing content to prevent long loading time.
-		lbApp.posts.images.nudge();
 		lbApp.posts.favorites.init();
 	}
+});
 
+$(window).load(function(){
+	if ((global_page === "favorites")||(global_page === "browse") || (global_page === "saved")) {
+		lbApp.posts.images.show(); // load lazy images. done after revealing content to prevent long loading time.
+		lbApp.posts.images.nudge();
+	}
 });
 
 var do_resize;
