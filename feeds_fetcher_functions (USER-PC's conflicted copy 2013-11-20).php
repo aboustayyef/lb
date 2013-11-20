@@ -24,14 +24,6 @@ function get_domain($theurl)
 	} else {
 		$domain = $domain ;
 	}
-
-	if ($domain == 'facebook') { // facebook domains should return their facebook ID instead
-		$theurl =  htmlspecialchars_decode($theurl);
-		$parse = parse_url($theurl, PHP_URL_QUERY);
-		parse_str($parse, $params);
-		$domain = explode('.',$params['set'])[3];
-	}
-
 	return $domain;
 }
 
@@ -74,19 +66,17 @@ foreach ($html->find('img[src]') as $img)
 		$image_without_parameters = $image_parts[0];
 		$image = $image_without_parameters;
 
-
-		// check if this is a facebook image from a facebook blog. Replace _s.jpg (small images) with _n.jpg (normal)
-
-		if (strpos($image, 'fbcdn')>0){  // this is a facebook hosted image. 
-			$image = preg_replace('/_s.jpg$/', "_n.jpg", $image); // replace image with larger one.
-		}
-
-
 		//remove automatic resizing applied by wordpress and go straight to original image
 		// for example, a file that ends with image-150x250.jpg becomes image.jpg 
 
+		if (substr($image, 0, 14) == 'https://fbcdn-') { // it's a facebook cdn image
+			$image = preg_replace('/_s.jpg$/', "_n.jpg", $image); // use large photo instead of small one
+		} 
+
 		$adjusted = preg_replace('/-[0-9]{3}x[0-9]{3}\.jpg$/', ".jpg", $image);
 		$image = $adjusted;
+
+
 
     	list($width, $height, $type, $attr) = getimagesize("$image");
     	if ($width>299) //only return images 300 px large or wider

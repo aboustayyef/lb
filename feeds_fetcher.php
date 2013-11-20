@@ -90,9 +90,10 @@ foreach ($feeds as $feed)
 			if ($query2->rowCount() > 0) { // post exist in database
 				echo '<span style ="color:blue">post is already in the database</span><br>',"\n";
 				continue;
-			} else if ((time()-$blog_post_timestamp) > (3*30*24*60*60)) { //post is more than 3 month old ;
+			/*} else if ((time()-$blog_post_timestamp) > (3*30*24*60*60)) { //post is more than 3 month old ;
+				Will ignore the time limit for now. See if sustainable.
 				echo '<span style ="color:blue">post is older than three months</span><br>',"\n";
-				continue;
+				continue;*/
 			} else { // ok, new post, insert in database
 
 				$blog_post_title = clean_up($item->get_title(), 120);

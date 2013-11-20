@@ -73,10 +73,12 @@ global $channel_descriptions;
 
 <!-- Search Menu -->
     <div class="menu" id ="menu-search">
-      <form action="">
-        <input id="search-box" type="text">
-        <p>Search thousand of lebanese blog posts. <span class ="strong lbred"><br>Tip:</span> try searching for stores or brands.</p>
+      <form method="get" action="<?php echo WEBPATH ;?>">
+        <input type="hidden" name = "pagewanted" value = "search">
+        <input id="search-box" type="text" name="s">
+        <input type="submit" value ="go" style ="display:none;">
       </form>
+        <p>Search thousand of lebanese blog posts. <span class ="strong lbred"><br>Tip:</span> try searching for stores or brands.</p>
     </div>
 
     <!-- Left Nav -->

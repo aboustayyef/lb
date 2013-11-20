@@ -484,19 +484,20 @@ bloggerPage:{
 	},
 };
 
+
 	$(window).load(function(){
 		lbApp.interface.init();
 		if (global_page === "browse") {
 			lbApp.posts.init();
 		lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
-		lbApp.posts.images.show(); // load lazy images
-		lbApp.posts.images.nudge();
 		lbApp.posts.show(); // show everything
 		lbApp.interface.viewArea.handleScroll();
 		if (global_viewtype === "compact") {
 			lbApp.interface.compactView.init();
 		}
 		lbApp.interface.revealContent();
+		lbApp.posts.images.show(); // load lazy images. done after revealing content to prevent long loading time.
+		lbApp.posts.images.nudge();
 		lbApp.posts.favorites.init();
 
 	}
@@ -525,14 +526,14 @@ bloggerPage:{
 	if ((global_page === "favorites")){
 		lbApp.posts.init();
 		lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
-		lbApp.posts.images.show(); // load lazy images
-		lbApp.posts.images.nudge();
 		lbApp.posts.show(); // show everything
 		lbApp.interface.viewArea.handleScroll();
 		if (global_viewtype === "compact") {
 			lbApp.interface.compactView.init();
 		}
 		lbApp.interface.revealContent();
+		lbApp.posts.images.show(); // load lazy images. done after revealing content to prevent long loading time.
+		lbApp.posts.images.nudge();
 		lbApp.posts.favorites.init();
 	}
 
