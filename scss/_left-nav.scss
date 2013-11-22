@@ -29,7 +29,23 @@ $left_padding: 20px;
                 color: $lb_red;
             }
     }
-
+    .userBox{
+        padding:5px;
+        margin:5px 20px 10px;
+        border: 1px solid darken(white,7);
+        overflow: auto;
+        .profilePic{
+            background-color: darken(white,20);
+            float: left;
+        }
+        .userName, .signout{
+            display: block;
+            margin-left: 65px;
+        }
+        a.signout{
+            color: $lb_red;
+        }
+    }
     @media only screen and (max-width : 768px){
         .section{
             display: none;
@@ -135,6 +151,17 @@ $left_padding: 20px;
             }
         }
     }
+.credits{
+    color: darken(white,40);
+    padding: 20px;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 20px;
+    border-top: 1px solid darken(white,10);
+    a:hover{
+        color:$lb_red;
+    }
+}
 .left-col-inner{
     border-top: 2px solid $lb_red;
 }

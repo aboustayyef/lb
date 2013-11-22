@@ -27,7 +27,7 @@
 		<p>If you think your blog belongs here and satisfies the criteria, what are you waiting for? <a href ="#submit">Submit it!</a></p>
 		
 		<h3>Who is Behind This?</h3>
-		<p>My name is <a href ="http://facebook.com/mustapha">Mustapha Hamoui</a>. I design and develop websites as a hobby (a full stack web developer in the jargon). But I'm also a businessman and a blogger.</p>
+		<p>My name is <a href ="http://twitter.com/beirutspring">Mustapha Hamoui</a>. I design and develop websites as a hobby (a full stack web developer in the jargon). But I'm also a businessman and a blogger.</p>
 
 <a href="#pagewrapper"><i class ="icon-chevron-up"></i> back to top</a>
 	</div>

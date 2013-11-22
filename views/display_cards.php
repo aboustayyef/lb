@@ -46,7 +46,7 @@
 								} else {
 									// user is not signed in. Will ask them to sign in;
 									?>
-									<div class ="add2fav" ><a href="userlogin.php?from=favorites"><i class ="icon-star"></i> Add Blog to Favorites</a></div>
+									<div class ="add2fav" ><a href="userlogin.php?from=favorites&amp;action=favorite&amp;blog=<?php echo $post->blog_id; ?>&amp;redirect=<?php echo WEBPATH ?>"><i class ="icon-star"></i> Add Blog to Favorites</a></div>
 									<?php
 								}
 							 ?>
@@ -88,7 +88,29 @@
 				$twitterUrl = urlencode($url_to_incode);
 				?>
 				<ul>
-					<li class="save"><a href="#"><i class="icon-heart"></i> Save Post</a></li>
+					<?php 
+						if (Users::UserSignedIn()) { // if user is signed in;
+							$f_id = $_SESSION['LebaneseBlogs_Facebook_User_ID'];
+							$post_url = $post->post_url;
+							if (Posts::isSaved($f_id, $post_url)) {
+								// user is signed in and post is saved
+								?>
+								<li class="doSave save_toggle" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><a class="removeFromSaved" href="#"><i class="icon-heart selected"></i> Saved</a></li>
+								<?php
+							}else {
+								// user is signed in but post is not saved
+								?>
+								<li class="doSave save_toggle" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><a class="addToSaved" href="#"><i class="icon-heart"></i> Save Post</a></li>
+								<?php
+							}
+						} else {
+							// user is not signed in. Will ask them to sign in;
+							?>
+							<li class="doSave"><a href="userlogin.php?from=saved&amp;action=save&amp;url=<?php echo urlencode($post->post_url) ?>&amp;redirect=<?php echo WEBPATH ?>"><i class="icon-heart"></i> Save Post</a></li>
+							<?php
+						}
+					 ?>	
+				
 					<li> <a href="https://twitter.com/intent/tweet?text=<?php echo $twitterUrl; ?>" title="Click to send this post to Twitter!" target="_blank"><i class="icon-twitter icon-large"></i> Tweet</a> </li>
 					<li> <a href="http://www.facebook.com/sharer.php?u='.$post_url.'"><i class="icon-facebook icon-large"></i> Share</a> </li>
 					<?php 

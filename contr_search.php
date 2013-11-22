@@ -15,7 +15,7 @@ switch ($scope) {
 			echo '<ul>';
 			foreach ($results as $result) {
 				echo '<li class ="resultItem">';
-					echo '<img src= "./img/thumbs/'.$result->blog_id.'.jpg" alt ="thumb">';
+					echo '<img src= "./img/thumbs/'.$result->blog_id.'.jpg" alt ="thumb" width ="50" height="50">';
 					echo '<a href="./'.$result->blog_id.'"><h4>'.$result->blog_name.'</h4></a>';
 					echo '<p>'.Lb_functions::limitWords(8, $result->blog_description).'</p>';
 				echo '</li>';

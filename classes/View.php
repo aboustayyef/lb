@@ -26,8 +26,8 @@ class View
 
 		$_SESSION['pagewanted']= $this->_page;
 
-		if ($this->_page == "favorites" && !isset($_SESSION['LebaneseBlogs_user_id'])) { 
-			// This is a backdoor to the favorites page, 
+		if (($this->_page == "favorites" || $this->_page == "saved") && !isset($_SESSION['LebaneseBlogs_user_id'])) { 
+			// This is a backdoor to the favorites or saved page, 
 			// possibly from returning from signout
 			// Best course is to redirect to homepage
 			header("location: ".WEBPATH);
@@ -55,7 +55,7 @@ class View
 			// if not, is it set in a cookie?
 			} else if (isset($_COOKIE["lblogs_default_view"])) {//cookie
 				$this->_view = $_COOKIE["lblogs_default_view"];
-				$_SESSION['viewtype'] = $view;
+				$_SESSION['viewtype'] = $this->_view;
 
 			// if not, "cards" is the default
 			} else{
@@ -170,7 +170,39 @@ class View
 					?><div id = "message" class = "primaryfont"><h3>You Are Now Signed out</h3></div><?php
 				}
 				break;
+				case 'saved':
 
+				if (isset($_SESSION['LebaneseBlogs_Facebook_User_ID'])){ // if user is signed in
+					$_SESSION['posts_displayed'] = 0; // initialize number of posts shown
+					$_SESSION['items_displayed'] = 0; // initialize number of items shown (including other widgets)
+
+					// the compact mode gets more initial posts;
+					if ($this->_view == "compact") {
+						$initial_posts_to_retreive = 50;
+					}else{
+						$initial_posts_to_retreive = 20;
+					}
+
+					$data = Posts::get_saved_bloggers_posts($_SESSION['LebaneseBlogs_Facebook_User_ID'], 0, $initial_posts_to_retreive); 
+					
+					if (count($data) == 0) { // no saved yet
+						?>
+						<div id = "message">
+							<?php include_once(ABSPATH.'views/saved-starter.php') ?>
+						</div>
+						<?php
+					} else {
+						?><div id = "message" class = "primaryfont"><h3><?php echo $_SESSION['LebaneseBlogs_Facebook_FirstName'] ?>'s Saved Posts</h3></div><?php
+						
+						//envelope the posts;
+						echo '<div id="posts">';
+						$this->display_posts($data);
+					}			
+					echo '</div> <!-- /posts -->';
+				} else {
+					?><div id = "message" class = "primaryfont"><h3>You Are Now Signed out</h3></div><?php
+				}
+				break;
 			case 'search':
 				include_once(ABSPATH.'views/draw_search.php');
 				break;
@@ -237,7 +269,15 @@ class View
 					$this->_description = "Choose your favorite blogs";
 				}
 				break;
-
+			case 'saved':
+				if (isset($_SESSION['LebaneseBlogs_Facebook_User_ID'])) { //signed in to facebook
+					$this->_title = "{$_SESSION['LebaneseBlogs_Facebook_FirstName']}'s Saved Posts";
+					$this->_description = "Saved Posts";
+				}else{
+					$this->_title = "Save Posts";
+					$this->_description = "Save Posts at Lebanese Blogs";
+				}
+				break;
 			default:
 				die('pagewanted is not set correctly! '.$this->_page);
 				break;
@@ -297,7 +337,8 @@ class View
 			'search'	=> 	"no",
 			'blogger'	=>	"no",
 			'search'	=>	"no",
-			'favorites'	=> "yes"
+			'favorites'	=> 	"yes",
+			'saved'		=>	"yes"
 		);
 		if (array_key_exists($whichPage, $LeftColumns)) {
 			if ($LeftColumns[$whichPage] == "yes") {

@@ -18,13 +18,17 @@ class Extras
 		switch ($itemNumber) {
 
 			case 0: 
-			self::topFive(5, 12, $_SESSION['channel']);
-			$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
+			if ($_SESSION['pagewanted'] == 'browse') {
+				self::topFive(5, 12, $_SESSION['channel']);
+				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
+			}
 			break;			
 			
 			case 3: 
-			self::featuredBloggers();
-			$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
+			if ($_SESSION['pagewanted'] == 'browse') {
+				self::featuredBloggers();
+				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
+			}
 			break;
 
 			case 7: 
@@ -70,7 +74,7 @@ class Extras
 				),
 			array(
 				'title'=>'A Bottomless Pit',
-				'body'=> 'Lebanese Blogs is an infinite scrolling website. This means that scrolling down never ends. It is like going back in time to see older posts. <img src ="img/interface/downward-arrows.png" class ="noborder">',
+				'body'=> 'Lebanese Blogs is an infinite scrolling website. This means that scrolling down never ends. It is like going back in time to see older posts. <img src ="img/interface/downward-arrows.png" width ="240" height = "80" class ="noborder">',
 				),
 			);
 			?>

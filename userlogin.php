@@ -7,8 +7,11 @@ echo "<pre>";
 print_r($_SESSION);
 echo "</pre>";*/
 
+$returnTo = $_GET['redirect'];
+
 if (isset($_SESSION['LebaneseBlogs_Facebook_User_ID'])){ // if user is signed in
-	goback(); // redirect to page. Will be using details from existing session
+	
+	goback($returnTo); // redirect to page. Will be using details from existing session
 
 } else {
 	$user = new Users;
@@ -46,16 +49,18 @@ if (isset($_SESSION['LebaneseBlogs_Facebook_User_ID'])){ // if user is signed in
 		<h2>Log in to Access your Favorite Bloggers </h2>
 
 		<?php
-	} else {
+	} else if ($_GET['from'] == 'saved'){
 		?>
-		<h1>Headline for Saved </h1>
-		<p>Paragraph for Saved. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, tempora corporis fugiat nihil dolorem omnis sunt similique quibusdam! Ratione vel sit sed culpa in quo ipsam. Placeat odio unde magnam.</p>
-	<?php } ?>
-	
-	<a class = "facebook_button" href ="<?php echo  $user->FacebookLoginURL();?>"></a>
-	<p class="privacy">
-		Privacy: We only need your email address so we can communicated with you if anything goes wrong with your account. We will not share it with anyone.
-	</p>
+		<img src="img/interface/saved-featured.jpg" alt="Saved">
+		<p class ="strong">Saved Posts is a great way to keep awesome posts for future reference</p>
+		<p>Don't lose that excellent infographic. Always have that recipe at hand. Keep that look around to steal later, and never forget that restaurant's address after reading that glowing review.</p>
+
+		<?php } ?>
+		
+		<a class = "facebook_button" href ="<?php echo  $user->FacebookLoginURL();?>"></a>
+		<p class="privacy">
+			Privacy: Your email address will be used to communicate with you if anything goes wrong with your account. We will not share it with anyone.
+		</p>
 
 	</div>
 </body>
@@ -83,7 +88,7 @@ if (isset($_SESSION['LebaneseBlogs_Facebook_User_ID'])){ // if user is signed in
 		    		'user_first_name'	=> 	$user->getFacebookUserDetails('first_name'),
 		    		'user_last_name'	=> 	$user->getFacebookUserDetails('last_name'),
 		    		'user_email'		=> 	$user->getFacebookUserDetails('email'),
-		    		'user_visit_count'	=> 1
+		    		'user_gender'		=>	$user->getFacebookUserDetails('gender'),
 	    		));
 		    }
 		
@@ -91,10 +96,11 @@ if (isset($_SESSION['LebaneseBlogs_Facebook_User_ID'])){ // if user is signed in
 		    $_SESSION['LebaneseBlogs_Facebook_User_ID']= $user->getFacebookUserDetails('id');
 	    	$_SESSION['LebaneseBlogs_user_id'] = Users::getIdFromFacebookId($user->getFacebookUserDetails('id'));
 	    	$_SESSION['LebaneseBlogs_Facebook_FirstName'] = $user->getFacebookUserDetails('first_name');
+	    	$_SESSION['lebaneseblogs_Facebook_Profile_Pic'] = 'http://graph.facebook.com/'.$user->getFacebookUserDetails('id').'/picture';
 
 	    	// redirect using parameters from facebook login
 	    	$params = "&code={$_GET['code']}&state={$_SESSION['fb_state']}";
-	    	goback($params);	
+	    	goback($returnTo);	
 
 		}		
 	}
@@ -102,31 +108,36 @@ if (isset($_SESSION['LebaneseBlogs_Facebook_User_ID'])){ // if user is signed in
 
 // redirect function
 
-function goback($params=null){
+function goback($returnTo=null){
 
 	/* DEBUG 
 	echo "<pre>";
 	print_r($_SESSION);
 	echo "</pre>";*/
 
-	if (!isset($_GET['from'])) {
-		die('you need to use a from parameter for this page');
-	} else {
-		switch ($_GET['from']) {
-			case 'favorites':
-				header("location: ".WEBPATH."?pagewanted=favorites");
+	$user_id = $_SESSION['LebaneseBlogs_Facebook_User_ID'];
+	if (isset($_GET['action'])){
+
+		switch ($_GET['action']) {
+			case 'favorite':
+				$blog_id = $_GET['blog'];
+				Posts::toggleFavorite($user_id, $blog_id);
+				header("location: ".$returnTo);
 				break;
 			
-			case 'saved':
-				header("location: ".WEBPATH."?pagewanted=saved");
+			case 'save':
+				$post_url = urldecode($_GET['url']);
+				Posts::toggleSaved($user_id, $post_url);
+				header("location: ".$returnTo);
 				break;
 
 			default:
-				die('from parameter has to be either saved or favorites');
+				header("location: ".$returnTo);
 				break;
-		}
 
+		}
+	}else{
+		header("location: ".$returnTo);
 	}
 }
-
 ?>

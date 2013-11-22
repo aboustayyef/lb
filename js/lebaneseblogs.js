@@ -48,6 +48,8 @@ var lbApp ={
 			var url;
 			if (global_page === "favorites") {
 				url = "contr_get_favorites_extra_posts.php";
+			} else if (global_page === "saved"){
+				url = "contr_get_saved_extra_posts.php";
 			} else {
 				url = "contr_get_extra_posts.php";
 			}
@@ -55,11 +57,34 @@ var lbApp ={
 				lbApp.posts.window.append(data);
 				lbApp.posts.flow();
 				lbApp.posts.show();
-				lbApp.posts.images.show();
+				//lbApp.posts.images.show();
+				lbApp.interface.showLazyImages();
 				lbApp.posts.busy = "no";
 			});
 		},
-
+		saved:{
+			init:function(){
+				var addToSavedHTML = '<a class="addToSaved" href="#"><i class="icon-heart"></i> Save Post</a>';
+				var removeFromSavedHTML = '<a class="removeFromSaved" href="#"><i class="icon-heart selected"></i> Saved</a>';
+				$('li.save_toggle').on('click', function(){
+					var _user = $(this).data('user');
+					var _url = $(this).data('url');
+					$.post("contr_toggle_saved.php",{user:_user,url:_url},
+						function(data){
+							$('.save_toggle[data-url="'+_url+'"]').each(function(){
+								var currentContent = $(this).html();
+								if (currentContent === addToSavedHTML) {
+									$(this).html(removeFromSavedHTML);
+								}else {
+									$(this).html(addToSavedHTML);
+								}
+								console.log(currentContent);
+							//$(this).html("<b>this</b> is a test");
+						});
+					});
+				});
+			}
+		},
 		favorites :{
 			init: function(){
 				var addToFavoritesHTML = '<a class="addToFavorites" href="#"><i class="icon-star"></i> Add Blog to Favorites</a>';
@@ -79,7 +104,7 @@ var lbApp ={
 								console.log(currentContent);
 							//$(this).html("<b>this</b> is a test");
 						});
-						});
+					});
 				});
 			}
 		},
@@ -106,7 +131,7 @@ var lbApp ={
 		init: function(){
 			// depending on what page does, appropriate parts of the interface js will be activated.
 			
-			if ((global_page === "browse") || (global_page === "top") || (global_page === "favorites")) { this.leftNav.init(); } // initialize left navigation ;
+			if ((global_page === "browse") || (global_page === "top") || (global_page === "favorites") || (global_page === "saved")) { this.leftNav.init(); } // initialize left navigation ;
 
 			this.setDimensions(); // corrects page dimensions
 			this.menus.init(); // initialize drop down menus
@@ -161,6 +186,8 @@ var lbApp ={
 					console.log("distanceToBottom: "+distanceToBottom);
 					if (distanceToBottom < 3000) {
 						lbApp.posts.addMore();
+						lbApp.posts.favorites.init();
+						lbApp.posts.favorites.init();
 					}
 				});
 			}
@@ -179,7 +206,14 @@ var lbApp ={
 			}
 
 		},
-
+		showLazyImages: function(){
+			// this will use jquery instead of the lazy load plugin to show images.
+			//<img class="lazy" data-original="http://4.bp.blogspot.com/-V8dJGssHVmc/UivdnUqR1GI/AAAAAAAABbw/_KY_jAxNSpU/s320/portugal.JPG" src="img/interface/grey.gif" width="278" height="208">
+			$('img.lazy').each(function(){
+				$(this).attr('src', $(this).data('original')) ;
+				$(this).removeClass('lazy');
+			});
+		},
 		leftNav : {
 			init: function(){
 				//by default, show left sidebar for larger windows
@@ -497,6 +531,7 @@ $(document).ready(function(){
 		}
 		lbApp.interface.revealContent();
 		lbApp.posts.favorites.init();
+		lbApp.posts.saved.init();
 	}
 	if ((global_page === "about")) {
 		lbApp.aboutPage.init();
@@ -508,6 +543,7 @@ $(document).ready(function(){
 		lbApp.interface.revealContent();
 		lbApp.bloggerPage.loadImages();
 		lbApp.posts.favorites.init();
+		lbApp.posts.saved.init();
 
 	}
 	if ((global_page === "top")) {
@@ -521,6 +557,7 @@ $(document).ready(function(){
 
 	}
 	if ((global_page === "favorites")){
+		$('.endloader').hide();
 		lbApp.posts.init();
 		lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
 		lbApp.posts.show(); // show everything
@@ -530,14 +567,25 @@ $(document).ready(function(){
 		}
 		lbApp.interface.revealContent();
 		lbApp.posts.favorites.init();
+		lbApp.posts.saved.init();
+	}
+	if ((global_page === "saved")){
+		$('.endloader').hide();
+		lbApp.posts.init();
+		lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
+		lbApp.posts.show(); // show everything
+		lbApp.interface.viewArea.handleScroll();
+		if (global_viewtype === "compact") {
+			lbApp.interface.compactView.init();
+		}
+		lbApp.interface.revealContent();
+		lbApp.posts.favorites.init();
+		lbApp.posts.saved.init();
 	}
 });
 
 $(window).load(function(){
-	if ((global_page === "favorites")||(global_page === "browse") || (global_page === "saved")) {
-		lbApp.posts.images.show(); // load lazy images. done after revealing content to prevent long loading time.
-		lbApp.posts.images.nudge();
-	}
+		lbApp.interface.showLazyImages();
 });
 
 var do_resize;
@@ -555,7 +603,7 @@ $(window).resize(function() {
 		if (global_page === "top") {
 			lbApp.interface.cards.flow();
 		}
-		if (global_page === "favorites") {
+		if (global_page === "favorites" || global_page === "saved") {
 			lbApp.interface.setDimensions();
 			lbApp.posts.flow();
 		}

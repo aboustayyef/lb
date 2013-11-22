@@ -1,11 +1,26 @@
 <?php 
 require_once('init.php');
 
-// Test getIdFromFacebookId
+/*$user_id = '812400331';
+$post_url = 'http://ginosblog.com/2013/11/19/amazing-graffiti-series-continues-in-ain-el-remmeneh/';
 
+if (Posts::isSaved($user_id, $post_url)) {
+	echo 'This post is saved';
+}else{
+	echo 'This post is not saved';
+}*/
+
+/*$data = Posts::get_saved_bloggers_posts('812400331', 0, 5);
+echo "<pre>";
+var_dump($data);
+echo "</pre>";*/
+
+
+// Test getIdFromFacebookId
+/*
 $id = Users::getIdFromFacebookId('2147483647');
 echo "Facebook User Id '2147483647' corresponds to Lebanese Blogs ID $id ";
-
+*/
 
 // Test toggleFavorites
 /*$user_facebook_id = '812400331';

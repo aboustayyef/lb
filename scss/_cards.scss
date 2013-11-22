@@ -302,6 +302,9 @@
                 i{
                     margin-right:3px;
                     font-size: 0.9em;
+                    &.selected{
+                        color:$lb_red;
+                    }
                 }
             }
         }

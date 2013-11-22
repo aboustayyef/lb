@@ -66,8 +66,9 @@ global $channel_descriptions;
     <?php include_once ABSPATH."views/modules/modal.inc"; ?>
     <div class = "menu" id="menu-about">
       <ul>
-        <a href="<?php echo WEBPATH.'about' ?>"><li>about</li></a>
-        <a href="<?php echo WEBPATH.'blog'; ?>"><li class ="last" >blog</li></a>
+        <a href="<?php echo WEBPATH.'about' ?>"><li>About</li></a>
+        <a href="<?php echo WEBPATH.'about#submit' ?>"><li>Submit Your Blog</li></a>
+        <a href="<?php echo WEBPATH.'blog'; ?>"><li class ="last" >Our Own Blog</li></a>
       </ul>
     </div>
 
