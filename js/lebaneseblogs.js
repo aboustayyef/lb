@@ -187,7 +187,7 @@ var lbApp ={
 					if (distanceToBottom < 3000) {
 						lbApp.posts.addMore();
 						lbApp.posts.favorites.init();
-						lbApp.posts.favorites.init();
+						lbApp.posts.saved.init();
 					}
 				});
 			}
