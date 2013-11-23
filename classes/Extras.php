@@ -62,11 +62,11 @@ class Extras
 		$all_tips = array(
 			array(
 				'title'=>"Stash The Gems",
-				'body'=> 'Some blog posts are just so amazing or useful that you need to keep them at hand for future reference. Saving Posts is a great way to do that. <img src ="img/interface/stack-of-cards.png" class ="noborder">',
+				'body'=> 'Some blog posts are just so amazing or useful that you need to keep them at hand for future reference. Saving Posts is a great way to do that. <img src ="img/interface/stack-of-cards.png" width ="240" height ="172" class ="noborder">',
 				),
 			array(
 				'title'=>'Smart Tweeting',
-				'body'=> 'When you share using the Lebanese Blogs "tweet" button, the blogger who wrote the post will be automatically mentioned on twitter <a href ="http://lebaneseblogs.com/blog/?p=44">learn more</a> <img src ="img/interface/smart-twitter-bird.png" class ="noborder">',
+				'body'=> 'When you share using the Lebanese Blogs "tweet" button, the blogger who wrote the post will be automatically mentioned on twitter <a href ="http://lebaneseblogs.com/blog/?p=44">learn more</a> <img src ="img/interface/smart-twitter-bird.png" width ="240" height ="107" class ="noborder">',
 				),
 			array(
 				'title'=>"Don't Miss a Post",

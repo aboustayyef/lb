@@ -293,6 +293,10 @@ var lbApp ={
 						var whichWindow = $(this).attr('data-menu');
 						console.log(whichWindow+"test");
 						$('#'+whichWindow).show();
+						if (whichWindow == 'menu-search') {
+							console.log('yes');
+							$('#search-box').focus();
+						}
 					}
 				});
 			}

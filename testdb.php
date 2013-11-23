@@ -1,6 +1,10 @@
 <?php 
 require_once('init.php');
 
+/*$blog_id = 'beirutspring';
+echo Posts::get_blog_name($blog_id);*/
+
+
 /*$user_id = '812400331';
 $post_url = 'http://ginosblog.com/2013/11/19/amazing-graffiti-series-continues-in-ain-el-remmeneh/';
 

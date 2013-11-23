@@ -251,8 +251,12 @@ class View
 				break;
 
 			case 'blogger':
-				$this->_title = "[Blog Name] on Lebanese Blogs";
-				$this->_description = "Posts of blog [Blog Name] on Lebanese Blogs";
+				$blogName = Posts::get_blog_name($this->_blogger);
+				if (!$blogName) {
+					Die('This blogger does not exist');
+				}
+				$this->_title = "$blogName at Lebanese Blogs";
+				$this->_description = "Posts of blog $blogName on Lebanese Blogs";
 				break;
 
 			case 'search':

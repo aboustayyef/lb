@@ -13,6 +13,17 @@ class Posts
     {
         //nothing
     }
+
+    public static function get_blog_name($blog_id){
+        $query = 'SELECT blogs.blog_name FROM blogs WHERE blogs.blog_id = "'.$blog_id.'"';
+        DB::getInstance()->query($query);
+        if (count(DB::getInstance()->results())>0) {
+            $allResults = DB::getInstance()->results();
+            return $allResults[0]->blog_name;
+        } else {
+            return null;
+        }
+    }
              
     public static function get_latest_posts($number_of_posts = 10, $channel = NULL) { //default is 10 posts
         // get blog's details
