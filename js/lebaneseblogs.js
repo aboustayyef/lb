@@ -69,14 +69,23 @@ var lbApp ={
 				$("body").on('click','li.save_toggle',function(){
 					var _user = $(this).data('user');
 					var _url = $(this).data('url');
+					
+					var PostToSave = $('.save_toggle[data-url="'+_url+'"]');
+						var currentContent = PostToSave.html();
+						if (currentContent === addToSavedHTML) {
+							PostToSave.html('Saving..');
+						}else {
+							PostToSave.html('Removing..');
+						}
+
 					$.post("contr_toggle_saved.php",{user:_user,url:_url},
 						function(data){
 							var PostToSave = $('.save_toggle[data-url="'+_url+'"]');
 								var currentContent = PostToSave.html();
-								if (currentContent === addToSavedHTML) {
+								if (currentContent === 'Saving') {
 									PostToSave.html(removeFromSavedHTML);
 								}else {
-									PostToSave.html(addToSavedHTML);
+									PostToSave.html('Removing');
 								}
 							//$(this).html("<b>this</b> is a test");
 					});
