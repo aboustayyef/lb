@@ -82,10 +82,10 @@ var lbApp ={
 						function(data){
 							var PostToSave = $('.save_toggle[data-url="'+_url+'"]');
 								var currentContent = PostToSave.html();
-								if (currentContent === 'Saving') {
+								if (currentContent === 'Saving..') {
 									PostToSave.html(removeFromSavedHTML);
 								}else {
-									PostToSave.html('Removing');
+									PostToSave.html('Removing..');
 								}
 							//$(this).html("<b>this</b> is a test");
 					});
