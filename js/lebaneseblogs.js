@@ -66,21 +66,19 @@ var lbApp ={
 			init:function(){
 				var addToSavedHTML = '<a class="addToSaved" href="#"><i class="icon-heart"></i> Save Post</a>';
 				var removeFromSavedHTML = '<a class="removeFromSaved" href="#"><i class="icon-heart selected"></i> Saved</a>';
-				$('li.save_toggle').on('click', function(){
+				$("body").on('click','li.save_toggle',function(){
 					var _user = $(this).data('user');
 					var _url = $(this).data('url');
 					$.post("contr_toggle_saved.php",{user:_user,url:_url},
 						function(data){
-							$('.save_toggle[data-url="'+_url+'"]').each(function(){
-								var currentContent = $(this).html();
+							var PostToSave = $('.save_toggle[data-url="'+_url+'"]');
+								var currentContent = PostToSave.html();
 								if (currentContent === addToSavedHTML) {
-									$(this).html(removeFromSavedHTML);
+									PostToSave.html(removeFromSavedHTML);
 								}else {
-									$(this).html(addToSavedHTML);
+									PostToSave.html(addToSavedHTML);
 								}
-								console.log(currentContent);
 							//$(this).html("<b>this</b> is a test");
-						});
 					});
 				});
 			}
@@ -89,7 +87,7 @@ var lbApp ={
 			init: function(){
 				var addToFavoritesHTML = '<a class="addToFavorites" href="#"><i class="icon-star"></i> Add Blog to Favorites</a>';
 				var removeFromFavoritesHTML = '<i class="icon-star" style="color:#FC0"></i> Favorite (<a class="removeFromFavorites" href="#">remove</a>)';
-				$('.favorite_toggle').on('click', function(){
+				$("body").on('click','.favorite_toggle',function(){
 					var _blog = $(this).data('blog');
 					var _user = $(this).data('user');
 					$.post("contr_toggle_favorites.php",{user:_user,blog:_blog},
@@ -186,8 +184,6 @@ var lbApp ={
 					console.log("distanceToBottom: "+distanceToBottom);
 					if (distanceToBottom < 3000) {
 						lbApp.posts.addMore();
-						lbApp.posts.favorites.init();
-						lbApp.posts.saved.init();
 					}
 				});
 			}
