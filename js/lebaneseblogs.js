@@ -85,7 +85,7 @@ var lbApp ={
 								if (currentContent === 'Saving..') {
 									PostToSave.html(removeFromSavedHTML);
 								}else {
-									PostToSave.html('Removing..');
+									PostToSave.html(addToSavedHTML);
 								}
 							//$(this).html("<b>this</b> is a test");
 					});
