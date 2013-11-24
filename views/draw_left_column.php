@@ -50,49 +50,49 @@ if (isset($_SESSION['channel'])) {
         <h4 class="sectionheader">Posts to Show</h4>
         <a href="<?php echo WEBPATH ?>">
           <div class = " <?php ischannel($s, null); ?> label folder level1">
-            <i class ="icon-folder-open-alt"></i>
+            <i class ="icon-home"></i>
             Show All
           </div>
         </a>
         <a href ="<?php echo WEBPATH . '?channel=fashion'; ?>">
-          <div class = " <?php ischannel($s,'fashion'); ?> label level2">
+          <div class = " <?php ischannel($s,'fashion'); ?> label level1">
             <i class="icon-umbrella"></i>
             Fashion &amp; Style
           </div>
         </a>
         <a href ="<?php echo WEBPATH . '?channel=food'; ?>">
-          <div class = " <?php ischannel($s,'food'); ?> label level2">
+          <div class = " <?php ischannel($s,'food'); ?> label level1">
             <i class="icon-coffee"></i>
             Food &amp; Health
           </div>
         </a>
         <a href ="<?php echo WEBPATH . '?channel=society'; ?>">
-          <div class = " <?php ischannel($s,'society'); ?> label level2">
+          <div class = " <?php ischannel($s,'society'); ?> label level1">
             <i class="icon-smile"></i>
             Society &amp; Fun News
           </div> 
         </a>
         <a href ="<?php echo WEBPATH . '?channel=politics'; ?>">
-          <div class = " <?php ischannel($s,'politics'); ?> label level2">
+          <div class = " <?php ischannel($s,'politics'); ?> label level1">
             <i class="icon-globe"></i>
             Politics &amp; Current Affairs
           </div>     
         </a>
         <a href ="<?php echo WEBPATH . '?channel=tech'; ?>">
           <div 
-          class = " <?php ischannel($s,'tech'); ?> label level2">
+          class = " <?php ischannel($s,'tech'); ?> label level1">
           <i class="icon-laptop"></i>
           Tech &amp; Business
         </div>
       </a>
       <a href ="<?php echo WEBPATH . '?channel=media'; ?>">
-        <div class = " <?php ischannel($s,'media'); ?> label level2">
+        <div class = " <?php ischannel($s,'media'); ?> label level1">
           <i class="icon-music"></i>
           Music, TV &amp; Film
         </div>
       </a>
       <a href ="<?php echo WEBPATH . '?channel=design'; ?>">
-        <div class = " <?php ischannel($s,'design'); ?> label level2">
+        <div class = " <?php ischannel($s,'design'); ?> label level1">
           <i class="icon-picture"></i>
           Advertising &amp; Design
         </div>     

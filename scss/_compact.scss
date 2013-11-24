@@ -45,6 +45,7 @@ body{
 		float: right;
 		position: absolute;
 		right: $compact-padding;
+		background: white;
 		top:0;
 		@media only screen and (max-width:480px){
 			display:none;
