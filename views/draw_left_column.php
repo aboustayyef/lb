@@ -39,7 +39,6 @@ if (isset($_SESSION['channel'])) {
         <?php
         } 
         ?>
-        
         <div class = "label level1 <?php if ( $_SESSION['pagewanted']=='favorites') { echo 'selected';} ?>">
           <a href="<?php echo WEBPATH.'userlogin.php?from=favorites&amp;redirect='.WEBPATH.'?pagewanted=favorites' ?>"><i class ="icon-star"></i>My Favorite Bloggers</a>
         </div>
