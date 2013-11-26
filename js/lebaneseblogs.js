@@ -99,11 +99,22 @@ var lbApp ={
 				$("body").on('click','.favorite_toggle',function(){
 					var _blog = $(this).data('blog');
 					var _user = $(this).data('user');
+					$('.favorite_toggle[data-blog="'+_blog+'"]').each(function(){
+							var currentContent = $(this).html();
+							if (currentContent === addToFavoritesHTML) {
+								$(this).html(' adding.. ');
+							}else {
+								$(this).html(' removing.. ');
+							}
+							console.log(currentContent);
+						//$(this).html("<b>this</b> is a test");
+					});
+
 					$.post("contr_toggle_favorites.php",{user:_user,blog:_blog},
 						function(data){
 							$('.favorite_toggle[data-blog="'+_blog+'"]').each(function(){
 								var currentContent = $(this).html();
-								if (currentContent === addToFavoritesHTML) {
+								if (currentContent === ' adding.. ') {
 									$(this).html(removeFromFavoritesHTML);
 								}else {
 									$(this).html(addToFavoritesHTML);
