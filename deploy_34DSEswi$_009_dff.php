@@ -47,6 +47,7 @@
               |____________________________|
  
 <?php echo $output; ?>
+<?php echo "<br>Minor modification to test something" ;?>
 </pre>
 </body>
 </html>
