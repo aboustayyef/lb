@@ -537,6 +537,8 @@ div.mainbar-wrapper {
           background: #f0f0f0; }
           .card .card_footer ul li:hover i {
             color: #b12530; }
+        .card .card_footer ul li:first-child {
+          width: 80px; }
         .card .card_footer ul li:last-child {
           border-right: none; }
         .card .card_footer ul li i {

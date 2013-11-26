@@ -285,6 +285,9 @@
                         color:$lb_red;
                     }
                 }
+                &:first-child{
+                    width:80px;
+                }
                 font-size: 12px;
                 float: left;
                 padding:10px 20px;
