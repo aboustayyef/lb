@@ -150,7 +150,7 @@ public static function get_saved_bloggers_posts($user_id, $from, $howmany){
 
 
     public static function get_random_bloggers($howmany){
-        $query = 'SELECT `blog_id`, `blog_name`, `blog_description` FROM blogs ORDER BY RAND() LIMIT '.$howmany;
+        $query = 'SELECT `blog_id`, `blog_url`, `blog_name`, `blog_description` FROM blogs ORDER BY RAND() LIMIT '.$howmany;
         DB::getInstance()->query($query);
         if (DB::getInstance()->error()) {
             echo "There's an error in the query";

@@ -118,7 +118,10 @@ class Extras
 						<img src="img/thumbs/<?php echo $blogger->blog_id; ?>.jpg" alt="" class="thumb">
 						<h3><?php echo $blogger->blog_name; ?></h3>
 						<p><?php echo Lb_functions::limitWords(10, $blogger->blog_description); ?></p>
-						<div class ="button-wrapper"><a href="<?php echo WEBPATH.$blogger->blog_id; ?>" class="btn btn-whitetext btn-small background-bluegreen">explore</a></div>
+						<div class ="button-wrapper">
+							<a href="<?php echo WEBPATH.$blogger->blog_id; ?>" class="btn btn-whitetext btn-small background-bluegreen">Page</a>
+							<a href="<?php echo $blogger->blog_url; ?>" class="btn btn-whitetext btn-small background-bluegreen">Blog</a>
+						</div>
 					</div>
 					<?php } ?>
 				</div>
