@@ -89,10 +89,6 @@ var lbApp ={
 								}
 							//$(this).html("<b>this</b> is a test");
 					});
-					if (global_page === "saved") {
-						// if we are in the favorites page, refresh page to reflect changes
-						location.reload();
-					};
 				});
 			}
 		},
