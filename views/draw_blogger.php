@@ -60,7 +60,7 @@ $blogger_posts = Posts::get_blogger_posts(20,$this->_blogger);
 
 foreach ($blogger_posts as $key => $post) {
 ;?>
-
+<div class="card-container">
 <div class ="card">
 	<div class="card_header noborder">
 		<a href="<?php echo $post->post_url ;?>"><h3 class ="secondaryfont"><?php echo $post->post_title; ?></h3></a>	
@@ -96,6 +96,7 @@ foreach ($blogger_posts as $key => $post) {
 			<li> <a href="http://www.facebook.com/sharer.php?u='.$post_url.'"><i class="icon-facebook icon-large"></i> Share</a> </li>
 		</ul>
 	</div>
+</div>
 </div>
 <?php
 
