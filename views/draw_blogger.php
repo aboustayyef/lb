@@ -40,10 +40,9 @@ $blogger_posts = Posts::get_blogger_posts(20,$this->_blogger);
 				}else {
 					// user is signed in but blog is not a favorite
 					?>
-					<li><div class ="twitterstylebutton favorite_toggle" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><a class ="addToFavorites" href="#"><i class ="icon-star"></i> Add Blog to Favorites</a></div></li>
+					<li><div class ="twitterstylebutton favorite_toggle" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><a class="addToFavorites" href="#"><i class="icon-star"></i> Add Blog to Favorites</a></div></li>
 					<?php
-				}
-			} else {
+				}} else {
 				// user is not signed in. Will ask them to sign in;
 				?>
 				<li><div class ="twitterstylebutton" ><a href="userlogin.php?from=favorites"><i class ="icon-star"></i> Add Blog to Favorites</a></div></li>
