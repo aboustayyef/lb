@@ -556,7 +556,7 @@ $(document).ready(function(){
 		lbApp.interface.revealContent();
 		lbApp.posts.favorites.init();
 		lbApp.posts.saved.init();
-		$('.endloader').show();
+		$('.endloader').css('opacity',1);
 
 	}
 	if ((global_page === "about")) {
