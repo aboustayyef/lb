@@ -5,6 +5,27 @@ global $channel_descriptions;
 <!DOCTYPE html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
+
+    <!-- Script to remove #_=_ from facebook redirects -->
+    
+    <script type="text/javascript">
+      if (window.location.hash && window.location.hash == '#_=_') {
+          if (window.history && history.pushState) {
+              window.history.pushState("", document.title, window.location.pathname);
+          } else {
+              // Prevent scrolling by storing the page's current scroll offset
+              var scroll = {
+                  top: document.body.scrollTop,
+                  left: document.body.scrollLeft
+              };
+              window.location.hash = '';
+              // Restore the scroll offset, should be flicker free
+              document.body.scrollTop = scroll.top;
+              document.body.scrollLeft = scroll.left;
+          }
+      }
+    </script>
+    
     <meta charset="utf-8">
     <title><?php echo $this->_title;?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
