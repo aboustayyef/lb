@@ -183,7 +183,7 @@ var lbApp ={
 					numOfCol: columns,
 					offsetX: 10,
 					offsetY: 10,
-					blockElement: '.card'
+					blockElement: '.card-container'
 				});
 			}
 		},

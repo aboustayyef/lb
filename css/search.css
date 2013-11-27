@@ -54,6 +54,9 @@ table {
 html {
   font-size: 62.5%; }
 
+.em {
+  font-style: italic; }
+
 .strong {
   font-weight: bold; }
 

@@ -78,24 +78,25 @@ class Extras
 				),
 			);
 			?>
-
-			<div class="card tip">
-				<div class="card_header primaryfont tip">
-					<h3><i class = "icon-lightbulb"></i> TIP</h3>
-				</div>
-				<div class="card_body tip">
-					<h3 class ="primaryfont"><?php echo $all_tips[$whichtip]['title'] ; ?></h3>
-					<p class ="secondaryfont"><?php echo $all_tips[$whichtip]['body'] ; ?></p>
-				</div>
-				<?php 
-				if (!empty($all_tips[$whichtip]['image'])) {
-					;?> 
-					<div class="card_footer tip nopadding background-white">
-						<img src="<?php echo $all_tips[$whichtip]['image'] ; ?>">
+			<div class="card-container">
+				<div class="card tip">
+					<div class="card_header primaryfont tip">
+						<h3><i class = "icon-lightbulb"></i> TIP</h3>
 					</div>
-					<?php
-				}
-				?>
+					<div class="card_body tip">
+						<h3 class ="primaryfont"><?php echo $all_tips[$whichtip]['title'] ; ?></h3>
+						<p class ="secondaryfont"><?php echo $all_tips[$whichtip]['body'] ; ?></p>
+					</div>
+					<?php 
+					if (!empty($all_tips[$whichtip]['image'])) {
+						;?> 
+						<div class="card_footer tip nopadding background-white">
+							<img src="<?php echo $all_tips[$whichtip]['image'] ; ?>">
+						</div>
+						<?php
+					}
+					?>
+				</div>
 			</div>
 			<?php
 		}
@@ -105,25 +106,26 @@ class Extras
 			global $db;
 
 			$bloggers = Posts::get_random_bloggers(3);?>
-
-			<div class="card">
-				<div class="card_header primaryfont background-bluegreen">
-					<h3 class ="whitefont">Featured Blogs</h3>
-				</div>
-				<div class="card_body elastic silverbody">
-
-					<?php
-					foreach ($bloggers as $blogger) { ?>
-					<div class="list_type_b">
-						<img src="img/thumbs/<?php echo $blogger->blog_id; ?>.jpg" alt="" class="thumb">
-						<h3><?php echo $blogger->blog_name; ?></h3>
-						<p><?php echo Lb_functions::limitWords(10, $blogger->blog_description); ?></p>
-						<div class ="button-wrapper">
-							<a href="<?php echo WEBPATH.$blogger->blog_id; ?>" class="btn btn-whitetext btn-small background-bluegreen">Page</a>
-							<a href="<?php echo $blogger->blog_url; ?>" class="btn btn-whitetext btn-small background-bluegreen">Blog</a>
-						</div>
+			<div class="card-container">
+				<div class="card">
+					<div class="card_header primaryfont background-bluegreen">
+						<h3 class ="whitefont">Featured Blogs</h3>
 					</div>
-					<?php } ?>
+					<div class="card_body elastic silverbody">
+
+						<?php
+						foreach ($bloggers as $blogger) { ?>
+						<div class="list_type_b">
+							<img src="img/thumbs/<?php echo $blogger->blog_id; ?>.jpg" alt="" class="thumb">
+							<h3><?php echo $blogger->blog_name; ?></h3>
+							<p><?php echo Lb_functions::limitWords(10, $blogger->blog_description); ?></p>
+							<div class ="button-wrapper">
+								<a href="<?php echo WEBPATH.$blogger->blog_id; ?>" class="btn btn-whitetext btn-small background-bluegreen">Page</a>
+								<a href="<?php echo $blogger->blog_url; ?>" class="btn btn-whitetext btn-small background-bluegreen">Blog</a>
+							</div>
+						</div>
+						<?php } ?>
+					</div>
 				</div>
 			</div>
 
@@ -143,55 +145,61 @@ class Extras
 				}
 			}
 			;?>
-			
-			<div class="card">
-				<div class="card_header primaryfont background-red">
-					<h3 class ="whitefont">Top Posts</h3>
+			<div class="card-container">
+				<div class="card">
+					<div class="announcement">
+						<h4>New Version of Lebanese Blogs now live! See <a href="http://lebaneseblogs.com/blog/?p=157">the cool new features</a></h4>
+					</div>
 				</div>
+				<div class="card">
+					<div class="card_header primaryfont background-red">
+						<h3 class ="whitefont">Top Posts</h3>
+					</div>
 
-				<div class ="card_body elastic">
-					
-					<?php
+					<div class ="card_body elastic">
+						
+						<?php
 
-					foreach ($stats as $stat) {
-						$img = $stat->post_image;
-						$img_height =$stat->post_image_height ;
-						$img_width =$stat->post_image_width ;
-						$title = $stat->post_title;
-						$url = $stat->post_url;
-						$blogger_url = ABSPATH . $stat->blog_id;
-						;?>
+						foreach ($stats as $stat) {
+							$img = $stat->post_image;
+							$img_height =$stat->post_image_height ;
+							$img_width =$stat->post_image_width ;
+							$title = $stat->post_title;
+							$url = $stat->post_url;
+							$blogger_url = ABSPATH . $stat->blog_id;
+							;?>
 
-						<div class="list_type_a">
-							<?php
-							if (empty($stat->post_image)) {
-								;?>
-								<a href ="<?php echo $url ;?>">
-									<div class="thumb"><img src="<?php echo "img/interface/no-image.jpg" ;?>" height ="75px"></div>
-								</a>
+							<div class="list_type_a">
 								<?php
-							}else {
-								if ($img_width >= $img_height) {
-									;?>				
-									<a href ="<?php echo $url ;?>">
-										<div class="thumb"><img src="<?php echo $img ;?>" height ="75px"></div>
-									</a>
-									<?php
-								} else {
+								if (empty($stat->post_image)) {
 									;?>
 									<a href ="<?php echo $url ;?>">
-										<div class="thumb"><img src="<?php echo $img ;?>" width = "75px"></div>
+										<div class="thumb"><img src="<?php echo "img/interface/no-image.jpg" ;?>" height ="75px"></div>
 									</a>
 									<?php
+								}else {
+									if ($img_width >= $img_height) {
+										;?>				
+										<a href ="<?php echo $url ;?>">
+											<div class="thumb"><img src="<?php echo $img ;?>" height ="75px"></div>
+										</a>
+										<?php
+									} else {
+										;?>
+										<a href ="<?php echo $url ;?>">
+											<div class="thumb"><img src="<?php echo $img ;?>" width = "75px"></div>
+										</a>
+										<?php
+									}
 								}
-							}
-							?>
-							<h4><a href ="<?php echo $url ;?>"><?php echo $title ;?></a></h4><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $stat->blog_name ;?></a></h5>			
-						</div>
-						<?php
-					} 
-					;?>
-				</div> <!-- /cards_body -->
+								?>
+								<h4><a href ="<?php echo $url ;?>"><?php echo $title ;?></a></h4><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $stat->blog_name ;?></a></h5>			
+							</div>
+							<?php
+						} 
+						;?>
+					</div> <!-- /cards_body -->
+				</div>
 			</div>
 			<?php	
 		}

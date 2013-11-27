@@ -54,6 +54,9 @@ table {
 html {
   font-size: 62.5%; }
 
+.em {
+  font-style: italic; }
+
 .strong {
   font-weight: bold; }
 
@@ -326,10 +329,12 @@ div.mainbar-wrapper {
         .menu ul a li:hover {
           background: #9c212a; }
 
+.card-container {
+  margin: 10px; }
+
 .card {
-  width: 280px;
+  width: 300px;
   padding: 0px;
-  margin: 10px;
   background: white;
   -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
@@ -566,6 +571,13 @@ div.mainbar-wrapper {
       line-height: 1.3em;
       max-width: 230px;
       overflow: auto; }
+  .card .announcement {
+    padding: 10px;
+    margin-bottom: 20px; }
+    .card .announcement h4 a {
+      color: #b12530; }
+      .card .announcement h4 a:hover {
+        text-decoration: underline; }
 
 .blogger-header {
   overflow: auto;
