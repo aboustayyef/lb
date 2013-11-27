@@ -556,6 +556,8 @@ $(document).ready(function(){
 		lbApp.interface.revealContent();
 		lbApp.posts.favorites.init();
 		lbApp.posts.saved.init();
+		$('.endloader').show();
+
 	}
 	if ((global_page === "about")) {
 		lbApp.aboutPage.init();
@@ -563,7 +565,6 @@ $(document).ready(function(){
 	}
 	if ((global_page === "blogger")) {
 		lbApp.bloggerPage.flow();
-		$('.endloader').hide();
 		lbApp.interface.revealContent();
 		lbApp.bloggerPage.loadImages();
 		lbApp.posts.favorites.init();
@@ -581,7 +582,6 @@ $(document).ready(function(){
 
 	}
 	if ((global_page === "favorites")){
-		$('.endloader').hide();
 		lbApp.posts.init();
 		lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
 		lbApp.posts.show(); // show everything
@@ -594,7 +594,6 @@ $(document).ready(function(){
 		lbApp.posts.saved.init();
 	}
 	if ((global_page === "saved")){
-		$('.endloader').hide();
 		lbApp.posts.init();
 		lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
 		lbApp.posts.show(); // show everything

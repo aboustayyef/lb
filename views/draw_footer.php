@@ -1,4 +1,4 @@
-            <div class="endloader"><img src ="<?php echo WEBPATH ;?>img/interface/ajax-loader.gif"></div>
+            <div class="endloader" style ="opacity:0"><img src ="<?php echo WEBPATH ;?>img/interface/ajax-loader.gif"></div>
         </div> <!-- /view-area -->
     </div> <!-- /pagewrapper -->
 </div>
