@@ -415,7 +415,7 @@ bloggerPage:{
 				numOfCol: this.columns,
 				offsetX: 10,
 				offsetY: 10,
-				blockElement: '.card'
+				blockElement: '.card-container'
 			});
 		},
 		loadImages: function(){
