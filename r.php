@@ -1,6 +1,6 @@
 <?php 
 
-require_once("includes_new/config.php");
+require_once("config.php");
 require_once("includes_new/connection.php");
 
 if (isset($_GET["r"])){
