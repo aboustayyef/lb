@@ -16,7 +16,7 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'meta_blog_data');
+define('DB_NAME', 'metablog_lebanese_blogs');
 
 /** MySQL database username */
 define('DB_USER', 'mustapha');

@@ -477,6 +477,12 @@ img.wp-smiley,
 /* =Basic structure
 -------------------------------------------------------------- */
 
+div#highlights{
+ padding: .2em .5em;
+ border: 1px solid silver;
+ background: rgb(255, 255, 252);
+}
+
 /* Body, links, basics */
 html {
 	font-size: 87.5%;
