@@ -146,13 +146,13 @@ class Extras
 			}
 			;?>
 			<div class="card-container">
-				<!--  Uncomment this once blog post is published...
+
 				<div class="card">
 					<div class="announcement">
 						<h4>New Version of Lebanese Blogs now live! See <a href="http://lebaneseblogs.com/blog/?p=157">the cool new features</a></h4>
 					</div>
 				</div>
-				-->
+				
 				<div class="card">
 					<div class="card_header primaryfont background-red">
 						<h3 class ="whitefont">Top Posts</h3>
