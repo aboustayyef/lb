@@ -334,6 +334,17 @@
             overflow: auto;
         }
     }
+    .announcement-graphic{
+        width: 25px;
+        height: 24px;
+        display: block;
+        float: left;
+        background: #ffcc66;
+        color:$lb_red;
+        margin-right: 10px;
+        padding: 20px 10px;
+        font-size: 25px;
+    }
     .announcement{
         padding:10px;
         margin-bottom:20px;

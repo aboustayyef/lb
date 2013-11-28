@@ -571,6 +571,16 @@ div.mainbar-wrapper {
       line-height: 1.3em;
       max-width: 230px;
       overflow: auto; }
+  .card .announcement-graphic {
+    width: 25px;
+    height: 24px;
+    display: block;
+    float: left;
+    background: #ffcc66;
+    color: #b12530;
+    margin-right: 10px;
+    padding: 20px 10px;
+    font-size: 25px; }
   .card .announcement {
     padding: 10px;
     margin-bottom: 20px; }

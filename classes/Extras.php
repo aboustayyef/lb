@@ -148,6 +148,9 @@ class Extras
 			<div class="card-container">
 
 				<div class="card">
+					<div class ="announcement-graphic">
+						<i class="icon icon-comment"></i>
+					</div>
 					<div class="announcement">
 						<h4>New Version of Lebanese Blogs now live! See <a href="http://lebaneseblogs.com/blog/?p=157">the cool new features</a></h4>
 					</div>
