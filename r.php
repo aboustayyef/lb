@@ -1,7 +1,7 @@
 <?php 
 
-require_once("includes/config.php");
-require_once("includes/connection.php");
+require_once("includes_new/config.php");
+require_once("includes_new/connection.php");
 
 if (isset($_GET["r"])){
 	$target_url = urldecode($_GET["r"]);
