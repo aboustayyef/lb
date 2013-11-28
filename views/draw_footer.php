@@ -31,7 +31,7 @@
                 alt="web counter"></a></div></noscript>
             <!-- End of StatCounter Code for Default Guide -->
 
-            Start of Google Analytics Code 
+            <!-- Start of Google Analytics Code --> 
                 <script>
                     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
