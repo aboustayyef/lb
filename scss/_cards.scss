@@ -142,13 +142,26 @@
             padding:5px;
             font-size: 16px;
         }
+        .excerpt{
+            padding-bottom: 15px;
+        }
         blockquote{
-            padding: 0 15px;
-            font-size: .9em;
-            line-height: 1.4em;
-            max-width: 230px;
-            overflow: hidden;
-            opacity: .6;
+            padding: 10px;
+            margin: 10px;
+            border-top: 1px dotted silver;
+            margin-top: 10px;
+            opacity: 0.6;
+            &.ltr{
+                font-size: 1.1em;
+                line-height: 1.4em;
+                max-width: 230px;
+                overflow: hidden;
+            }
+            &.rtl{
+                font-size: 1.2em;
+                font-family: tahoma;
+                direction: rtl;
+            }
         }
         img{
             border: lighten(silver, 10) solid 1px;
@@ -166,6 +179,20 @@
                     color: #3B967C;
                     text-decoration: none;
                 }          
+            }
+
+            &.rtl{
+                direction:rtl;
+            }
+
+            &.givemargins{
+                margin-left:10px;
+                margin-right:10px;
+                padding-bottom:10px;
+            }
+
+            &.giveborder{
+                border-bottom: 1px solid darken(white, 10);
             }
         }
         .list_type_a{
@@ -313,25 +340,6 @@
                     }
                 }
             }
-        }
-    }
-    &.rtl{
-        direction: rtl;
-        font-family: tahoma ,sans-serif;
-        font-size: 15px;
-        line-height: 18px;
-        .post_title a{
-            font-size:20px;
-            line-height: 24px;
-        }
-        blockquote{
-            padding: 0 25px 0 0;
-            border-left:none;
-            border-right: 5px rgb(238,238,238) solid;
-            font-size: 1.2em;
-            line-height: 1.3em;
-            max-width: 230px;
-            overflow: auto;
         }
     }
     .announcement-graphic{

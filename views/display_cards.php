@@ -18,7 +18,7 @@
 			<!-- Card wrapper -->
 
 			<div class="card-container">
-				<div class="card<?php if ($this->contains_arabic($post->post_title)) {echo " rtl";} ?>" data-id="<?php echo $_SESSION['posts_displayed']; ?>"  style ="opacity:0;">
+				<div class="card" data-id="<?php echo $_SESSION['posts_displayed']; ?>"  style ="opacity:0;">
 			
 				<!--card header-->
 			
@@ -59,7 +59,7 @@
 				<!--card body-->
 				<div class ="card_body" id ="<?php echo 'content-post-' . $_SESSION['posts_displayed']; ?>">
 					<div class="post_time"><?php echo Lb_functions::time_elapsed_string($post->post_timestamp) ?></div>
-					<div class="post_title secondaryfont"><a href="<?php echo $target_url ;?>"><?php echo $post->post_title; ?></a></div>
+					<div class="post_title secondaryfont <?php if (Lb_functions::contains_arabic($post->post_title)) {echo " rtl";}else{echo " ltr";} ?>"><a href="<?php echo $target_url ;?>"><?php echo $post->post_title; ?></a></div>
 					<?php 
 
 						if (isset($post->post_image) && ($post->post_image_width > 0) && ($post->post_image_height>0)) {
@@ -73,7 +73,7 @@
 						} else {
 							;?>
 							
-							<div class ="excerpt"><blockquote><?php echo $post->post_excerpt; ?></blockquote>	</div>
+							<div class ="excerpt"><blockquote class ="secondaryfont <?php if (Lb_functions::contains_arabic($post->post_title)) {echo " rtl";}else{echo " ltr";} ?>"><?php echo $post->post_excerpt; ?></blockquote></div>
 							
 							<?php
 						}

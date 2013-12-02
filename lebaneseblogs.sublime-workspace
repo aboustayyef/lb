@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"aut",
+				"author_list_of_posts"
+			],
+			[
+				"col",
+				"col_media_source_shorthand"
+			],
+			[
 				"_",
 				"_user_profile  (variable)"
 			],
@@ -112,18 +120,22 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/logs/php_error.log",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/media_definitions.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/GetArticles.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/articles_fetcher.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/testdb.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/init.php",
+		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/DB.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Extras.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/scss/_cards.scss",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/js/lebaneseblogs.js",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/.htaccess",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/init.php",
-		"/Applications/MAMP/logs/php_error.log",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/test.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Users.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/Posts.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/draw_blogger.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/views/draw_left_column.php",
-		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/classes/DB.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/facebooklogout.php",
 		"/Users/stayyef/Dropbox/_websites_/lebanese_blogs/fbconfig.php",
 		"/Users/Stayyef/Library/Application Support/Sublime Text 2/Packages/AdvancedNewFile/AdvancedNewFile.sublime-settings",
@@ -165,6 +177,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"$counter > $howmany",
+			"users",
 			"topFiv",
 			"lazy",
 			"images",
@@ -251,6 +265,10 @@
 		"selected_items":
 		[
 			[
+				"error",
+				"logs/php_error.log"
+			],
+			[
 				"cards",
 				"lebanese_blogs/scss/_cards.scss"
 			],
@@ -277,10 +295,6 @@
 			[
 				"user",
 				"lebanese_blogs/classes/Users.php"
-			],
-			[
-				"error",
-				"logs/php_error.log"
 			],
 			[
 				"test",
