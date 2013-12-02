@@ -62,10 +62,12 @@ foreach ($blogger_posts as $key => $post) {
 ;?>
 <div class="card-container">
 <div class ="card">
-	<div class="card_header noborder">
-		<a href="<?php echo $post->post_url ;?>"><h3 class ="secondaryfont"><?php echo $post->post_title; ?></h3></a>	
-	</div>
+
 	<div class="card_body nopadding">	
+		<div class="post_title givemargins secondaryfont <?php if (Lb_functions::contains_arabic($post->post_title)) {echo " rtl";}else{echo " ltr";} ?>">
+			<a href="<?php echo $post->post_url ;?>"><?php echo $post->post_title; ?></a>	
+		</div>
+
 		<?php 
 			if (isset($post->post_image) && ($post->post_image_width > 0) && ($post->post_image_height>0)) {
 				$image_width = 300;
@@ -78,7 +80,7 @@ foreach ($blogger_posts as $key => $post) {
 			} else {
 				;?>
 				
-				<div class ="excerpt"><blockquote><?php echo $post->post_excerpt; ?></blockquote>	</div>
+				<div class ="excerpt"><blockquote class ="<?php if (Lb_functions::contains_arabic($post->post_title)) {echo " rtl";}else{echo " ltr";} ?>"><?php echo $post->post_excerpt; ?></blockquote>	</div>
 				
 				<?php
 			}

@@ -39,7 +39,14 @@ class Lb_functions {
 		return 'TagError';
 	}
 
+	static function contains_arabic($string){	//returns true if string has arabic characters
 
+		if (preg_match("/([ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]).+/", $string)){
+			return false;
+		} else {
+			return true;
+		}
+	}
 	/**
 	*   convert time from timestamp to
 	*	a seconds, b minutes, c hours ..etc

@@ -432,13 +432,23 @@ div.mainbar-wrapper {
     .card .card_body p {
       padding: 5px;
       font-size: 16px; }
+    .card .card_body .excerpt {
+      padding-bottom: 15px; }
     .card .card_body blockquote {
-      padding: 0 15px;
-      font-size: .9em;
-      line-height: 1.4em;
-      max-width: 230px;
-      overflow: hidden;
-      opacity: .6; }
+      padding: 10px;
+      margin: 10px;
+      border-top: 1px dotted silver;
+      margin-top: 10px;
+      opacity: 0.6; }
+      .card .card_body blockquote.ltr {
+        font-size: 1.1em;
+        line-height: 1.4em;
+        max-width: 230px;
+        overflow: hidden; }
+      .card .card_body blockquote.rtl {
+        font-size: 1.2em;
+        font-family: tahoma;
+        direction: rtl; }
     .card .card_body img {
       border: #dadada solid 1px;
       margin-top: 10px; }
@@ -453,6 +463,14 @@ div.mainbar-wrapper {
         .card .card_body .post_title a:hover {
           color: #3B967C;
           text-decoration: none; }
+      .card .card_body .post_title.rtl {
+        direction: rtl; }
+      .card .card_body .post_title.givemargins {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-bottom: 10px; }
+      .card .card_body .post_title.giveborder {
+        border-bottom: 1px solid #e6e6e6; }
     .card .card_body .list_type_a {
       /* A list type a is a list that takes a div.thumb, an h3 (title) and h4 (description) */
       clear: both;
@@ -555,22 +573,6 @@ div.mainbar-wrapper {
           font-size: 0.9em; }
           .card .card_footer ul li i.selected {
             color: #b12530; }
-  .card.rtl {
-    direction: rtl;
-    font-family: tahoma ,sans-serif;
-    font-size: 15px;
-    line-height: 18px; }
-    .card.rtl .post_title a {
-      font-size: 20px;
-      line-height: 24px; }
-    .card.rtl blockquote {
-      padding: 0 25px 0 0;
-      border-left: none;
-      border-right: 5px #eeeeee solid;
-      font-size: 1.2em;
-      line-height: 1.3em;
-      max-width: 230px;
-      overflow: auto; }
   .card .announcement-graphic {
     width: 25px;
     height: 24px;
