@@ -1,6 +1,12 @@
 <?php 
 require_once('init.php');
 
+$users = DB::getInstance();
+$users->get('columnists', array('col_name','=','Michael Young'));
+echo "<pre>";
+	print_r($users->results());
+echo "</pre>";
+
 /*$blog_id = 'beirutspring';
 echo Posts::get_blog_name($blog_id);*/
 

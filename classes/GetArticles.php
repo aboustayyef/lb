@@ -1,0 +1,160 @@
+<?php 
+
+/**
+* This class is article getter. It extracts a list of articles from an author page on the web.
+*/
+require_once('includes_new/simple_html_dom.php');
+
+class GetArticles {
+	function __construct(){
+		# Nothing
+	}
+
+	public static function getList($media_source, $author_page, $howmany){
+
+		switch ($media_source['method']) {
+			case '1':
+				$result = self::getList_method1($media_source, $author_page, $howmany);
+				break;
+			case '2':
+				$result = self::getList_method2($media_source, $author_page, $howmany);
+				break;			
+			default:
+				die('a method needs to be specified');
+				break;
+		}
+		return $result;
+
+
+	}
+
+	public static function getList_method1($media_source, $author_page, $howmany=null){
+		$counter = 0;
+		$html = file_get_html($author_page);
+		$articles = array();
+		foreach ($html->find($media_source['articles_wrapper']) as $key => $element) {
+			
+			$articles[$key]['title'] = trim(html_entity_decode($element->find($media_source['title'][0],$media_source['title'][1])->plaintext));
+			
+			$articles[$key]['link'] = $media_source['link_prefix'].trim(html_entity_decode($element->find($media_source['link'][0],$media_source['link'][1])->href));
+
+			$thedate = new DateTime(trim(html_entity_decode($element->find($media_source['timestamp'][0],$media_source['timestamp'][1])->plaintext)));
+			
+			/*Since Timestamps are taken from dates, not exact times (ex: 12/November/2013), the resulting timestamp 
+			will be at midnight, and columnists would be relegated to midnight posts. To remedy this we add 6 hours so that they're published at a good early time, 
+			We also add a random amount between 1 minutes and 60 minutes so that columnists don't all appear at the exact same time */
+			$articles[$key]['timestamp'] = ($thedate->GetTimeStamp())+ 25200 + rand(60,3600); 
+
+			$articles[$key]['excerpt'] = trim(html_entity_decode($element->find($media_source['excerpt'][0],$media_source['excerpt'][1])->plaintext));
+
+			$articles[$key]['image'] = self::getImageFromURL($articles[$key]['link'], $media_source['article_body'], $media_source['img_prefix']);
+			$articles[$key]["content"] = self::getContentFromURL($articles[$key]["link"], $media_source['content_body']);
+
+			$counter++;
+			if (isset($howmany)) {
+				if ($counter > $howmany-1) {
+					break;
+				}
+			}
+		
+		}
+
+		return $articles;
+	}
+
+	public static function getList_method2($media_source, $author_page, $howmany=null){
+		
+		$counter = 0;
+		$html = file_get_html($author_page);
+		$articles = array();
+
+		// container is the main envelop of article units. Extract the first item.
+		$container = $html->find($media_source['articles_wrapper'],0);
+
+		$counter = 0;
+		foreach ($container->find($media_source['title']) as $key => $element) {
+			$articles[$key]["title"] = trim(html_entity_decode($element->plaintext));
+			$counter++;
+				if (isset($howmany)) {
+					if ($counter > $howmany-1) {
+						break;
+					}
+				}
+		}
+
+		$counter = 0;
+		foreach ($container->find($media_source['link']) as $key => $element) {
+				$articles[$key]["link"] = $media_source['link_prefix'].trim(html_entity_decode($element->href));
+				$articles[$key]["image"] = self::getImageFromURL($articles[$key]["link"], $media_source['article_body'], $media_source['img_prefix']);
+				$articles[$key]["content"] = self::getContentFromURL($articles[$key]["link"], $media_source['content_body']);
+				$counter++;
+				if (isset($howmany)) {
+					if ($counter > $howmany-1) {
+						break;
+					}
+				}
+		}
+
+		$counter = 0;
+		foreach ($container->find($media_source['timestamp']) as $key => $element) {
+			$thedate = new DateTime(trim(html_entity_decode($element->plaintext)));
+			/*Since Timestamps are taken from dates, not exact times (ex: 12/November/2013), the resulting timestamp will be at 
+			midnight, and columnists would be relegated to midnight posts. To remedy this we add 6 hours so that they're published at a good
+			early time,	We also add a random amount between 1 minutes and 60 minutes so that columnists don't all appear at the exact same time */
+			$articles[$key]['timestamp']= $thedate->getTimestamp()+ 25200 + rand(60,3600);
+			$counter++;
+			if (isset($howmany)) {
+				if ($counter > $howmany-1) {
+					break;
+				}
+			}
+		}
+
+		$counter = 0;
+		foreach ($container->find($media_source['excerpt']) as $key => $element) {
+			$articles[$key]['excerpt']= trim($element->plaintext);
+			$counter++;
+			if (isset($howmany)) {
+				if ($counter > $howmany-1) {
+					break;
+				}
+			}
+		}
+	
+		return $articles;
+	}
+
+
+
+	private static function getImageFromURL($url, $article_path, $img_prefix){
+
+	$html = file_get_html($url);
+	
+	// to avoid extracting logo, we only look in the article container, which is entered in the function's parameters
+    $article_container = $html->find($article_path,0);
+
+	if ($article_container->find('img')) {
+		foreach ($article_container->find('img') as $key => $element) {
+			if (isset($element->width)) {
+				if ($element->width > 300) {
+					return $img_prefix.$element->src . ' <br> ';
+				}
+			}
+		}
+		return null;
+		}
+	}
+
+	private static function getContentFromURL($url, $article_path){
+		$html = file_get_html($url);
+
+		$article_container = $html->find($article_path,0);
+		$content = '';
+		foreach ($article_container->find('p') as $key => $element) {
+			$content .= '<p>'.$element->plaintext.'</p>';
+		}
+		return $content;
+	}
+}
+
+?>
