@@ -29,7 +29,8 @@ function get_domain($theurl)
 		$theurl =  htmlspecialchars_decode($theurl);
 		$parse = parse_url($theurl, PHP_URL_QUERY);
 		parse_str($parse, $params);
-		$domain = explode('.',$params['set'])[3];
+		$temp = explode('.',$params['set']);
+		$domain = $temp[3];
 	}
 
 	return $domain;
