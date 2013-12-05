@@ -59,7 +59,8 @@ class GetArticles {
 
 			$article['excerpt'] = trim(html_entity_decode($element->find($media_source['excerpt'][0],$media_source['excerpt'][1])->plaintext));
 
-			$article['image'] = self::getImageFromURL($article['link'], $media_source['article_body'], $media_source['img_prefix']);
+			$article['image_details'] = self::getImageFromURL($article['link'], $media_source['article_body'], $media_source['img_prefix']);
+
 			$article["content"] = self::getContentFromURL($article["link"], $media_source['content_body']);
 			return $article;
 		} else {
@@ -122,7 +123,7 @@ class GetArticles {
 
 		$allLinks = $container->find($media_source['link']);
 		$article['link'] = $media_source['link_prefix'].$allLinks[$whichArticle]->href;
-		$article['image'] = self::getImageFromURL($article['link'], $media_source['article_body'], $media_source['img_prefix']);
+		$article['image_details'] = self::getImageFromURL($article['link'], $media_source['article_body'], $media_source['img_prefix']);
 		$article['content'] = self::getContentFromURL($article['link'], $media_source['content_body']);
 
 		$allTimeStamps = $container->find($media_source['timestamp']);
@@ -210,7 +211,12 @@ class GetArticles {
 		foreach ($article_container->find('img') as $key => $element) {
 			if (isset($element->width)) {
 				if ($element->width > 300) {
-					return $img_prefix.$element->src . ' <br> ';
+					$image_details = array(
+						'source'	=>	$img_prefix.$element->src,
+						'width'		=>	(int)$element->width,
+						'height'	=>	(int)$element->height,
+					);
+					return $image_details;
 				}
 			}
 		}

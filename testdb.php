@@ -2,10 +2,42 @@
 require_once('init.php');
 
 $users = DB::getInstance();
-$users->get('columnists', array('col_name','=','Michael Young'));
+
+$users->get('posts', array('post_url','=','http://www.thenational.ae/thenationalconversation/comment/assads-position-strengthens-in-lead-up-to-geneva-talks'));
 echo "<pre>";
 	print_r($users->results());
 echo "</pre>";
+
+/* To insert */
+
+/*$users->insert('posts', array(
+	'post_url'	=>	'http://test.testy',
+	'post_title'	=>	'This is a test',
+	'post_image'	=>	'http://test.testyimage/theimage.jpg',
+	'post_excerpt'	=> ' Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.',
+	'blog_id'		=>	'myoung_ds',
+	'post_timestamp'	=> '1486199860',
+	'post_content'	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, eum, necessitatibus et in quasi quis consectetur perferendis modi adipisci quam dicta voluptates ratione perspiciatis minus fuga enim suscipit sequi odio culpa mollitia libero voluptas eos laudantium tenetur ipsum atque beatae magni facilis temporibus veritatis repudiandae qui ad neque! Dolore, aliquam, commodi, consectetur esse quis ratione minus fugit harum veniam delectus qui et molestiae possimus. Mollitia, blanditiis ipsum dignissimos excepturi aliquam natus odio non magni ullam dolor? Possimus nam ipsa a eius provident odio iure esse neque maiores ipsam. Vel, soluta id laborum ipsam dicta cupiditate nesciunt corrupti a assumenda delectus?',
+	'post_image_height'	=> '300',
+	'post_image_width'	=>	'600'
+));*/
+
+
+
+/*$url = "http://smileyface80.wordpress.dcom/2013/03/03/%D8%A7%D9%84%D9%88%D8%B1%D8%AF-%D8%AC%D9%85%D9%8A%D9%84-%D8%A3%D9%85-%D9%83%D9%84%D8%AB%D9%88%D9%85/";
+
+if (Posts::postExists($url)) {
+	echo 'This post exists';
+} else {
+	echo 'This post Does Not Exists';
+}
+*/
+
+
+/*$users->get('columnists', array('col_name','=','Michael Young'));
+echo "<pre>";
+	print_r($users->results());
+echo "</pre>";*/
 
 /*$blog_id = 'beirutspring';
 echo Posts::get_blog_name($blog_id);*/

@@ -159,6 +159,13 @@ public static function get_saved_bloggers_posts($user_id, $from, $howmany){
         }
     }
 
+    public static function postExists($url){
+        $sql = 'SELECT * from posts WHERE `post_url` = "' . $url . '"';
+        if (DB::getInstance()->query($sql)->count() > 0) { // yes, this post exists
+                return true;
+            }
+    }
+
     public static function isFavorite($user_id, $blog_id){
         $sql = 'SELECT * from users_blogs WHERE `user_facebook_id` = "' . $user_id . '" AND `blog_id` = "'  . $blog_id . '"';
         if (DB::getInstance()->query($sql)->count() > 0) { // yes, it's a favorite
