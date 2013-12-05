@@ -87,12 +87,12 @@
 					$tweetcredit = ($post->blog_author_twitter_username)?" by @{$post->blog_author_twitter_username}":"";
 					$url_to_incode = "{$post->post_title} {$post->post_url}".$tweetcredit." via lebaneseblogs.com";
 					$twitterUrl = urlencode($url_to_incode);
+					$post_url = $post->post_url;
 					?>
 					<ul>
 						<?php 
 							if (Users::UserSignedIn()) { // if user is signed in;
 								$f_id = $_SESSION['LebaneseBlogs_Facebook_User_ID'];
-								$post_url = $post->post_url;
 								if (Posts::isSaved($f_id, $post_url)) {
 									// user is signed in and post is saved
 									?>
@@ -113,7 +113,7 @@
 						 ?>	
 					
 						<li> <a href="https://twitter.com/intent/tweet?text=<?php echo $twitterUrl; ?>" title="Click to send this post to Twitter!" target="_blank"><i class="icon-twitter icon-large"></i> Tweet</a> </li>
-						<li> <a href="http://www.facebook.com/sharer.php?u='.$post_url.'"><i class="icon-facebook icon-large"></i> Share</a> </li>
+						<li> <a href="http://www.facebook.com/sharer.php?u=<?php echo $post_url ;?>"><i class="icon-facebook icon-large"></i> Share</a> </li>
 						<?php 
 							/*if (admin_logged_in()) {
 								echo "<li>$post_visits</li>";
