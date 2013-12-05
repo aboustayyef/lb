@@ -1,7 +1,6 @@
 <?php 
 header('Content-Type: text/html; charset=utf-8');
 require_once('init.php');
-
 include_once('media_definitions.php');
 
 //$article = GetArticles::getArticle($now_lebanon, 'https://now.mmedia.me/lb/en/Author/Hanin.Ghadar', 0);

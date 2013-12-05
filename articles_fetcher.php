@@ -11,15 +11,29 @@ include_once('media_definitions.php');
 // Go through authors
 foreach ($columnists->results() as $key => $columnist) {
 
-		// extract media definition of that author
-		$media = $columnist->col_media_source_shorthand;
-		$author_media_definition = $$media;
+	$author_media_definition = $columnist->col_media_source_shorthand;
+	$author_media_definition = $$author_media_definition;
 
-		$author_list_of_posts = GetArticles::getList($author_media_definition, $columnist->col_home_page, 1);
-		echo "<pre>";
-		print_r($author_list_of_posts);
-		echo "</pre>";
+
+	// Go through articles
+	$counter = 0;
+	while ($counter >= 0) {
+		if ($article = GetArticles::getArticle($author_media_definition, $columnist->col_home_page, $counter)) {
+			
+			// check if article exists in database
+			//--> yes
+			//	 	|break
+			//--> No
+			//		| store post
+
+			echo '<a href="'.$article['link'].'">'.$article['title'].'</a><br>';
+			$counter++;
+		} else {
+			echo '<h2>All Articles Available are displayed</h2>';
+			break;
+		}
 	}
-	
+
+}	
 
 ?>
