@@ -156,6 +156,17 @@
                 line-height: 1.4em;
                 max-width: 230px;
                 overflow: hidden;
+                &:first-letter {
+                    float: left;
+                    color: $lb_red;
+                    font-size: 40px;
+                    line-height: 40px;
+                    margin-left: 0;
+                    padding-left: 0;
+                    padding-right: 5px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
             }
             &.rtl{
                 font-size: 1.2em;

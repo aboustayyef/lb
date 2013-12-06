@@ -59,17 +59,24 @@ class Posts
     public static function get_interval_posts($from=0,$howmany=10, $channel = NULL){
         
         if (isset($channel)) {
-            $query = "SELECT posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
+            $query = 'SELECT 
+            posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, columnists.col_shorthand, blogs.blog_name, columnists.col_name,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 
-            blogs.blog_author_twitter_username , posts.post_timestamp 
+            blogs.blog_author_twitter_username, columnists.col_author_twitter_username, posts.post_timestamp 
             FROM `posts` 
-            INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id 
-            WHERE blogs.blog_tags 
-            LIKE '%".trim($channel)."%' ORDER BY `post_timestamp` DESC LIMIT $from, $howmany";
+            LEFT JOIN `blogs` ON posts.blog_id = blogs.blog_id 
+            LEFT JOIN `columnists` ON posts.blog_id = columnists.col_shorthand
+            WHERE (blogs.blog_tags LIKE "%'.trim($channel).'%") OR (columnists.col_tags LIKE "%'.trim($channel).'%") 
+            ORDER BY `post_timestamp` DESC LIMIT '.$from.','.$howmany;
         } else {
-            $query = "SELECT posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, blogs.blog_name ,  
+            $query = "SELECT 
+            posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, columnists.col_shorthand, blogs.blog_name, columnists.col_name,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 
-            blogs.blog_author_twitter_username , posts.post_timestamp FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id ORDER BY `post_timestamp` DESC LIMIT $from, $howmany";
+            blogs.blog_author_twitter_username, columnists.col_author_twitter_username, posts.post_timestamp 
+            FROM `posts` 
+            LEFT JOIN `blogs` ON posts.blog_id = blogs.blog_id 
+            LEFT JOIN `columnists` ON posts.blog_id = columnists.col_shorthand
+            ORDER BY `post_timestamp` DESC LIMIT $from, $howmany";
         }
 
         DB::getInstance()->query($query);

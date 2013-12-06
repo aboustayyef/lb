@@ -7,23 +7,29 @@ $columnists->getAll('columnists');
 
 include_once('media_definitions.php');
 
+// horizontal line
+$line_length = 70;
+$hr  = "\n".str_repeat('-', $line_length)."\n";
+$dhr = "\n".str_repeat('=', $line_length)."\n";
 
 // Go through authors
 foreach ($columnists->results() as $key => $columnist) {
 
 	$author_media_definition = $columnist->col_media_source_shorthand;
 	$author_media_definition = $$author_media_definition;
-	echo '<hr>';
-	echo 'Getting author '.$columnist->col_name.' at '.$columnist->col_media_source.'<br>';
+	echo $hr;
+	echo 'Getting author '.$columnist->col_name.' at '.$columnist->col_media_source;
+	echo $hr;
 	// Go through articles
 	$counter = 0;
 	while ($counter >= 0) {
+		// an assignment and a conditional. If succesful assignment.. etc
 		if ($article = GetArticles::getArticle($author_media_definition, $columnist->col_home_page, $counter)) {
 			
 			$url = $article['link'];
 			if (Posts::postExists($url)) {
 				echo 'Post "'.$article['title'].'" already exists';
-				echo "<br>";
+				echo "\n";
 
 				break;
 			} else {
@@ -51,14 +57,15 @@ foreach ($columnists->results() as $key => $columnist) {
 				));
 
 				echo 'added: "'.$article['title'].'"';
-				echo "<br>";
+				echo "\n";
 
 				// If you are debugging, uncomment the next line so that just one article of each columnist is inserted
 				// break;
 			}
 			$counter++;
 		} else {
-			echo '<h2>All Articles Available are displayed</h2>';
+
+			echo $hr.'All Articles Available are displayed'.$hr ;
 			break;
 		}
 	}

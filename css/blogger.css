@@ -445,6 +445,16 @@ div.mainbar-wrapper {
         line-height: 1.4em;
         max-width: 230px;
         overflow: hidden; }
+        .card .card_body blockquote.ltr:first-letter {
+          float: left;
+          color: #b12530;
+          font-size: 40px;
+          line-height: 40px;
+          margin-left: 0;
+          padding-left: 0;
+          padding-right: 5px;
+          font-weight: bold;
+          text-transform: uppercase; }
       .card .card_body blockquote.rtl {
         font-size: 1.2em;
         font-family: tahoma;

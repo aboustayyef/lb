@@ -15,6 +15,18 @@
 
 			;?>
 			
+			<!-- Depending on wheather it's a columnist or a blogger, some variables have to change -->
+			<?php 
+				if (!isset($post->blog_id) || empty($post->blog_id)) { // if there is no blog_id, it means we are dealing with a columnist
+					$blog_id = $post->col_shorthand;
+					$blog_name = $post->col_name;
+					$author_twitter = $post->col_author_twitter_username;
+				}else{
+					$blog_id = $post->blog_id;
+					$blog_name = $post->blog_name;
+					$author_twitter = $post->blog_author_twitter_username;
+				}
+			?>
 			<!-- Card wrapper -->
 
 			<div class="card-container">
@@ -23,16 +35,16 @@
 				<!--card header-->
 			
 				<div class="card_header background-greylightest">
-					<a href ="<?php echo WEBPATH. $post->blog_id ; ?>"><img class ="blog_thumb" src="<?php echo WEBPATH.'img/thumbs/'.$post->blog_id.'.jpg';?>" width ="50" height ="50"></a>
+					<a href ="<?php echo WEBPATH. $blog_id ; ?>"><img class ="blog_thumb" src="<?php echo WEBPATH.'img/thumbs/'.$blog_id.'.jpg';?>" width ="50" height ="50"></a>
 					<div class="post_details">
-						<div class="blog_name secondaryfont"><a href ="<?php echo WEBPATH. $post->blog_id ;?>"><?php echo $post->blog_name ;?></a></div>
+						<div class="blog_name secondaryfont"><a href ="<?php echo WEBPATH. $blog_id ;?>"><?php echo $blog_name ;?></a></div>
 						<div class="blog_tools">
 								<!-- <li><i class ="icon-exclamation-sign"></i> About Blog</li> -->
 								
 								<?php 
 									if (Users::UserSignedIn()) { // if user is signed in;
 										$f_id = $_SESSION['LebaneseBlogs_Facebook_User_ID'];
-										$blog_id = $post->blog_id;
+										$blog_id = $blog_id;
 										if (Posts::isFavorite($f_id, $blog_id)) {
 											// user is signed in and blog is a favorite
 											?>
@@ -47,7 +59,7 @@
 									} else {
 										// user is not signed in. Will ask them to sign in;
 										?>
-										<div class ="add2fav" ><a href="userlogin.php?from=favorites&amp;action=favorite&amp;blog=<?php echo $post->blog_id; ?>&amp;redirect=<?php echo WEBPATH ?>"><i class ="icon-star"></i> Add Blog to Favorites</a></div>
+										<div class ="add2fav" ><a href="userlogin.php?from=favorites&amp;action=favorite&amp;blog=<?php echo $blog_id; ?>&amp;redirect=<?php echo WEBPATH ?>"><i class ="icon-star"></i> Add Blog to Favorites</a></div>
 										<?php
 									}
 								 ?>
@@ -84,7 +96,7 @@
 				<!--card footer-->
 				<div class="card_footer nopadding">
 					<?php 
-					$tweetcredit = ($post->blog_author_twitter_username)?" by @{$post->blog_author_twitter_username}":"";
+					$tweetcredit = ($author_twitter)?" by @{$author_twitter}":"";
 					$url_to_incode = "{$post->post_title} {$post->post_url}".$tweetcredit." via lebaneseblogs.com";
 					$twitterUrl = urlencode($url_to_incode);
 					$post_url = $post->post_url;
