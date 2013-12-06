@@ -1,12 +1,17 @@
 <?php 
 require_once('init.php');
 
-$users = DB::getInstance();
+$data = Posts::get_latest_posts(10, 'politics');
+echo "<pre>";
+	var_dump($data);
+echo "</pre>";
+
+/*$users = DB::getInstance();
 
 $users->get('posts', array('post_url','=','http://www.thenational.ae/thenationalconversation/comment/assads-position-strengthens-in-lead-up-to-geneva-talks'));
 echo "<pre>";
 	print_r($users->results());
-echo "</pre>";
+echo "</pre>";*/
 
 /* To insert */
 
