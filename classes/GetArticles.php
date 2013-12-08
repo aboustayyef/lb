@@ -4,7 +4,7 @@
 * This class is article getter. It extracts a list of articles from an author page on the web.
 */
 header('Content-Type: text/html; charset=utf-8');
-require_once('classes/simple_html_dom.php');
+require_once(ABSPATH.'classes/simple_html_dom.php');
 
 class GetArticles {
 	function __construct(){
