@@ -78,7 +78,9 @@ foreach ($blogger_posts as $key => $post) {
 
 	<div class="card_body nopadding">	
 		<div class="post_title givemargins secondaryfont <?php if (Lb_functions::contains_arabic($post->post_title)) {echo " rtl";}else{echo " ltr";} ?>">
-			<a href="<?php echo $post->post_url ;?>"><?php echo $post->post_title; ?></a>	
+			<a href="<?php echo $post->post_url ;?>"><?php echo $post->post_title; ?></a>
+			<div class="post_time"><?php echo Lb_functions::time_elapsed_string($post->post_timestamp) ?></div>
+	
 		</div>
 
 		<?php 
@@ -120,5 +122,5 @@ foreach ($blogger_posts as $key => $post) {
 </div> <!-- /bloggerPosts -->
 </div> <!-- /blogger -->
 <div class="bloggerbutton">
-	<a class="btn btn-red" href="<?php echo $blogDetails->blog_url;?>">See More at <?php echo $blog_name; ?></a>
+	<a class="btn btn-red" href="<?php echo $blogDetails->post_url;?>">See More at <?php echo $blog_name; ?></a>
 </div>

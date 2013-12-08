@@ -96,7 +96,7 @@ class Posts
         $query = 
         'SELECT
         blogs.blog_id, columnists.col_shorthand, blogs.blog_name , columnists.col_name, blogs.blog_description, columnists.col_description, blogs.blog_tags, columnists.col_tags, blogs.blog_url,
-        posts.post_url, posts.post_title, posts.post_image,posts.post_image_height, posts.post_image_width, posts.post_excerpt, blogs.blog_author_twitter_username, columnists.col_author_twitter_username
+        posts.post_url, posts.post_timestamp, posts.post_title, posts.post_image,posts.post_image_height, posts.post_image_width, posts.post_excerpt, blogs.blog_author_twitter_username, columnists.col_author_twitter_username
         FROM `posts` 
         LEFT JOIN `blogs` ON posts.blog_id = blogs.blog_id 
         LEFT JOIN `columnists` ON posts.blog_id = columnists.col_shorthand
@@ -150,7 +150,11 @@ class Posts
         
         // get list of posts
 
-        $sql2 = "SELECT * FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE posts.blog_id IN ($list) ORDER BY posts.post_timestamp DESC LIMIT $from, $howmany ";
+        $sql2 = "SELECT * FROM `posts` 
+        LEFT JOIN `blogs` ON posts.blog_id = blogs.blog_id 
+        LEFT JOIN `columnists` ON posts.blog_id = columnists.col_shorthand
+        WHERE posts.blog_id IN ($list) OR columnists.col_shorthand IN ($list)
+        ORDER BY posts.post_timestamp DESC LIMIT $from, $howmany ";
         $posts = DB::getInstance()->query($sql2)->results();
         return $posts;
     }
@@ -169,14 +173,23 @@ public static function get_saved_bloggers_posts($user_id, $from, $howmany){
         $list = "'".join("', '", $list)."'";
         // get list of posts
 
-        $sql2 = "SELECT * FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE posts.post_url IN ($list) ORDER BY posts.post_timestamp DESC LIMIT $from, $howmany ";
+        $sql2 = "SELECT * FROM `posts` LEFT JOIN `blogs` ON posts.blog_id = blogs.blog_id LEFT JOIN `columnists` ON posts.blog_id = columnists.col_shorthand WHERE posts.post_url IN ($list) ORDER BY posts.post_timestamp DESC LIMIT $from, $howmany ";
         $posts = DB::getInstance()->query($sql2)->results();
         return $posts;
     }
 
 
-    public static function get_random_bloggers($howmany){
-        $query = 'SELECT `blog_id`, `blog_url`, `blog_name`, `blog_description` FROM blogs ORDER BY RAND() LIMIT '.$howmany;
+    public static function get_random_bloggers($howmany, $channel=null){
+        if (isset($channel)) {
+        $query = 'SELECT `blog_id`, `blog_url`, `blog_name`, `blog_description` FROM blogs WHERE blogs.blog_tags LIKE "%'.$channel.'%" 
+                    UNION SELECT `col_shorthand`, `col_home_page`, `col_name`, `col_description` FROM columnists  WHERE columnists.col_tags LIKE "%'.$channel.'%"
+                    ORDER BY RAND() LIMIT '.$howmany; 
+        } else {
+        $query = 'SELECT `blog_id`, `blog_url`, `blog_name`, `blog_description` FROM blogs  
+                    UNION SELECT `col_shorthand`, `col_home_page`, `col_name`, `col_description` FROM columnists 
+                    ORDER BY RAND() LIMIT '.$howmany;            
+        }
+
         DB::getInstance()->query($query);
         if (DB::getInstance()->error()) {
             echo "There's an error in the query";

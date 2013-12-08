@@ -138,14 +138,18 @@ function get_image_from_post($link){
 
 	$html = file_get_html($link);
 
-	$text_container = $html->find('.entry-content',0)->find('img');
-
-	if ($text_container) {
-		foreach ($text_container as $key => $element) {
-			if ($element->width > 300) {
-				return $element->src;
+	$text_container = $html->find('.entry-content',0);
+	if (is_object($text_container)) { //.entry-content exists
+		$text_container = $text_container->find('img');
+		if (is_array($text_container)) {
+			foreach ($text_container as $key => $element) {
+				if ($element->width > 300) {
+					return $element->src;
+				}
 			}
+			return false;
 		}
+	}else{
 		return false;
 	}
 }

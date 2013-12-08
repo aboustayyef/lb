@@ -129,7 +129,7 @@ foreach ($feeds as $feed)
 					if($key == 0){ // The first post in the feed. no need to enter it
 						echo $hr.$blog_post_link; echo "   [ √ POST ADDED ] \n";
 					}else{
-						echo "\n".$blog_post_link; echo "   [ √ POST ADDED ] \n";
+						echo $blog_post_link; echo "   [ √ POST ADDED ] \n";
 					}
 				}
 			}

@@ -103,25 +103,45 @@ class Extras
 
 		public static function featuredBloggers(){
 
-			global $db;
+			global $channel_descriptions;
 
-			$bloggers = Posts::get_random_bloggers(3);?>
+			$bloggers = Posts::get_random_bloggers(3, $_SESSION['channel']);?>
 			<div class="card-container">
 				<div class="card">
 					<div class="card_header primaryfont background-bluegreen">
-						<h3 class ="whitefont">Featured Blogs</h3>
+						<h3 class ="whitefont">
+							<?php 
+								if (isset($_SESSION['channel'])) {
+									echo '<span class ="understated">'. $channel_descriptions[$_SESSION['channel']].'</span><br>';
+								}
+							?>
+							Featured Blogs				
+						</h3>
 					</div>
 					<div class="card_body elastic silverbody">
-
+						
 						<?php
-						foreach ($bloggers as $blogger) { ?>
+						foreach ($bloggers as $blogger) { 
+							if (isset($blogger->blog_id) && !empty($blogger->blog_id)) { // it's a blogger, not a columnists
+								$name = $blogger->blog_name;
+								$description = $blogger->blog_description;
+								$id = $blogger->blog_id;
+								$url = $blogger->blog_url;
+							} else {
+								$name = $blogger->col_name;
+								$description = $blogger->col_description;
+								$id = $blogger->col_shorthand;
+								$url = $blogger->col_home_page;
+							}
+						?>
+
 						<div class="list_type_b">
-							<img src="img/thumbs/<?php echo $blogger->blog_id; ?>.jpg" alt="" class="thumb">
-							<h3><?php echo $blogger->blog_name; ?></h3>
-							<p><?php echo Lb_functions::limitWords(10, $blogger->blog_description); ?></p>
+							<img src="img/thumbs/<?php echo $id; ?>.jpg" alt="" class="thumb">
+							<h3><?php echo $name; ?></h3>
+							<p><?php echo Lb_functions::limitWords(10, $description); ?></p>
 							<div class ="button-wrapper">
-								<a href="<?php echo WEBPATH.$blogger->blog_id; ?>" class="btn btn-whitetext btn-small background-bluegreen">Page</a>
-								<a href="<?php echo $blogger->blog_url; ?>" class="btn btn-whitetext btn-small background-bluegreen">Blog</a>
+								<a href="<?php echo WEBPATH.$id; ?>" class="btn btn-whitetext btn-small background-bluegreen">Page</a>
+								<a href="<?php echo $url; ?>" class="btn btn-whitetext btn-small background-bluegreen">Home</a>
 							</div>
 						</div>
 						<?php } ?>

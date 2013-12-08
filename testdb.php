@@ -1,15 +1,12 @@
 <?php 
 require_once('init.php');
 
-$data = Posts::get_blogger_posts($number_of_posts = 10, $whichblogger = 'beirutspring');
+$data = Posts::get_random_bloggers(5, );
+
+
 echo "<pre>";
 	var_dump($data);
 echo "</pre>";
-
-
-/*echo "<pre>";
-	var_dump($data);
-echo "</pre>";*/
 
 /*$users = DB::getInstance();
 
