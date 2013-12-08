@@ -5,6 +5,8 @@
 *   will be here.
 */ 
 
+require_once(ABSPATH.'classes/simple_html_dom.php'); 
+
 
 function get_domain($theurl)
 /*****************************************
@@ -57,13 +59,13 @@ function clean_up($original_string, $length)
 	return $new_string ;
 }
 
-function dig_suitable_image($content) {
+function dig_suitable_image($content, $link = NULL) {
 
 
 /*******************************************************************
 *	This functions uses the PHP DOM Parser to extract images
 *
-********************************************************************/ 
+********************************************************************/
 $firstImage ="";
 $html = str_get_html($content);
 foreach ($html->find('img[src]') as $img) 
@@ -99,7 +101,10 @@ foreach ($html->find('img[src]') as $img)
 if ($firstImage) 
 	{
 		return $firstImage;
-	} 
+	}
+elseif (get_image_from_post($link)) {
+	return get_image_from_post($link);
+}
 elseif (get_youtube_thumb($content)) 
 	{
 		return get_youtube_thumb($content);
@@ -128,6 +133,23 @@ function get_vimeo_thumb($content){
 		return false;
 	};
 }
+
+function get_image_from_post($link){
+
+	$html = file_get_html($link);
+
+	$text_container = $html->find('.entry-content',0)->find('img');
+
+	if ($text_container) {
+		foreach ($text_container as $key => $element) {
+			if ($element->width > 300) {
+				return $element->src;
+			}
+		}
+		return false;
+	}
+}
+
 
 function get_youtube_thumb($content)
 /*******************************************************************

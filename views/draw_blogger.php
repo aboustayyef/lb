@@ -4,6 +4,20 @@
 
 $blogger_posts = Posts::get_blogger_posts(20,$this->_blogger);
 
+if (!isset($blogger_posts[0]->blog_id) || empty($blogger_posts[0]->blog_id)) { // if there is no blog_id, it means we are dealing with a columnist
+	$blog_id = $blogger_posts[0]->col_shorthand;
+	$blog_name = $blogger_posts[0]->col_name;
+	$author_twitter = $blogger_posts[0]->col_author_twitter_username;
+	$description = $blogger_posts[0]->col_description;
+	$tags = $blogger_posts[0]->col_tags;
+}else{
+	$blog_id = $blogger_posts[0]->blog_id;
+	$blog_name = $blogger_posts[0]->blog_name;
+	$author_twitter = $blogger_posts[0]->blog_author_twitter_username;
+	$description = $blogger_posts[0]->blog_description;
+	$tags = $blogger_posts[0]->blog_tags;
+}
+
 ;?>
 <div class="blogger">
 	<div class="blogMeta">
@@ -11,16 +25,16 @@ $blogger_posts = Posts::get_blogger_posts(20,$this->_blogger);
 		$blogDetails = $blogger_posts[0];
 		?>
 		<div class="blogger-header">
-			<img src="<?php echo WEBPATH.'img/thumbs/'.$blogDetails->blog_id.'.jpg'; ?>" width ="50" height="50" alt="">
-			<h2 class ="primaryfont"><?php echo $blogDetails->blog_name; ?></h2>
+			<img src="<?php echo WEBPATH.'img/thumbs/'.$blog_id.'.jpg'; ?>" width ="50" height="50" alt="">
+			<h2 class ="primaryfont"><?php echo $blog_name; ?></h2>
 		</div>
 		<?php
 		//echo '<img class ="blog_thumb" src ="' .WEBPATH.'img/thumbs/' .$blogDetails->blog_id.'.jpg">';
-		//echo '<h2>'.$blogDetails->blog_name.'</h2>';
-		echo '<p class = "secondaryfont">'.$blogDetails->blog_description.'</p>';
+		//echo '<h2>'.$blog_name.'</h2>';
+		echo '<p class = "secondaryfont">'.$description .'</p>';
 		?>
 		<?php
-		$tags = explode(',',$blogDetails->blog_tags);
+		$tags = explode(',',$tags);
 		echo '<div id ="tags">';
 		foreach ($tags as $key => $tag) {
 			$tag = trim($tag);
@@ -31,7 +45,6 @@ $blogger_posts = Posts::get_blogger_posts(20,$this->_blogger);
 		echo '<ul class ="goToButtons">';
 			if (Users::UserSignedIn()) { // if user is signed in;
 				$f_id = $_SESSION['LebaneseBlogs_Facebook_User_ID'];
-				$blog_id = $blogDetails->blog_id;
 				if (Posts::isFavorite($f_id, $blog_id)) {
 					// user is signed in and blog is a favorite
 					?>
@@ -50,7 +63,7 @@ $blogger_posts = Posts::get_blogger_posts(20,$this->_blogger);
 			}
 		 ?>
 			<!-- twitter follow button -->
-			<li><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/follow_button.1384205748.html#_=1384688098230&amp;dnt=true&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=<?php echo $blogDetails->blog_author_twitter_username ;?>&amp;show_count=false&amp;show_screen_name=true&amp;size=l" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 168px; height: 28px;"></iframe></li>
+			<li><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/follow_button.1384205748.html#_=1384688098230&amp;dnt=true&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=<?php echo $author_twitter ;?>&amp;show_count=false&amp;show_screen_name=true&amp;size=l" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 168px; height: 28px;"></iframe></li>
 		</ul>
 
 	</div><!-- /blogMeta -->
@@ -88,7 +101,7 @@ foreach ($blogger_posts as $key => $post) {
 	</div>
 	<div class="card_footer nopadding noborder">
 		<?php 
-		$tweetcredit = ($post->blog_author_twitter_username)?" by @{$post->blog_author_twitter_username}":"";
+		$tweetcredit = ($author_twitter)?" by @{$author_twitter}":"";
 		$url_to_incode = "{$post->post_title} {$post->post_url}".$tweetcredit." via lebaneseblogs.com";
 		$twitterUrl = urlencode($url_to_incode);
 		?>
@@ -107,5 +120,5 @@ foreach ($blogger_posts as $key => $post) {
 </div> <!-- /bloggerPosts -->
 </div> <!-- /blogger -->
 <div class="bloggerbutton">
-	<a class="btn btn-red" href="<?php echo $blogDetails->blog_url;?>">See More at <?php echo $blogDetails->blog_name; ?></a>
+	<a class="btn btn-red" href="<?php echo $blogDetails->blog_url;?>">See More at <?php echo $blog_name; ?></a>
 </div>

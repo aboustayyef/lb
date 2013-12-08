@@ -31,7 +31,6 @@ foreach ($columnists->results() as $key => $columnist) {
 				echo 'Post "'.$article['title'].'" already exists';
 				echo "\n";
 
-				break;
 			} else {
 				// new post!
 				if ((isset($article['image_details']['source'])) && (!empty($article['image_details']['source'])) ) {

@@ -15,7 +15,9 @@ class Posts
     }
 
     public static function get_blog_name($blog_id){
-        $query = 'SELECT blogs.blog_name FROM blogs WHERE blogs.blog_id = "'.$blog_id.'"';
+        $query = 'SELECT blogs.blog_name FROM blogs WHERE blogs.blog_id = "'.$blog_id.'" 
+                  UNION
+                SELECT columnists.col_name FROM columnists WHERE col_shorthand = "'.$blog_id.'"' ;
         DB::getInstance()->query($query);
         if (count(DB::getInstance()->results())>0) {
             $allResults = DB::getInstance()->results();
@@ -93,9 +95,13 @@ class Posts
 
         $query = 
         'SELECT
-         blogs.blog_id, blogs.blog_name ,blogs.blog_description, blogs.blog_tags, blogs.blog_url,
-         posts.post_url, posts.post_title, posts.post_image,posts.post_image_height, posts.post_image_width, posts.post_excerpt, blogs.blog_author_twitter_username
-         FROM `posts` INNER JOIN `blogs` ON posts.blog_id = blogs.blog_id WHERE blogs.blog_id = "'.trim($whichblogger).'" ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
+        blogs.blog_id, columnists.col_shorthand, blogs.blog_name , columnists.col_name, blogs.blog_description, columnists.col_description, blogs.blog_tags, columnists.col_tags, blogs.blog_url,
+        posts.post_url, posts.post_title, posts.post_image,posts.post_image_height, posts.post_image_width, posts.post_excerpt, blogs.blog_author_twitter_username, columnists.col_author_twitter_username
+        FROM `posts` 
+        LEFT JOIN `blogs` ON posts.blog_id = blogs.blog_id 
+        LEFT JOIN `columnists` ON posts.blog_id = columnists.col_shorthand
+        WHERE (blogs.blog_id = "'.trim($whichblogger).'") OR (columnists.col_shorthand = "'.trim($whichblogger).'") 
+        ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
 
         DB::getInstance()->query($query);
         if (DB::getInstance()->error()) {

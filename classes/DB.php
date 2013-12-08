@@ -44,7 +44,7 @@ class DB {
 	public function query($sql, $params = array()){
 		$this->_error = false;
 		if ($this->_query = $this->_pdo->prepare($sql)){
-			if(count($params)){
+			if(count($params)>0){
 				foreach ($params as $key => $param) {
 					$this->_query->bindValue($key+1, $param);
 				}
