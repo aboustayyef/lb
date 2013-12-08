@@ -7,7 +7,7 @@
 
 include_once("init.php");
 require_once("feeds_fetcher_functions.php");
-
+require_once("classes/simplepie.php");
 // horizontal line
 $line_length = 70;
 $hr  = "\n".str_repeat('-', $line_length)."\n";
