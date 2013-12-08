@@ -39,6 +39,7 @@ foreach ($feeds as $feed)
 	echo "\n",$workingfeed;
 
 	$sp_feed = new SimplePie(); // We'll process this feed with all of the default options.
+	$sp_feed->enable_cache(false);
 	$sp_feed->set_feed_url($workingfeed); // Set which feed to process.
 	//$sp_feed->set_cache_location(ABSPATH.'cache');
 	//$sp_feed->set_cache_duration(600); // Set cache to 10 mins
