@@ -170,9 +170,11 @@ class Extras
 				<div class="card">
 					<div class ="announcement-graphic">
 						<i class="icon icon-comment"></i>
-					</div>
+					</div> 
 					<div class="announcement">
-						<h4>New Version of Lebanese Blogs now live! See <a href="http://lebaneseblogs.com/blog/?p=157">the cool new features</a></h4>
+						<h4><!-- twitter button -->
+							<a href="https://twitter.com/lebaneseblogs" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @lebaneseblogs</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+						</h4>
 					</div>
 				</div>
 				
@@ -218,7 +220,8 @@ class Extras
 									}
 								}
 								?>
-								<h4><a href ="<?php echo $url ;?>"><?php echo $title ;?></a></h4><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $stat->blog_name ;?></a></h5>			
+								<?php $blog_name = isset($stat->blog_name)? $stat->blog_name: $stat->col_name ;?>
+								<h4><a href ="<?php echo $url ;?>"><?php echo $title ;?></a></h4><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $blog_name ;?></a></h5>			
 							</div>
 							<?php
 						} 

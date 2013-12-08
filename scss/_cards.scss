@@ -355,20 +355,20 @@
     }
     .announcement-graphic{
         width: 25px;
-        height: 24px;
+        height: 35px;
         display: block;
         float: left;
-        background: #ffcc66;
-        color:$lb_red;
+        background: #55ACEE;
+        color:#fff;
         margin-right: 10px;
-        padding: 20px 10px;
+        padding: 10px 10px;
         font-size: 25px;
     }
     .announcement{
         padding:10px;
         margin-bottom:20px;
         h4 a{
-            color:$lb_red;
+            color:#55ACEE;
             &:hover{
                 text-decoration: underline;
             }

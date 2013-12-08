@@ -1,7 +1,7 @@
 <?php 
 require_once('init.php');
 
-$data = Posts::get_random_bloggers(5, );
+$data = Posts::get_top_posts(52, 5, 'politics');
 
 
 echo "<pre>";

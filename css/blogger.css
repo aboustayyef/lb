@@ -588,19 +588,19 @@ div.mainbar-wrapper {
             color: #b12530; }
   .card .announcement-graphic {
     width: 25px;
-    height: 24px;
+    height: 35px;
     display: block;
     float: left;
-    background: #ffcc66;
-    color: #b12530;
+    background: #55ACEE;
+    color: #fff;
     margin-right: 10px;
-    padding: 20px 10px;
+    padding: 10px 10px;
     font-size: 25px; }
   .card .announcement {
     padding: 10px;
     margin-bottom: 20px; }
     .card .announcement h4 a {
-      color: #b12530; }
+      color: #55ACEE; }
       .card .announcement h4 a:hover {
         text-decoration: underline; }
 
