@@ -1,7 +1,6 @@
 <?php 
 
-require_once("config.php");
-require_once("includes_new/connection.php");
+require_once("init.php");
 
 if (isset($_GET["r"])){
 	$target_url = urldecode($_GET["r"]);
@@ -22,15 +21,16 @@ function register_exit($url){
 
 
 //prepare and connect to database
-global $db;
+$connection = DB::getInstance();
 
-$query = 'INSERT INTO exit_log (exit_time, exit_url) VALUES ("'.time().'","'.$url.'") ';
-$stmt = $db->prepare($query);
-$stmt->execute();
+$connection->insert( 'exit_log', array(
+		'exit_time'	=> time(),
+		'exit_url'	=> $url,
+	));
+
 
 $query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
-$stmt = $db->prepare($query);
-$stmt->execute();
+$connection->query($query);
 
 // enter here code to query post record with specified URL, then add +1 to new post_clicks field.
 
