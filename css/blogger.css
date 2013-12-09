@@ -588,7 +588,7 @@ div.mainbar-wrapper {
             color: #b12530; }
   .card .announcement-graphic {
     width: 25px;
-    height: 35px;
+    height: 30px;
     display: block;
     float: left;
     background: #55ACEE;
@@ -597,6 +597,7 @@ div.mainbar-wrapper {
     padding: 10px 10px;
     font-size: 25px; }
   .card .announcement {
+    height: 30px;
     padding: 10px;
     margin-bottom: 20px; }
     .card .announcement h4 a {

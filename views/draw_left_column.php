@@ -53,6 +53,12 @@ if (isset($_SESSION['channel'])) {
             Show All
           </div>
         </a>
+        <a href ="<?php echo WEBPATH . '?channel=columnists'; ?>">
+          <div class = " <?php ischannel($s,'columnists'); ?> label level1">
+            <i class="icon-quote-right"></i>
+            Columnists <sup>New!</sup>
+          </div>
+        </a>
         <a href ="<?php echo WEBPATH . '?channel=fashion'; ?>">
           <div class = " <?php ischannel($s,'fashion'); ?> label level1">
             <i class="icon-umbrella"></i>
