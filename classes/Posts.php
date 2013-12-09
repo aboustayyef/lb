@@ -95,7 +95,7 @@ class Posts
 
         $query = 
         'SELECT
-        blogs.blog_id, columnists.col_shorthand, blogs.blog_name , columnists.col_name, blogs.blog_description, columnists.col_description, blogs.blog_tags, columnists.col_tags, blogs.blog_url,
+        blogs.blog_id, columnists.col_shorthand, blogs.blog_name , columnists.col_name, blogs.blog_description, columnists.col_description, blogs.blog_tags, columnists.col_tags, blogs.blog_url, columnists.col_home_page,
         posts.post_url, posts.post_timestamp, posts.post_title, posts.post_image,posts.post_image_height, posts.post_image_width, posts.post_excerpt, blogs.blog_author_twitter_username, columnists.col_author_twitter_username
         FROM `posts` 
         LEFT JOIN `blogs` ON posts.blog_id = blogs.blog_id 

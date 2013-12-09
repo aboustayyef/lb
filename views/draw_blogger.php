@@ -10,12 +10,14 @@ if (!isset($blogger_posts[0]->blog_id) || empty($blogger_posts[0]->blog_id)) { /
 	$author_twitter = $blogger_posts[0]->col_author_twitter_username;
 	$description = $blogger_posts[0]->col_description;
 	$tags = $blogger_posts[0]->col_tags;
+	$url = $blogger_posts[0]->col_home_page;
 }else{
 	$blog_id = $blogger_posts[0]->blog_id;
 	$blog_name = $blogger_posts[0]->blog_name;
 	$author_twitter = $blogger_posts[0]->blog_author_twitter_username;
 	$description = $blogger_posts[0]->blog_description;
 	$tags = $blogger_posts[0]->blog_tags;
+	$url = $blogger_posts[0]->blog_url;
 }
 
 ;?>
@@ -122,5 +124,5 @@ foreach ($blogger_posts as $key => $post) {
 </div> <!-- /bloggerPosts -->
 </div> <!-- /blogger -->
 <div class="bloggerbutton">
-	<a class="btn btn-red" href="<?php echo $blogDetails->post_url;?>">See More at <?php echo $blog_name; ?></a>
+	<a class="btn btn-red" href="<?php echo $url;?>">See More at <?php echo $blog_name; ?></a>
 </div>
