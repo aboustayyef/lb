@@ -169,11 +169,12 @@ class Extras
 
 				<div class="card">
 					<div class ="announcement-graphic">
-						<i class="icon icon-comment"></i>
+						<i class="icon icon-quote-right"></i>
 					</div> 
 					<div class="announcement">
 						<h4><!-- twitter button -->
-							<a href="https://twitter.com/lebaneseblogs" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @lebaneseblogs</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+							<!-- <a href="https://twitter.com/lebaneseblogs" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @lebaneseblogs</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> -->						
+							<strong>New Feature:</strong> Articles by noted Lebanese columnists. <a href ="http://lebaneseblogs.com/blog/?p=168">more >></a>
 						</h4>
 					</div>
 				</div>
