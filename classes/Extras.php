@@ -194,7 +194,7 @@ class Extras
 							$img_width =$stat->post_image_width ;
 							$title = $stat->post_title;
 							$url = $stat->post_url;
-							$blogger_url = ABSPATH . $stat->blog_id;
+							$blogger_url = WEBPATH . $stat->blog_id;
 							;?>
 
 							<div class="list_type_a">
