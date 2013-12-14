@@ -209,23 +209,32 @@ class GetArticles {
 	$html = file_get_html($url);
 	
 	// to avoid extracting logo, we only look in the article container, which is entered in the function's parameters
-    $article_container = $html->find($article_path,0);
-
-	if ($article_container->find('img')) {
-		foreach ($article_container->find('img') as $key => $element) {
-			if (isset($element->width)) {
-				if ($element->width > 300) {
-					$image_details = array(
-						'source'	=>	$img_prefix.$element->src,
-						'width'		=>	(int)$element->width,
-						'height'	=>	(int)$element->height,
-					);
-					return $image_details;
-				}
+	if (method_exists($html,"find")) {
+	     // then check if the html element exists to avoid trying to parse non-html
+	     if ($html->find('html')) {
+	            $article_container = $html->find($article_path,0);
+	            	if ($article_container->find('img')) {
+					foreach ($article_container->find('img') as $key => $element) {
+						if (isset($element->width)) {
+							if ($element->width > 300) {
+								$image_details = array(
+									'source'	=>	$img_prefix.$element->src,
+									'width'		=>	(int)$element->width,
+									'height'	=>	(int)$element->height,
+								);
+								return $image_details;
+							}
+						}
+					}
+				return null;
 			}
-		}
-		return null;
-		}
+	     } else {
+	     	echo "\n [ERROR] Could not find html \n";
+	     }
+	} else {
+		echo "\n [ERROR] Method could not be found. \n";
+	}
+
 	}
 
 	private static function getContentFromURL($url, $article_path){
