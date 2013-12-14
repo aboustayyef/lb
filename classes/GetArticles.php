@@ -45,8 +45,9 @@ class GetArticles {
 
 	public static function getArticle_method1($media_source, $author_page, $whichArticle){
 		$html = file_get_html($author_page);
-		$article = array();
-		try {
+		if (method_exists($html,"find")) {   // then check if the html element exists to avoid trying to parse non-html
+		    if ($html->find('html')) {  // and only then start searching (and manipulating) the dom 
+		     	$article = array();
 				$allElements = $html->find($media_source['articles_wrapper']);
 				if ($element = $allElements[$whichArticle]) { // if this assignment does not generate an error
 					$article['title'] = trim(html_entity_decode($element->find($media_source['title'][0],$media_source['title'][1])->plaintext));			
@@ -57,20 +58,21 @@ class GetArticles {
 					will be at midnight, and columnists would be relegated to midnight posts. To remedy this we add 6 hours so that they're published at a good early time, 
 					We also add a random amount between 1 minutes and 60 minutes so that columnists don't all appear at the exact same time */
 					$article['timestamp'] = ($thedate->GetTimeStamp())+ 25200 + rand(60,3600); 
-
 					$article['excerpt'] = trim(html_entity_decode($element->find($media_source['excerpt'][0],$media_source['excerpt'][1])->plaintext));
-
 					$article['image_details'] = self::getImageFromURL($article['link'], $media_source['article_body'], $media_source['img_prefix']);
-
 					$article["content"] = self::getContentFromURL($article["link"], $media_source['content_body']);
 					return $article;
 				} else {
 					// $whichArticle is probably larger than amount of articles available
 					return false ;
 				}	
-		} catch (Exception $e) {
-			var_dump($e);
+		     } else {
+		     	echo "\n [ERROR] Could not find html \n";
+		     }
+		} else {
+			echo "\n [ERROR] Method could not be found. \n";
 		}
+		
 	}
 
 	public static function getList_method1($media_source, $author_page, $howmany=null){
