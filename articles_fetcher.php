@@ -51,10 +51,10 @@ foreach ($columnists->results() as $key => $columnist) {
 					'blog_id'		=>	$columnist->col_shorthand,
 
 					// if we're doing a reset, use uncomment line below 
-					//'post_timestamp'	=> $article['timestamp'],
+					'post_timestamp'	=> $article['timestamp'],
 					
 					// Since we're doing an hourly cron job, we can safey use the current time for timestamp. Comment it for reset
-					'post_timestamp'	=> time(),
+					//'post_timestamp'	=> time(),
 					'post_content'	=> $article['content'],
 					'post_image_height'	=> $image_height,
 					'post_image_width'	=>	$image_width,
