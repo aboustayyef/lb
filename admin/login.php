@@ -1,62 +1,53 @@
 <?php
-$root_is_at = "..";
-include_once("$root_is_at/includes/config.php");
-include_once("$root_is_at/includes/connection.php");
-include_once("$root_is_at/includes/core-functions.php");
-
+require_once('../init.php');
+require_once('admin_functions.php');
 if (admin_logged_in())
 {
   header("location:index.php");
 } 
 
-$user = "stayyef";
-$pass = "mm000741";
-
-  if ((isset($_POST['user']))&&(isset($_POST['password']))) //information entered to both fields
-  {
-    if (($_POST['user'] == $user) && ($_POST['password']==$pass)) // information is correct
-    {
-      setcookie("logged_in", "yes", time()+7200, "/");  /* expires in 2 hours */
-      header("location:index.php");
-    } else {
-      log_in_form();
-    }
-  } else {
+if ((isset($_POST['password'])) && (md5($_POST['password']) == 'be00623c0c1becdd97fc72facf745449')) 
+{
+  $_SESSION['admin']='be00623c0c1becdd97fc72facf745449';
+    header("location:index.php");
+} else {
     log_in_form();
-  }
+}
 
 ?>
 
 <?php 
 
-function log_in_form($status=NULL){
-  $root_is_at = "..";
-  $page = "admin";
-  $title = "Lebanese Blogs | admin";
-  $description = "Administration and maintenance";
+function log_in_form(){
+?>
 
-  include_once("$root_is_at/includes/top_part.php");
-  ;?>
-<div id="entries-main-container">
-<div class ="page_wrapper">
+<!doctype html>
+<html lang="en">
+
+<?php draw_bootstrap_header('Log in to Administration tools') ?>
+
+<body>
   <div class="container">
-    <br/>
-    <div class="span6 offset3 preset3">
-      <h3>Administration</h3>
-        <form class="form-inline" method ="post" action ="login.php">
-          <input type="text" class="input-small" placeholder="username" name = "user">
-          <input type="password" class="input-small" placeholder="Password" name = "password">
-          <button type="submit" class="btn">Sign in</button>
-        </form>
-        <?php if ($status == "ok"){
-          echo '<p><a href ="'. $root_is_at .'/admin/exit_links.php">Exit Links</a> - <a href ="'. $root_is_at .'/admin/add_blog.php">Add Blog</a></p>';} ?>
+    
+    <div class="col-sm-12">
+      <h1>Sign in To access Admin tools<hr></h1>
+    </div>
+
+    <form action="" method="post">
+      <div class="form-group ">
+        <label for="password" class="col-sm-1 control-label">PASSWORD</label>
+        <div class="col-sm-11">
+          <input id="password" name ="password" class ="form-control" type="password" placeholder="Enter your password">
         </div>
       </div>
-    </div> <!-- /container -->
-</div><!-- /page_wrapper -->
+    </form>
+  </div>  
+</body>
+
+</html>
+
   
   <?php
-include_once("$root_is_at/includes/bottom_part.php");
 }
 
 ?>

@@ -1,23 +1,23 @@
 <?php 
 require_once('init.php');
 
-$data = Posts::get_top_posts(52, 5, 'politics');
+/*$data = Posts::get_top_posts(52, 5, 'politics');
 
 
 echo "<pre>";
 	var_dump($data);
-echo "</pre>";
+echo "</pre>";*/
 
-/*$users = DB::getInstance();
+$users = DB::getInstance();
 
-$users->get('posts', array('post_url','=','http://www.thenational.ae/thenationalconversation/comment/assads-position-strengthens-in-lead-up-to-geneva-talks'));
+/*$users->get('posts', array('post_url','=','http://www.thenational.ae/thenationalconversation/comment/assads-position-strengthens-in-lead-up-to-geneva-talks'));
 echo "<pre>";
 	print_r($users->results());
 echo "</pre>";*/
 
 /* To insert */
 
-/*$users->insert('posts', array(
+$users->insert('posts', array(
 	'post_url'	=>	'http://test.testy',
 	'post_title'	=>	'This is a test',
 	'post_image'	=>	'http://test.testyimage/theimage.jpg',
@@ -27,7 +27,12 @@ echo "</pre>";*/
 	'post_content'	=> 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, eum, necessitatibus et in quasi quis consectetur perferendis modi adipisci quam dicta voluptates ratione perspiciatis minus fuga enim suscipit sequi odio culpa mollitia libero voluptas eos laudantium tenetur ipsum atque beatae magni facilis temporibus veritatis repudiandae qui ad neque! Dolore, aliquam, commodi, consectetur esse quis ratione minus fugit harum veniam delectus qui et molestiae possimus. Mollitia, blanditiis ipsum dignissimos excepturi aliquam natus odio non magni ullam dolor? Possimus nam ipsa a eius provident odio iure esse neque maiores ipsam. Vel, soluta id laborum ipsam dicta cupiditate nesciunt corrupti a assumenda delectus?',
 	'post_image_height'	=> '300',
 	'post_image_width'	=>	'600'
-));*/
+));
+
+echo "<pre>";
+	print_r($users->results());
+	print_r($users->count());
+echo "</pre>";
 
 
 
