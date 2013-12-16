@@ -8,6 +8,14 @@
 <hr>
 
 	<div class ="section" id="about">
+		<h3>About Lebanese Blogs</h3>
+		<p><em class="understated">"A great website"</em> - <a href="http://blogbaladi.com/lebaneseblogs-com-version-3-0/">Blog Baladi</a><br>
+		<em class ="understated">"A Daily Must-Check!"</em> - <a href ="http://ginosblog.com/2013/04/18/lebaneseblogs-com-a-daily-must-check/">Gino's Blog</a><br> 
+		<em class="understated">"Made a major impact on the Lebanese digital crowd"</em> - <a href="http://tech-ticker.com/lebanesblogs-com-an-interview-with-mustapha-hamoui/">Tech-Ticker</a><br/>
+		<em class="understated">"The best resource on Lebanese cyber sphere"</em> - <a href="https://www.facebook.com/leila.k.hanna/posts/10151788108666471">Leila Khauli Hanna</a><br>
+		<em class="understated">"Awesome project! you deserve a big cookie!"</em> - <a href="phatimasbox.com/2013/04/25/thank-you-lebaneseblogs/">Phatima P. Hakimi</a></p>
+		
+
 		<h3>What is <em>Lebanese Blogs?</em></h3>
 		<p class ="lead box"><em>Lebanese Blogs</em> is The best place to discover, read and organize the latest posts from Lebanon's top bloggers</p>
 
