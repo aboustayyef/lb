@@ -68,7 +68,7 @@ function dig_suitable_image($content, $link = NULL) {
 ********************************************************************/
 $firstImage ="";
 $html = str_get_html($content);
-foreach ($html->find('img[src]') as $img) 
+foreach ($html->find('img') as $img) 
 	{
 	    $image = $img->getAttribute('src');
 
