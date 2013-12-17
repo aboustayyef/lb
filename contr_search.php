@@ -34,8 +34,13 @@ switch ($scope) {
 			echo "<h3>There are $howmany Blog Posts with the term '$term' in their titles:</h3>";
 			echo '<ul>';
 			foreach ($results as $result) {
+				if (isset($result->blog_name) && !empty($result->blog_name)) {
+					$name = $result->blog_name;
+				}else{
+					$name = $result->col_name;
+				}
 				echo '<li class ="resultItem">';
-					echo '<div class ="blogname-posttitle"><div class ="blogname">'.$result->blog_name.':</div> <div class ="posttitle"><a href="'.$result->post_url.'">'.$result->post_title.'</a><div class="postdate">&lrm; '.Lb_functions::time_elapsed_string($result->post_timestamp).'</div></div></div>';
+					echo '<div class ="blogname-posttitle"><div class ="blogname">'.$name.':</div> <div class ="posttitle"><a href="'.$result->post_url.'">'.$result->post_title.'</a><div class="postdate">&lrm; '.Lb_functions::time_elapsed_string($result->post_timestamp).'</div></div></div>';
 				echo '</li>';
 			}
 			echo '</ul>';
@@ -52,8 +57,13 @@ switch ($scope) {
 			echo "<h3>There are $howmany Blog Posts with the term '$term' in their text:</h3>";
 			echo '<ul>';
 			foreach ($results as $result) {
+				if (isset($result->blog_name) && !empty($result->blog_name)) {
+					$name = $result->blog_name;
+				}else{
+					$name = $result->col_name;
+				}
 				echo '<li class ="resultItem">';
-					echo '<div class ="blogname-posttitle"><div class ="blogname">'.$result->blog_name.':</div> <div class ="posttitle"><a href="'.$result->post_url.'">'.$result->post_title.'</a><span class="postdate">&lrm; '.Lb_functions::time_elapsed_string($result->post_timestamp).'</span></div></div>';
+					echo '<div class ="blogname-posttitle"><div class ="blogname">'.$name.':</div> <div class ="posttitle"><a href="'.$result->post_url.'">'.$result->post_title.'</a><span class="postdate">&lrm; '.Lb_functions::time_elapsed_string($result->post_timestamp).'</span></div></div>';
 				echo '</li>';
 			}
 			echo '</ul>';
