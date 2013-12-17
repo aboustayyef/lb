@@ -139,25 +139,33 @@ function get_image_from_post($link){
 	$html = file_get_html($link);
 
 	$text_container = $html->find('.entry-content',0);
-	if (is_object($text_container)) { //.entry-content exists
-		$text_container = $text_container->find('img');
-		if (is_array($text_container)) {
-			foreach ($text_container as $key => $element) {
-				if ($element->width > 300) {
-					return $element->src;
-				} else {
-					$img = $element->src;
-					list($width, $height, $type, $attr) = getimagesize("$img");
-					if ($width > 300) {
-						return $img;
-					}
+	if (is_object($text_container)) {
+		#  .entry-content exists, proceed...
+	} else {
+		$text_container = $html->find('.post-content',0);
+		if (is_object($text_container)) {
+			# .post-content exists, proceed...
+		} else {
+			return false; // we'll be adding more
+		}
+	}
+
+	$text_container = $text_container->find('img');
+	if (is_array($text_container)) {
+		foreach ($text_container as $key => $element) {
+			if ($element->width > 300) {
+				return $element->src;
+			} else {
+				$img = $element->src;
+				list($width, $height, $type, $attr) = getimagesize("$img");
+				if ($width > 300) {
+					return $img;
 				}
 			}
-			return false;
 		}
-	}else{
 		return false;
 	}
+
 }
 
 
