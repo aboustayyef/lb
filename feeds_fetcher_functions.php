@@ -145,6 +145,12 @@ function get_image_from_post($link){
 			foreach ($text_container as $key => $element) {
 				if ($element->width > 300) {
 					return $element->src;
+				} else {
+					$img = $element->src;
+					list($width, $height, $type, $attr) = getimagesize("$img");
+					if ($width > 300) {
+						return $img;
+					}
 				}
 			}
 			return false;
