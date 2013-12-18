@@ -79,7 +79,6 @@
 							$image_height = intval(($image_width / $post->post_image_width)*$post->post_image_height);
 							$the_image = $post->post_image;
 							if (file_exists(ABSPATH.'img/cache/'.$post->post_timestamp.'.'.Lb_functions::get_image_format($the_image))) {
-								echo 'file exists';
 								$the_image = WEBPATH.'img/cache/'.$post->post_timestamp.'.'.Lb_functions::get_image_format($the_image);
 							}
 

@@ -138,9 +138,10 @@ foreach ($feeds as $feed)
 	}
 }
 
-echo $dhr.'work ended: '.date('d M Y , H:i:s').$dhr;
+echo $dhr.'Feeds Work Ended: '.date('d M Y , H:i:s').$dhr;
 
-
+// Now does image caching
+exec('php image_cacher.php');
 
 
 ?>
