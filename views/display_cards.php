@@ -77,9 +77,15 @@
 						if (isset($post->post_image) && ($post->post_image_width > 0) && ($post->post_image_height>0)) {
 							$image_width = 278;
 							$image_height = intval(($image_width / $post->post_image_width)*$post->post_image_height);
+							$the_image = $post->post_image;
+							if (file_exists(ABSPATH.'img/cache/'.$post->post_timestamp.'.'.Lb_functions::get_image_format($the_image))) {
+								echo 'file exists';
+								$the_image = WEBPATH.'img/cache/'.$post->post_timestamp.'.'.Lb_functions::get_image_format($the_image);
+							}
+
 							;?>
 							
-							<a href="<?php echo $target_url ;?>"><img class="lazy" data-original="<?php echo $post->post_image ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<?php echo $image_height ; ?>"></a>
+							<a href="<?php echo $target_url ;?>"><img class="lazy" data-original="<?php echo $the_image ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<?php echo $image_height ; ?>"></a>
 							
 							<?php
 						} else {

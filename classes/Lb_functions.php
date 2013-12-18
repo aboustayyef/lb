@@ -115,6 +115,15 @@ class Lb_functions {
 		}
 	}
 
+static function get_image_format($imageUrl){
+	$format = strtolower(substr($imageUrl, -3));
+	if (($format == 'jpg')||($format == 'peg')) {
+		return 'jpg';
+	} else {
+		return $format;
+	}
+}
+
 	static function map_keys($key){
 		echo '<!-- MAP KEYS CALLED -->';
 		if ($key == 0) { // show top posts

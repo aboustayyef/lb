@@ -1,3 +1,4 @@
 cache/*.*
+img/cache/*.*
 config.php
 codekit*.*

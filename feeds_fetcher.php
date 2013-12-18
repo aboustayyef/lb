@@ -138,6 +138,8 @@ foreach ($feeds as $feed)
 	}
 }
 
+echo $dhr.'work ended: '.date('d M Y , H:i:s').$dhr;
+
 
 
 
