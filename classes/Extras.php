@@ -191,6 +191,9 @@ class Extras
 
 						foreach ($stats as $stat) {
 							$img = $stat->post_image;
+							if (file_exists(ABSPATH.'img/cache/'.$stat->post_timestamp.'.'.Lb_functions::get_image_format($img))) {
+								$img = WEBPATH . 'img/cache/'.$stat->post_timestamp.'.'.Lb_functions::get_image_format($img);
+							}
 							$img_height =$stat->post_image_height ;
 							$img_width =$stat->post_image_width ;
 							$title = $stat->post_title;
