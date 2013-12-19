@@ -248,18 +248,14 @@ class Extras
 			?>
 
 			<div class="card-container">
-				<div class="card" style ="opacity:0;">
+				<div class="card" style ="height:475px; opacity:0;">
 			
 				<!--card header-->
 			
 				<div class="card_header background-greylightest">
-					<img class ="blog_thumb" src="<?php echo WEBPATH.'img/thumbs/bullhorn.jpg';?>" width ="50" height ="50"></a>
+					<img class ="blog_thumb" src="<?php echo WEBPATH.'img/thumbs/bullhorn.jpg';?>" width ="50" height ="50">
 					<div class="post_details">
 						<div class="blog_name secondaryfont">Special Promotion<br><span class ="small understated" style ="opacity:.5;font-size:12px">( Sponsored post )</span></div>
-						<div class="blog_tools">
-								<!-- <li><i class ="icon-exclamation-sign"></i> About Blog</li> -->
-								
-						</div>
 					</div>
 				</div>
 
