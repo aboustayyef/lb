@@ -146,7 +146,12 @@ function get_image_from_post($link){
 		if (is_object($text_container)) {
 			# .post-content exists, proceed...
 		} else {
-			return false; // we'll be adding more
+			$text_container = $html->find('#content',0);
+			if (is_object($text_container)) {
+				#content exits, proceed
+			}else{
+				return false; // we'll be adding more
+			}
 		}
 	}
 
