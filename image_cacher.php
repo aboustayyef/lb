@@ -11,7 +11,7 @@ echo $dhr."IMAGE CACHING SCRIPT BEGINS".$dhr;
 
 foreach ($connection->results() as $key => $row) {
 
-$outFile = 'img/cache/'.$row->post_timestamp.'.'.Lb_functions::get_image_format($row->post_image);
+$outFile = ABSPATH.'img/cache/'.$row->post_timestamp.'.'.Lb_functions::get_image_format($row->post_image);
 $image = new Imagick($row->post_image);
 $image->thumbnailImage(278,0);
 if (file_exists($outFile)) {
