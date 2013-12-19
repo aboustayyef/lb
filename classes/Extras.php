@@ -23,8 +23,15 @@ class Extras
 				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
 			}
 			break;			
+
+			case 2:
+			if ($_SESSION['pagewanted'] == 'browse') {
+				self::drawAd();
+				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
+			}
+			break;
 			
-			case 3: 
+			case 5: 
 			if ($_SESSION['pagewanted'] == 'browse') {
 				self::featuredBloggers();
 				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
@@ -235,6 +242,38 @@ class Extras
 				</div>
 			</div>
 			<?php	
+		}
+
+		public static function drawAd(){
+			?>
+
+			<div class="card-container">
+				<div class="card" style ="opacity:0;">
+			
+				<!--card header-->
+			
+				<div class="card_header background-greylightest">
+					<img class ="blog_thumb" src="<?php echo WEBPATH.'img/thumbs/bullhorn.jpg';?>" width ="50" height ="50"></a>
+					<div class="post_details">
+						<div class="blog_name secondaryfont">Special Promotion<br><span class ="small understated" style ="opacity:.5;font-size:12px">( Sponsored post )</span></div>
+						<div class="blog_tools">
+								<!-- <li><i class ="icon-exclamation-sign"></i> About Blog</li> -->
+								
+						</div>
+					</div>
+				</div>
+
+				<!--card body-->
+				<div class ="card_body" id ="advertisement">
+					<div class="post_title secondaryfont"><a href="http://go.anghami.com/lbblogsgift">Send your loved ones the gift of unlimited music this holiday!</a></div>
+						<a href="http://go.anghami.com/lbblogsgift">
+							<img src="<?php echo WEBPATH ?>img/ads/anghami.png" alt="Anghami Special Offer">							
+						</a>
+				</div>
+			</div>
+		</div>
+
+			<?php
 		}
 
 	}
