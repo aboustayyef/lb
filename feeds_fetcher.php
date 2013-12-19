@@ -126,6 +126,14 @@ foreach ($feeds as $feed)
 					'post_image_height'	=>	$blog_post_image_height
 					));
 				
+				// cache images
+				if ($blog_post_image_width > 0) { // post has images
+					$outFile = ABSPATH.'img/cache/'.$blog_post_timestamp.'_'.$domain.'.'.Lb_functions::get_image_format($blog_post_image);
+					$image = new Imagick($blog_post_image);
+					$image->thumbnailImage(278,0);
+					$image->writeImage($outFile);
+				}
+
 				if ($connection->count() > 0) {
 					if($key == 0){ // The first post in the feed. no need to enter it
 						echo $hr.$blog_post_link; echo "   [ √ POST ADDED ] \n";
@@ -139,9 +147,5 @@ foreach ($feeds as $feed)
 }
 
 echo $dhr.'Feeds Work Ended: '.date('d M Y , H:i:s').$dhr;
-
-// Now does image caching
-exec('php image_cacher.php');
-
 
 ?>
