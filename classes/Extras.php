@@ -252,7 +252,7 @@ class Extras
 			
 				<!--card header-->
 			
-				<div class="card_header background-greylightest">
+				<div class="card_header background-greylightest" style="background-color: #FCEDED">
 					<img class ="blog_thumb" src="<?php echo WEBPATH.'img/thumbs/bullhorn.jpg';?>" width ="50" height ="50">
 					<div class="post_details">
 						<div class="blog_name secondaryfont">Special Promotion<br><span class ="small understated" style ="opacity:.5;font-size:12px">( Sponsored post )</span></div>
