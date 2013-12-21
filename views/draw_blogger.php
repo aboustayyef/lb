@@ -89,9 +89,15 @@ foreach ($blogger_posts as $key => $post) {
 			if (isset($post->post_image) && ($post->post_image_width > 0) && ($post->post_image_height>0)) {
 				$image_width = 300;
 				$image_height = intval(($image_width / $post->post_image_width)*$post->post_image_height);
+				$the_image = $post->post_image;
+
+				$image_cache = 'img/cache/'.$post->post_timestamp.'_'.$blog_id.'.'.Lb_functions::get_image_format($the_image);
+				if (file_exists(ABSPATH.$image_cache)) {
+					$the_image = WEBPATH.$image_cache;
+				}				
 				;?>
 				
-				<a href="<?php echo $post->post_url ;?>"><img class="lazy" data-original="<?php echo $post->post_image ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<?php echo $image_height ; ?>"></a>
+				<a href="<?php echo $post->post_url ;?>"><img class="lazy" data-original="<?php echo $the_image ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<?php echo $image_height ; ?>"></a>
 				
 				<?php
 			} else {
