@@ -71,7 +71,7 @@
 				<!--card body-->
 				<div class ="card_body" id ="<?php echo 'content-post-' . $_SESSION['posts_displayed']; ?>">
 					<div class="post_time"><?php echo Lb_functions::time_elapsed_string($post->post_timestamp) ?></div>
-					<div class="post_title secondaryfont <?php if (Lb_functions::contains_arabic($post->post_title)) {echo " rtl";}else{echo " ltr";} ?>"><a href="<?php echo $target_url ;?>"><?php echo $post->post_title; ?></a></div>
+					<div class="post_title secondaryfont <?php if (Lb_functions::contains_arabic($post->post_title)) {echo " rtl";}else{echo " ltr";} ?>"><a  href="<?php echo $target_url ;?>" target="_blank"><?php echo $post->post_title; ?></a></div>
 					<?php 
 
 						if (isset($post->post_image) && ($post->post_image_width > 0) && ($post->post_image_height>0)) {
@@ -87,7 +87,7 @@
 
 							;?>
 							
-							<a href="<?php echo $target_url ;?>"><img class="lazy" data-original="<?php echo $the_image ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<?php echo $image_height ; ?>"></a>
+							<a href="<?php echo $target_url ;?>" target="_blank"><img class="lazy" data-original="<?php echo $the_image ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<?php echo $image_height ; ?>"></a>
 							
 							<?php
 						} else {
