@@ -64,7 +64,13 @@ class Extras
 	}
 
 	public static function tip($whichtip){
-
+		if (isset($_COOKIE['lebaneseblogs_user_visits'])) {
+			if ($_COOKIE['lebaneseblogs_user_visits'] > 3) {
+				# user has seen website more than 3 times. 
+				# user is an expert, no longer needs tips;
+				return NULL;
+			}
+		}
 
 		$all_tips = array(
 			array(

@@ -3,7 +3,11 @@
     </div> <!-- /pagewrapper -->
 </div>
 
+<?php 
 
+echo '<!-- This user has visited this website '.$_COOKIE['lebaneseblogs_user_visits'].' times -->';
+
+?>
 
     <!-- JS Dependencies -->
 

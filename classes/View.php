@@ -17,6 +17,19 @@ class View
 
 	function __construct($pagewanted=null, $view=null, $channel=null, $bloggerid=null, $s=null) {
 		
+		/* Visits cookie */
+
+		$expire=time()+60*60*24*30;
+		if (isset($_COOKIE['lebaneseblogs_user_visits'])) {
+		    // add a visit if cookie exists
+		    $visits = $_COOKIE['lebaneseblogs_user_visits'];
+		    setcookie('lebaneseblogs_user_visits', $visits+1, $expire);
+
+		}else{
+		    // create cookie and set it to 1
+		     setcookie('lebaneseblogs_user_visits', '1', $expire);
+		} 
+		
 		// Which page is this? is it a browse page? an about page or a 'top' page?
 		if ((isset($pagewanted))) {
 			$this->_page = $pagewanted;
