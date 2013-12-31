@@ -215,20 +215,20 @@ class Extras
 								<?php
 								if (empty($stat->post_image)) {
 									;?>
-									<a href ="<?php echo $url ;?>">
+									<a href ="<?php echo $url ;?>" target="_blank">
 										<div class="thumb"><img src="<?php echo "img/interface/no-image.jpg" ;?>" height ="75px"></div>
 									</a>
 									<?php
 								}else {
 									if ($img_width >= $img_height) {
 										;?>				
-										<a href ="<?php echo $url ;?>">
+										<a href ="<?php echo $url ;?>" target="_blank">
 											<div class="thumb"><img src="<?php echo $img ;?>" height ="75px"></div>
 										</a>
 										<?php
 									} else {
 										;?>
-										<a href ="<?php echo $url ;?>">
+										<a href ="<?php echo $url ;?>" target="_blank">
 											<div class="thumb"><img src="<?php echo $img ;?>" width = "75px"></div>
 										</a>
 										<?php
@@ -236,7 +236,7 @@ class Extras
 								}
 								?>
 								<?php $blog_name = isset($stat->blog_name)? $stat->blog_name: $stat->col_name ;?>
-								<h4><a href ="<?php echo $url ;?>"><?php echo $title ;?></a></h4><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $blog_name ;?></a></h5>			
+								<h4><a href ="<?php echo $url ;?>" target="_blank"><?php echo $title ;?></a></h4><h5><a href ="<?php echo $blogger_url; ?>"><?php echo $blog_name ;?></a></h5>			
 							</div>
 							<?php
 						} 
