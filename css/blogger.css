@@ -587,17 +587,17 @@ div.mainbar-wrapper {
           .card .card_footer ul li i.selected {
             color: #b12530; }
   .card .announcement-graphic {
-    width: 25px;
-    height: 35px;
+    width: 14px;
+    height: 20px;
     display: block;
     float: left;
-    background: #A86C00;
+    background: #F7B949;
     color: #fff;
     margin-right: 10px;
-    padding: 15px 5px;
+    padding: 13px 8px;
     font-size: 25px; }
   .card .announcement {
-    height: 45px;
+    height: 26px;
     padding: 10px;
     margin-bottom: 20px; }
     .card .announcement h4 strong {
