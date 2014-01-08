@@ -26,19 +26,20 @@ class Extras
 
 			case 2:
 			if ($_SESSION['pagewanted'] == 'browse') {
-				self::drawAd();
-				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
+				/* Uncomment below for ads*/
+				//self::drawAd();
+				//$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
 			}
 			break;
 			
-			case 5: 
+			case 7: 
 			if ($_SESSION['pagewanted'] == 'browse') {
 				self::featuredBloggers();
 				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
 			}
 			break;
 
-			case 7: 
+			case 9: 
 			self::tip(0);
 			$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
 			break;
