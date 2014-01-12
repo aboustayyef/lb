@@ -182,7 +182,7 @@ class Extras
 			<div class="card-container">
 
 				<div class="card">
-					
+					<!--
 					<div class ="announcement-graphic">
 						<i class="icon icon-lightbulb"></i>
 					</div> 
@@ -191,6 +191,7 @@ class Extras
 							No Tips for the Experts. <a href ="http://lebaneseblogs.com/blog/?p=182">Read More..</a>
 						</h4>
 					</div>
+					-->
 					
 				</div>
 				
