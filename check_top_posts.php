@@ -62,18 +62,13 @@ $variety_of_messages = array(
 
 $messageToShare = $variety_of_messages[rand(0,count($variety_of_messages)-1)];
 
-$attachment2 = array(
-'access_token' => "CAAULdUMXFY8BACTf0C8kyvE8409AHRtDtT93ADiZAjZA0ZCQvEGj3emtjuJ0ZCyhIlBbRfQk0o9tl9KemDnkM7FNyv1Jentz8Uq1dh7CimyRmZCme3nM1ZCrBRgnsXk8vYdmFSHLeFvudI0twlnOfqGobEPnW3M0XDWJwNM64CLKqRlccURMLz" //this is my current user access_token
-);
-
-$page =  $facebook->api('/me/accounts', 'get', $attachment2);
 print_r($page);
 
 
-/*$fb = new Facebook($config);*/
+$fb = new Facebook($config);
 
 // define your POST parameters (replace with your own values)
-/*$params = array(
+$params = array(
   "access_token" => "CAAULdUMXFY8BACTf0C8kyvE8409AHRtDtT93ADiZAjZA0ZCQvEGj3emtjuJ0ZCyhIlBbRfQk0o9tl9KemDnkM7FNyv1Jentz8Uq1dh7CimyRmZCme3nM1ZCrBRgnsXk8vYdmFSHLeFvudI0twlnOfqGobEPnW3M0XDWJwNM64CLKqRlccURMLz", // see: https://developers.facebook.com/docs/facebook-login/access-tokens/
   "message" => $messageToShare,
   "link" => $postObject->post_url,
@@ -81,16 +76,16 @@ print_r($page);
   //"name" => "How to Auto Post on Facebook with PHP",
   //"caption" => "www.pontikis.net",
   //"description" => "Automatically post on Facebook with PHP using Facebook PHP SDK. How to create a Facebook app. Obtain and extend Facebook access tokens. Cron automation."
-);*/
+);
 
 // post to Facebook
 // see: https://developers.facebook.com/docs/reference/php/facebook-api/
-/*try {
+try {
   $ret = $fb->api('/625974710801501/feed', 'POST', $params);
   echo 'Successfully posted to Facebook';
 } catch(Exception $e) {
   echo $e->getMessage();
-}*/
+}
 
 }
 
