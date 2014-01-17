@@ -70,7 +70,7 @@ $fb = new Facebook($config);
 
 // define your POST parameters (replace with your own values)
 $params = array(
-  "access_token" => "CAAULdUMXFY8BACBikNcUKXcctMAO0Qtk0dczOlZB6nYCXvJfeuN7DNlOtxdrcWfMHVaBwfSfiZAteEYZBsjC0azR3XE55EkYSUJiWbEx6EgOJF1kQEsbVs0U52ZBVFGp326LjXtWK0tUDlRAhJ1Xi8zvzpoalGPvZBMTigGWfbMH98ZCDCm1Yw0YaPytlvo28ZD", // see: https://developers.facebook.com/docs/facebook-login/access-tokens/
+  "access_token" => "CAAULdUMXFY8BAC9P1GZBQs52EOmW7eO6s7ZB5WRZB2Wek4Vn1Yrud31VLGVb0zAGeZBcJ4hZA4mUaAhxdO1Gfro1FgkLOkouSC370ogkZA47P1kIGhoAczgxL98grJe3tekpHXA0nisLweWb5SKNnIapWLNaWbPBZBe3HjoxyRle5ZAntI3sZAsTu", // see: https://developers.facebook.com/docs/facebook-login/access-tokens/
   "message" => $messageToShare,
   "link" => $postObject->post_url,
   //"picture" => "http://i.imgur.com/lHkOsiH.png",
