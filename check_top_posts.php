@@ -45,6 +45,7 @@ function add_post_to_facebook($postObject){
 
 // initialize Facebook class using Facebook App credentials
 // see: https://developers.facebook.com/docs/php/gettingstarted/#install
+// for access token, a better way would be to use this tip: http://stackoverflow.com/questions/8231877/facebook-access-token-for-pages
 
 // page ID: 625974710801501
 
@@ -69,7 +70,7 @@ $fb = new Facebook($config);
 
 // define your POST parameters (replace with your own values)
 $params = array(
-  "access_token" => "CAAULdUMXFY8BACTf0C8kyvE8409AHRtDtT93ADiZAjZA0ZCQvEGj3emtjuJ0ZCyhIlBbRfQk0o9tl9KemDnkM7FNyv1Jentz8Uq1dh7CimyRmZCme3nM1ZCrBRgnsXk8vYdmFSHLeFvudI0twlnOfqGobEPnW3M0XDWJwNM64CLKqRlccURMLz", // see: https://developers.facebook.com/docs/facebook-login/access-tokens/
+  "access_token" => "CAAULdUMXFY8BACBikNcUKXcctMAO0Qtk0dczOlZB6nYCXvJfeuN7DNlOtxdrcWfMHVaBwfSfiZAteEYZBsjC0azR3XE55EkYSUJiWbEx6EgOJF1kQEsbVs0U52ZBVFGp326LjXtWK0tUDlRAhJ1Xi8zvzpoalGPvZBMTigGWfbMH98ZCDCm1Yw0YaPytlvo28ZD", // see: https://developers.facebook.com/docs/facebook-login/access-tokens/
   "message" => $messageToShare,
   "link" => $postObject->post_url,
   //"picture" => "http://i.imgur.com/lHkOsiH.png",
