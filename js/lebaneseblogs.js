@@ -418,16 +418,19 @@ bloggerPage:{
 				blockElement: '.card-container'
 			});
 		},
-		loadImages: function(){
-			$("img.lazy").lazyload({
-				threshold: 500,
-				effect: "fadeIn",
-			});
-			$("img.lazy").removeClass("lazy");
-			var t = $('.blogger').scrollTop();
-			$(window).scrollTop(t+1); //nudge 1 pixel to counter lazy load bug.
-		}
+	show:function(){
+		$('.card').css('opacity','1');
 	},
+	loadImages: function(){
+		$("img.lazy").lazyload({
+			threshold: 500,
+			effect: "fadeIn",
+		});
+		$("img.lazy").removeClass("lazy");
+		var t = $('.blogger').scrollTop();
+		$(window).scrollTop(t+1); //nudge 1 pixel to counter lazy load bug.
+	}
+},
 
 	aboutPage: {
 		init: function(){
@@ -565,6 +568,7 @@ $(document).ready(function(){
 	}
 	if ((global_page === "blogger")) {
 		lbApp.bloggerPage.flow();
+		lbApp.bloggerPage.show();
 		lbApp.interface.revealContent();
 		lbApp.bloggerPage.loadImages();
 		lbApp.posts.favorites.init();

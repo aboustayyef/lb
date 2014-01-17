@@ -304,7 +304,7 @@ class View
 	function display_posts($data){
 		switch ($this->_view) {
 			case 'cards':
-				include_once(ABSPATH.'views/display_cards.php')	;
+				Render::drawCards($data);
 				break;
 			
 			case 'timeline':

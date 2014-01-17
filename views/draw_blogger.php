@@ -72,60 +72,7 @@ if (!isset($blogger_posts[0]->blog_id) || empty($blogger_posts[0]->blog_id)) { /
 
 <div class ="bloggerPosts">
 <?php
-
-foreach ($blogger_posts as $key => $post) {
-;?>
-<div class="card-container">
-<div class ="card">
-
-	<div class="card_body nopadding">	
-		<div class="post_title givemargins secondaryfont <?php if (Lb_functions::contains_arabic($post->post_title)) {echo " rtl";}else{echo " ltr";} ?>">
-			<a href="<?php echo $post->post_url ;?>"><?php echo $post->post_title; ?></a>
-			<div class="post_time"><?php echo Lb_functions::time_elapsed_string($post->post_timestamp) ?></div>
-	
-		</div>
-
-		<?php 
-			if (isset($post->post_image) && ($post->post_image_width > 0) && ($post->post_image_height>0)) {
-				$image_width = 300;
-				$image_height = intval(($image_width / $post->post_image_width)*$post->post_image_height);
-				$the_image = $post->post_image;
-
-				$image_cache = 'img/cache/'.$post->post_timestamp.'_'.$blog_id.'.'.Lb_functions::get_image_format($the_image);
-				if (file_exists(ABSPATH.$image_cache)) {
-					$the_image = WEBPATH.$image_cache;
-				}				
-				;?>
-				
-				<a href="<?php echo $post->post_url ;?>"><img class="lazy" data-original="<?php echo $the_image ; ?>" src="img/interface/grey.gif" width="<?php echo $image_width ; ?>" height="<?php echo $image_height ; ?>"></a>
-				
-				<?php
-			} else {
-				;?>
-				
-				<div class ="excerpt"><blockquote class ="<?php if (Lb_functions::contains_arabic($post->post_title)) {echo " rtl";}else{echo " ltr";} ?>"><?php echo $post->post_excerpt; ?></blockquote>	</div>
-				
-				<?php
-			}
-		?>
-	</div>
-	<div class="card_footer nopadding noborder">
-		<?php 
-		$tweetcredit = ($author_twitter)?" by @{$author_twitter}":"";
-		$url_to_incode = "{$post->post_title} {$post->post_url}".$tweetcredit." via lebaneseblogs.com";
-		$twitterUrl = urlencode($url_to_incode);
-		?>
-		<ul>
-			<li class="save"><a href="#"><i class="icon-heart"></i> Save Post</a></li>
-			<li> <a href="https://twitter.com/intent/tweet?text=<?php echo $twitterUrl; ?>" title="Click to send this post to Twitter!" target="_blank"><i class="icon-twitter icon-large"></i> Tweet</a> </li>
-			<li> <a href="http://www.facebook.com/sharer.php?u='.$post_url.'"><i class="icon-facebook icon-large"></i> Share</a> </li>
-		</ul>
-	</div>
-</div>
-</div>
-<?php
-
-}
+Render::drawCards($blogger_posts, 'blogger');
 ?>
 </div> <!-- /bloggerPosts -->
 </div> <!-- /blogger -->
