@@ -43,12 +43,48 @@ function add_post_to_facebook($postObject){
 	postObject has the following attributes: post_image , post_timestamp , post_image_width , post_image_height , post_url , post_title , blog_name , blog_id , col_name
 */
 
+// initialize Facebook class using Facebook App credentials
+// see: https://developers.facebook.com/docs/php/gettingstarted/#install
 
+// page ID: 625974710801501
+
+$config = array();
+$config['appId'] = '1419973148218767';
+$config['secret'] = '16a49abb2d49c364d06b72eae7c79c1a';
+$config['fileUpload'] = false; // optional
+
+// to avoid monotony, we prepare several possible wordings for the facebook message
+$attribution = '"'.$postObject->post_title.'" by '.$postObject->blog_name;
+$variety_of_messages = array(
+	'A new post made it to the top on Lebanese blogs: '.$attribution.'. Find more top posts at Lebanese Blogs', 
+	'The post '.$attribution.' is now the top post on Lebanese Blogs. Find more top posts at Lebanese Blogs ',
+	'The latest post to make it to the top of our list is '.$attribution.'. Find more top posts at Lebanese Blogs ');
+
+$messageToShare = $variety_of_messages[rand(0,count($variety_of_messages)-1)];
+
+$fb = new Facebook($config);
+
+// define your POST parameters (replace with your own values)
+$params = array(
+  "access_token" => "YOUR_ACCESS_TOKEN", // see: https://developers.facebook.com/docs/facebook-login/access-tokens/
+  "message" => $messageToShare,
+  "link" => $postObject->post_url,
+  //"picture" => "http://i.imgur.com/lHkOsiH.png",
+  //"name" => "How to Auto Post on Facebook with PHP",
+  //"caption" => "www.pontikis.net",
+  //"description" => "Automatically post on Facebook with PHP using Facebook PHP SDK. How to create a Facebook app. Obtain and extend Facebook access tokens. Cron automation."
+);
+
+// post to Facebook
+// see: https://developers.facebook.com/docs/reference/php/facebook-api/
+try {
+  $ret = $fb->api('/625974710801501/feed', 'POST', $params);
+  echo 'Successfully posted to Facebook';
+} catch(Exception $e) {
+  echo $e->getMessage();
 }
 
-/* Step 4: Add post to facebook 
-	page ID: 625974710801501
-*/
+}
 
 /* Step 5: Add post to twitter 
 	Reference: http://www.pontikis.net/blog/auto_post_on_twitter_with_php
