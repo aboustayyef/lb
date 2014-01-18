@@ -26,9 +26,8 @@ if (count($results) > 0) { // post already exists
 	add_post_to_facebook($topPost);
 
 	// add post to twitter
-//	add_post_to_twitter($topPost);
+ 	add_post_to_twitter($topPost);
 }
-
 
 function add_post_to_db($url){
 	$connection = DB::getInstance();
