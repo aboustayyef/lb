@@ -56,9 +56,9 @@ function add_post_to_facebook($postObject){
 	// to avoid monotony, we prepare several possible wordings for the facebook message
 	$attribution = '"'.$postObject->post_title.'" by '.$postObject->blog_name;
 	$variety_of_messages = array(
-		'A new post made it to the top on Lebanese blogs: '.$attribution.'. Find more top posts at Lebanese Blogs', 
-		'The post '.$attribution.' is now the top post on Lebanese Blogs. Find more top posts at Lebanese Blogs ',
-		'The latest post to make it to the top of our list is '.$attribution.'. Find more top posts at Lebanese Blogs ');
+		'A new post is now at the #1 spot: '.$attribution.'. More top posts at Lebanese Blogs ', 
+		'The post '.$attribution.' is now the top post on Lebanese Blogs. More top posts at Lebanese Blogs ',
+		'New top post: '.$attribution.'. More top posts at Lebanese Blogs ');
 
 	$messageToShare = $variety_of_messages[rand(0,count($variety_of_messages)-1)];
 
@@ -97,7 +97,7 @@ function add_post_to_twitter($postObject){
 	$length_of_twitter_handle = strlen($postObject->blog_author_twitter_username);
 	$title_allowance = 59 - $length_of_twitter_handle; // twitter handle + title should be equal to 59 in length to accomodate rest of tweet.
 	$title = substr($postObject->post_title, 0, $title_allowance);
-	$status = 'New Top Post: '.$title.' by @'.$postObject->blog_author_twitter_username.', '.$postObject->post_url.' . More top posts at lebaneseblogs.com';
+	$status = 'New Top Post: '.$title.' by @'.$postObject->blog_author_twitter_username.', '.$postObject->post_url.'. More at lebaneseblogs.com';
 	$twitter = new Twitter('JFJmBCbVrLfBFu5u0TDdzg', 'QI8jrDWQdXH6TFb8zSYZ8gzWDW5DpSakBlQ7qdHZYI', "1054796604-YlpZJiKXOrGvQAcU6fuzLvUljubIHToUfBRSUgV", "ydm1xxTU1OmA1Nsq3CStrr3CLcXJOAYpagdV7E1Aco1SJ");
 	try {
 	    $twitter->send($status);
