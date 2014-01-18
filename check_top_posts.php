@@ -4,7 +4,7 @@
 
 require_once('init.php');
 require ABSPATH.'classes/facebook/src/facebook.php';  // Include facebook SDK file
-require ABSPATH.'classes/twitter/codebird.php';  // Include facebook SDK file
+require ABSPATH.'classes/twitter/twitter.class.php';  // Include facebook SDK file
 
 $connection = DB::getInstance();
 
@@ -100,14 +100,7 @@ function add_post_to_twitter($postObject){
 	$title = substr($postObject->post_title, 0, $title_allowance);
 	$status = 'New Top Post: '.$title.' by @'.$postObject->blog_author_twitter_username.', '.$postObject->post_url.' . More top posts at lebaneseblogs.com';
 
-	\Codebird\Codebird::setConsumerKey("JFJmBCbVrLfBFu5u0TDdzg", "QI8jrDWQdXH6TFb8zSYZ8gzWDW5DpSakBlQ7qdHZYI");
-	$cb = \Codebird\Codebird::getInstance();
-	$cb->setToken("1054796604-YlpZJiKXOrGvQAcU6fuzLvUljubIHToUfBRSUgV", "ydm1xxTU1OmA1Nsq3CStrr3CLcXJOAYpagdV7E1Aco1SJ");
-	 
-	$params = array(
-	  'status' => $status
-	);
-	$reply = $cb->statuses_update($params);
-	}
-
+	$twitter = new Twitter('JFJmBCbVrLfBFu5u0TDdzg', 'QI8jrDWQdXH6TFb8zSYZ8gzWDW5DpSakBlQ7qdHZYI', "1054796604-YlpZJiKXOrGvQAcU6fuzLvUljubIHToUfBRSUgV", "ydm1xxTU1OmA1Nsq3CStrr3CLcXJOAYpagdV7E1Aco1SJ");
+	$twitter->send($status);
+}
 ?>
