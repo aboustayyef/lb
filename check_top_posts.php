@@ -98,8 +98,13 @@ function add_post_to_twitter($postObject){
 	$title_allowance = 59 - $length_of_twitter_handle; // twitter handle + title should be equal to 59 in length to accomodate rest of tweet.
 	$title = substr($postObject->post_title, 0, $title_allowance);
 	$status = 'New Top Post: '.$title.' by @'.$postObject->blog_author_twitter_username.', '.$postObject->post_url.' . More top posts at lebaneseblogs.com';
-
 	$twitter = new Twitter('JFJmBCbVrLfBFu5u0TDdzg', 'QI8jrDWQdXH6TFb8zSYZ8gzWDW5DpSakBlQ7qdHZYI', "1054796604-YlpZJiKXOrGvQAcU6fuzLvUljubIHToUfBRSUgV", "ydm1xxTU1OmA1Nsq3CStrr3CLcXJOAYpagdV7E1Aco1SJ");
-	$twitter->send($status);
+	try {
+	    $twitter->send($status);
+	} catch (TwitterException $e) {
+	    echo "\nTwitter Error: ", $e->getMessage();
+	}
+	echo $status;
+
 }
 ?>
