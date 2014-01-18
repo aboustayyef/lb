@@ -4,6 +4,7 @@
 
 require_once('init.php');
 require ABSPATH.'classes/facebook/src/facebook.php';  // Include facebook SDK file
+require ABSPATH.'classes/twitter/codebird.php';  // Include facebook SDK file
 
 $connection = DB::getInstance();
 
@@ -38,60 +39,75 @@ function add_post_to_db($url){
 }
 
 function add_post_to_facebook($postObject){
-/*
-	Reference: http://www.pontikis.net/blog/auto_post_on_facebook_with_php
-	postObject has the following attributes: post_image , post_timestamp , post_image_width , post_image_height , post_url , post_title , blog_name , blog_id , col_name
-*/
+	/*
+		Reference: http://www.pontikis.net/blog/auto_post_on_facebook_with_php
+		postObject has the following attributes: post_image , post_timestamp , post_image_width , post_image_height , post_url , post_title , blog_name , blog_id , col_name, blog_author_twitter_username
+	*/
 
-// initialize Facebook class using Facebook App credentials
-// see: https://developers.facebook.com/docs/php/gettingstarted/#install
-// for access token, a better way would be to use this tip: http://stackoverflow.com/questions/8231877/facebook-access-token-for-pages
+	// initialize Facebook class using Facebook App credentials
+	// see: https://developers.facebook.com/docs/php/gettingstarted/#install
 
-// page ID: 625974710801501
+	// page ID: 625974710801501
 
-$config = array();
-$config['appId'] = '1419973148218767';
-$config['secret'] = '16a49abb2d49c364d06b72eae7c79c1a';
-$config['fileUpload'] = false; // optional
+	$config = array();
+	$config['appId'] = '1419973148218767';
+	$config['secret'] = '16a49abb2d49c364d06b72eae7c79c1a';
+	$config['fileUpload'] = false; // optional
 
-// to avoid monotony, we prepare several possible wordings for the facebook message
-$attribution = '"'.$postObject->post_title.'" by '.$postObject->blog_name;
-$variety_of_messages = array(
-	'A new post made it to the top on Lebanese blogs: '.$attribution.'. Find more top posts at Lebanese Blogs', 
-	'The post '.$attribution.' is now the top post on Lebanese Blogs. Find more top posts at Lebanese Blogs ',
-	'The latest post to make it to the top of our list is '.$attribution.'. Find more top posts at Lebanese Blogs ');
+	// to avoid monotony, we prepare several possible wordings for the facebook message
+	$attribution = '"'.$postObject->post_title.'" by '.$postObject->blog_name;
+	$variety_of_messages = array(
+		'A new post made it to the top on Lebanese blogs: '.$attribution.'. Find more top posts at Lebanese Blogs', 
+		'The post '.$attribution.' is now the top post on Lebanese Blogs. Find more top posts at Lebanese Blogs ',
+		'The latest post to make it to the top of our list is '.$attribution.'. Find more top posts at Lebanese Blogs ');
 
-$messageToShare = $variety_of_messages[rand(0,count($variety_of_messages)-1)];
+	$messageToShare = $variety_of_messages[rand(0,count($variety_of_messages)-1)];
 
-print_r($page);
+	print_r($page);
 
 
-$fb = new Facebook($config);
+	$fb = new Facebook($config);
 
-// define your POST parameters (replace with your own values)
-$params = array(
-  "access_token" => "CAAULdUMXFY8BAC9P1GZBQs52EOmW7eO6s7ZB5WRZB2Wek4Vn1Yrud31VLGVb0zAGeZBcJ4hZA4mUaAhxdO1Gfro1FgkLOkouSC370ogkZA47P1kIGhoAczgxL98grJe3tekpHXA0nisLweWb5SKNnIapWLNaWbPBZBe3HjoxyRle5ZAntI3sZAsTu", // see: https://developers.facebook.com/docs/facebook-login/access-tokens/
-  "message" => $messageToShare,
-  "link" => $postObject->post_url,
-  //"picture" => "http://i.imgur.com/lHkOsiH.png",
-  //"name" => "How to Auto Post on Facebook with PHP",
-  //"caption" => "www.pontikis.net",
-  //"description" => "Automatically post on Facebook with PHP using Facebook PHP SDK. How to create a Facebook app. Obtain and extend Facebook access tokens. Cron automation."
-);
+	// define your POST parameters (replace with your own values)
+	$params = array(
+	  "access_token" => "CAAULdUMXFY8BAC9P1GZBQs52EOmW7eO6s7ZB5WRZB2Wek4Vn1Yrud31VLGVb0zAGeZBcJ4hZA4mUaAhxdO1Gfro1FgkLOkouSC370ogkZA47P1kIGhoAczgxL98grJe3tekpHXA0nisLweWb5SKNnIapWLNaWbPBZBe3HjoxyRle5ZAntI3sZAsTu", // see: https://developers.facebook.com/docs/facebook-login/access-tokens/
+	  "message" => $messageToShare,
+	  "link" => $postObject->post_url,
+	  //"picture" => "http://i.imgur.com/lHkOsiH.png",
+	  //"name" => "How to Auto Post on Facebook with PHP",
+	  //"caption" => "www.pontikis.net",
+	  //"description" => "Automatically post on Facebook with PHP using Facebook PHP SDK. How to create a Facebook app. Obtain and extend Facebook access tokens. Cron automation."
+	);
 
-// post to Facebook
-// see: https://developers.facebook.com/docs/reference/php/facebook-api/
-try {
-  $ret = $fb->api('/625974710801501/feed', 'POST', $params);
-  echo 'Successfully posted to Facebook';
-} catch(Exception $e) {
-  echo $e->getMessage();
+	// post to Facebook
+	// see: https://developers.facebook.com/docs/reference/php/facebook-api/
+	try {
+	  $ret = $fb->api('/625974710801501/feed', 'POST', $params);
+	  echo 'Successfully posted to Facebook';
+	} catch(Exception $e) {
+	  echo $e->getMessage();
+	}
+
 }
 
-}
+function add_post_to_twitter($postObject){
+	/* Step 5: Add post to twitter 
+		Reference: http://www.pontikis.net/blog/auto_post_on_twitter_with_php
+	*/
 
-/* Step 5: Add post to twitter 
-	Reference: http://www.pontikis.net/blog/auto_post_on_twitter_with_php
-*/
+	$length_of_twitter_handle = strlen($postObject->blog_author_twitter_username);
+	$title_allowance = 59 - $length_of_twitter_handle; // twitter handle + title should be equal to 59 in length to accomodate rest of tweet.
+	$title = substr($postObject->post_title, 0, $title_allowance);
+	$status = 'New Top Post: '.$title.' by @'.$postObject->blog_author_twitter_username.', '.$postObject->post_url.' . More top posts at lebaneseblogs.com';
+
+	\Codebird\Codebird::setConsumerKey("JFJmBCbVrLfBFu5u0TDdzg", "QI8jrDWQdXH6TFb8zSYZ8gzWDW5DpSakBlQ7qdHZYI");
+	$cb = \Codebird\Codebird::getInstance();
+	$cb->setToken("1054796604-YlpZJiKXOrGvQAcU6fuzLvUljubIHToUfBRSUgV", "ydm1xxTU1OmA1Nsq3CStrr3CLcXJOAYpagdV7E1Aco1SJ");
+	 
+	$params = array(
+	  'status' => $status
+	);
+	$reply = $cb->statuses_update($params);
+	}
 
 ?>
