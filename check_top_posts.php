@@ -18,7 +18,7 @@ $results = $connection->query('SELECT * FROM top_posts WHERE top_post_url = "'.$
 echo count($results);
 if (count($results) > 0) { // post already exists
 	# do nothing
-}else{ //new post
+}else{
 	// add post to database
 	add_post_to_db($topPost->post_url);
 
@@ -28,6 +28,9 @@ if (count($results) > 0) { // post already exists
 	// add post to twitter
  	add_post_to_twitter($topPost);
 }
+
+
+/* Functions below */
 
 function add_post_to_db($url){
 	$connection = DB::getInstance();
