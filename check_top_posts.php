@@ -59,9 +59,8 @@ function add_post_to_facebook($postObject){
 	// to avoid monotony, we prepare several possible wordings for the facebook message
 	$attribution = '"'.$postObject->post_title.'" by '.$postObject->blog_name;
 	$variety_of_messages = array(
-		'A new post is now at the #1 spot: '.$attribution.'. More top posts at Lebanese Blogs ', 
-		'The post '.$attribution.' is now the top post on Lebanese Blogs. More top posts at Lebanese Blogs ',
-		'New top post: '.$attribution.'. More top posts at Lebanese Blogs ');
+		'The most popular blog post on Lebanese Blogs right now is '.$attribution, 
+		'A new blog post is now the most popular on Lebanese Blogs: '.$attribution);
 
 	$messageToShare = $variety_of_messages[rand(0,count($variety_of_messages)-1)];
 
