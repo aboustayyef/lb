@@ -252,10 +252,12 @@ class GetArticles {
 
 		$article_container = $html->find($article_path,0);
 		$content = '';
-		foreach ($article_container->find('p') as $key => $element) {
-			$content .= '<p>'.$element->plaintext.'</p>';
+		if ($article_container->find('p')) {
+			foreach ($article_container->find('p') as $key => $element) {
+				$content .= '<p>'.$element->plaintext.'</p>';
+			}
+			return $content;
 		}
-		return $content;
 	}
 }
 
