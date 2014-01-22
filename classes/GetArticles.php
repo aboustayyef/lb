@@ -250,13 +250,15 @@ class GetArticles {
 	private static function getContentFromURL($url, $article_path){
 		$html = file_get_html($url);
 
-		$article_container = $html->find($article_path,0);
-		$content = '';
-		if ($article_container->find('p')) {
-			foreach ($article_container->find('p') as $key => $element) {
-				$content .= '<p>'.$element->plaintext.'</p>';
+		if ($html->find($article_path,0)) {
+			$article_container = $html->find($article_path,0);
+			$content = '';
+			if ($article_container->find('p')) {
+				foreach ($article_container->find('p') as $key => $element) {
+					$content .= '<p>'.$element->plaintext.'</p>';
+				}
+				return $content;
 			}
-			return $content;
 		}
 	}
 }
