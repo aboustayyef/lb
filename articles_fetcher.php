@@ -3,7 +3,11 @@
 require_once('init.php');
 
 $columnists = DB::getInstance();
-$columnists->getAll('columnists');
+$columnists = $columnists->getAll('columnists')->results();
+
+if (isset($argv[1])) {
+	$columnists = $columnists->get('columnists', array('col_id','=',$argv[1]))->results();
+}
 
 include_once('media_definitions.php');
 
@@ -13,7 +17,7 @@ $hr  = "\n".str_repeat('-', $line_length)."\n";
 $dhr = "\n".str_repeat('=', $line_length)."\n";
 
 // Go through authors
-foreach ($columnists->results() as $key => $columnist) {
+foreach ($columnists as $key => $columnist) {
 
 	$author_media_definition = $columnist->col_media_source_shorthand;
 	$author_media_definition = $$author_media_definition;
@@ -50,8 +54,8 @@ foreach ($columnists->results() as $key => $columnist) {
 					'post_excerpt'	=> 	$article['excerpt'],
 					'blog_id'		=>	$columnist->col_shorthand,
 
-					// if we're doing a reset, use uncomment line below 
-					'post_timestamp' => $article['timestamp'],
+					// if we're doing a reset, uncomment line below 
+					 'post_timestamp' => $article['timestamp'],
 					
 					// Since we're doing an hourly cron job, we can safey use the current time for timestamp. Comment it for reset
 					//'post_timestamp'	=> time(),
