@@ -587,23 +587,23 @@ div.mainbar-wrapper {
           .card .card_footer ul li i.selected {
             color: #b12530; }
   .card .announcement-graphic {
-    width: 14px;
-    height: 20px;
+    width: 27px;
+    height: 26px;
     display: block;
     float: left;
-    background: #F7B949;
+    background: #B3D135;
     color: #fff;
     margin-right: 10px;
-    padding: 13px 8px;
+    padding: 22px 8px;
     font-size: 25px; }
   .card .announcement {
-    height: 26px;
+    height: 50px;
     padding: 10px;
     margin-bottom: 20px; }
     .card .announcement h4 strong {
       font-weight: bold; }
     .card .announcement h4 a {
-      color: #A86C00; }
+      color: #b12530; }
       .card .announcement h4 a:hover {
         text-decoration: underline; }
 

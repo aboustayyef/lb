@@ -182,16 +182,16 @@ class Extras
 			<div class="card-container">
 
 				<div class="card">
-					<!--
+					
 					<div class ="announcement-graphic">
-						<i class="icon icon-lightbulb"></i>
+						<i class="icon icon-heart"></i>
 					</div> 
 					<div class="announcement">
 						<h4>
-							No Tips for the Experts. <a href ="http://lebaneseblogs.com/blog/?p=182">Read More..</a>
+							A <a href ="http://lebaneseblogs.com/blog/?p=191">Very Good Reason</a> for Following us on <a href="http://facebook.com/lebaneseblogs">Facebook</a> and <a href="http://twitter.com/lebaneseblogs">Twitter</a>.
 						</h4>
 					</div>
-					-->
+					
 					
 				</div>
 				
