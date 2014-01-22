@@ -222,18 +222,19 @@ class GetArticles {
 	if (method_exists($html,"find")) {
 	     // then check if the html element exists to avoid trying to parse non-html
 	     if ($html->find('html')) {
-	            $article_container = $html->find($article_path,0);
+	            if ($article_container = $html->find($article_path,0)){
 	            	if ($article_container->find('img')) {
-					foreach ($article_container->find('img') as $key => $element) {
-						list($width, $height, $type, $attr) = getimagesize($img_prefix.$element->src);
-						if ($width>299){ //only return images 300 px large or wider
-							$image_details = array(
-								'source'	=>	$img_prefix.$element->src,
-								'width'		=>	$width,
-								'height'	=>	$height,
-							);
-							return $image_details;
-						} 
+						foreach ($article_container->find('img') as $key => $element) {
+							list($width, $height, $type, $attr) = getimagesize($img_prefix.$element->src);
+							if ($width>299){ //only return images 300 px large or wider
+								$image_details = array(
+									'source'	=>	$img_prefix.$element->src,
+									'width'		=>	$width,
+									'height'	=>	$height,
+								);
+								return $image_details;
+							} 
+						}
 					}
 				return null;
 			}
