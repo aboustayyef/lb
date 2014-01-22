@@ -55,10 +55,8 @@ class GetArticles {
 					if (!empty($media_source['timestamp'][0])) {
 						// shop off superflous part of timestamp string
 						$date_description = html_entity_decode($element->find($media_source['timestamp'][0],$media_source['timestamp'][1])->plaintext);
-						echo $date_description."\n";
 						if (isset($media_source['timestamp'][2])) {
 							$adjusted_date_description =substr($date_description,$media_source['timestamp'][2]);
-							echo $adjusted_date_description."\n";
 							$thedate = new DateTime(trim($adjusted_date_description));
 
 						}else{
@@ -231,8 +229,8 @@ class GetArticles {
 						if ($width>299){ //only return images 300 px large or wider
 							$image_details = array(
 								'source'	=>	$img_prefix.$element->src,
-								'width'		=>	(int)$element->width,
-								'height'	=>	(int)$element->height,
+								'width'		=>	$width,
+								'height'	=>	$height,
 							);
 							return $image_details;
 						} 
