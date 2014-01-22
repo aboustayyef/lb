@@ -3,10 +3,11 @@
 require_once('init.php');
 
 $columnists = DB::getInstance();
-$columnists = $columnists->getAll('columnists')->results();
-
 if (isset($argv[1])) {
+	echo $argv[1];
 	$columnists = $columnists->get('columnists', array('col_id','=',$argv[1]))->results();
+} else {
+	$columnists = $columnists->getAll('columnists')->results();
 }
 
 include_once('media_definitions.php');
