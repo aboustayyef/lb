@@ -54,5 +54,17 @@ $al_akhbar = array(
 	'content_body'		=> 	'.content-wrap', //This could be different from the article body to prevent storing comments in content
 );
 
+$beirutcityguide = array(
+	'method'			=>	'1',
+	'articles_wrapper'	=>	'.list-rows .post',
+	'title'				=>	array('h3',0),
+	'link'				=>	array('a',0),
+	'link_prefix'		=>	'http://beirut.com', //for relative urls
+	'timestamp'			=>	array('.cnt li', 1, 3), // the last item is to shop off the "on " in "on jan 22, 2014"
+	'excerpt'			=>	array('.cnt p',0),
+	'article_body'		=>	'.profile', // The container where we can espect to find the image
+	'img_prefix'		=>	'', // for relative image urls
+	'content_body'		=> 	'.profile', //This could be different from the article body to prevent storing comments in content
+);
 
 ?>

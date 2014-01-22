@@ -3,7 +3,7 @@
 /**
 * This class is article getter. It extracts a list of articles from an author page on the web.
 */
-header('Content-Type: text/html; charset=utf-8');
+//header('Content-Type: text/html; charset=utf-8');
 require_once(ABSPATH.'classes/simple_html_dom.php');
 
 class GetArticles {
@@ -52,12 +52,24 @@ class GetArticles {
 				if ($element = $allElements[$whichArticle]) { // if this assignment does not generate an error
 					$article['title'] = trim(html_entity_decode($element->find($media_source['title'][0],$media_source['title'][1])->plaintext));			
 					$article['link'] = $media_source['link_prefix'].trim(html_entity_decode($element->find($media_source['link'][0],$media_source['link'][1])->href));
-					$thedate = new DateTime(trim(html_entity_decode($element->find($media_source['timestamp'][0],$media_source['timestamp'][1])->plaintext)));
+					if (!empty($media_source['timestamp'][0])) {
+						// shop off superflous part of timestamp string
+						$date_description = html_entity_decode($element->find($media_source['timestamp'][0],$media_source['timestamp'][1])->plaintext);
+						echo $date_description."\n";
+						if (isset($media_source['timestamp'][2])) {
+							$adjusted_date_description =substr($date_description,$media_source['timestamp'][2]);
+							echo $adjusted_date_description."\n";
+							$thedate = new DateTime(trim($adjusted_date_description));
+
+						}else{
+							$thedate = new DateTime(trim($date_description));
+						}
+						$article['timestamp'] = ($thedate->GetTimeStamp())+ 25200 + rand(60,3600); 
+					}
 					
 					/*Since Timestamps are taken from dates, not exact times (ex: 12/November/2013), the resulting timestamp 
 					will be at midnight, and columnists would be relegated to midnight posts. To remedy this we add 6 hours so that they're published at a good early time, 
 					We also add a random amount between 1 minutes and 60 minutes so that columnists don't all appear at the exact same time */
-					$article['timestamp'] = ($thedate->GetTimeStamp())+ 25200 + rand(60,3600); 
 					$article['excerpt'] = trim(html_entity_decode($element->find($media_source['excerpt'][0],$media_source['excerpt'][1])->plaintext));
 					$article['image_details'] = self::getImageFromURL($article['link'], $media_source['article_body'], $media_source['img_prefix']);
 					$article["content"] = self::getContentFromURL($article["link"], $media_source['content_body']);
@@ -215,16 +227,15 @@ class GetArticles {
 	            $article_container = $html->find($article_path,0);
 	            	if ($article_container->find('img')) {
 					foreach ($article_container->find('img') as $key => $element) {
-						if (isset($element->width)) {
-							if ($element->width > 300) {
-								$image_details = array(
-									'source'	=>	$img_prefix.$element->src,
-									'width'		=>	(int)$element->width,
-									'height'	=>	(int)$element->height,
-								);
-								return $image_details;
-							}
-						}
+						list($width, $height, $type, $attr) = getimagesize($img_prefix.$element->src);
+						if ($width>299){ //only return images 300 px large or wider
+							$image_details = array(
+								'source'	=>	$img_prefix.$element->src,
+								'width'		=>	(int)$element->width,
+								'height'	=>	(int)$element->height,
+							);
+							return $image_details;
+						} 
 					}
 				return null;
 			}
