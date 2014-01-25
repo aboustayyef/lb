@@ -57,8 +57,14 @@ function add_post_to_facebook($postObject){
 	$config['fileUpload'] = false; // optional
 
 	// to avoid monotony, we prepare several possible wordings for the facebook message
-	$attribution = '"'.$postObject->post_title.'" by '.$postObject->blog_name;
+	if (!isset($postObject->blog_id)) { //it is a column, not a blog
+		$site = $postObject->col_name;
+	}else{
+		$site = $postObject->blog_name;
+	}
+	$attribution = '"'.$postObject->post_title.'" by '.$site;
 	$variety_of_messages = array(
+		$attribution.' is now the most popular post on Lebanese Blogs',
 		'The most popular blog post on Lebanese Blogs right now is '.$attribution, 
 		'A new blog post is now the most popular on Lebanese Blogs: '.$attribution);
 
@@ -96,10 +102,18 @@ function add_post_to_twitter($postObject){
 		Reference: http://www.pontikis.net/blog/auto_post_on_twitter_with_php
 	*/
 
-	$length_of_twitter_handle = strlen($postObject->blog_author_twitter_username);
+	// get twitter handle
+	if (!isset($postObject->blog_id)) { //it is a column, not a blog
+		$twitter_author = $postObject->col_author_twitter_username;
+	}else{
+		$twitter_author = $postObject->blog_author_twitter_username;
+	}
+
+	$length_of_twitter_handle = strlen($twitter_author);
 	$title_allowance = 59 - $length_of_twitter_handle; // twitter handle + title should be equal to 59 in length to accomodate rest of tweet.
 	$title = substr($postObject->post_title, 0, $title_allowance);
-	$status = 'New Top Post: '.$title.' by @'.$postObject->blog_author_twitter_username.', '.$postObject->post_url.'. More at lebaneseblogs.com';
+
+	$status = 'New Top Post: '.$title.' by @'.$twitter_author.', '.$postObject->post_url.'. More at lebaneseblogs.com';
 	$twitter = new Twitter('JFJmBCbVrLfBFu5u0TDdzg', 'QI8jrDWQdXH6TFb8zSYZ8gzWDW5DpSakBlQ7qdHZYI', "1054796604-YlpZJiKXOrGvQAcU6fuzLvUljubIHToUfBRSUgV", "ydm1xxTU1OmA1Nsq3CStrr3CLcXJOAYpagdV7E1Aco1SJ");
 	try {
 	    $twitter->send($status);
