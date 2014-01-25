@@ -429,6 +429,13 @@ div.mainbar-wrapper {
       font-size: 12px;
       color: #871c25;
       opacity: .2; }
+    .card .card_body .number-of-clicks {
+      display: block;
+      position: absolute;
+      background: beige;
+      padding: 2px 10px;
+      top: 85px;
+      right: 10px; }
     .card .card_body [id^="content-post-"] {
       max-height: 500px;
       overflow: hidden; }

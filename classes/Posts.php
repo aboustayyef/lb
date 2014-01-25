@@ -31,7 +31,7 @@ class Posts
         // get blog's details
         if (isset($channel) && !empty($channel)) {
             $query = 'SELECT 
-            posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, columnists.col_shorthand, blogs.blog_name, columnists.col_name,  
+            posts.post_url, posts.post_title, posts.post_id, posts.post_visits, blogs.blog_id, columnists.col_shorthand, blogs.blog_name, columnists.col_name,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 
             blogs.blog_author_twitter_username, columnists.col_author_twitter_username, posts.post_timestamp 
             FROM `posts` 
@@ -41,7 +41,7 @@ class Posts
             ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
         } else {
             $query = 'SELECT 
-            posts.post_url, posts.post_title, posts.post_id, blogs.blog_id, columnists.col_shorthand, blogs.blog_name, columnists.col_name,  
+            posts.post_url, posts.post_title, posts.post_id, posts.post_visits, blogs.blog_id, columnists.col_shorthand, blogs.blog_name, columnists.col_name,  
             posts.post_excerpt, posts.post_image,posts.post_image_height, posts.post_image_width, 
             blogs.blog_author_twitter_username, columnists.col_author_twitter_username, posts.post_timestamp 
             FROM `posts` 

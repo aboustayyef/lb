@@ -134,6 +134,14 @@
             color: darken($lb_red,10);
             opacity: .2;
         }
+        .number-of-clicks {
+            display: block;
+            position: absolute;
+            background: beige;
+            padding: 2px 10px;
+            top: 85px;
+            right: 10px;
+        }
         [id^="content-post-"]{
             max-height: 500px;
             overflow: hidden;

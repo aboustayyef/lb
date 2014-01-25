@@ -182,15 +182,20 @@ class Extras
 			<div class="card-container">
 
 				<div class="card">
-					
-					<div class ="announcement-graphic">
+					<?php
+					//for debugging:
+					/*echo "<pre>";
+					print_r($_SESSION);
+					echo "</pre>";*/
+					?>
+					<!-- <div class ="announcement-graphic">
 						<i class="icon icon-heart"></i>
 					</div> 
 					<div class="announcement">
 						<h4>
 							A <a href ="http://lebaneseblogs.com/blog/?p=191">Very Good Reason</a> for Following us on <a href="http://facebook.com/lebaneseblogs">Facebook</a> and <a href="http://twitter.com/lebaneseblogs">Twitter</a>.
 						</h4>
-					</div>
+					</div> -->
 					
 					
 				</div>
