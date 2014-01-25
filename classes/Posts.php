@@ -118,13 +118,13 @@ class Posts
         $lb_now = time();
         $lb_before = $lb_now-($hours*60*60);
         if ($channel){
-            $query = 'SELECT posts.post_image, posts.post_timestamp, posts.post_image_width, posts.post_image_height, posts.post_url, posts.post_title, blogs.blog_name, blogs.blog_author_twitter_username, columnists.col_author_twitter_username ,columnists.col_name, posts.blog_id 
+            $query = 'SELECT posts.post_image, posts.post_timestamp, posts.post_image_width, posts.post_visits, posts.post_image_height, posts.post_url, posts.post_title, blogs.blog_name, blogs.blog_author_twitter_username, columnists.col_author_twitter_username ,columnists.col_name, posts.blog_id 
                     FROM posts LEFT JOIN blogs ON posts.blog_id = blogs.blog_id 
                     LEFT JOIN columnists ON posts.blog_id = columnists.col_shorthand
                     WHERE ((blogs.blog_tags LIKE "%'.$channel.'%") OR (columnists.col_tags LIKE "%'.$channel.'%")) AND (posts.post_timestamp > '.$lb_before.')
                     ORDER BY post_visits DESC LIMIT '.$posts_to_show;
         } else {
-            $query = 'SELECT posts.post_image, posts.post_timestamp, posts.post_image_width, posts.post_image_height, posts.post_url, posts.post_title, blogs.blog_name, blogs.blog_author_twitter_username, columnists.col_author_twitter_username ,columnists.col_name, posts.blog_id 
+            $query = 'SELECT posts.post_image, posts.post_timestamp, posts.post_image_width, posts.post_visits, posts.post_image_height, posts.post_url, posts.post_title, blogs.blog_name, blogs.blog_author_twitter_username, columnists.col_author_twitter_username ,columnists.col_name, posts.blog_id 
                     FROM posts LEFT JOIN blogs ON posts.blog_id = blogs.blog_id 
                     LEFT JOIN columnists ON posts.blog_id = columnists.col_shorthand
             WHERE posts.post_timestamp > '.$lb_before.' ORDER BY post_visits DESC LIMIT '.$posts_to_show;

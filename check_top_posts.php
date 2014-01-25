@@ -18,15 +18,19 @@ $results = $connection->query('SELECT * FROM top_posts WHERE top_post_url = "'.$
 echo count($results);
 if (count($results) > 0) { // post already exists
 	# do nothing
-}else{
-	// add post to database
-	add_post_to_db($topPost->post_url);
+}else{ // post is new
+	if ($topPost->post_visits > 6 ) { // post need to be clicked at least 6 times to avoid a de-facto top 1 (like those late at night)
+		// add post to database
+		add_post_to_db($topPost->post_url);
 
-	// add post to facebook
-	add_post_to_facebook($topPost);
+		// add post to facebook
+		add_post_to_facebook($topPost);
 
-	// add post to twitter
- 	add_post_to_twitter($topPost);
+		// add post to twitter
+	 	add_post_to_twitter($topPost);
+	}else{
+		# Do Nothing
+	}
 }
 
 

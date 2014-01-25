@@ -1,6 +1,6 @@
 <?php
 
-// script to set the width and height for all images in database
+// One-off script to set the width and height for all images in database
 // connect to database
 
 include_once("config.php");

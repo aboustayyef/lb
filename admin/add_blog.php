@@ -1,222 +1,122 @@
-<?php
-$root_is_at = ".."; //second level
-require_once("$root_is_at/includes/config.php");
-require_once("$root_is_at/includes/connection.php");
-require_once("$root_is_at/includes/core-functions.php");
-
-  if (isset($_COOKIE["logged_in"]))
-  {
-    if ($_COOKIE["logged_in"] == "yes")
-    {
-      load_admin();
-    } else {
-      header("location: $root_is_at/admin/login.php");
-    }
-  } else {
-    header("location: $root_is_at/admin/login.php");
-  }
-
-?>
-
 <?php 
+require_once('../init.php');
+require_once('admin_functions.php');
 
-function load_admin(){
+if (isset($_SESSION['admin'])) {
+     # continue
+ } else {
+    header('location: login.php');
+ }
 
-  $page = "admin";
-  $title = "Lebanese Blogs | admin";
-  $description = "Administration and maintenance";
-  $root_is_at = ".."; //second level
+if (isset($_POST['submit'])) {
+    draw_full_form($_POST['blogurl']);
+} else {
+    draw_submit_blog_form();
+}
 
-  include_once("$root_is_at/includes/top_part.php");
-  ;?>
-<div id="entries-main-container">
-<div class ="page_wrapper">
+
+function draw_submit_blog_form(){
+    
+    ?>
+<html lang="en">
+<?php draw_bootstrap_header('Submit Blog') ?><!--  -->
+<body>
   <div class="container">
-    <br/>
-    <div class="span6 offset3 preset3">
-      <h3>Administration</h3>
-        <?php
-        if (isset($_POST['data-submit'])) {
-          post_data_to_blog();
-        } else {
-          if (isset($_POST['url'])) {
-            prepare_data();
-          } else {
-            load_form();
-          }
-        }
-        
-          
-          
-        ?>
+    <div class="col-sm-12">
+      <h1>Submit blog<hr></h1>
+    </div>
+
+    <form action="" method="post">
+      <div class="form-group ">
+        <label for="blogurl" class="col-sm-2 control-label">Blog URL:</label>
+        <div class="col-sm-10">
+            <input id="blogurl" name ="blogurl" class ="form-control" type="text" placeholder="http://yourblog.com">
+            <input id="submit" type="submit" name="submit" style ="display:none">
         </div>
       </div>
-    </div> <!-- /container -->
-</div><!-- /page_wrapper -->
-  
+    </form>
+  </div>  
+</body>
+
 <?php
-include_once("$root_is_at/includes/bottom_part.php");
-} // end load_admin()
-
-function load_form(){
-  ;?>
-  
-  <form method ="post" action = "add_blog.php">
-    <fieldset>
-      <legend>Enter URL</legend>
-      <input type="text" placeholder="http://blogaddress.com" name ="url">
-      <span class="help-block">Example block-level help text here.</span>
-      <button type="submit" class="btn">Submit</button>
-    </fieldset>
-  </form>
-  
-  <?php
-} // end load_form()
-
-function prepare_data(){
-  $url = $_POST['url'];
-
-  //domain (blog id)
-  $domain = get_domain($url);
-
-  //title 
-
-  $title = getTitle($url);
-
-  //description
-  $tags = get_meta_tags($url);
-  if (isset($tags['description'])) {
-    $description = $tags['description'];
-  } else {
-    $description = "No Description";
-  }
-
-  //feed
-
-  $feeds = feedSearch($url);
-  $feed = @$feeds[0]['href'];
-
-prepare_form($url, $domain, $title, $description, $feed);
-
 }
 
-function prepare_form($url, $domain, $title, $description, $feed){
-  ;?>
+function draw_full_form($url){
 
-<form method = "post" action ="add_blog.php">
-  <fieldset>
-    <legend>Blog Data</legend>
-    <label>Blog ID (domain)</label>
-    <input name = "blog_id" type="text" value="<?php echo $domain; ?>">
-    <label>Blog Name</label>
-    <input name = "blog_name" type="text" value="<?php echo $title; ?>">
-    <label>Blog Description</label>
-    <input name = "blog_description" type="text" value="<?php echo $description; ?>">
-    <label>Blog url</label>
-    <input name = "blog_url" type="text" value="<?php echo $url; ?>">
-    <label>Blog RSS Feeds</label>
-    <input name = "blog_rss_feed" type="text" value="<?php echo $feed; ?>">
-    <label>Blog author</label>
-    <input name = "blog_author" type="text" value="">
-    <label>Blog author Twitter</label>
-    <input name = "blog_author_twitter_username" type="text" placeholder="Without the @" value="">
-    <label>Blog Tags </label>
-    <input name = "blog_tags" type="text" placeholder="tech, design, fashion, society, design, politics, food" value="">
-    <button type="submit" class="btn" name ="data-submit">Submit</button>
-  </fieldset>
-</form>  
-  
-  <?php
-}
+/*Try to extract some info from URL */
+require_once('../classes/simple_html_dom.php');
+$html = new simple_html_dom();
+$html->load_file($url); 
 
-function getTitle($Url){
-    $str = file_get_contents($Url);
-    if(strlen($str)>0){
-        preg_match("/\<title\>(.*)\<\/title\>/",$str,$title);
-        return $title[1];
-    }
-}
+//To get Meta Title
+$meta_title = $html->find("title", 0)->plaintext;
 
-function feedSearch($url) { 
-// source: http://www.sitepoint.com/forums/showthread.php?728255-Detect-RSS-feeds-in-a-web-page
- 
-    if($html = @DOMDocument::loadHTML(file_get_contents($url))) {
- 
-        $xpath = new DOMXPath($html);
-        $feeds = $xpath->query("//head/link[@href][@type='application/rss+xml']");
- 
-        $results = array();
- 
-        foreach($feeds as $feed) {
-            $results[] = array(
-                'title' => $feed->getAttribute('title'),
-                'href' => $feed->getAttribute('href'),
-            );
-        }
- 
-        return $results;
- 
-    }
- 
-    return false;
- 
-}
+//To get Meta Description
+$meta_description = $html->find('meta[property="og:description"]', 0)->content;
 
-function post_data_to_blog(){
+//To get RSS Feed
+$rss_feed = $html->find('link[type="application/rss+xml"]',0)->href;
 
-  $blog_name = $_POST['blog_name'];
-  $blog_description = $_POST['blog_description'];
-  $blog_url = $_POST['blog_url'];
-  $blog_rss_feed = $_POST['blog_rss_feed'];
-  $blog_author = $_POST['blog_author'];
-  $blog_author_twitter_username = $_POST['blog_author_twitter_username'];
-  $blog_id = $_POST['blog_id'];
-  $blog_tags = $_POST['blog_tags'];
+draw_bootstrap_header('Fill the rest of this form');
+;?>
 
-  global $db;
+<body>
+  <div class="container">
+    <div class="col-sm-12">
+      <h1>Check the Details then submit blog<hr></h1>
+    </div>
 
-  $stmt = $db->prepare ('INSERT INTO blogs 
-    (
-      blog_id,
-      blog_name,
-      blog_description,
-      blog_url,
-      blog_author,
-      blog_author_twitter_username,
-      blog_rss_feed,
-      blog_tags
-      ) 
-    VALUES
-    (
-    :id,
-    :name,
-    :description,
-    :url,
-    :author,
-    :twitter,
-    :rss,
-    :tags
+    <form action="submit.php" method="post">
+      <div class="form-group ">
+        
+        <label for="blogid" class="col-sm-2 control-label">Choosse a Blog ID:</label>
+        <div class="col-sm-10">
+            <input id="blogid" name ="blogid" class ="form-control" type="text" placeholder = "oneWordID">
+        </div>
+        
+        <label for="blogurl" class="col-sm-2 control-label">Blog URL:</label>
+        <div class="col-sm-10">
+            <input id="blogurl" name ="blogurl" class ="form-control" type="text" value = "<?php echo $url; ?>">
+        </div>
 
-    )');
+        <label for="blogname" class="col-sm-2 control-label">Blog Name:</label>
+        <div class="col-sm-10">
+            <input id="blogname" name ="blogname" class ="form-control" type="text" value="<?php echo $meta_title; ?>">
+        </div>
 
-    $stmt->execute(array(
-          ':id'        => $blog_id,
-          ':name'      => $blog_name,
-          ':description'      => $blog_description,
-          ':url'      => $blog_url,
-          ':author'       => $blog_author,
-          ':twitter' => $blog_author_twitter_username,
-          ':rss'      => $blog_rss_feed,
-          ':tags'     => $blog_tags
-    ));
-  
-  if ($stmt->rowCount()) {
-    Echo '<div class ="alert alert-success">Blog Added Succesfully !</div>';
-  }
+        <label for="blogdescription" class="col-sm-2 control-label">Blog Description:</label>
+        <div class="col-sm-10">
+            <input id="blogdescription" name ="blogdescription" class ="form-control" type="text" value="<?php echo $meta_description; ?>">
+        </div>
 
+        <label for="blogrss" class="col-sm-2 control-label">Blog RSS:</label>
+        <div class="col-sm-10">
+            <input id="blogrss" name ="blogrss" class ="form-control" type="text" value="<?php echo $rss_feed; ?>">
+        </div>
+
+        <label for="blogauthor" class="col-sm-2 control-label">Blog Author:</label>
+        <div class="col-sm-10">
+            <input id="blogauthor" name ="blogauthor" class ="form-control" type="text" placeholder="Author's name (optional) ">
+        </div>
+
+        <label for="blogtwitter" class="col-sm-2 control-label">Blog Twitter:</label>
+        <div class="col-sm-10">
+        <input id="blogtwitter" name ="blogtwitter" class ="form-control" type="text" placeholder="Author's Twitter address (without @) ">
+
+        </div>
+        <label for="blogtags" class="col-sm-2 control-label">Blog Tags:</label>
+        <div class="col-sm-10">
+            <input id="blogtags" name ="blogtags" class ="form-control" type="text" placeholder="politics, society (never trailing comas)">
+            <br>        <input id="submit" class ="btn btn-large" type="submit" name="submit" >
+
+        </div>
+      </div>
+    </form>
+  </div>  
+</body>
+
+<?php
 
 }
-
-
 
 ?>

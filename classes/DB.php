@@ -104,6 +104,25 @@ class DB {
 		return false;
 	}
 
+	public function update_advanced($table, $id, $fields){
+		$set = '';
+		$x = 1;
+		$params = array_values($fields);
+		foreach ($fields as $name => $value) {
+			$set .= "{$name} = ?";
+			if ($x < count($fields)) {
+				$set .= ', ';
+			}
+			$x++;
+		}
+		$sql = "UPDATE {$table} SET {$set} WHERE {$id[0]} = {$id[1]}";
+		
+		if(!$this->query($sql,$params)->error()){
+			return true;
+		}
+		return false;
+	}
+
 	public function update($table, $id, $fields){
 		$set = '';
 		$x = 1;

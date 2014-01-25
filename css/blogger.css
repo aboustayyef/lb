@@ -483,6 +483,11 @@ div.mainbar-wrapper {
         .card .card_body .post_title a:hover {
           color: #3B967C;
           text-decoration: none; }
+      .card .card_body .post_title small {
+        padding: 0 10px;
+        font-size: 14px;
+        color: white;
+        background: #b12530; }
       .card .card_body .post_title.rtl {
         direction: rtl; }
       .card .card_body .post_title.givemargins {

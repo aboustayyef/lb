@@ -88,7 +88,17 @@ class Render
 						     <?php
 						 }
 					?>
-					<div class="post_title secondaryfont <?php if (Lb_functions::contains_arabic($post->post_title)) {echo " rtl";}else{echo " ltr";} ?>"><a  href="<?php echo $target_url ;?>" target="_blank"><?php echo $post->post_title; ?></a></div>
+					<div class="post_title secondaryfont <?php if (Lb_functions::contains_arabic($post->post_title)) {echo " rtl";}else{echo " ltr";} ?>"><a  href="<?php echo $target_url ;?>" target="_blank"><?php echo $post->post_title; ?></a>
+					<?php 
+						// if admin is signed in, add edit link
+						if (isset($_SESSION['admin'])) {
+							?>
+							<a href="admin/edit.php?postid=<?php echo $post->post_id; ?>"> <small>edit</small></a>&nbsp;
+							<a href="admin/delete.php?postid=<?php echo $post->post_id; ?>"> <small><i class ="icon-trash"></i></small></a>
+							<?php
+						}
+					?>
+					</div>
 					<?php 
 
 						if (isset($post->post_image) && ($post->post_image_width > 0) && ($post->post_image_height>0)) {

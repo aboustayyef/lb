@@ -1,129 +1,98 @@
-<?php
-$root_is_at = ".."; //second level
-require_once("$root_is_at/includes/config.php");
-require_once("$root_is_at/includes/connection.php");
-require_once("$root_is_at/includes/core-functions.php");
-
-  if (isset($_COOKIE["logged_in"]))
-  {
-    if ($_COOKIE["logged_in"] == "yes")
-    {
-      load_admin();
-    } else {
-      header("location: $root_is_at/admin/login.php");
-    }
-  } else {
-    header("location: $root_is_at/admin/login.php");
-  }
-
-?>
-
 <?php 
+require_once('../init.php');
+require_once('admin_functions.php');
 
-function load_admin(){
+if (isset($_SESSION['admin'])) {
+	 # continue
+ } else {
+	header('location: login.php');
+ }
 
-  $page = "edit";
-  $title = "Edit Post";
-  $description = "Edit Post. Administration and maintenance";
-  $root_is_at = ".."; //second level
+/*Make sure the postid Parameter exists*/
+if (isset($_GET['postid']) && !empty($_GET['postid'])) {
+	the_form();
+} else {
+	die('sorry, postid has to be set');
+}
 
-  include_once("$root_is_at/includes/top_part.php");
-  ;?>
-<div id="entries-main-container">
-<div class ="page_wrapper">
-  <div class="container">
-    <br/>
-    <div class="span6 offset3 preset3">
-      <h3>Administration</h3>
-        <?php
-        if (isset($_POST['data-submit'])) {
-          post_edited_data($_POST['post_id']);
-        } else {
-          load_form();
-          }
-        }
-        
-          
-          
-        ?>
-        </div>
-      </div>
-    </div> <!-- /container -->
-</div><!-- /page_wrapper -->
-  
-<?php
-include_once("$root_is_at/includes/bottom_part.php");
+/* See if form is submitted , otherwise draw the form */
+function the_form(){
+	if (isset($_POST['submit'])) {
+		# form is submitted. do modification logic here
+	} else {
+		draw_form($_GET['postid']);
+	}
+}
 
-function load_form(){
-global $db;
-  if (!isset($_GET['id'])) {
-  	die('need to enter id');
-  } else {
-  	$post_id = $_GET['id'];
-  }
-
-$query = 'SELECT `post_id`,`post_title`, `post_image`,`post_excerpt` FROM `posts` WHERE `post_id` = "' . $_GET['id'] . '"';
-$stmt = $db->query($query);
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-  ;?>
-<div id ="form_edit">
-  <p><a href ='delete_post.php?id=<?php echo $row['post_id']; ?>'>DELETE</a></p>
-  <form method ="post" action = "edit.php">
-      <legend>Post ID</legend>
-      <input type="text" value="<?php echo $row['post_id'] ?>" name ="post_id" readonly>
-
-      <legend>Post Title</legend>
-      <input type="text" value="<?php echo $row['post_title'] ?>" name ="post_title">
-
-      <legend>Post Image</legend>
-      <input class="long" type="text" value="<?php echo $row['post_image'] ?>" name ="post_image">
-
-      <legend>Post Excerpt</legend>
-      <textarea name ="post_excerpt"><?php echo $row['post_excerpt'] ?></textarea>
-      <br>
-      <button class ="submit" type="submit" name="data-submit">Submit</button>
-  </form>
-</div>  
-  <?php
-} // end load_form()
-
-
-function post_edited_data($post_id){
-
-  $post_title = $_POST['post_title'];
-  $post_image = $_POST['post_image'];
-  $post_excerpt = $_POST['post_excerpt'];
-
-  global $db;
-
-
-  // fix below to use modify instead of insert
-
-  // Don't forget to enter image dimensions
-
-  // work on delete.php
-
-$stmt = $db->prepare ('
-  UPDATE `posts`
-  SET `post_title`=:title, `post_image`=:image , `post_excerpt`=:excerpt
-  WHERE `post_id`=:id ');
-
-
-    $stmt->execute(array(
-          ':id'       => $post_id,
-          ':title'    => $post_title,
-          ':image'    => $post_image,
-          ':excerpt'  => $post_excerpt
-    ));
-  
-  if ($stmt->rowCount()) {
-    Echo '<div class ="alert alert-success">Post Edited Succesfully !</div>';
-  }
-
-
+/*draw the form*/
+function draw_form($postid){
+	/*Check if post exists*/
+	$connection = DB::getInstance();
+	$results = $connection->get('posts', array('post_id','=',$postid))->results();
+	if (count($results)>0) { // post exists
+		form_html($results);
+	}else{
+		echo '<h2>Sorry, post does not exist</h2>';
+	}
 }
 
 
+function form_html($results){
+	?>
+<html lang="en">
+<?php draw_bootstrap_header('Edit Post'); ?>
+<!-- We'll be editing: post_title, post_image, post_excerpt, post_timestamp, post_image_height, post_image_width -->
+<body>
+  <div class="container">
+    <div class="col-sm-12">
+      <h1>Adjust details then hit submit<hr></h1>
+      <?php $results = $results[0] ;?>
+    </div>
 
-?>
+    <form action="submit_post_changes.php" method="post">
+      <div class="form-group ">
+
+        <input type="hidden" name="post_id" value="<?php echo $results->post_id; ?>">
+        
+        <label for="post_title" class="col-sm-2 control-label">Post Title:</label>
+        <div class="col-sm-10">
+            <input id="post_title" name ="post_title" class ="form-control" type="text" value = "<?php echo $results->post_title ;?>">
+        </div>
+        
+        <label for="post_excerpt" class="col-sm-2 control-label">Post Excerpt (if any)</label>
+        <div class="col-sm-10">
+            <textarea id="post_excerpt" name ="post_excerpt" class ="form-control" rows="5"> 
+            	<?php echo trim($results->post_excerpt," \t\n\r\0\x0B"); ?> 
+            </textarea>
+        </div>
+
+        <label for="post_timestamp" class="col-sm-2 control-label">Post Timestamp:</label>
+        <div class="col-sm-10">
+            <input id="post_timestamp" name ="post_timestamp" class ="form-control" type="text" value="<?php echo $results->post_timestamp ; ?>">
+        </div>
+
+        <label for="post_image" class="col-sm-2 control-label">Post Image: (if any)</label>
+        <div class="col-sm-10">
+            <input id="post_image" name ="post_image" class ="form-control" type="text" value = "<?php echo $results->post_image; ?>">
+        </div>
+
+        <label for="post_image_height" class="col-sm-2 control-label">Post Image Height</label>
+        <div class="col-sm-10">
+            <input id="post_image_height" name ="post_image_height" class ="form-control" type="text" value = "<?php echo $results->post_image_height; ?>">
+        </div>
+
+        <label for="post_image_width" class="col-sm-2 control-label">Post Image Width</label>
+        <div class="col-sm-10">
+            <input id="post_image_width" name ="post_image_width" class ="form-control" type="text" value = "<?php echo $results->post_image_width; ?>">
+        </div>
+
+		<input id="submit" class ="btn btn-large" type="submit" name="submit" >
+
+        </div>
+      </div>
+    </form>
+  </div>  
+</body>
+
+	<?php
+}

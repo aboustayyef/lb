@@ -134,6 +134,7 @@
             color: darken($lb_red,10);
             opacity: .2;
         }
+
         .number-of-clicks {
             display: block;
             position: absolute;
@@ -198,6 +199,12 @@
                     color: #3B967C;
                     text-decoration: none;
                 }          
+            }
+            small{
+                padding: 0 10px;
+                font-size: 14px;
+                color: white;
+                background: $lb_red;
             }
 
             &.rtl{
