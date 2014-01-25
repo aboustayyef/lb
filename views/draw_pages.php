@@ -8,8 +8,9 @@
 <hr>
 
 	<div class ="section" id="about">
-		<h3>About Lebanese Blogs</h3>
-		<p><em class="understated">"A great website"</em> - <a href="http://blogbaladi.com/lebaneseblogs-com-version-3-0/">Blog Baladi</a><br>
+		<h3>What people are saying about Lebanese Blogs</h3>
+		<p><em class="understated">"Lebanon's Top Blog Aggregator"</em> - <a href="http://cloud961.com/flip-magazine/?bkname=new_year_2014#19">Cloud961 Magazine</a><br>
+		<em class="understated">"A great website"</em> - <a href="http://blogbaladi.com/lebaneseblogs-com-version-3-0/">Blog Baladi</a><br>
 		<em class ="understated">"A Daily Must-Check!"</em> - <a href ="http://ginosblog.com/2013/04/18/lebaneseblogs-com-a-daily-must-check/">Gino's Blog</a><br> 
 		<em class="understated">"Made a major impact on the Lebanese digital crowd"</em> - <a href="http://tech-ticker.com/lebanesblogs-com-an-interview-with-mustapha-hamoui/">Tech-Ticker</a><br/>
 		<em class="understated">"The best resource on Lebanese cyber sphere"</em> - <a href="https://www.facebook.com/leila.k.hanna/posts/10151788108666471">Leila Khauli Hanna</a><br>

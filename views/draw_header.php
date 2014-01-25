@@ -89,7 +89,10 @@ global $channel_descriptions;
       <ul>
         <a href="<?php echo WEBPATH.'about' ?>"><li>About</li></a>
         <a href="<?php echo WEBPATH.'about#submit' ?>"><li>Submit Your Blog</li></a>
-        <a href="<?php echo WEBPATH.'blog'; ?>"><li class ="last" >Our Own Blog</li></a>
+        <a href="<?php echo WEBPATH.'about#feedback' ?>"><li>Submit Feedback</li></a>
+        <a href="<?php echo WEBPATH.'blog'; ?>"><li>Our Blog</li></a>
+        <a href="<?php echo WEBPATH.'admin'; ?>"><li class ="last" >Admin</li></a>
+
       </ul>
     </div>
 
