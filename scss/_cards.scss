@@ -45,6 +45,23 @@
                 }
             }
         }
+        #timeSelector{
+            background: darken($lb_red,6);
+            color:darken(white,10);
+            padding: 3px 10px;
+            display: block;
+            min-width: 150px;
+            position: absolute;
+            top: 6px;
+            left: 110px;
+            i{
+                float:right;
+            }
+            &:hover{
+                background: darken($lb_red,12);
+                color:white;
+            }
+        }
         &.tip{
 
             $background: #FFCC66;

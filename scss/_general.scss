@@ -128,6 +128,20 @@ textarea, input{
     border:silver 1px solid;
 }
 
+#timeList{
+    padding: 3px 0;
+    background-color: darken($lb_red,6);
+    color: white;
+    li{
+        min-width: 150px;
+        padding: 0 10px;
+        margin: 5px 0;
+        &:hover{
+            background: darken($lb_red,9);
+        }
+    }
+}
+
 // modal window
 
 #modal{

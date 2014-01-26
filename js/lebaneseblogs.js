@@ -62,6 +62,40 @@ var lbApp ={
 				lbApp.posts.busy = "no";
 			});
 		},
+
+		switch_top: function(hours,howmany,channel){
+			/* first, get data from the api */
+			$.post( "http://vbox/websites/lebanese_blogs/api_get_posts.php?type=top&hours="+hours+"&howmany="+howmany+"&channel="+channel, function( data ) {
+				var box = $('#posts').find('.card-container').eq(0);
+				var style = box.attr('style');
+				box.css('opacity',0);
+				box.replaceWith(data);
+				box = $('#posts').find('.card-container').eq(0);
+				box.attr('style',style);
+				box.css('opacity',1);
+				lbApp.posts.flow();
+			});
+		},
+
+		top_switcher_init: function(){
+			$('#view-area').prepend('<ul id ="timeList" style ="position:fixed; z-index: 300; display:none"><li data-hours="12">12 Hours</li><li data-hours="24">24 Hours</li><li data-hours="72">3 Days</li></ul>');
+			$('#timeList').css('left', $('#timeSelector').offset().left);
+			$('#timeList').css('top', $('#timeSelector').offset().top);
+			$(document).on('click','#timeSelector', function(){
+				if ($('#timeList').css('display')=='none') {
+					$('#timeList').css('display','block');
+				}
+			});
+			$(document).on('click','#timeList li', function(){
+				var hours = $(this).data('hours');
+				if ($('#timeList').css('display')=='block') {
+					$('#timeList').css('display','none');
+				}
+				lbApp.posts.switch_top(hours, 5,'');
+			});
+
+		},
+
 		saved:{
 			init:function(){
 				var addToSavedHTML = '<a class="addToSaved" href="#"><i class="icon-heart"></i> Save Post</a>';
@@ -407,8 +441,8 @@ bloggerPage:{
 			this.window.css("margin","0 auto");
 
 			$('.blogMeta').css({
-				"width"		:	this.window.width() - 60,
-				"margin"	:	"0 auto"
+				"width"     :   this.window.width() - 60,
+				"margin"    :   "0 auto"
 			});
 
 			this.window.BlocksIt({

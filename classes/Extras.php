@@ -167,8 +167,6 @@ class Extras
 		}
 
 		public static function topFive($howmany=5, $hours=12, $channel = null){
-
-			global $db;
 			$stats = Posts::get_Top_Posts($hours, $howmany, $channel);
 			if (count($stats)<5) {
 				$hours = 24;
@@ -203,9 +201,10 @@ class Extras
 				<div class="card">
 					<div class="card_header primaryfont background-red">
 						<h3 class ="whitefont">Top Posts</h3>
+						<div id="timeSelector">12 Hours <i class ="icon-chevron-down"></i></div>
 					</div>
 
-					<div class ="card_body elastic">
+					<div id = "top" class ="card_body elastic">
 						
 						<?php
 

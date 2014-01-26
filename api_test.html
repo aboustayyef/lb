@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Testing API</title>
+</head>
+<body>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+
+$.getJSON( "http://vbox/websites/lebanese_blogs/api_get_posts.php?type=top&hours=60&howmany=5&channel=politics", function( data ) {
+  /*Test picking one item from list of objects*/
+  console.log(data[0].post_title);
+  $.each(data, function(key,val){
+  	  $('body').append('<p>'+val.post_title+'<p>');
+  });
+
+});
+
+</script>	
+</body>
+</html>
