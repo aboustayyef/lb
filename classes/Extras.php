@@ -284,7 +284,7 @@ class Extras
 				<!--card body-->
 				<div class ="card_body" id ="advertisement">
 					<div class="post_title secondaryfont"><a href="http://go.anghami.com/lbblogsalfa">We're giving you music and free 3G starting at $1 !</a></div>
-						<a href="http://go.anghami.com/lbblogsgift">
+						<a href="http://go.anghami.com/lbblogsalfa">
 							<img src="<?php echo WEBPATH ?>img/ads/alfa-anghami300x300.gif" width ="278" height ="278" alt="Anghami &amp; Alfa Special Offer">							
 						</a>
 						<p class ="small understated" style ="opacity:.5;font-size:11px">Thanks for helping make Lebanese Blogs possible</p>		
