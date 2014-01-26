@@ -14,8 +14,8 @@ class Extras
 	// this function is the controller of the entire extras system
 	// it allocates slots to different cards
 	public static function control($itemNumber){
-		$ad_positions = array(1,2,3,4);
-		$rand = rand(0,3);
+		$ad_positions = array(1,2);
+		$rand = rand(0,1);
 		$ad_position = $ad_positions[$rand];
 		if (isset($_SESSION['ad_position'])) {
 			# nothing
