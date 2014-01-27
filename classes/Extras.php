@@ -14,9 +14,15 @@ class Extras
 	// this function is the controller of the entire extras system
 	// it allocates slots to different cards
 	public static function control($itemNumber){
-		
+		$ad_positions = array(1,2);
+		$rand = rand(0,1);
+		$ad_position = $ad_positions[$rand];
+		if (isset($_SESSION['ad_position'])) {
+			# nothing
+		}else{
+			$_SESSION['ad_position'] = $ad_position;
+		}
 		switch ($itemNumber) {
-
 			case 0: 
 			if ($_SESSION['pagewanted'] == 'browse') {
 				self::topFive(5, 12, $_SESSION['channel']);
@@ -24,15 +30,15 @@ class Extras
 			}
 			break;			
 
-			case 2:
+			case $_SESSION['ad_position']:
 			if ($_SESSION['pagewanted'] == 'browse') {
 				/* Uncomment below for ads*/
-				//self::drawAd();
-				//$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
+				self::drawAd();
+				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
 			}
 			break;
 			
-			case 7: 
+			case 14: 
 			if ($_SESSION['pagewanted'] == 'browse') {
 				self::featuredBloggers();
 				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
@@ -267,20 +273,22 @@ class Extras
 			
 				<!--card header-->
 			
-				<div class="card_header background-greylightest" style="background-color: #FCEDED">
+				<div class="card_header background-greylightest" style="background-color: #CF8CD7">
 					<img class ="blog_thumb" src="<?php echo WEBPATH.'img/thumbs/bullhorn.jpg';?>" width ="50" height ="50">
 					<div class="post_details">
-						<div class="blog_name secondaryfont">Special Promotion<br><span class ="small understated" style ="opacity:.5;font-size:12px">( Sponsored post )</span></div>
+						<div class="blog_name secondaryfont">Special Promotion<br><span class ="small understated" style ="opacity:.5;font-size:12px">Sponsored listing</span></div>
 					</div>
 				</div>
 
 				<!--card body-->
 				<div class ="card_body" id ="advertisement">
-					<div class="post_title secondaryfont"><a href="http://go.anghami.com/lbblogsgift">Send your loved ones the gift of unlimited music this holiday!</a></div>
-						<a href="http://go.anghami.com/lbblogsgift">
-							<img src="<?php echo WEBPATH ?>img/ads/anghami.png" alt="Anghami Special Offer">							
+					<div class="post_title secondaryfont"><a href="http://go.anghami.com/lbblogsalfa">We're giving you music and free 3G starting at $1 !</a></div>
+						<a href="http://go.anghami.com/lbblogsalfa">
+							<img src="<?php echo WEBPATH ?>img/ads/alfa-anghami300x300.gif" width ="278" height ="278" alt="Anghami &amp; Alfa Special Offer">							
 						</a>
+						<p class ="small understated" style ="opacity:.5;font-size:11px">Thanks for helping make Lebanese Blogs possible</p>		
 				</div>
+
 			</div>
 		</div>
 
