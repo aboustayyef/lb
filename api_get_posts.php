@@ -7,14 +7,10 @@ switch ($_GET['type']) {
 		// defaults are 12 hours, 5 items and Null;
 		$hours = empty($_GET['hours'])? 12:$_GET['hours'];
 		$howmany = empty($_GET['howmany'])? 5:$_GET['howmany'];
-		$channel = empty($_GET['channel'])? NULL:$_GET['channel'];
 /*		$result = Posts::get_top_posts($hours, $howmany, $channel);
 		$JSONresult = json_encode($result);
 		exit($JSONresult);*/
-		if ($channel == 'all') {
-			$channel == NULL;
-		}
-		Extras::topFive($howmany, $hours, $channel);
+		Extras::topFive($howmany, $hours, $_SESSION['channel']);
 		break;
 	
 	default:
