@@ -98,7 +98,7 @@ var lbApp ={
 					$('#timeList').css('display','block');
 				}
 			});
-			$(document).on('click','#timeList li', function(){
+			$('#timeList').on('click','li', function(){
 				var hours = $(this).data('hours');
 				if ($('#timeList').css('display')=='block') {
 					$('#timeList').css('display','none');
