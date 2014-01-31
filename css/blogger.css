@@ -381,7 +381,8 @@ div.mainbar-wrapper {
         .card .card_header .add2fav a:hover {
           color: grey; }
     .card .card_header #timeSelector {
-      background: #982029;
+      background: #9c212a;
+      border: 1px solid #8f1e27;
       color: #e6e6e6;
       padding: 3px 10px;
       display: block;
@@ -392,7 +393,7 @@ div.mainbar-wrapper {
       .card .card_header #timeSelector i {
         float: right; }
       .card .card_header #timeSelector:hover {
-        background: #7e1a22;
+        background: #8f1e27;
         color: white; }
     .card .card_header.tip {
       background: #ffcc66;

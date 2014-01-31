@@ -53,6 +53,28 @@ class Lb_functions {
 	*	source: http://stackoverflow.com/questions/1416697/converting-timestamp-to-time-ago-in-php-e-g-1-day-ago-2-days-ago
 	*/ 
 
+	static function hours_to_days($hours){
+		$seconds = $hours * 3600;
+		$a = array( 12 * 30 * 24 * 60 * 60  =>  'year',
+	                30 * 24 * 60 * 60       =>  'month',
+	                24 * 60 * 60            =>  'day',
+	                60 * 60                 =>  'hour',
+	                60                      =>  'minute',
+	                1                       =>  'second'
+	                );
+
+	    foreach ($a as $secs => $str)
+	    {
+	        $d = $seconds / $secs;
+	        if ($d >= 1)
+	        {
+	            $r = round($d);
+	            return $r . ' ' . $str . ($r > 1 ? 's' : '') ;
+	        }
+	    }
+
+	}
+
 	static function time_elapsed_string($ptime)
 	{
 	    $etime = time() - $ptime;

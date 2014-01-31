@@ -207,7 +207,7 @@ class Extras
 				<div class="card">
 					<div class="card_header primaryfont background-red">
 						<h3 class ="whitefont">Top Posts</h3>
-						<div id="timeSelector">12 Hours <i class ="icon-chevron-down"></i></div>
+						<div id="timeSelector"><?php echo Lb_functions::hours_to_days($hours); ?><i class ="icon-chevron-down"></i></div>
 					</div>
 
 					<div id = "top" class ="card_body elastic">

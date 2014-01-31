@@ -46,7 +46,8 @@
             }
         }
         #timeSelector{
-            background: darken($lb_red,6);
+            background: darken($lb_red,5);
+            border: 1px solid darken($lb_red, 8);
             color:darken(white,10);
             padding: 3px 10px;
             display: block;
@@ -58,7 +59,7 @@
                 float:right;
             }
             &:hover{
-                background: darken($lb_red,12);
+                background: darken($lb_red,8);
                 color:white;
             }
         }

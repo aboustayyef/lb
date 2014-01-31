@@ -64,23 +64,35 @@ var lbApp ={
 		},
 
 		switch_top: function(hours,howmany,channel){
-			/* first, get data from the api */
-			$.post( "http://vbox/websites/lebanese_blogs/api_get_posts.php?type=top&hours="+hours+"&howmany="+howmany+"&channel="+channel, function( data ) {
+
+			// this function renders the top5 box with new settings
+
+			$.post( "api_get_posts.php?type=top&hours="+hours+"&howmany="+howmany+"&channel="+channel, function( data ) {
 				var box = $('#posts').find('.card-container').eq(0);
+				
+				// get current style to assign it to swapped box
 				var style = box.attr('style');
+
+				// replace top5 box with new one with new data
 				box.css('opacity',0);
 				box.replaceWith(data);
+				
+				// assign old style to new box
 				box = $('#posts').find('.card-container').eq(0);
 				box.attr('style',style);
 				box.css('opacity',1);
+				
+				// just in case, flow cards for little distances
 				lbApp.posts.flow();
 			});
 		},
 
 		top_switcher_init: function(){
-			$('#view-area').prepend('<ul id ="timeList" style ="position:fixed; z-index: 300; display:none"><li data-hours="12">12 Hours</li><li data-hours="24">24 Hours</li><li data-hours="72">3 Days</li></ul>');
+			// create switching list and lay it out
+			$('#view-area').prepend('<ul id ="timeList" style ="position:fixed; z-index: 100; display:none"><li data-hours="12">12 Hours</li><li data-hours="24">24 Hours</li><li data-hours="72">3 Days</li><li data-hours="168">7 days</li></ul>');
 			$('#timeList').css('left', $('#timeSelector').offset().left);
 			$('#timeList').css('top', $('#timeSelector').offset().top);
+			
 			$(document).on('click','#timeSelector', function(){
 				if ($('#timeList').css('display')=='none') {
 					$('#timeList').css('display','block');
@@ -94,6 +106,11 @@ var lbApp ={
 				lbApp.posts.switch_top(hours, 5,'');
 			});
 
+		},
+
+		top_switcher_reposition: function(){
+			$('#timeList').css('left', $('#timeSelector').offset().left);
+			$('#timeList').css('top', $('#timeSelector').offset().top);
 		},
 
 		saved:{
@@ -237,6 +254,7 @@ var lbApp ={
 						console.log('busy updating');
 						return;
 					}
+					lbApp.posts.top_switcher_reposition();
 					var scrollAmount = Math.abs(lbApp.posts.window.position().top);
 					var distanceToBottom = lbApp.posts.window.height() - scrollAmount;
 					console.log("distanceToBottom: "+distanceToBottom);
@@ -281,11 +299,13 @@ var lbApp ={
 				$('#hamburger').on('click', function(){
 					lbApp.interface.leftNav.show();
 					lbApp.posts.flow();
+					lbApp.posts.top_switcher_reposition();
 				});
 
 				$('.leftNav-dismiss').on('click', function(){
 					lbApp.interface.leftNav.hide();
 					lbApp.posts.flow();
+					lbApp.posts.top_switcher_reposition();
 				});
 
 			},
@@ -593,6 +613,7 @@ $(document).ready(function(){
 		lbApp.interface.revealContent();
 		lbApp.posts.favorites.init();
 		lbApp.posts.saved.init();
+		lbApp.posts.top_switcher_init();
 		$('.endloader').css('opacity',1);
 
 	}
@@ -656,6 +677,7 @@ $(window).resize(function() {
 		if (global_page === "browse") {
 			lbApp.interface.setDimensions();
 			lbApp.posts.flow();
+			lbApp.posts.top_switcher_reposition();
 		}
 		if (global_page === "blogger") {
 			lbApp.bloggerPage.flow();
