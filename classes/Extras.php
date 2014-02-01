@@ -206,7 +206,7 @@ class Extras
 				
 				<div class="card">
 					<div class="card_header primaryfont background-red">
-						<h3 class ="whitefont">Top Posts</h3>
+						<h3 class ="whitefont">Top Posts <span class ="deemphasize">in the last </span></h3>
 						<div id="timeSelector"><?php echo Lb_functions::hours_to_days($hours); ?><i class ="icon-chevron-down"></i></div>
 					</div>
 
@@ -291,10 +291,7 @@ class Extras
 
 			</div>
 		</div>
-
 			<?php
 		}
-
 	}
-
-	?>
+?>

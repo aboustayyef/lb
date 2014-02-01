@@ -156,7 +156,7 @@ textarea, input {
   background-color: #982029;
   color: white; }
   #timeList li {
-    min-width: 150px;
+    min-width: 80px;
     padding: 7px 10px;
     margin: 2px 0; }
     #timeList li:first-child {
@@ -388,10 +388,10 @@ div.mainbar-wrapper {
       color: #e6e6e6;
       padding: 3px 10px;
       display: block;
-      min-width: 150px;
+      min-width: 80px;
       position: absolute;
       top: 6px;
-      left: 110px; }
+      left: 190px; }
       .card .card_header #timeSelector i {
         float: right; }
       .card .card_header #timeSelector:hover {
