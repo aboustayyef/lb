@@ -11,17 +11,15 @@ $left_padding: 20px;
     box-shadow: 1px 4px 1px 1px rgba(10,10,10,.2);
     overflow-y: hidden;
     overflow-x: hidden;
-    button.leftNav-dismiss{
-            margin-top:10px;
-            margin-right:10px;
+    div.leftNav-dismiss{
+            margin-right: 5px;
+            margin-top:5px;
             background: transparent;
             color:darken(white,19);
             cursor:pointer;
             float: right;
-            padding:2px;
             border:0;
-            font-size: 22px;
-            line-height: 15px;
+            font-size: 26px;
             &:focus {
                 outline:none;
             }

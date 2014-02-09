@@ -185,7 +185,7 @@ class Extras
 			;?>
 			<div class="card-container">
 
-				<div class="card">
+				<div class="card nobackground">
 					<?php
 					//for debugging:
 					/*echo "<pre>";
@@ -199,15 +199,14 @@ class Extras
 						<h4>
 							A <a href ="http://lebaneseblogs.com/blog/?p=191">Very Good Reason</a> for Following us on <a href="http://facebook.com/lebaneseblogs">Facebook</a> and <a href="http://twitter.com/lebaneseblogs">Twitter</a>.
 						</h4>
-					</div> -->
-					
-					
+					</div> -->			
+
 				</div>
 				
 				<div class="card">
 					<div class="card_header primaryfont background-red">
 						<h3 class ="whitefont">Top Posts <span class ="deemphasize">in the last </span></h3>
-						<div id="timeSelector"><?php echo Lb_functions::hours_to_days($hours); ?><i class ="icon-chevron-down"></i></div>
+						<div id="timeSelector"><?php echo Lb_functions::hours_to_days($hours); ?><i class ="fa fa-chevron-down rightit"></i></div>
 					</div>
 
 					<div id = "top" class ="card_body elastic">

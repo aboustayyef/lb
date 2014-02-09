@@ -21,13 +21,13 @@ if (isset($_SESSION['channel'])) {
 <div id="left-col-wrapper">
   <div class="left-col-inner">
     <!-- <?php echo $_SESSION['viewtype'] ?> -->
-    <button class="leftNav-dismiss">×</button>
+    <div class="leftNav-dismiss"><i class ="fa fa-times-circle"></i></div>
 
-<!-- <h4 class="sectionheader">Statistics <sup>New!</sup></h4>
+<!-- <h4 class="sectionheader">Statistics </h4>
   <div class="label level1"><a href="<?php echo WEBPATH . '?pagewanted=top'; ?>"><i class ="icon-bar-chart"></i>Top Posts &amp; Blogs</a></div> -->
 
   <div id ="channels">
-    <h4 class="sectionheader">User Area<sup>New!</sup></h4>
+    <h4 class="sectionheader">User Area</h4>
     <?php 
         if (isset($_SESSION['LebaneseBlogs_user_id'])){ // user logged in
           ?>
@@ -49,63 +49,63 @@ if (isset($_SESSION['channel'])) {
         <h4 class="sectionheader">Posts to Show</h4>
         <a href="<?php echo WEBPATH ?>">
           <div class = " <?php ischannel($s, null); ?> label folder level1">
-            <i class ="icon-home"></i>
+            <i class ="fa fa-home"></i>
             Show All
           </div>
         </a>
         <a href ="<?php echo WEBPATH . '?channel=columnists'; ?>">
           <div class = " <?php ischannel($s,'columnists'); ?> label level1">
-            <i class="icon-quote-right"></i>
-            Columnists <sup>New!</sup>
+            <i class="fa fa-quote-right"></i>
+            Columnists 
           </div>
         </a>
         <a href ="<?php echo WEBPATH . '?channel=fashion'; ?>">
           <div class = " <?php ischannel($s,'fashion'); ?> label level1">
-            <i class="icon-umbrella"></i>
+            <i class="fa fa-umbrella"></i>
             Fashion &amp; Style
           </div>
         </a>
         <a href ="<?php echo WEBPATH . '?channel=food'; ?>">
           <div class = " <?php ischannel($s,'food'); ?> label level1">
-            <i class="icon-coffee"></i>
+            <i class="fa fa-coffee"></i>
             Food &amp; Health
           </div>
         </a>
         <a href ="<?php echo WEBPATH . '?channel=society'; ?>">
           <div class = " <?php ischannel($s,'society'); ?> label level1">
-            <i class="icon-smile"></i>
+            <i class="fa fa-smile-o"></i>
             Society &amp; Fun News
           </div> 
         </a>
         <a href ="<?php echo WEBPATH . '?channel=politics'; ?>">
           <div class = " <?php ischannel($s,'politics'); ?> label level1">
-            <i class="icon-globe"></i>
+            <i class="fa fa-globe"></i>
             Politics &amp; Current Affairs
           </div>     
         </a>
         <a href ="<?php echo WEBPATH . '?channel=tech'; ?>">
           <div 
           class = " <?php ischannel($s,'tech'); ?> label level1">
-          <i class="icon-laptop"></i>
+          <i class="fa fa-laptop"></i>
           Tech &amp; Business
         </div>
       </a>
       <a href ="<?php echo WEBPATH . '?channel=media'; ?>">
         <div class = " <?php ischannel($s,'media'); ?> label level1">
-          <i class="icon-music"></i>
+          <i class="fa fa-music"></i>
           Music, TV &amp; Film
         </div>
       </a>
       <a href ="<?php echo WEBPATH . '?channel=design'; ?>">
         <div class = " <?php ischannel($s,'design'); ?> label level1">
-          <i class="icon-picture"></i>
+          <i class="fa fa-picture-o"></i>
           Advertising &amp; Design
         </div>     
       </a> 
 
     </div>
     <div id ="viewtype">
-      <h4 class="sectionheader">Posts Layout <sup>New!</sup></h4>
+      <h4 class="sectionheader">Posts Layout </h4>
       <div id="icons">
         
         <a href="<?php echo $self_url.'cards' ?>">

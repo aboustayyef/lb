@@ -53,7 +53,8 @@ global $channel_descriptions;
     <?php ?>
     
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" type="text/css" href="<?php echo WEBPATH ;?>css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo WEBPATH ;?>css/font-awesome-4.0.3/css/font-awesome.min.css">
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
@@ -119,7 +120,7 @@ global $channel_descriptions;
       		<!-- logo -->
           <?php if (($this->_page == "browse") || ($this->_page == "top") || ($this->_page == "favorites") || ($this->_page == "saved")){
             ;?>
-              <a href ="#left-col-wrapper"><div id="hamburger"><i class ="icon-reorder icon-2x"></i></div></a>
+              <a href ="#left-col-wrapper"><div id="hamburger"><i class ="fa fa-bars"></i></div></a>
             <?php
           } ?>
           
@@ -132,8 +133,8 @@ global $channel_descriptions;
             <div id="slogan" class="primaryfont">The best place to discover, read and organize Lebanon's top blogs</div>
             <div class="nav-wrapper">
                 <ul id ="menu-icons">
-                  <li data-menu="menu-about"><i id ="info" class ="icon-info-sign icon-large"></i></li>
-                  <li data-menu="menu-search"><i id ="search" class ="icon-search icon-large"></i></li>
+                  <li data-menu="menu-about"><i id ="info" class ="fa fa-info-circle"></i></li>
+                  <li data-menu="menu-search"><i id ="search" class ="fa fa-search"></i></li>
                 </ul>
             </div><!-- nav-wrapper -->
       	</div> <!-- /mainbar -->

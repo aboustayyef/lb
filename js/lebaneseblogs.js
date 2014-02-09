@@ -7,6 +7,7 @@ var lbApp ={
 		window : $('#posts'),
 		busy: 'no',
 		init: function(){
+			// find the basic module of each post depending on viewtype
 			if (global_viewtype === "cards") {
 				this.module = $('.card');
 			}else if (global_viewtype === "timeline"){
@@ -43,6 +44,7 @@ var lbApp ={
 			}
 		},
 
+		/* Method to get more posts for infinite scrolling */
 		addMore: function(){
 			lbApp.posts.busy = "yes"; //prevent concurrent loading of this function
 			var url;
@@ -61,6 +63,29 @@ var lbApp ={
 				lbApp.interface.showLazyImages();
 				lbApp.posts.busy = "no";
 			});
+		},
+
+		/* Method to create the time selection list for top posts*/
+		top_switcher_init: function(){
+			// create switching list and lay it out
+			$('#view-area').prepend('<ul id ="timeList" style ="position:fixed; z-index: 100; display:none"><li data-hours="12">12 Hours</li><li data-hours="24">24 Hours</li><li data-hours="72">3 Days</li><li data-hours="168">7 days</li></ul>');
+			$('#timeList').css('left', $('#timeSelector').offset().left);
+			$('#timeList').css('top', $('#timeSelector').offset().top);
+			
+			$(document).on('click','#timeSelector', function(){
+				if ($('#timeList').css('display')=='none') {
+					$('#timeList').css('display','block');
+				}
+			});
+			$('#timeList').on('click','li', function(){
+				var hours = $(this).data('hours');
+				if ($('#timeList').css('display')=='block') {
+					$('#timeList').css('display','none');
+				}
+				$('#timeSelector').html('<i class ="fa fa-spinner">&nbsp;</i>'+$('#timeSelector').html());
+				lbApp.posts.switch_top(hours, 5,'');
+			});
+
 		},
 
 		switch_top: function(hours,howmany,channel){
@@ -85,27 +110,6 @@ var lbApp ={
 				// just in case, flow cards for little distances
 				lbApp.posts.flow();
 			});
-		},
-
-		top_switcher_init: function(){
-			// create switching list and lay it out
-			$('#view-area').prepend('<ul id ="timeList" style ="position:fixed; z-index: 100; display:none"><li data-hours="12">12 Hours</li><li data-hours="24">24 Hours</li><li data-hours="72">3 Days</li><li data-hours="168">7 days</li></ul>');
-			$('#timeList').css('left', $('#timeSelector').offset().left);
-			$('#timeList').css('top', $('#timeSelector').offset().top);
-			
-			$(document).on('click','#timeSelector', function(){
-				if ($('#timeList').css('display')=='none') {
-					$('#timeList').css('display','block');
-				}
-			});
-			$('#timeList').on('click','li', function(){
-				var hours = $(this).data('hours');
-				if ($('#timeList').css('display')=='block') {
-					$('#timeList').css('display','none');
-				}
-				lbApp.posts.switch_top(hours, 5,'');
-			});
-
 		},
 
 		top_switcher_reposition: function(){
@@ -145,8 +149,8 @@ var lbApp ={
 		},
 		favorites :{
 			init: function(){
-				var addToFavoritesHTML = '<a class="addToFavorites" href="#"><i class="icon-star"></i> Add Blog to Favorites</a>';
-				var removeFromFavoritesHTML = '<i class="icon-star" style="color:#FC0"></i> Favorite (<a class="removeFromFavorites" href="#">remove</a>)';
+				var addToFavoritesHTML = '<a class="addToFavorites" href="#"><i class="fa fa-star"></i> Add Blog to Favorites</a>';
+				var removeFromFavoritesHTML = '<i class="fa fa-star" style="color:#FC0"></i> Favorite (<a class ="removeFromFavorites" href="#">remove</a>)';
 				$("body").on('click','.favorite_toggle',function(){
 					var _blog = $(this).data('blog');
 					var _user = $(this).data('user');
@@ -177,7 +181,7 @@ var lbApp ={
 					if (global_page === "favorites") {
 						// if we are in the favorites page, refresh page to reflect changes
 						location.reload();
-					};
+					}
 				});
 			}
 		},

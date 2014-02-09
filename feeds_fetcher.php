@@ -130,7 +130,7 @@ foreach ($feeds as $feed)
 				if ($blog_post_image_width > 0) { // post has images
 					$outFile = ABSPATH.'img/cache/'.$blog_post_timestamp.'_'.$domain.'.'.Lb_functions::get_image_format($blog_post_image);
 					$image = new Imagick($blog_post_image);
-					$image->thumbnailImage(278,0);
+					$image->thumbnailImage(300,0);
 					$image->writeImage($outFile);
 				}
 

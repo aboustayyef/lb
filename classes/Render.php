@@ -81,18 +81,18 @@ class Render
 											if (Posts::isFavorite($f_id, $blog_id)) {
 												// user is signed in and blog is a favorite
 												?>
-												<div class ="add2fav favorite_toggle" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><i class="icon-star" style="color:#FC0"></i> Favorite (<a class ="removeFromFavorites" href="#">remove</a>)</div>
+												<div class ="add2fav favorite_toggle" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><i class="fa fa-star" style="color:#FC0"></i> Favorite (<a class ="removeFromFavorites" href="#">remove</a>)</div>
 												<?php
 											}else {
 												// user is signed in but blog is not a favorite
 												?>
-												<div class ="add2fav favorite_toggle" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><a class ="addToFavorites" href="#"><i class ="icon-star"></i> Add Blog to Favorites</a></div>
+												<div class ="add2fav favorite_toggle" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><a class="addToFavorites" href="#"><i class="fa fa-star"></i> Add Blog to Favorites</a></div>
 												<?php
 											}
 										} else {
 											// user is not signed in. Will ask them to sign in;
 											?>
-											<div class ="add2fav" ><a href="userlogin.php?from=favorites&amp;action=favorite&amp;blog=<?php echo $blog_id; ?>&amp;redirect=<?php echo WEBPATH ?>"><i class ="icon-star"></i> Add Blog to Favorites</a></div>
+											<div class ="add2fav" ><a href="userlogin.php?from=favorites&amp;action=favorite&amp;blog=<?php echo $blog_id; ?>&amp;redirect=<?php echo WEBPATH ?>"><i class ="fa fa-star"></i> Add Blog to Favorites</a></div>
 											<?php
 										}
 									 ?>
@@ -169,24 +169,24 @@ class Render
 								if (Posts::isSaved($f_id, $post_url)) {
 									// user is signed in and post is saved
 									?>
-									<li class="doSave save_toggle" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><a class="removeFromSaved" href="#"><i class="icon-heart selected"></i> Saved</a></li>
+									<li class="doSave save_toggle" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><a class="removeFromSaved" href="#"><i class="fa fa-heart selected"></i> Saved</a></li>
 									<?php
 								}else {
 									// user is signed in but post is not saved
 									?>
-									<li class="doSave save_toggle" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><a class="addToSaved" href="#"><i class="icon-heart"></i> Save Post</a></li>
+									<li class="doSave save_toggle" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><a class="addToSaved" href="#"><i class="fa fa-heart"></i> Save Post</a></li>
 									<?php
 								}
 							} else {
 								// user is not signed in. Will ask them to sign in;
 								?>
-								<li class="doSave"><a href="userlogin.php?from=saved&amp;action=save&amp;url=<?php echo urlencode($post->post_url) ?>&amp;redirect=<?php echo WEBPATH ?>"><i class="icon-heart"></i> Save Post</a></li>
+								<li class="doSave"><a href="userlogin.php?from=saved&amp;action=save&amp;url=<?php echo urlencode($post->post_url) ?>&amp;redirect=<?php echo WEBPATH ?>"><i class="fa fa-heart"></i> Save Post</a></li>
 								<?php
 							}
 						 ?>	
 					
-						<li> <a href="https://twitter.com/intent/tweet?text=<?php echo $twitterUrl; ?>" title="Click to send this post to Twitter!" target="_blank"><i class="icon-twitter icon-large"></i> Tweet</a> </li>
-						<li> <a href="http://www.facebook.com/sharer.php?u=<?php echo $post_url ;?>"><i class="icon-facebook icon-large"></i> Share</a> </li>
+						<li> <a href="https://twitter.com/intent/tweet?text=<?php echo $twitterUrl; ?>" title="Click to send this post to Twitter!" target="_blank"><i class="fa fa-twitter"></i> Tweet</a> </li>
+						<li> <a href="http://www.facebook.com/sharer.php?u=<?php echo $post_url ;?>"><i class="fa fa-facebook"></i> Share</a> </li>
 						<?php 
 							/*if (admin_logged_in()) {
 								echo "<li>$post_visits</li>";

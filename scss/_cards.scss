@@ -18,6 +18,13 @@
     img{
         display: block;
     }
+    &.nobackground{
+        background: none;
+        box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
     //header
     .card_header{
         direction: ltr;
@@ -55,7 +62,7 @@
             position: absolute;
             top: 6px;
             left: 190px;
-            i{
+            i.rightit{
                 float:right;
             }
             &:hover{
@@ -115,7 +122,7 @@
     //body
     .card_body{
         padding: $module_padding;
-        max-height: 450px;
+        max-height: 600px;
         &.nopadding{
             padding:0;
         }
@@ -378,7 +385,7 @@
                 }
                 i{
                     margin-right:3px;
-                    font-size: 0.9em;
+                    font-size: 1.2em;
                     &.selected{
                         color:$lb_red;
                     }

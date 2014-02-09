@@ -45,22 +45,23 @@ if (!isset($blogger_posts[0]->blog_id) || empty($blogger_posts[0]->blog_id)) { /
 		}
 		echo '</div>';
 		echo '<ul class ="goToButtons">';
+
 			if (Users::UserSignedIn()) { // if user is signed in;
 				$f_id = $_SESSION['LebaneseBlogs_Facebook_User_ID'];
 				if (Posts::isFavorite($f_id, $blog_id)) {
 					// user is signed in and blog is a favorite
 					?>
-					<li><div class ="twitterstylebutton favorite_toggle" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><i class="icon-star" style="color:#FC0"></i> Favorite (<a class ="removeFromFavorites" href="#">remove</a>)</div></li>
+					<li><div class ="twitterstylebutton favorite_toggle" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><i class="fa fa-star" style="color:#FC0"></i> Favorite (<a class ="removeFromFavorites" href="#">remove</a>)</div></li>
 					<?php
 				}else {
 					// user is signed in but blog is not a favorite
 					?>
-					<li><div class ="twitterstylebutton favorite_toggle" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><a class="addToFavorites" href="#"><i class="icon-star"></i> Add Blog to Favorites</a></div></li>
+					<li><div class ="twitterstylebutton favorite_toggle" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><a class="addToFavorites" href="#"><i class="fa fa-star"></i> Add Blog to Favorites</a></div></li>
 					<?php
 				}} else {
 				// user is not signed in. Will ask them to sign in;
 				?>
-				<li><div class ="twitterstylebutton" ><a href="userlogin.php?from=favorites"><i class ="icon-star"></i> Add Blog to Favorites</a></div></li>
+				<li><div class ="twitterstylebutton" ><a href="userlogin.php?from=favorites&amp;action=favorite&amp;blog=<?php echo $blog_id; ?>&amp;redirect=<?php echo WEBPATH.$blog_id ?>"><i class ="icon-star"></i> Add Blog to Favorites</a></div></li>
 				<?php
 			}
 		 ?>

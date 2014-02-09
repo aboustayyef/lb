@@ -238,7 +238,9 @@ div.mainbar-wrapper {
           -webkit-box-shadow: 1px 0 1px 0 rgba(0, 0, 0, 0.5);
           box-shadow: 1px 0 1px 0 rgba(0, 0, 0, 0.5); }
         div.mainbar-wrapper .mainbar .nav-wrapper ul#menu-icons li i {
-          color: white; }
+          color: white;
+          font-size: 1.5em;
+          cursor: pointer; }
         div.mainbar-wrapper .mainbar .nav-wrapper ul#menu-icons li input {
           opacity: 0;
           width: 0;
@@ -288,7 +290,7 @@ div.mainbar-wrapper {
       div.mainbar-wrapper #hamburger {
         display: block; } }
     div.mainbar-wrapper #hamburger i {
-      font-size: 1.7em; }
+      font-size: 1.8em; }
 
 .loader {
   display: block;
@@ -361,6 +363,11 @@ div.mainbar-wrapper {
     background: #b12530; }
   .card img {
     display: block; }
+  .card.nobackground {
+    background: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none; }
   .card .card_header {
     direction: ltr;
     overflow: auto;
@@ -392,7 +399,7 @@ div.mainbar-wrapper {
       position: absolute;
       top: 6px;
       left: 190px; }
-      .card .card_header #timeSelector i {
+      .card .card_header #timeSelector i.rightit {
         float: right; }
       .card .card_header #timeSelector:hover {
         background: #8f1e27;
@@ -432,7 +439,7 @@ div.mainbar-wrapper {
         color: white; }
   .card .card_body {
     padding: 10px;
-    max-height: 450px;
+    max-height: 600px;
     overflow: hidden; }
     .card .card_body.nopadding {
       padding: 0; }
@@ -623,7 +630,7 @@ div.mainbar-wrapper {
           border-right: none; }
         .card .card_footer ul li i {
           margin-right: 3px;
-          font-size: 0.9em; }
+          font-size: 1.2em; }
           .card .card_footer ul li i.selected {
             color: #b12530; }
   .card .announcement-graphic {
