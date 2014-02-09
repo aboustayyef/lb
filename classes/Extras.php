@@ -37,7 +37,12 @@ class Extras
 				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
 			}
 			break;
-			
+
+			case 3:
+				self::facebookLikes();
+				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
+				break;
+
 			case 14: 
 			if ($_SESSION['pagewanted'] == 'browse') {
 				self::featuredBloggers();
@@ -262,6 +267,21 @@ class Extras
 				</div>
 			</div>
 			<?php	
+		}
+
+		public static function facebookLikes(){
+			?>
+			<div id ="facebooklikes" class="card-container" >
+				<div class="card" style ="opacity:0; height:150px">
+					<div class="card_header background-greylightest">
+						<h4><i class="fa fa-thumbs-o-up"></i> Stay updated with new top posts by Liking Lebanese Blogs on facebook</h4>
+					</div>
+					<div class="card_body">
+						<div class="fb-like" data-href="http://facebook.com/lebaneseblogs" data-width="268" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+					</div>
+				</div>
+			</div>
+			<?php
 		}
 
 		public static function drawAd(){
