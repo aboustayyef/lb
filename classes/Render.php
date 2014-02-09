@@ -33,7 +33,33 @@ class Render
 			<!-- Card wrapper -->
 
 			<div class="card-container">
-				<div class="card" data-id="<?php echo $_SESSION['posts_displayed']; ?>"  style ="opacity:0;">
+				<div class="card" 
+						style ="opacity:0;"
+						data-id="<?php echo $_SESSION['posts_displayed']; ?>"
+						data-blogid="<?php echo $blog_id; ?>"
+						data-blogname="<?php echo $blog_name; ?>"
+						data-twitter="<?php echo $author_twitter; ?>"
+						data-postTimestamp = "<?php echo $post->post_timestamp ; ?>"
+						data-postTitle ="<?php echo $post->post_title; ?>"
+						data-postUrl="<?php echo $target_url ; ?>"
+						data-postId="<?php echo $post->post_id ;?>"
+						data-postExcerpt="<?php echo $post->post_excerpt; ?>"
+						data-postImage="<?php echo $post->post_image ; ?>"
+						data-postImageHeight="<?php echo $post->post_image_height ?>"
+						data-postImageWidth="<?php echo $post->post_image_width ?>"
+						<?php 
+							if (Lb_functions::contains_arabic($post->post_title)) {
+								?>
+									data-postLanguage="arabic"
+								<?php
+							}else{
+								?>
+									data-postLanguage="latin"
+								<?php
+							}
+						?>
+
+				>
 			
 				<!--card header-->
 				<?php 
