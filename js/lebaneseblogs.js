@@ -119,8 +119,8 @@ var lbApp ={
 
 		saved:{
 			init:function(){
-				var addToSavedHTML = '<a class="addToSaved" href="#"><i class="icon-heart"></i> Save Post</a>';
-				var removeFromSavedHTML = '<a class="removeFromSaved" href="#"><i class="icon-heart selected"></i> Saved</a>';
+				var addToSavedHTML = '<a class="addToSaved" href="#"><i class="fa fa-heart"></i> Save Post</a>';
+				var removeFromSavedHTML = '<a class="removeFromSaved" href="#"><i class="fa fa-heart selected"></i> Saved</a>';
 				$("body").on('click','li.save_toggle',function(){
 					var _user = $(this).data('user');
 					var _url = $(this).data('url');
