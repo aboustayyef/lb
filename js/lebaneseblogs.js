@@ -82,7 +82,7 @@ var lbApp ={
 				if ($('#timeList').css('display')=='block') {
 					$('#timeList').css('display','none');
 				}
-				$('#timeSelector').html('<i class ="fa fa-spinner">&nbsp;</i>'+$('#timeSelector').html());
+				$('#timeSelector').html('<i class ="fa fa-spinner fa-spin">&nbsp;</i>'+$('#timeSelector').html());
 				lbApp.posts.switch_top(hours, 5,'');
 			});
 
