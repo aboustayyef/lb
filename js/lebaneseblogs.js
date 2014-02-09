@@ -629,7 +629,7 @@ $(document).ready(function(){
 		lbApp.bloggerPage.flow();
 		lbApp.bloggerPage.show();
 		lbApp.interface.revealContent();
-		lbApp.bloggerPage.loadImages();
+		/*lbApp.bloggerPage.loadImages();*/
 		lbApp.posts.favorites.init();
 		lbApp.posts.saved.init();
 
