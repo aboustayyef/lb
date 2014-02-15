@@ -56,7 +56,7 @@ foreach ($columnists as $key => $columnist) {
 					'blog_id'		=>	$columnist->col_shorthand,
 
 					// if we're doing a reset, uncomment line below 
-					//'post_timestamp' => $article['timestamp'],
+					// 'post_timestamp' => $article['timestamp'],
 					
 					// For update mode, uncomment line below to use the current time for timestamp.
 					'post_timestamp'	=> time(),

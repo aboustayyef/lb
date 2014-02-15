@@ -99,8 +99,9 @@ foreach ($feeds as $feed)
 				$blog_post_title = clean_up($item->get_title(), 120);
 				$temp_content = $item->get_content();
 				$blog_post_content = html_entity_decode($temp_content, ENT_COMPAT, 'utf-8'); // for arabic
-				
-				$blog_post_image = dig_suitable_image($blog_post_content, $blog_post_link) ;
+				if ($blog_post_image = dig_suitable_image($blog_post_content, $blog_post_link)){
+					//proceed
+				}
 				$blog_post_excerpt = get_blog_post_excerpt($blog_post_content, 120);
 
 				// added image dimensions for lazy loading
