@@ -14,14 +14,18 @@ class Extras
 	// this function is the controller of the entire extras system
 	// it allocates slots to different cards
 	public static function control($itemNumber){
-		$ad_positions = array(1,2);
+
+		// advertisement
+
+		/*$ad_positions = array(1,2);
 		$rand = rand(0,1);
 		$ad_position = $ad_positions[$rand];
 		if (isset($_SESSION['ad_position'])) {
 			# nothing
 		}else{
 			$_SESSION['ad_position'] = $ad_position;
-		}
+		}*/
+
 		switch ($itemNumber) {
 			case 0: 
 			if ($_SESSION['pagewanted'] == 'browse') {
@@ -30,12 +34,11 @@ class Extras
 			}
 			break;			
 
-			case $_SESSION['ad_position']:
+/*			case $_SESSION['ad_position']:
 			if ($_SESSION['pagewanted'] == 'browse') {
-				/* Uncomment below for ads*/
 				self::drawAd();
 				$_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
-			}
+			}*/
 			break;
 
 			case 3:
