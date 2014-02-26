@@ -7,9 +7,9 @@ if (isset($_GET["r"])){
 }
 
 if (isset($_GET["debug"])){
-    $debug_mode = TRUE;
+    $debug_mode = "true";
 } else {
-    $debug_mode = FALSE;
+    $debug_mode = "false";
 }
 
 if (isset($target_url)) {
@@ -21,7 +21,7 @@ if (isset($target_url)) {
 
 function go_to($url){
     global $debug_mode;
-    if (!$debug_mode) {
+    if ($debug_mode=="false") {
         header("Location: $url");
     }
 }
@@ -34,7 +34,7 @@ $connection = DB::getInstance();
 $browser = getBrowser();
 $ref_ip = getIP();
 
-if ($debug_mode) {
+if ($debug_mode == "true") {
     echo "IP: $ref_ip \n";
     echo "browser: $browser \n";
     echo "exit_time: ".time()."\n";
@@ -51,7 +51,7 @@ if ($debug_mode) {
 
 // update counter for post
 
-if ($debug_mode) {
+if ($debug_mode == "true") {
     $query0 = 'SELECT * FROM exit_log WHERE ip_address ="' . $ref_ip . '" AND exit_url ="' . $url . '"';
     echo "\n\n\n";
     echo "Query: $query0";
