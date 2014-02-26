@@ -55,6 +55,7 @@ if ($debug_mode) {
     $query0 = 'SELECT * FROM exit_log WHERE ip_address ="' . $ref_ip . '" AND exit_url ="' . $url . '"';
     echo "\n\n\n";
     echo "Query: $query0";
+    echo '<pre>',print_r($connection->query($query0)->results()),'</pre>';
 
 } else {
     if ($browser['name'] !== 'Unknown') { // if this is a human user
