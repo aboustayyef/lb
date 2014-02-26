@@ -71,6 +71,7 @@ if ($debug_mode) {
     }
 
 }  else {
+    die();
     if ($browser['name'] !== 'Unknown') { // if this is a human user
         // logic to check if ip not used before
         $query0 = 'SELECT * FROM exit_log WHERE ip_address ="' . $ref_ip . '" AND exit_url ="' . $url . '"';
