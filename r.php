@@ -56,6 +56,7 @@ if ($debug_mode) {
     echo "\n\n\n";
     echo "Query: $query0";
     echo '<pre>',print_r($connection->query($query0)->results()),'</pre>';
+    echo 'count: '.count($connection->query($query0)->results());
 
 } else {
     if ($browser['name'] !== 'Unknown') { // if this is a human user
