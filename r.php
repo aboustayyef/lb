@@ -57,6 +57,16 @@ if ($debug_mode) {
     echo "Query: $query0";
     echo '<pre>',print_r($connection->query($query0)->results()),'</pre>';
     echo 'count: '.count($connection->query($query0)->results());
+    if ($browser['name'] !== 'Unknown') { // if this is a human user
+        // logic to check if ip not used before
+        $query0 = 'SELECT * FROM exit_log WHERE ip_address ="' . $ref_ip . '" AND exit_url ="' . $url . '"';
+        if (count($connection->query($query0)->results()) < 1  ) { // if this combination of ip address and exit link does not exist
+            // only then update the counter
+            $query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
+            echo '$query: '.$query."\n";
+            echo 'Would have updated if it werent debugging';
+        }
+    }
 
 } else {
     if ($browser['name'] !== 'Unknown') { // if this is a human user
