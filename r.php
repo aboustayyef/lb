@@ -64,7 +64,9 @@ if ($debug_mode) {
             // only then update the counter
             $query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
             echo '$query: '.$query."\n";
-            echo 'Would have updated if it werent debugging';
+            echo 'let me update this:';
+            print_r($connection->query($query)->results());
+
         }
     }
 
