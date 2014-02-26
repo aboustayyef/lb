@@ -28,7 +28,7 @@ $connection->insert( 'exit_log', array(
 		'exit_time'	=> time(),
 		'exit_url'	=> $url,
 		'user_agent'	=> $browser['name'],
-        'ip_address'    => $_SERVER['HTTP_REFERER'],
+        'ip_address'    => getIP(),
 	));
 
 // update counter for post
@@ -127,5 +127,18 @@ function getBrowser() //source: http://us.php.net/get-browser
         'pattern'    => $pattern
     );
 } 
+
+function getIP() { 
+    $ip; 
+    if (getenv("HTTP_CLIENT_IP")) 
+    $ip = getenv("HTTP_CLIENT_IP"); 
+    else if(getenv("HTTP_X_FORWARDED_FOR")) 
+    $ip = getenv("HTTP_X_FORWARDED_FOR"); 
+    else if(getenv("REMOTE_ADDR")) 
+    $ip = getenv("REMOTE_ADDR"); 
+    else 
+    $ip = "UNKNOWN";
+    return $ip; 
+}
 
 ?>
