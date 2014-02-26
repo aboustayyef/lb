@@ -77,7 +77,9 @@ if ($debug_mode) {
         if (count($connection->query($query0)->results()) < 1  ) { // if this combination of ip address and exit link does not exist
             // only then update the counter
             $query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
-            $done = $connection->query($query)->results();
+            //$done = $connection->query($query)->results();
+            print_r($connection->query($query)->results());
+            return;
         }
     }
 
