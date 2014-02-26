@@ -28,9 +28,12 @@ $connection->insert( 'exit_log', array(
 		'exit_time'	=> time(),
 		'exit_url'	=> $url,
 		'user_agent'	=> $browser['name'],
+        'ip_address'    => $_SERVER['SERVER_ADDR'],
 	));
 
-if ($browser['name'] !== 'Unknown') {
+// update counter for post
+if ($browser['name'] !== 'Unknown') { // if this is a human user
+    // logic to check if ip not used before
 	$query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
 	$connection->query($query);
 }
