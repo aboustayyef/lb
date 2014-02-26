@@ -23,19 +23,25 @@ function register_exit($url){
 //prepare and connect to database
 $connection = DB::getInstance();
 $browser = getBrowser();
+$ref_ip = getIP();
 
 $connection->insert( 'exit_log', array(
 		'exit_time'	=> time(),
 		'exit_url'	=> $url,
 		'user_agent'	=> $browser['name'],
-        'ip_address'    => getIP(),
+        'ip_address'    => $ref_ip,
 	));
 
 // update counter for post
 if ($browser['name'] !== 'Unknown') { // if this is a human user
     // logic to check if ip not used before
-	$query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
-	$connection->query($query);
+    $query0 = 'SELECT * FROM exit_log WHERE ip_address ="' . $ref_ip . '" AND exit_url ="' . $url . '"';
+    if (count($connection->$query0->results()) == 0 ) { // if this combination of ip address and exit link does not exist
+        // only then update the counter
+        $query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
+        $connection->query($query);
+    }
+
 }
 
 // enter here code to query post record with specified URL, then add +1 to new post_clicks field.
