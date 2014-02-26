@@ -28,7 +28,7 @@ $connection->insert( 'exit_log', array(
 		'exit_time'	=> time(),
 		'exit_url'	=> $url,
 		'user_agent'	=> $browser['name'],
-        'ip_address'    => $_SERVER['SERVER_ADDR'],
+        'ip_address'    => $_SERVER['HTTP_REFERER'],
 	));
 
 // update counter for post
