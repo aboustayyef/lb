@@ -6,6 +6,12 @@ if (isset($_GET["r"])){
 	$target_url = urldecode($_GET["r"]);
 }
 
+if (isset($_GET["debug"])){
+    $debug_mode = TRUE;
+} else {
+    $debug_mode = FALSE;
+}
+
 if (isset($target_url)) {
 	register_exit($target_url);
 	go_to($target_url);
@@ -14,7 +20,9 @@ if (isset($target_url)) {
 }
 
 function go_to($url){
-	header("Location: $url");
+    if (!$debug_mode) {
+        header("Location: $url");
+    }
 }
 
 function register_exit($url){
@@ -25,24 +33,42 @@ $connection = DB::getInstance();
 $browser = getBrowser();
 $ref_ip = getIP();
 
-$connection->insert( 'exit_log', array(
-		'exit_time'	=> time(),
-		'exit_url'	=> $url,
-		'user_agent'	=> $browser['name'],
+if ($debug_mode) {
+    echo "IP: $ref_ip \n";
+    echo "browser: $browser \n";
+    echo "exit_time: ".time()."\n";
+    echo "USER DETAILS: \n";
+    echo '<pre>',print_r($browser),'</pre>';
+} else {
+    $connection->insert( 'exit_log', array(
+        'exit_time' => time(),
+        'exit_url'  => $url,
+        'user_agent'    => $browser['name'],
         'ip_address'    => $ref_ip,
-	));
+    ));
+}
 
 // update counter for post
-if ($browser['name'] !== 'Unknown') { // if this is a human user
-    // logic to check if ip not used before
+
+if ($debug_mode) {
     $query0 = 'SELECT * FROM exit_log WHERE ip_address ="' . $ref_ip . '" AND exit_url ="' . $url . '"';
-    if (count($connection->query($query0)->results()) == 0 ) { // if this combination of ip address and exit link does not exist
-        // only then update the counter
-        $query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
-        $connection->query($query);
+    echo "\n\n\n";
+    echo "Query: $query0";
+    
+} else {
+    if ($browser['name'] !== 'Unknown') { // if this is a human user
+        // logic to check if ip not used before
+        $query0 = 'SELECT * FROM exit_log WHERE ip_address ="' . $ref_ip . '" AND exit_url ="' . $url . '"';
+        if (count($connection->query($query0)->results()) == 0 ) { // if this combination of ip address and exit link does not exist
+            // only then update the counter
+            $query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
+            $connection->query($query);
+        }
+
     }
 
 }
+
 
 // enter here code to query post record with specified URL, then add +1 to new post_clicks field.
 
