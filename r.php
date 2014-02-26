@@ -3,90 +3,40 @@
 require_once("init.php");
 
 if (isset($_GET["r"])){
-	$target_url = urldecode($_GET["r"]);
-}
-
-if (isset($_GET["debug"])){
-    $debug_mode = "true";
-} else {
-    $debug_mode = "false";
+    $target_url = urldecode($_GET["r"]);
 }
 
 if (isset($target_url)) {
-	register_exit($target_url);
-	go_to($target_url);
+    register_exit($target_url);
+    go_to($target_url);
 } else {
-	go_to("http://lebaneseblogs.com/?bad_redirect_request");
+    go_to("http://lebaneseblogs.com/?bad_redirect_request");
 }
 
 function go_to($url){
-    global $debug_mode;
-    if ($debug_mode=="false") {
-        header("Location: $url");
-    }
+    header("Location: $url");
 }
 
 function register_exit($url){
-global $debug_mode;
+
 
 //prepare and connect to database
 $connection = DB::getInstance();
 $browser = getBrowser();
-$ref_ip = getIP();
 
-if ($debug_mode == "true") {
-    echo "IP: $ref_ip \n";
-    echo "browser: $browser \n";
-    echo "exit_time: ".time()."\n";
-    echo "USER DETAILS: \n";
-    echo '<pre>',print_r($browser),'</pre>';
-} else {
-    $connection->insert( 'exit_log', array(
+$connection->insert( 'exit_log', array(
         'exit_time' => time(),
         'exit_url'  => $url,
         'user_agent'    => $browser['name'],
-        'ip_address'    => $ref_ip,
+        'ip_address'    => getIP(),
     ));
-}
 
 // update counter for post
-
-if ($debug_mode == "true") {
-    $query0 = 'SELECT * FROM exit_log WHERE ip_address ="' . $ref_ip . '" AND exit_url ="' . $url . '"';
-    echo "\n\n\n";
-    echo "Query: $query0";
-    echo '<pre>',print_r($connection->query($query0)->results()),'</pre>';
-    echo 'count: '.count($connection->query($query0)->results());
-    if ($browser['name'] !== 'Unknown') { // if this is a human user
-        // logic to check if ip not used before
-        $query0 = 'SELECT * FROM exit_log WHERE ip_address ="' . $ref_ip . '" AND exit_url ="' . $url . '"';
-        if (count($connection->query($query0)->results()) < 1  ) { // if this combination of ip address and exit link does not exist
-            // only then update the counter
-            $query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
-            echo '$query: '.$query."\n";
-            echo 'let me update this:';
-            print_r($connection->query($query)->results());
-
-        }
-    }
-
-}  else {
-    $query0 = 'SELECT * FROM exit_log WHERE ip_address ="' . $ref_ip . '" AND exit_url ="' . $url . '"';
-    if ($browser['name'] !== 'Unknown') { // if this is a human user
-        // logic to check if ip not used before
-        $query0 = 'SELECT * FROM exit_log WHERE ip_address ="' . $ref_ip . '" AND exit_url ="' . $url . '"';
-        if (count($connection->query($query0)->results()) < 1  ) { // if this combination of ip address and exit link does not exist
-            die();
-            // only then update the counter
-            $query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
-            //$done = $connection->query($query)->results();
-            print_r($connection->query($query)->results());
-            return;
-        }
-    }
-
+if ($browser['name'] !== 'Unknown') { // if this is a human user
+    // logic to check if ip not used before
+    $query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
+    $connection->query($query);
 }
-
 
 // enter here code to query post record with specified URL, then add +1 to new post_clicks field.
 
@@ -94,7 +44,6 @@ if ($debug_mode == "true") {
 
 function getBrowser() //source: http://us.php.net/get-browser
 { 
-    global $debug_mode;
     $u_agent = $_SERVER['HTTP_USER_AGENT']; 
     $bname = 'Unknown';
     $platform = 'Unknown';
@@ -180,7 +129,6 @@ function getBrowser() //source: http://us.php.net/get-browser
 } 
 
 function getIP() { 
-    global $debug_mode;
     $ip; 
     if (getenv("HTTP_CLIENT_IP")) 
     $ip = getenv("HTTP_CLIENT_IP"); 
