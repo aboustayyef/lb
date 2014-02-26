@@ -20,13 +20,14 @@ if (isset($target_url)) {
 }
 
 function go_to($url){
+    global $debug_mode;
     if (!$debug_mode) {
         header("Location: $url");
     }
 }
 
 function register_exit($url){
-
+global $debug_mode;
 
 //prepare and connect to database
 $connection = DB::getInstance();
@@ -54,7 +55,7 @@ if ($debug_mode) {
     $query0 = 'SELECT * FROM exit_log WHERE ip_address ="' . $ref_ip . '" AND exit_url ="' . $url . '"';
     echo "\n\n\n";
     echo "Query: $query0";
-    
+
 } else {
     if ($browser['name'] !== 'Unknown') { // if this is a human user
         // logic to check if ip not used before
@@ -76,6 +77,7 @@ if ($debug_mode) {
 
 function getBrowser() //source: http://us.php.net/get-browser
 { 
+    global $debug_mode;
     $u_agent = $_SERVER['HTTP_USER_AGENT']; 
     $bname = 'Unknown';
     $platform = 'Unknown';
@@ -161,6 +163,7 @@ function getBrowser() //source: http://us.php.net/get-browser
 } 
 
 function getIP() { 
+    global $debug_mode;
     $ip; 
     if (getenv("HTTP_CLIENT_IP")) 
     $ip = getenv("HTTP_CLIENT_IP"); 
