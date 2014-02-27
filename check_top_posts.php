@@ -30,7 +30,7 @@ echo count($results);
 if ((count($results) > 0) && !$debugMode) { // post already exists and we're not debugging
 	echo 'Post Already Exists';
 }else{ // post is new
-	if ($topPost->post_visits > 6 ) { // post need to be clicked at least 6 times to avoid a de-facto top 1 (like those late at night)
+	if ($topPost->post_visits > 10 ) { // post need to be clicked at least 10 times to avoid a de-facto top 1 (like those late at night)
 		// add post to database
 		add_post_to_db($topPost->post_url);
 
