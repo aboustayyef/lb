@@ -18,25 +18,24 @@ function go_to($url){
 }
 
 function register_exit($url){
-
-
-//prepare and connect to database
-$connection = DB::getInstance();
+// get user's IP Address
+$ip_address = getIP();
 $browser = getBrowser();
 
-$connection->insert( 'exit_log', array(
+// update counter for post
+if (($browser['name'] !== 'Unknown') && (!Posts::hasClicked($ip_address, $url))){ // if this is a human user    
+        // This only happens if user didn't click on this link before.
+        $query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
+        DB::getInstance()->query($query);
+}
+
+// update exit log
+DB::getInstance()->insert( 'exit_log', array(
         'exit_time' => time(),
         'exit_url'  => $url,
         'user_agent'    => $browser['name'],
-        'ip_address'    => getIP(),
+        'ip_address'    => $ip_address,
     ));
-
-// update counter for post
-if ($browser['name'] !== 'Unknown') { // if this is a human user
-    // logic to check if ip not used before
-    $query = 'UPDATE posts SET post_visits = post_visits+1 WHERE post_url = "'.$url.'"';
-    $connection->query($query);
-}
 
 // enter here code to query post record with specified URL, then add +1 to new post_clicks field.
 

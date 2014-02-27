@@ -11,7 +11,7 @@ class Render
 		foreach ($data as $key => $post) {
 
 			// prepare URL of exit link
-			$target_url = "http://lebaneseblogs.com/r.php?r=".urlencode($post->post_url);
+			$target_url = WEBPATH."r.php?r=".urlencode($post->post_url);
 			
 			// add extra cards (if any)
 			Extras::control($_SESSION['posts_displayed']);

@@ -7,8 +7,19 @@ require_once('init.php');
 echo "<pre>";
 	var_dump($data);
 echo "</pre>";*/
+test();
 
-$users = DB::getInstance();
+function test(){
+
+if (Posts::hasClicked('192.168.1.101', 'http://www.ultgate.com/3898/apples-itunes-charged-me-2-99-for-a-free-application')) {
+	echo 'YES';
+	# code...
+}else {
+	echo 'NO';
+}
+
+}
+
 
 /*$users->get('posts', array('post_url','=','http://www.thenational.ae/thenationalconversation/comment/assads-position-strengthens-in-lead-up-to-geneva-talks'));
 echo "<pre>";
@@ -17,7 +28,7 @@ echo "</pre>";*/
 
 /* To insert */
 
-$users->insert('posts', array(
+/*$users->insert('posts', array(
 	'post_url'	=>	'http://test.testy',
 	'post_title'	=>	'This is a test',
 	'post_image'	=>	'http://test.testyimage/theimage.jpg',
@@ -34,7 +45,7 @@ echo "<pre>";
 	print_r($users->count());
 echo "</pre>";
 
-
+*/
 
 /*$url = "http://smileyface80.wordpress.dcom/2013/03/03/%D8%A7%D9%84%D9%88%D8%B1%D8%AF-%D8%AC%D9%85%D9%8A%D9%84-%D8%A3%D9%85-%D9%83%D9%84%D8%AB%D9%88%D9%85/";
 

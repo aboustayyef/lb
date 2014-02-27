@@ -223,6 +223,14 @@ public static function get_saved_bloggers_posts($user_id, $from, $howmany){
         return false;
     }
 
+    public static function hasClicked($user_ip, $post_url){
+        $sql = 'SELECT * from exit_log WHERE `ip_address` = "' . $user_ip . '" AND `exit_url` = "'  . $post_url . '"';
+        if (DB::getInstance()->query($sql)->count() > 0) { // yes, that user clicked that post.
+            return true;
+        }
+        return false;    
+    }
+
     public static function toggleFavorite($user_id, $blog_id){
         if (self::isFavorite($user_id, $blog_id)) { // blog is a favorite, remove
             $sql = 'DELETE FROM users_blogs WHERE `user_facebook_id` = "' . $user_id . '" AND `blog_id` = "'  . $blog_id . '"';
