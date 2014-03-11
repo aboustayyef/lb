@@ -113,7 +113,7 @@ var lbApp ={
     },
 
     top_switcher_reposition: function(){
-      if ($("#timeSelector")) {
+      if ($("#timeSelector").length > 0) {
         /*Only reposition it if it exists*/
           $('#timeList').css('left', $('#timeSelector').offset().left);
           $('#timeList').css('top', $('#timeSelector').offset().top);
