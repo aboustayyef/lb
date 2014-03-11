@@ -524,6 +524,7 @@ div.mainbar-wrapper {
         color: white;
         background: #b12530; }
       .card .card_body .post_title.rtl {
+        font-family: Droid Arabic Kufi, Serif;
         direction: rtl; }
       .card .card_body .post_title.givemargins {
         margin-left: 10px;
