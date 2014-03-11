@@ -258,7 +258,10 @@ var lbApp ={
 						console.log('busy updating');
 						return;
 					}
-					lbApp.posts.top_switcher_reposition();
+					if ($("#timeSelector")) {
+						/*Only reposition it if it exists*/
+						lbApp.posts.top_switcher_reposition();
+					};
 					var scrollAmount = Math.abs(lbApp.posts.window.position().top);
 					var distanceToBottom = lbApp.posts.window.height() - scrollAmount;
 					console.log("distanceToBottom: "+distanceToBottom);
