@@ -1,0 +1,2 @@
+[12-Mar-2014 18:51:48 UTC] PHP Notice:  Use of undefined constant THUMBS_BASE - assumed 'THUMBS_BASE' in /var/www/websites/lebanese_blogs/config.php on line 34
+[12-Mar-2014 18:51:48 UTC] PHP Notice:  Use of undefined constant IMGCACHE_BASE - assumed 'IMGCACHE_BASE' in /var/www/websites/lebanese_blogs/config.php on line 35

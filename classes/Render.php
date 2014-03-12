@@ -68,7 +68,7 @@ class Render
 
 				?>
 					<div class="card_header background-greylightest">
-						<a href ="<?php echo WEBPATH. $blog_id ; ?>"><img class ="blog_thumb" src="<?php echo WEBPATH.'img/thumbs/'.$blog_id.'.jpg';?>" width ="50" height ="50"></a>
+						<a href ="<?php echo WEBPATH. $blog_id ; ?>"><img class ="blog_thumb" src="<?php echo THUMBS_BASE.$blog_id.'.jpg';?>" width ="50" height ="50"></a>
 						<div class="post_details">
 							<div class="blog_name secondaryfont"><a href ="<?php echo WEBPATH. $blog_id ;?>"><?php echo $blog_name ;?></a></div>
 							<div class="blog_tools">
@@ -133,9 +133,9 @@ class Render
 							$the_image = $post->post_image;
 
 							// use image cache if exists.
-							$image_cache = 'img/cache/'.$post->post_timestamp.'_'.$post->blog_id.'.'.Lb_functions::get_image_format($the_image);
-							if (file_exists(ABSPATH.$image_cache)) {
-								$the_image = WEBPATH.$image_cache;
+							$image_cache = IMGCACHE_BASE.$post->post_timestamp.'_'.$post->blog_id.'.'.Lb_functions::get_image_format($the_image);
+							if (file_exists($image_cache)) {
+								$the_image = $image_cache;
 							}
 
 							;?>
