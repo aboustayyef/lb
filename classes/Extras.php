@@ -224,11 +224,12 @@ class Extras
 						foreach ($stats as $stat) {
 							$img = $stat->post_image;
 
-							$image_cache = 'img/cache/'.$stat->post_timestamp.'_'.$stat->blog_id.'.'.Lb_functions::get_image_format($img);
-							if (file_exists(ABSPATH.$image_cache)) {
-								$img = WEBPATH.$image_cache;
+							// use image cache if exists.
+							$image_cache = IMGCACHE_BASE.$post->post_timestamp.'_'.$post->blog_id.'.'.Lb_functions::get_image_format($the_image);
+							$image_file = ABSPATH.'img/cache/'.$post->post_timestamp.'_'.$post->blog_id.'.'.Lb_functions::get_image_format($the_image);
+							if (file_exists($image_file)) {
+								$img = $image_cache;
 							}
-
 							$img_height =$stat->post_image_height ;
 							$img_width =$stat->post_image_width ;
 							$title = $stat->post_title;
