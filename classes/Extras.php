@@ -227,6 +227,7 @@ class Extras
 							// use image cache if exists.
 							$image_cache = IMGCACHE_BASE.$post->post_timestamp.'_'.$post->blog_id.'.'.Lb_functions::get_image_format($the_image);
 							$image_file = ABSPATH.'img/cache/'.$post->post_timestamp.'_'.$post->blog_id.'.'.Lb_functions::get_image_format($the_image);
+							echo "<!-- $image_cache \n $image_file  -->";
 							if (file_exists($image_file)) {
 								$img = $image_cache;
 							}
