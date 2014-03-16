@@ -7,7 +7,6 @@
 
 include_once('init.php');
 
-
 $pagewanted = isset($_GET['pagewanted'])? $_GET['pagewanted'] : NULL;
 // there are three kinds of pagewanted so far: 
 //	"browse" for pages with posts (header + footer + sidebar + infinite loading content)
