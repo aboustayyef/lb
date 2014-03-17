@@ -1,20 +1,30 @@
 <?php 
-
-
+$startTime = microtime(true);
 session_start();
 
 //dependencies
 
 include_once("config.php");
-//include_once("includes_new/connection.php");
-// auto load classes
-
-/*include_once(ABSPATH.'classes/simple_html_dom.php');
-include_once(ABSPATH.'classes/simplepie.php');
-*/
-function my_autoloader($class) {
+/*function my_autoloader($class) {
 	include 'classes/' . $class . '.php';
 }
-spl_autoload_register('my_autoloader');
+spl_autoload_register('my_autoloader');*/
+
+
+// Will manually include classes to control which classes I'm no longer using
+include ABSPATH.'/classes/DB.class.php'; 
+include ABSPATH.'/classes/Posts.class.php'; 
+include ABSPATH.'/classes/View.class.php';
+include ABSPATH.'/classes/Channels.class.php';
+include ABSPATH.'/classes/ViewTypes.class.php';
+include ABSPATH.'/classes/Render.class.php';
+include ABSPATH.'/classes/Lb_functions.class.php';
+include ABSPATH.'/classes/Users.class.php';
+include ABSPATH.'/classes/Extras.class.php';
+include ABSPATH.'/classes/Image.class.php';
+
+include ABSPATH.'/classes/PageControllers/BrowsePage.class.php';
+include ABSPATH.'/classes/PageControllers/BloggerPage.class.php';
+
 
 ?>

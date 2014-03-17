@@ -1,11 +1,11 @@
 <?php 
 
-// deprecated
+// This is the header section, it requires the $pageDetails array 
+if (empty($pageDetails)) {
+  die('cannot draw header without the pageDetails array');
+}
 
-global $channel_descriptions;
-
-
-;?>
+?>
 
 <!DOCTYPE html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
@@ -32,30 +32,14 @@ global $channel_descriptions;
     </script>
     
     <meta charset="utf-8">
-    <title><?php echo $this->_title;?></title>
+    <title><?php echo $pageDetails['title'];?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php echo $this->_description;?>">
+    <meta name="description" content="<?php echo $pageDetails['description']?>">
     <meta name="author" content="Mustapha Hamoui">
     <meta property="og:image" content="http://lebaneseblogs.com/img/interface/facebook-og-image.jpg">
 
     <!-- Main CSS -->
-    <?php 
-      switch ($this->_page) {
-        case 'blogger':
-          ;?><link href="<?php echo WEBPATH ;?>css/blogger.css?<?php echo time(); ?>" rel="stylesheet"><?php
-          break;
-        case 'about':
-          ;?><link href="<?php echo WEBPATH ;?>css/pages.css?<?php echo time(); ?>" rel="stylesheet"><?php
-          break;
-        case 'search':
-          ;?><link href="<?php echo WEBPATH ;?>css/search.css?<?php echo time(); ?>" rel="stylesheet"><?php
-          break;        
-        default:
-          ;?><link href="<?php echo WEBPATH ;?>css/lebaneseblogs.css?<?php echo time(); ?>" rel="stylesheet"><?php
-          break;
-      }
-    ?>
-    <?php ?>
+    <link href="<?php echo WEBPATH ;?>css/<?php echo $pageDetails['cssFile'].'?'.time(); ?>" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEBPATH ;?>css/font-awesome-4.0.3/css/font-awesome.min.css">
@@ -64,8 +48,6 @@ global $channel_descriptions;
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
     <![endif]-->
-
-
 
     <!-- touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo WEBPATH ;?>img/interface/lb-apple-icon-144x144.png">
@@ -77,8 +59,16 @@ global $channel_descriptions;
     <link rel="shortcut icon" href="<?php echo WEBPATH ;?>img/interface/favicon.ico"> 
     
     <!-- Google Font -->
-      <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Bitter' rel='stylesheet' type='text/css'>
-      <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/droidarabickufi.css">
+    <?php 
+    if ($pageDetails['googleFonts'] == "yes") {
+      ?>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Bitter' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/droidarabickufi.css">
+      <?php
+    }
+
+    ?>
+
   </head>
 
 
@@ -95,13 +85,6 @@ global $channel_descriptions;
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-
-    <script>
-      // important: These js variables tell javascript what to initialize
-      global_page = "<?php echo $this->_page ?>"; 
-      global_viewtype = "<?php echo $this->_view ?>";
-
-    </script>
     <?php include_once ABSPATH."views/modules/modal.inc"; ?>
     <div class = "menu" id="menu-about">
       <ul>
@@ -125,28 +108,28 @@ global $channel_descriptions;
     </div>
 
     <!-- Left Nav -->
-    <?php if ($this->_left_column == "yes") {
-        include_once(ABSPATH.'views/draw_left_column.php');
+    <?php if ($pageDetails['leftColumn'] == "yes") {
+        include_once(ABSPATH.'views/leftColumn.part.php');
     } ?>
 
     <!-- rest of page -->
-  	<div id ="pagewrapper">
+    <div id ="pagewrapper">
       <!-- Navigation -->
       <div class="mainbar-wrapper">
-  	    <div class="mainbar">
-      		<!-- logo -->
-          <?php if (($this->_page == "browse") || ($this->_page == "top") || ($this->_page == "favorites") || ($this->_page == "saved")){
+        <div class="mainbar">
+          <!-- logo -->
+          <?php if ($pageDetails['leftColumn'] == "yes") {
             ;?>
               <a href ="#left-col-wrapper"><div id="hamburger"><i class ="fa fa-bars"></i></div></a>
             <?php
           } ?>
           
-        		<div id ="logo">
-            		<a href="<?php echo WEBPATH ;?>">
-            		<img class='desktop-logo' src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white.png" >
-          		  <img src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white-mobile.png" alt="" class="mobile-logo">
+            <div id ="logo">
+                <a href="<?php echo WEBPATH ;?>">
+                <img class='desktop-logo' src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white.png" >
+                <img src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white-mobile.png" alt="" class="mobile-logo">
               </a>
-        		</div>
+            </div>
             <div id="slogan" class="primaryfont">The best place to discover, read and organize Lebanon's top blogs</div>
             <div class="nav-wrapper">
                 <ul id ="menu-icons">
@@ -154,10 +137,10 @@ global $channel_descriptions;
                   <li data-menu="menu-search"><i id ="search" class ="fa fa-search"></i></li>
                 </ul>
             </div><!-- nav-wrapper -->
-      	</div> <!-- /mainbar -->
+        </div> <!-- /mainbar -->
       </div>
               <img class ="loader" src="img/interface/lb-loader-animated-big-red.gif">
 
-		<div id="content_wrapper"> <!-- the middle section between the header and the footer -->
+    <div id="content_wrapper"> <!-- the middle section between the header and the footer -->
     <div id ="view-area" style ="opacity:0">
 <?php ?>

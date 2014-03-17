@@ -6,7 +6,10 @@
 <?php 
 
 echo '<!-- This user has visited this website '.$_COOKIE['lebaneseblogs_user_visits'].' times -->';
-
+global $startTime;
+$endTime = microtime(true);
+$executionTime = ($endTime - $startTime);
+echo '<!-- php execution took '.sprintf('%f', $executionTime).' seconds to run -->';
 ?>
 
     <!-- JS Dependencies -->

@@ -9,18 +9,25 @@
 
 // 	data from $.post() 
 	$start_from = $_SESSION['posts_displayed']; 
-	$channel= $_SESSION['channel'];
+	$channel= $_SESSION['currentChannel'];
 //	model
 	
-	if ($_SESSION['viewtype'] =='compact') {
+	if ($_SESSION['currentView'] =='compact') {
 		$posts_per_refresh = 50;
 	} else {
 		$posts_per_refresh = 20;
 	}
 
 	$data = Posts::get_interval_posts($start_from+1,$posts_per_refresh, $channel);
-
-// 	load the view
-	$viewposts = new View($_SESSION['pagewanted'], $_SESSION['viewtype'], $_SESSION['channel']);
-	$viewposts->display_posts($data);
+	switch ($_SESSION['currentView']) {
+		case 'cards':
+			Render::drawCards($data, 'normal');
+			break;
+		case 'timeline':
+			Render::drawTimeline($data);
+			break;
+		case 'compact':
+			Render::drawCompact($data);
+			break;
+	}
 ?>
