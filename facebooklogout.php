@@ -14,7 +14,7 @@ echo "<pre>";
 print_r($_SESSION);
 echo "</pre>";*/
 
-header("Location: " . $_SERVER['HTTP_REFERER']);  
+header("Location: " .WEBPATH);  
 
 /*['user']->$_facebook->destroySession();  // to destroy facebook sesssion*/
 ?>

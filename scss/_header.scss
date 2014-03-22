@@ -64,7 +64,7 @@ div.mainbar-wrapper {
         padding: 10px 20px;
         display: block;
         @media only screen and (max-width:510px){
-            width:90px;
+            width:120px;
             padding:14px 5px;
         }
 
@@ -77,7 +77,7 @@ div.mainbar-wrapper {
         }
         img.mobile-logo{
             display: none;
-            width:90px;
+            width:120px;
             height:40px;
             @media only screen and (max-width:510px){
                 display:block

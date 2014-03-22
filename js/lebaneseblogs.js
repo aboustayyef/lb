@@ -297,10 +297,10 @@ var lbApp ={
       init: function(){
         //by default, show left sidebar for larger windows
         // hide it for small screens
-        if ($(window).width()>768) {
-          this.show();
-        }else{
+        if ($(window).width()<768 || global_leftColumnInitialState == "closed" ) {
           this.hide();
+        }else{
+          this.show();
         }
         //leftbar event handlers
         $('#hamburger').on('click', function(){

@@ -9,7 +9,6 @@ function areWeInChannel($s){
 ?>
 <div id="left-col-wrapper">
   <div class="left-col-inner">
-    <!-- <?php echo $_SESSION['viewtype'] ?> -->
     <div class="leftNav-dismiss"><i class ="fa fa-times-circle"></i></div>
 
 <!-- <h4 class="sectionheader">Statistics </h4>
@@ -18,21 +17,21 @@ function areWeInChannel($s){
   <div id ="channels">
     <h4 class="sectionheader">User Area</h4>
     <?php 
-        if (isset($_SESSION['LebaneseBlogs_user_id'])){ // user logged in
+        if (LbUser::isSignedIn()){ // user logged in
           ?>
         <div class="userBox">
-          <img src="<?php echo $_SESSION['lebaneseblogs_Facebook_Profile_Pic']; ?>" alt="" width ="50" height = "50" class="profilePic">
-          <h4 class="userName"><?php echo $_SESSION['LebaneseBlogs_Facebook_FirstName']; ?></h4>
-          <a href="<?php echo WEBPATH.'facebooklogout.php'; ?>" class ="signout"> Sign out</a>
+          <img src="<?php echo LbUser::getFacebookProfilePic(); ?>" alt="" width ="50" height = "50" class="profilePic">
+          <h4 class="userName"><?php echo LbUser::getFacebookFirstName(); ?></h4>
+          <?php LbUser::showFacebookSignOutLink("Log Out") ?>
         </div>
         <?php
         } 
         ?>
-        <div class = "label level1 <?php if ( $_SESSION['pagewanted']=='favorites') { echo 'selected';} ?>">
-          <a href="<?php echo WEBPATH.'userlogin.php?from=favorites&amp;redirect='.WEBPATH.'?pagewanted=favorites' ?>"><i class ="icon-star"></i>My Favorite Bloggers</a>
+        <div class = "label level1 <?php if ( $_SESSION['pageWanted']=='favorites') { echo 'selected';} ?>">
+          <a href="<?php echo WEBPATH.'?pagewanted=favorites';?>"><i class ="icon-star"></i>My Favorite Bloggers</a>
         </div>
-        <div class = "label level1 <?php if ( $_SESSION['pagewanted']=='saved') { echo 'selected';} ?>">
-          <a href="<?php echo WEBPATH.'userlogin.php?from=saved&amp;redirect='.WEBPATH.'?pagewanted=saved' ?>"><i class ="icon-envelope"></i>My Saved Posts</a>
+        <div class = "label level1 <?php if ( $_SESSION['pageWanted']=='saved') { echo 'selected';} ?>">
+          <a href="<?php echo WEBPATH.'?pagewanted=saved';?>"><i class ="icon-envelope"></i>My Saved Posts</a>
         </div>
         
         <h4 class="sectionheader">Posts to Show</h4>
@@ -97,21 +96,39 @@ function areWeInChannel($s){
       <h4 class="sectionheader">Posts Layout </h4>
       <div id="icons">
         
-        <a href="<?php echo WEBPATH.'?view=cards' ?>">
+        <a href="<?php 
+              $tempurl = WEBPATH.'?view=cards';
+              if (!empty($_SESSION['pageWanted'])) {
+                $tempurl .= "&pagewanted=".$_SESSION['pageWanted'];
+              }
+              echo $tempurl;
+            ?>">
           <img src="<?php echo WEBPATH . 'img/interface/view-icon-card';
           if ($_SESSION['currentView']=='cards') {
             echo '-selected';
           }
           echo '.png' ;?>" width ="25" height ="25" alt=""></a>
           
-          <a href="<?php echo WEBPATH.'?view=timeline' ?>">
+          <a href="<?php 
+              $tempurl = WEBPATH.'?view=timeline';
+              if (!empty($_SESSION['pageWanted'])) {
+                $tempurl .= "&pagewanted=".$_SESSION['pageWanted'];
+              }
+              echo $tempurl;
+            ?>">
             <img src="<?php echo WEBPATH . 'img/interface/view-icon-timeline';
             if ($_SESSION['currentView']=='timeline') {
               echo '-selected';
             }
             echo '.png' ;?>" width ="25" height ="25" alt=""></a>
 
-            <a href="<?php echo WEBPATH.'?view=compact' ?>">  
+            <a href="<?php 
+              $tempurl = WEBPATH.'?view=compact';
+              if (!empty($_SESSION['pageWanted'])) {
+                $tempurl .= "&pagewanted=".$_SESSION['pageWanted'];
+              }
+              echo $tempurl;
+            ?>">  
               <img src="<?php echo WEBPATH . 'img/interface/view-icon-compact';
               if ($_SESSION['currentView']=='compact') {
                 echo '-selected';

@@ -256,7 +256,7 @@ div.mainbar-wrapper {
     display: block; }
     @media only screen and (max-width: 510px) {
       div.mainbar-wrapper #logo {
-        width: 90px;
+        width: 120px;
         padding: 14px 5px; } }
     div.mainbar-wrapper #logo img.desktop-logo {
       width: 250px;
@@ -266,7 +266,7 @@ div.mainbar-wrapper {
           display: none; } }
     div.mainbar-wrapper #logo img.mobile-logo {
       display: none;
-      width: 90px;
+      width: 120px;
       height: 40px; }
       @media only screen and (max-width: 510px) {
         div.mainbar-wrapper #logo img.mobile-logo {

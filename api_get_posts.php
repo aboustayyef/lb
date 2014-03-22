@@ -10,7 +10,7 @@ switch ($_GET['type']) {
 /*		$result = Posts::get_top_posts($hours, $howmany, $channel);
 		$JSONresult = json_encode($result);
 		exit($JSONresult);*/
-		Extras::topFive($howmany, $hours, $_SESSION['channel']);
+		Extras::topFive($howmany, $hours, $_SESSION['currentChannel']);
 		break;
 	
 	default:

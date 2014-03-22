@@ -1,7 +1,5 @@
 <?php 
 
-require ABSPATH.'classes/facebook/src/facebook.php';  // Include facebook SDK file
-
 class Users{
 
 	private $_facebook ; // facebook object

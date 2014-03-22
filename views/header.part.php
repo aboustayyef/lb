@@ -10,26 +10,6 @@ if (empty($pageDetails)) {
 <!DOCTYPE html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
-
-    <!-- Script to remove #_=_ from facebook redirects -->
-    
-    <script type="text/javascript">
-      if (window.location.hash && window.location.hash == '#_=_') {
-          if (window.history && history.pushState) {
-              window.history.pushState("", document.title, window.location.pathname);
-          } else {
-              // Prevent scrolling by storing the page's current scroll offset
-              var scroll = {
-                  top: document.body.scrollTop,
-                  left: document.body.scrollLeft
-              };
-              window.location.hash = '';
-              // Restore the scroll offset, should be flicker free
-              document.body.scrollTop = scroll.top;
-              document.body.scrollLeft = scroll.left;
-          }
-      }
-    </script>
     
     <meta charset="utf-8">
     <title><?php echo $pageDetails['title'];?></title>
@@ -73,18 +53,28 @@ if (empty($pageDetails)) {
 
 
 <!-- About Menu -->
-  <body>
+<body>
 
-  <!-- Facebook Stuff -->
+  <!-- Facebook Javascript sdk -->
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1419973148218767";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '<?php echo FACEBOOK_APP_ID ;?>', // CHANGE THIS TO REAL APP ONCE ONLINE
+      status     : true,
+      xfbml      : true
+    });
+  };
 
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- End of Facebook Javascript SDK -->
     <?php include_once ABSPATH."views/modules/modal.inc"; ?>
     <div class = "menu" id="menu-about">
       <ul>
@@ -139,8 +129,15 @@ if (empty($pageDetails)) {
             </div><!-- nav-wrapper -->
         </div> <!-- /mainbar -->
       </div>
-              <img class ="loader" src="img/interface/lb-loader-animated-big-red.gif">
-
+      <?php 
+        if (@$pageDetails['showViewArea'] != 'yes') {
+          echo '<img class ="loader" src="img/interface/lb-loader-animated-big-red.gif">';
+        }
+      ?>
     <div id="content_wrapper"> <!-- the middle section between the header and the footer -->
-    <div id ="view-area" style ="opacity:0">
-<?php ?>
+    <div id ="view-area" 
+    <?php 
+      if (@$pageDetails['showViewArea'] != 'yes') {
+        echo 'style ="opacity:0">';
+      }
+    ?>

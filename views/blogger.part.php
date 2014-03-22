@@ -29,7 +29,7 @@
 		echo '<div id ="tags">';
 		foreach ($tags as $key => $tag) {
 			$tag = trim($tag);
-			$channel = Lb_functions::tagtochannel($tag); // because we have many tags but only a few channels
+			$channel = Channels::resolveTag($tag); // because we have many tags but only a few channels
 			echo '<a href="'.WEBPATH.'?channel='.$channel.'">#'.$tag.' </a>'; 
 		}
 		echo '</div>';

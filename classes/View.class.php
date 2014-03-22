@@ -12,26 +12,39 @@ class View
   }
 
   public static function makeBrowseBody($data){
-    if ($_SESSION['currentView'] == 'cards') {
-      echo '<div id="posts">';
-        Render::drawCards($data, 'normal');
-      echo '</div> <!-- /posts -->';
-    } else if ($_SESSION['currentView'] == 'timeline') {
-      echo '<div id="posts">';
-        Render::drawTimeline($data);
-      echo '</div> <!-- /posts -->';
+    Render::drawData($data, 'normal');
+  }
+
+  public static function makeSavedBody($data){
+    if (count($data) == 0) { // No favorites yet
+      include_once(ABSPATH.'/views/saved-starter.part.php');
     }else{
-      die('only cards and timeline so far');
+      Render::drawData($data, 'normal');
     }
-    
+  }
+
+  public static function makeFavoritesBody($data){
+    if (count($data) == 0) { // No favorites yet
+      include_once(ABSPATH.'/views/favorites-starter.part.php');
+    }else{
+      Render::drawData($data, 'normal');
+    }
   }
 
   public static function makeBloggerBody($data){
     include_once(ABSPATH.'/views/blogger.part.php');
   }
 
+  public static function makeStaticBody($pageDetails){
+    include_once(ABSPATH.'/views/'.$pageDetails['whichPage']);
+  }
+
   public static function makeFooter($pageFooter){
     include_once(ABSPATH.'/views/footer.part.php');
+  }
+
+  public static function makeLoginBody($parameters){
+    include_once(ABSPATH.'/views/login.part.php');
   }
 }
 

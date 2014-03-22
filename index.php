@@ -47,18 +47,64 @@ if (($pagewanted == "browse") || ($pagewanted == NULL)) {
     $bloggerPage->render();
   return;
   }
-die();
 
-// If the page is search
+if ($pagewanted == 'about') {
+  $aboutPage = new AboutPage();
+  $aboutPage->render();
+  return;
+}
+
+if ($pagewanted == 'login') {
+  
+  $blogToFave   = isset($_GET['blogtofave']) ? $_GET['blogtofave'] : NULL;    // use the blogid / optional
+  $urlToSave    = isset($_GET['urltosave']) ? $_GET['urltosave'] : NULL;       // use an encoded url / optional
+  $redirectUrl  = isset($_GET['redirecturl']) ? $_GET['redirecturl'] : NULL; // use an encoded url / optional
+  
+  $loginPage = new LoginPage($blogToFave, $urlToSave, $redirectUrl);
+  $loginPage->render();
+  return;
+}
+
+if ($pagewanted == 'search') {
   $s = isset($_GET['s']) ? $_GET['s'] : NULL;
   $searchPage = new SearchPage($s);
   $searchPage->render();
   return;
+}
 
-// If the page is favorites
-  $favoritesPage = new FavoritesPage($s);
-  $favoritesPage->render();
-  return;
+if ($pagewanted == 'saved') {
+  if (LbUser::isSignedIn()) {
+      $view = isset($_GET['view']) ? $_GET['view'] : NULL;
+      $savedPage = new SavedPage($view);
+      $savedPage->render();
+      return;
+  } else {
+      // build url to login page with a redirect url parameter to the saved page
+      $url = WEBPATH.'?pagewanted=login&redirecturl='.urlencode(WEBPATH.'?pagewanted=saved');
+      header('Location: '.$url);
+  }
+}
+
+
+if ($pagewanted == 'favorites') {
+  if (LbUser::isSignedIn()) {
+      $view = isset($_GET['view']) ? $_GET['view'] : NULL;
+      $favoritesPage = new FavoritesPage($view);
+      $favoritesPage->render();
+      return;
+  } else {
+      // build url to login page with a redirect url parameter to the favorites page
+      $url = WEBPATH.'?pagewanted=login&redirecturl='.urlencode(WEBPATH.'?pagewanted=favorites');
+      header('Location: '.$url);
+  }
+}
+
+die();
+
+// If the page is search
+
+
+
 
 // If the page is saved
   $savedPage = new SavedPage($s);

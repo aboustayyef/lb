@@ -37,6 +37,13 @@ echo '<!-- php execution took '.sprintf('%f', $executionTime).' seconds to run -
     <script>
         var global_page = "<?php echo $_SESSION['pageWanted'] ; ?>";
         var global_viewtype = "<?php echo $_SESSION['currentView'] ?>";
+        <?php 
+            if (@$pageFooter['lefColumnInitialState'] == "closed") {
+                ?>var global_leftColumnInitialState = "closed";<?php
+            }else {
+                ?>var global_leftColumnInitialState = "open";<?php
+            };
+        ?>
     </script>
     <!-- App JS -->
     <script src="<?php echo WEBPATH ;?>js/lebaneseblogs-ck.js?<?php echo time(); ?>"></script>

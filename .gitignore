@@ -4,4 +4,4 @@ config.php
 codekit*.*
 lebaneseblogs.sublime-workspace
 lebaneseblogs.sublime-project
-
+php_errors.log

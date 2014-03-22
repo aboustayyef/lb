@@ -326,5 +326,27 @@ class Extras
       </div>
       <?php
     }
+
+    public static function facebookTest(){
+      ;?>
+      <div class="card-container">
+        <div class="card">
+          <div class ="card_body" id ="facebookTest">
+          <?php 
+
+          if (LbUser::isSignedIn()) {
+            Echo "<p>User is signed in ";
+            echo "with Facebook ID ".LbUser::getFacebookID();
+            LbUser::showFacebookSignOutLink("Log Out");
+          } else {
+            LbUser::showFacebookSigninButton();
+          }
+          ?>
+        </div>
+      </div>
+    </div>
+    <?php  
+    }
+
   }
   ?>
