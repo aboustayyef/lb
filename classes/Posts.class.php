@@ -254,13 +254,21 @@ class Posts
         
         // get list of posts
 
-        $sql2 = "SELECT * FROM `posts` 
+        $sql2 = "SELECT * 
+        FROM `posts` 
         LEFT JOIN `blogs` ON posts.blog_id = blogs.blog_id 
         LEFT JOIN `columnists` ON posts.blog_id = columnists.col_shorthand
         WHERE posts.blog_id IN ($list) OR columnists.col_shorthand IN ($list)
         ORDER BY posts.post_timestamp DESC LIMIT $from, $howmany ";
-        $posts = DB::getInstance()->query($sql2)->results();
-        return $posts;
+
+        DB::getInstance()->query($sql2);
+        if (DB::getInstance()->error()) {
+            echo "There's an error in the query";
+        } else {
+            $output = NormalizeResults(DB::getInstance()->results());
+            return $output;
+        }
+
     }
 
 public static function get_saved_bloggers_posts($user_id, $from, $howmany){
@@ -277,9 +285,23 @@ public static function get_saved_bloggers_posts($user_id, $from, $howmany){
         $list = "'".join("', '", $list)."'";
         // get list of posts
 
-        $sql2 = "SELECT * FROM `posts` LEFT JOIN `blogs` ON posts.blog_id = blogs.blog_id LEFT JOIN `columnists` ON posts.blog_id = columnists.col_shorthand WHERE posts.post_url IN ($list) ORDER BY posts.post_timestamp DESC LIMIT $from, $howmany ";
-        $posts = DB::getInstance()->query($sql2)->results();
-        return $posts;
+        $sql2 = "SELECT * 
+        FROM `posts` 
+        LEFT JOIN `blogs` ON posts.blog_id = blogs.blog_id 
+        LEFT JOIN `columnists` ON posts.blog_id = columnists.col_shorthand 
+        WHERE posts.post_url 
+        IN ($list) 
+        ORDER BY posts.post_timestamp 
+        DESC LIMIT $from, $howmany ";
+
+        DB::getInstance()->query($sql2);
+        if (DB::getInstance()->error()) {
+            echo "There's an error in the query";
+        } else {
+            $output = NormalizeResults(DB::getInstance()->results());
+            return $output;
+        }
+
     }
 
 

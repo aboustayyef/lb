@@ -9,18 +9,26 @@
 
 // 	data from $.post() 
 	$start_from = $_SESSION['posts_displayed']; 
-	$channel= $_SESSION['channel'];
+	$channel= $_SESSION['currentChannel'];
 //	model
 	
-	if ($_SESSION['viewtype'] =='compact') {
+	if ($_SESSION['currentView'] =='compact') {
 		$posts_per_refresh = 50;
 	} else {
 		$posts_per_refresh = 20;
 	}
+	$userID = LbUser::getFacebookID();
+	$data = Posts::get_favorite_bloggers_posts($userID, $_SESSION['posts_displayed'], $posts_per_refresh);
 
-	$data = Posts::get_favorite_bloggers_posts($_SESSION['LebaneseBlogs_Facebook_User_ID'], $_SESSION['posts_displayed'], $posts_per_refresh);
-
-// 	load the view
-	$viewposts = new View();
-	$viewposts->display_posts($data);
+	switch ($_SESSION['currentView']) {
+		case 'cards':
+			Render::drawCards($data, 'normal');
+			break;
+		case 'timeline':
+			Render::drawTimeline($data);
+			break;
+		case 'compact':
+			Render::drawCompact($data);
+			break;
+	}
 ?>

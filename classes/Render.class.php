@@ -178,23 +178,24 @@ class Render
           ?>
           <ul>
             <?php 
-              if (Users::UserSignedIn()) { // if user is signed in;
-                $f_id = $_SESSION['LebaneseBlogs_Facebook_User_ID'];
+              if (LbUser::isSignedIn()) { // if user is signed in;
                 if (Posts::isSaved($f_id, $post_url)) {
                   // user is signed in and post is saved
                   ?>
-                  <li class="doSave save_toggle" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><a class="removeFromSaved" href="#"><i class="fa fa-heart selected"></i> Saved</a></li>
+                  <li class="doSave save_toggle" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><a class="removeFromSaved" href="#"><i class="fa fa-list-alt selected"></i> Listed</a></li>
                   <?php
                 }else {
                   // user is signed in but post is not saved
                   ?>
-                  <li class="doSave save_toggle" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><a class="addToSaved" href="#"><i class="fa fa-heart"></i> Save Post</a></li>
+                  <li class="doSave save_toggle" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><a class="addToSaved" href="#"><i class="fa fa-clock-o"></i> Read Later</a></li>
                   <?php
                 }
               } else {
                 // user is not signed in. Will ask them to sign in;
+                $here=urlencode($_SESSION['pageWanted']);
+                $encoded_post_url = urlencode($post_url);
                 ?>
-                <li class="doSave"><a href="userlogin.php?from=saved&amp;action=save&amp;url=<?php echo urlencode($post->post_url) ?>&amp;redirect=<?php echo WEBPATH ?>"><i class="fa fa-heart"></i> Save Post</a></li>
+                <li class="doSave"><a href="<?php echo WEBPATH.'?pagewanted=saved&urltosave='.$encoded_post_url.'&redirecturl='.WEBPATH.'?pagewanted='.$here ; ?>"><i class="fa fa-clock-o"></i> Read Later</a></li>
                 <?php
               }
              ?> 
@@ -360,5 +361,13 @@ class Render
       $_SESSION['posts_displayed'] = $_SESSION['posts_displayed'] + 1;
     }
   }
+
+  public static function drawFeaturedBlogger($BloggerID){
+    // get blogger details (name, profile pic, home, twitter, link, etc)
+    // get 9 images from top posts, with links to source posts and titles
+    // get top 3 posts, titles and links.
+    // 
+  }
+
 }
 ?>

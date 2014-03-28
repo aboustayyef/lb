@@ -19,10 +19,7 @@ include ABSPATH.'/classes/Channels.class.php';
 include ABSPATH.'/classes/ViewTypes.class.php';
 include ABSPATH.'/classes/Render.class.php';
 include ABSPATH.'/classes/Lb_functions.class.php';
-
-///////////////////////////////////////////////
-include ABSPATH.'/classes/Users.class.php'; // <--Deprecate This
-/////////////////////////////////////////////
+include ABSPATH.'/classes/BloggerDetails.class.php';
 include ABSPATH.'/classes/LbUser.class.php';
 
 include ABSPATH.'/classes/Extras.class.php';

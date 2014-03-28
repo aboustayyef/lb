@@ -1,8 +1,0 @@
-[22-Mar-2014 22:12:14 UTC] PHP Warning:  Missing argument 1 for FavoritesPage::__construct(), called in /var/www/websites/lebanese_blogs/index.php on line 90 and defined in /var/www/websites/lebanese_blogs/classes/PageControllers/FavoritesPage.class.php on line 13
-[22-Mar-2014 22:12:14 UTC] PHP Stack trace:
-[22-Mar-2014 22:12:14 UTC] PHP   1. {main}() /var/www/websites/lebanese_blogs/index.php:0
-[22-Mar-2014 22:12:14 UTC] PHP   2. FavoritesPage->__construct() /var/www/websites/lebanese_blogs/index.php:90
-[22-Mar-2014 22:12:14 UTC] PHP Notice:  Undefined variable: viewtype in /var/www/websites/lebanese_blogs/classes/PageControllers/FavoritesPage.class.php on line 16
-[22-Mar-2014 22:12:14 UTC] PHP Stack trace:
-[22-Mar-2014 22:12:14 UTC] PHP   1. {main}() /var/www/websites/lebanese_blogs/index.php:0
-[22-Mar-2014 22:12:14 UTC] PHP   2. FavoritesPage->__construct() /var/www/websites/lebanese_blogs/index.php:90

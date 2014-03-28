@@ -84,6 +84,10 @@ class Extras
         return NULL;
       }
     }
+    // show this widget only to the browse page
+   if ($_SESSION['pageWanted'] != 'browse') {
+      return;
+   }
 
     $all_tips = array(
       array(
@@ -276,6 +280,10 @@ class Extras
 
     public static function facebookLikes(){
       ?>
+      <?php 
+        // show this widget only to the browse page
+        if ($_SESSION['pageWanted'] == 'browse') {
+      ?>
       <div id ="facebooklikes" class="card-container" >
         <div class="card" style ="opacity:0; height:150px">
           <div class="card_header background-greylightest">
@@ -285,7 +293,7 @@ class Extras
             <div class="fb-like" data-href="http://facebook.com/lebaneseblogs" data-width="268" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
           </div>
         </div>
-        <div class="card" style ="opacity:0; height:100px">
+<!--         <div class="card" style ="opacity:0; height:100px">
           <div class="card_header background-greylightest" style ="border-top: 1px solid silver">
             <h4>... and by following us on Twitter</h4>
           </div>
@@ -293,9 +301,10 @@ class Extras
             <a href="https://twitter.com/lebaneseblogs" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @lebaneseblogs</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
           </div>
-        </div>
+        </div> -->
       </div>
       <?php
+        }
     }
 
     public static function drawAd(){

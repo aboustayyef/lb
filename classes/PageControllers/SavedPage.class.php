@@ -56,7 +56,7 @@ class SavedPage
 
   function getInitialData(){
       // the compact mode gets more initial posts;
-      if ($this->_pageDetails['viewtype']== "compact") {
+      if ($_SESSION['currentView']== "compact") {
         $initial_posts_to_retreive = 50;
       }else{
         $initial_posts_to_retreive = 20;

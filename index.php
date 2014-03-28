@@ -43,6 +43,9 @@ if (($pagewanted == "browse") || ($pagewanted == NULL)) {
 // If the page is blogger
   if ($pagewanted == 'blogger') {
     $bloggerid = isset($_GET['bloggerid']) ? $_GET['bloggerid'] : NULL;
+    if (!$bloggerid) {
+      die('blogger ID cant be empty');
+    }
     $bloggerPage = new BloggerPage($bloggerid);
     $bloggerPage->render();
   return;

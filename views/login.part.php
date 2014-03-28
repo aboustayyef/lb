@@ -21,13 +21,20 @@
 
 ?>
   <!-- The Page Itself -->
-  <div class="loginMain">
-    <h2>Message</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, dolore, asperiores at fugit ipsa vel magni tempora? In, ullam, hic, doloribus quia ea odit saepe rem deserunt vero praesentium veniam nulla tempore officiis perferendis illum inventore quo beatae aperiam magnam provident illo enim optio eaque aliquid laboriosam cumque quos non.</p>
-    <img src= "http://placehold.it/300x300">
+  <div class="modal_cover">
+  </div>
+  <div class ="modal_window_base">
+  </div>
+  <div class="modal_window">
+    <a href ="<?php echo WEBPATH; ?>"><img src ="<?php echo WEBPATH.'/img/interface/lb-apple-icon-114x114.png' ?>" width="57px" height="auto"></a>
+    <h3>Sign in to access extra features</h3>
+    <hr class = "fancy-line">
     <div class="thebutton">
       <?php LbUser::showFacebookSigninButton($loginRedirectUrl); ?>
     </div>
+    <ul class="feature_list">
+      <li><i class ="fa fa-clock-o"></i> Read Posts Later</li>
+      <li><i class ="fa fa-star"></i> Add Blogs to Favorites</li>
+    </ul>
+    <p class ="understated">We respect your privacy. We will not share your email address and we won't spam you. We only need it to get in touch with you if something is wrong with your account</p>
   </div>
-
-</div>

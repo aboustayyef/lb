@@ -35,8 +35,8 @@
 		echo '</div>';
 		echo '<ul class ="goToButtons">';
 
-			if (Users::UserSignedIn()) { // if user is signed in;
-				$f_id = $_SESSION['LebaneseBlogs_Facebook_User_ID'];
+			if (LbUser::IsSignedIn()) { // if user is signed in;
+				$f_id = LbUser::getFacebookID();
 				if (Posts::isFavorite($f_id, $blog_id)) {
 					// user is signed in and blog is a favorite
 					?>
@@ -49,8 +49,10 @@
 					<?php
 				}} else {
 				// user is not signed in. Will ask them to sign in;
+        $here=urlencode($_SESSION['pageWanted']);
+        $redirecturl = urlencode(WEBPATH.'?pagewanted='.$here.'&bloggerid='.$blog_id);
 				?>
-				<li><div class ="twitterstylebutton" ><a href="userlogin.php?from=favorites&amp;action=favorite&amp;blog=<?php echo $blog_id; ?>&amp;redirect=<?php echo WEBPATH.$blog_id ?>"><i class ="icon-star"></i> Add Blog to Favorites</a></div></li>
+				<li><div class ="twitterstylebutton" ><a href="<?php echo WEBPATH.'?pagewanted=login&blogtofave='.$blog_id.'&redirecturl='.$redirecturl ; ?>"><i class ="icon-star"></i> Add Blog to Favorites</a></div></li>
 				<?php
 			}
 		 ?>

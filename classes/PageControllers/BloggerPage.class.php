@@ -41,7 +41,7 @@ class BloggerPage
 
   function getBloggerDetails(){
       // the compact mode gets more initial posts;
-      return Posts::get_blogger_posts(20, $this->_pageDetails['bloggerid']);
+      return BloggerDetails::get_blogger_posts(20, $this->_pageDetails['bloggerid']);
   }
 
 }

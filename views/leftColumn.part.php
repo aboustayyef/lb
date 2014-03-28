@@ -28,10 +28,10 @@ function areWeInChannel($s){
         } 
         ?>
         <div class = "label level1 <?php if ( $_SESSION['pageWanted']=='favorites') { echo 'selected';} ?>">
-          <a href="<?php echo WEBPATH.'?pagewanted=favorites';?>"><i class ="icon-star"></i>My Favorite Bloggers</a>
+          <a href="<?php echo WEBPATH.'?pagewanted=favorites';?>"><i class ="fa fa-star"></i>My Favorite Bloggers</a>
         </div>
         <div class = "label level1 <?php if ( $_SESSION['pageWanted']=='saved') { echo 'selected';} ?>">
-          <a href="<?php echo WEBPATH.'?pagewanted=saved';?>"><i class ="icon-envelope"></i>My Saved Posts</a>
+          <a href="<?php echo WEBPATH.'?pagewanted=saved';?>"><i class ="fa fa-list-alt"></i>My Reading List</a>
         </div>
         
         <h4 class="sectionheader">Posts to Show</h4>

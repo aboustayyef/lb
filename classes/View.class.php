@@ -12,6 +12,9 @@ class View
   }
 
   public static function makeBrowseBody($data){
+    if (isset($_SESSION['currentChannel'])) {
+      self::categoryHead($_SESSION['currentChannel']);
+    }
     Render::drawData($data, 'normal');
   }
 
@@ -19,6 +22,7 @@ class View
     if (count($data) == 0) { // No favorites yet
       include_once(ABSPATH.'/views/saved-starter.part.php');
     }else{
+      self::makeMessage('Hello Mr. Mustapha! How are you?');
       Render::drawData($data, 'normal');
     }
   }
@@ -46,6 +50,16 @@ class View
   public static function makeLoginBody($parameters){
     include_once(ABSPATH.'/views/login.part.php');
   }
+
+  public static function makeMessage($theMessage){
+    /*The div below comes after the View Area div*/
+    echo '<div class ="bodyMessage">'.$theMessage.'</div>';
+  }
+
+  public static function categoryHead($theCategory){
+    //echo '<div class ="categoryHeader"><i class ="fa fa-coffee"></i>'.$theCategory.'</div>';
+  }
+
 }
 
 ?>
