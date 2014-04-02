@@ -47,7 +47,7 @@ class Extras
         $_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
       break;
 
-      case 14: 
+      case 6: 
         if ($_SESSION['pageWanted'] == 'browse') {
           self::featuredBloggers();
           $_SESSION['items_displayed'] = $_SESSION['items_displayed'] + 1;
@@ -62,11 +62,11 @@ class Extras
         self::tip(1);
       break;
 
-      case 17: 
+      case 15: 
         self::tip(2);
       break;
       
-      case 22: 
+      case 18: 
         self::tip(3);
       break;
 
@@ -77,13 +77,14 @@ class Extras
   }
 
   public static function tip($whichtip){
+    /* Uncomment if you want experts to stop seeing it
     if (isset($_COOKIE['lebaneseblogs_user_visits'])) {
       if ($_COOKIE['lebaneseblogs_user_visits'] > 3) {
         # user has seen website more than 3 times. 
         # user is an expert, no longer needs tips;
         return NULL;
       }
-    }
+    }*/
     // show this widget only to the browse page
    if ($_SESSION['pageWanted'] != 'browse') {
       return;
@@ -91,15 +92,15 @@ class Extras
 
     $all_tips = array(
       array(
-        'title'=>"Stash The Gems",
-        'body'=> 'Some blog posts are just so amazing or useful that you need to keep them at hand for future reference. Saving Posts is a great way to do that. <img src ="img/interface/stack-of-cards.png" width ="240" height ="172" class ="noborder">',
+        'title'=>'<i class ="fa fa-clock-o"> Read Posts Later</i>',
+        'body'=> 'You see some very interesting posts but you only have a few minutes? No problem, just mark them for reading later and you\'re set! <img src ="img/interface/stack-of-cards.png" width ="240" height ="172" class ="noborder">',
         ),
       array(
         'title'=>'Smart Tweeting',
         'body'=> 'When you share using the Lebanese Blogs "tweet" button, the blogger who wrote the post will be automatically mentioned on twitter <a href ="http://lebaneseblogs.com/blog/?p=44">learn more</a> <img src ="img/interface/smart-twitter-bird.png" width ="240" height ="107" class ="noborder">',
         ),
       array(
-        'title'=>"Don't Miss a Post",
+        'title'=>'<i class ="fa fa-star"></i> Don\'t Miss a Post',
         'body'=> 'Having a list of favorite blogs is a great way to keep up with blogs that don\'t post often. Whenever you see a blog you like, just click on the "Add Blog to Favorites" button to add it to your list<img src ="img/interface/add-blog-button.png" class ="noborder">',
         ),
       array(
@@ -138,51 +139,10 @@ class Extras
 
       global $channel_descriptions;
 
-      $bloggers = Posts::get_random_bloggers(3, $_SESSION['currentChannel']);?>
-      <div class="card-container">
-        <div class="card">
-          <div class="card_header primaryfont background-bluegreen">
-            <h3 class ="whitefont">
-              <?php 
-              if (isset($_SESSION['currentChannel'])) {
-                echo '<span class ="understated">'. $channel_descriptions[$_SESSION['currentChannel']].'</span><br>';
-              }
-              ?>
-              Featured Blogs        
-            </h3>
-          </div>
-          <div class="card_body elastic silverbody">
+      $bloggers = Posts::get_random_bloggers(1, $_SESSION['currentChannel']);
+      $bloggerID = $bloggers[0]->blog_id;
+      Render::drawFeaturedBlogger($bloggerID, $featured='yes');
 
-            <?php
-            foreach ($bloggers as $blogger) { 
-              if (isset($blogger->blog_id) && !empty($blogger->blog_id)) { // it's a blogger, not a columnists
-              $name = $blogger->blog_name;
-              $description = $blogger->blog_description;
-              $id = $blogger->blog_id;
-              $url = $blogger->blog_url;
-            } else {
-              $name = $blogger->col_name;
-              $description = $blogger->col_description;
-              $id = $blogger->col_shorthand;
-              $url = $blogger->col_home_page;
-            }
-            ?>
-
-            <div class="list_type_b">
-              <img src="img/thumbs/<?php echo $id; ?>.jpg" alt="" class="thumb">
-              <h3><?php echo $name; ?></h3>
-              <p><?php echo Lb_functions::limitWords(10, $description); ?></p>
-              <div class ="button-wrapper">
-                <a href="<?php echo WEBPATH.$id; ?>" class="btn btn-whitetext btn-small background-bluegreen">Page</a>
-                <a href="<?php echo $url; ?>" class="btn btn-whitetext btn-small background-bluegreen">Home</a>
-              </div>
-            </div>
-            <?php } ?>
-          </div>
-        </div>
-      </div>
-
-      <?php
     }
 
     public static function topFive($howmany=5, $hours=12, $channel = null){
@@ -217,7 +177,7 @@ class Extras
         </div>
         
         <div class="card">
-          <div class="card_header primaryfont background-red">
+          <div class="card_header primaryfont noborder background-red">
             <h3 class ="whitefont">Top Posts <span class ="deemphasize">in the last </span></h3>
             <div id="timeSelector"><?php echo Lb_functions::hours_to_days($hours); ?><i class ="fa fa-chevron-down rightit"></i></div>
           </div>
@@ -247,20 +207,20 @@ class Extras
                 if (empty($stat->post_image)) {
                   ;?>
                   <a href ="<?php echo $url ;?>" target="_blank">
-                    <div class="thumb"><img src="<?php echo "img/interface/no-image.jpg" ;?>" height ="75px"></div>
+                    <div class="thumb"><img class ="lazy" data-original="<?php echo "img/interface/no-image.jpg" ;?>" src="img/interface/grey.gif" height ="75px"></div>
                   </a>
                   <?php
                 }else {
                   if ($img_width >= $img_height) {
                     ;?>       
                     <a href ="<?php echo $url ;?>" target="_blank">
-                      <div class="thumb"><img src="<?php echo $img ;?>" height ="75px"></div>
+                      <div class="thumb"><img class ="lazy" data-original="<?php echo $img ;?>" src="img/interface/grey.gif" height ="75px"></div>
                     </a>
                     <?php
                   } else {
                     ;?>
                     <a href ="<?php echo $url ;?>" target="_blank">
-                      <div class="thumb"><img src="<?php echo $img ;?>" width = "75px"></div>
+                      <div class="thumb"><img class ="lazy" data-original="<?php echo $img ;?>" src="img/interface/grey.gif" width = "75px"></div>
                     </a>
                     <?php
                   }

@@ -10,6 +10,8 @@ include_once("config.php");
 }
 spl_autoload_register('my_autoloader');*/
 
+include ABSPATH.'/classes/GetArticles.php';
+
 
 // Will manually include classes to control which classes I'm no longer using
 include ABSPATH.'/classes/DB.class.php'; 
@@ -21,6 +23,7 @@ include ABSPATH.'/classes/Render.class.php';
 include ABSPATH.'/classes/Lb_functions.class.php';
 include ABSPATH.'/classes/BloggerDetails.class.php';
 include ABSPATH.'/classes/LbUser.class.php';
+include ABSPATH.'/classes/Lb_Search.class.php';
 
 include ABSPATH.'/classes/Extras.class.php';
 include ABSPATH.'/classes/Image.class.php';
@@ -31,6 +34,7 @@ include ABSPATH.'/classes/PageControllers/StaticPage.class.php';
 include ABSPATH.'/classes/PageControllers/LoginPage.class.php';
 include ABSPATH.'/classes/PageControllers/FavoritesPage.class.php';
 include ABSPATH.'/classes/PageControllers/SavedPage.class.php';
+include ABSPATH.'/classes/PageControllers/SearchPage.class.php';
 include ABSPATH.'/classes/PageControllers/_Static_About.class.php';
 
 

@@ -45,8 +45,13 @@
     }
 }
 
+.bodyMessage{
+    background:beige;
+    padding: 5px 50px;
+}
+
 #view-area{
-    background: #c5c5c5;
+    background: darken(white, 14);
     overflow-y: scroll;
     overflow-x: hidden;
 }

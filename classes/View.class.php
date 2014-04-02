@@ -18,11 +18,47 @@ class View
     Render::drawData($data, 'normal');
   }
 
+  public static function makeSearchBody($data){
+    // Data here is an array of three different kinds of search results
+    // $data['blogsResults'] , $data['titlesResults'] & $data['bodyResults']
+    if ((count($data['blogsResults']) == 0 ) && (count($data['titlesResults']) == 0 ) && (count($data['bodyResults']) == 0 )) {
+      // No results At all /
+      //include_once(ABSPATH.'/views/no-search-results.part.php');
+      return;
+    } else {
+      echo '<div id="posts">';
+        if (count($data['blogsResults']) > 0 ) { // No Blog Results
+          foreach ($data['blogsResults'] as $key => $blog) {
+            Render::drawFeaturedBlogger($blog->blog_id);
+          }
+        }
+        if (count($data['titlesResults'])>0)
+        {
+          Render::drawCards($data['titlesResults']);
+        }
+        if (count($data['bodyResults'])>0)
+        {
+          ?>
+
+          <div class ="card-container" data-size="3">
+            <div style ="background:white;width:100%">
+              <p>This is a test separator</p>
+            </div>
+          </div>
+
+          <?php
+          Render::drawCards($data['bodyResults']);
+        }
+      echo '</div> <!-- /posts -->';
+    }
+   }
+
+
   public static function makeSavedBody($data){
     if (count($data) == 0) { // No favorites yet
       include_once(ABSPATH.'/views/saved-starter.part.php');
     }else{
-      self::makeMessage('Hello Mr. Mustapha! How are you?');
+      self::makeMessage('Hello '.$_SESSION['facebook']['first_name'].'! Here are the posts you marked for reading later');
       Render::drawData($data, 'normal');
     }
   }
@@ -31,6 +67,7 @@ class View
     if (count($data) == 0) { // No favorites yet
       include_once(ABSPATH.'/views/favorites-starter.part.php');
     }else{
+      self::makeMessage('Hello '.$_SESSION['facebook']['first_name'].'! Here are the posts by your favorite bloggers.');
       Render::drawData($data, 'normal');
     }
   }

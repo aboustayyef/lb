@@ -26,7 +26,18 @@ class Posts
             return null;
         }
     }
-             
+
+    public static function blogExists($blog_id){
+        $query = 'SELECT blog_id FROM blogs WHERE blogs.blog_id = "'.$blog_id.'" ';
+        $results = DB::getInstance()->query($query)->results();
+        if (count($results)>0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
     public static function get_latest_posts($number_of_posts = 10, $channel = NULL) { //default is 10 posts
         // get blog's details
         if ($channel == 'all') {
@@ -306,6 +317,9 @@ public static function get_saved_bloggers_posts($user_id, $from, $howmany){
 
 
     public static function get_random_bloggers($howmany, $channel=null){
+        if ($channel=='all') {
+            $channel = NULL;
+        }
         if (isset($channel)) {
         $query = 'SELECT `blog_id`, `blog_url`, `blog_name`, `blog_description` FROM blogs WHERE blogs.blog_tags LIKE "%'.$channel.'%" 
                     UNION SELECT `col_shorthand`, `col_home_page`, `col_name`, `col_description` FROM columnists  WHERE columnists.col_tags LIKE "%'.$channel.'%"
@@ -379,44 +393,15 @@ public static function get_saved_bloggers_posts($user_id, $from, $howmany){
         }
     }
 
-    public static function searchBlogNames($term){
-        $names = DB::getInstance();
-        $term = addslashes($term);
-        $sql = 'SELECT blog_id, blog_name, blog_url, blog_description FROM blogs WHERE MATCH(blog_name) AGAINST ( \'"'.$term.'"\' IN BOOLEAN MODE) UNION SELECT col_id, col_name, col_home_page, col_description FROM columnists WHERE MATCH(col_name) AGAINST (\'"'.$term.'"\' IN BOOLEAN MODE)';        
-        $names->query($sql);
-        return $names->results();
-    }
-
-    public static function searchBlogTitles($term){
-        $names = DB::getInstance();
-        $term = addslashes($term);
-        $names->query('SELECT posts.post_title, posts.post_url, posts.post_timestamp, blogs.blog_name, columnists.col_name, posts.post_image, posts.post_image_height, posts.post_image_width
-                    FROM posts 
-                    LEFT JOIN blogs ON posts.blog_id = blogs.blog_id 
-                    LEFT JOIN columnists ON posts.blog_id = columnists.col_shorthand
-                    WHERE MATCH(post_title) AGAINST (\'"'.$term.'"\' IN BOOLEAN MODE) ORDER BY post_timestamp DESC
-
-                    ');
-
-        return $names->results();
-    }
-
-    public static function searchBlogContents($term){
-        $names = DB::getInstance();
-        $term = addslashes($term);
-        $names->query('SELECT posts.post_title, posts.post_url, posts.post_timestamp, blogs.blog_name, columnists.col_name, posts.post_image, posts.post_image_height, posts.post_image_width  
-                    FROM posts INNER JOIN blogs ON posts.blog_id = blogs.blog_id 
-                    LEFT JOIN columnists ON posts.blog_id = columnists.col_shorthand
-                    WHERE MATCH(post_title, post_content) AGAINST (\'"'.$term.'"\' IN BOOLEAN MODE) ORDER BY post_timestamp DESC');
-        return $names->results();
-    }
 }
 
 /*This function serves to normalize the outputs from the queries 
 *so that columnists get treated as bloggers*/
-function NormalizeResults($input = array()){
+function NormalizeResults($input = array())
+{
     $output = array();
-    foreach ($input as $key => $post) {
+    foreach ($input as $key => $post) 
+    {
         if (empty($post->blog_id)) {
             $post->blog_id = $post->col_shorthand ;
             $post->blog_author_twitter_username = $post->col_author_twitter_username ;

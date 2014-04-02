@@ -24,12 +24,7 @@ class SavedPage
     $this->_footerDetails['jquery'] = JQUERY_SOURCE ; // Don't touch. Change from config.php only
     
     // The code below decides what the initial state of the "left column" is
-    // If the user is an expert (more than 10 visit), feel free to keep open.
-    if (@$_COOKIE['lebaneseblogs_user_visits'] > 10) { // this user is an expert
-      $this->_footerDetails['lefColumnInitialState'] = 'closed';
-    }else{
-      $this->_footerDetails['lefColumnInitialState'] = 'open';
-    }
+    $this->_footerDetails['lefColumnInitialState'] = 'open';
     
 
   }

@@ -1,11 +1,12 @@
 <?php 
 	/* testing */
-	require_once('init.php');
-  
-  $blog = new BloggerDetails('larmoiredelana');
+require_once('init.php');
+$searchterm = 'Syria';
 
-  echo '<pre>';
-	print_r($blog);
-	echo '</pre>';
+$results = Lb_Search::searchBlogContents($searchterm);
+
+echo '<pre>';
+print_r($results);
+echo '</pre>';
 
 ?>

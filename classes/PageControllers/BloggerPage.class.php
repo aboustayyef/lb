@@ -29,6 +29,7 @@ class BloggerPage
 
   function render(){
     $_SESSION['pageWanted'] = 'blogger';
+    $_SESSION['currentView'] = 'cards';
     $this->getBloggerDetails(); // will populate $this->_postsData
     
     View::makeHeader($this->_pageDetails);

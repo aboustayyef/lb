@@ -67,4 +67,18 @@ $beirutcityguide = array(
 	'content_body'		=> 	'.profile', //This could be different from the article body to prevent storing comments in content
 );
 
+
+$lorientlejour = array(
+	'method'			=>	'1',
+	'articles_wrapper'	=>	'.articletext',
+	'title'				=>	array('h2',0),
+	'link'				=>	array('a',0),
+	'link_prefix'		=>	'http://www.lorientlejour.com/', //for relative urls
+	'timestamp'			=>	array('p.date', 0), // the last item is to shop off the "on " in "on jan 22, 2014"
+	'excerpt'			=>	array('',0),
+	'article_body'		=>	'article', // The container where we can espect to find the image
+	'img_prefix'		=>	'', // for relative image urls
+	'content_body'		=> 	'article', //This could be different from the article body to prevent storing comments in content
+);
+
 ?>

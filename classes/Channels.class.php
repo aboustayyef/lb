@@ -27,6 +27,16 @@ class Channels
     'columnists'  => 'columnists',
     );
 
+  private static $ChannelDescriptions = array(
+    'columnists'   =>    'Columnists',
+    'fashion'      =>    'Fashion & Style',
+    'food'         =>    'Food & Health',
+    'society'      =>    'Society & Fun News',
+    'politics'     =>    'Politics & Current Affairs',
+    'tech'         =>    'Tech & Business',
+    'media'        =>    'Music, TV & Film',
+    'design'       =>    'Advertising & Design'
+  );
 
   public static function registerChannel($tag){
 
@@ -39,6 +49,11 @@ class Channels
       $_SESSION['currentChannel'] = self::$tagrouter[$tag];
     } 
     return $_SESSION['currentChannel'];
+  }
+
+  public static function describeTag($tag){
+    $cannonical = self::resolveTag($tag);
+    return self::$ChannelDescriptions[$cannonical];
   }
 
   public static function resolveTag($tag){

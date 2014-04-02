@@ -212,9 +212,6 @@ div.mainbar-wrapper {
   height: 64px;
   position: relative;
   background-color: #b12530;
-  -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
   border-bottom-width: 0;
   overflow: hidden; }
   div.mainbar-wrapper .mainbar .nav-wrapper {

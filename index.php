@@ -41,13 +41,20 @@ if (($pagewanted == "browse") || ($pagewanted == NULL)) {
 
 
 // If the page is blogger
-  if ($pagewanted == 'blogger') {
+  if ($pagewanted == 'blogger') 
+  {
     $bloggerid = isset($_GET['bloggerid']) ? $_GET['bloggerid'] : NULL;
-    if (!$bloggerid) {
+    if (!$bloggerid) 
+    {
       die('blogger ID cant be empty');
     }
-    $bloggerPage = new BloggerPage($bloggerid);
-    $bloggerPage->render();
+    if (Posts::blogExists($bloggerid)) 
+    {
+      $bloggerPage = new BloggerPage($bloggerid);
+      $bloggerPage->render();
+    }else{
+      die('This Blogger Doesn\'t exists');
+    }
   return;
   }
 
@@ -70,9 +77,17 @@ if ($pagewanted == 'login') {
 
 if ($pagewanted == 'search') {
   $s = isset($_GET['s']) ? $_GET['s'] : NULL;
-  $searchPage = new SearchPage($s);
-  $searchPage->render();
-  return;
+
+  /*Only search if $s is not empty */
+  if ($s) {
+    $searchPage = new SearchPage($s);
+    $searchPage->render();
+    return;
+  }else{
+    /* reroute to home page*/
+    header("location: ".WEBPATH);
+  }
+
 }
 
 if ($pagewanted == 'saved') {
@@ -82,7 +97,7 @@ if ($pagewanted == 'saved') {
       $savedPage->render();
       return;
   } else {
-      // build url to login page with a redirect url parameter to the saved page
+      // build url to login page with a redirect url parameter to return to the page 'saved'
       $url = WEBPATH.'?pagewanted=login&redirecturl='.urlencode(WEBPATH.'?pagewanted=saved');
       header('Location: '.$url);
   }
@@ -96,7 +111,7 @@ if ($pagewanted == 'favorites') {
       $favoritesPage->render();
       return;
   } else {
-      // build url to login page with a redirect url parameter to the favorites page
+      // build url to login page with a redirect url parameter to return to the page 'favorites'
       $url = WEBPATH.'?pagewanted=login&redirecturl='.urlencode(WEBPATH.'?pagewanted=favorites');
       header('Location: '.$url);
   }

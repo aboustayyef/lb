@@ -9,7 +9,7 @@ var lbApp ={
     init: function(){
       // find the basic module of each post depending on viewtype
       if (global_viewtype === "cards") {
-        this.module = $('.card');
+        this.module = $('.card-container');
       }else if (global_viewtype === "timeline"){
         this.module = $('.timeline');
       } else {
@@ -303,13 +303,17 @@ var lbApp ={
           this.show();
         }
         //leftbar event handlers
-        $('#hamburger').on('click', function(){
+        $('#hamburger').on('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();          
           lbApp.interface.leftNav.show();
           lbApp.posts.flow();
           lbApp.posts.top_switcher_reposition();
         });
 
-        $('.leftNav-dismiss').on('click', function(){
+        $('.leftNav-dismiss').on('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
           lbApp.interface.leftNav.hide();
           lbApp.posts.flow();
           lbApp.posts.top_switcher_reposition();
@@ -609,7 +613,7 @@ bloggerPage:{
 
 $(document).ready(function(){
   lbApp.interface.init();
-  if (global_page === "browse") {
+  if (global_page === "browse" || global_page === "search") {
     lbApp.posts.init();
     lbApp.posts.flow(); // fix dimensions & locations in posts. each viewtype will have a "posts" object with flow() and show() methos
     lbApp.posts.show(); // show everything

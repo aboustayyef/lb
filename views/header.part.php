@@ -110,7 +110,7 @@ if (empty($pageDetails)) {
           <!-- logo -->
           <?php if ($pageDetails['leftColumn'] == "yes") {
             ;?>
-              <a href ="#left-col-wrapper"><div id="hamburger"><i class ="fa fa-bars"></i></div></a>
+              <div id="hamburger"><i class ="fa fa-bars"></i></div>
             <?php
           } ?>
           

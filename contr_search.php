@@ -7,28 +7,20 @@ $scope = $_POST['scope'];
 
 switch ($scope) {
 	case 'blognames':
-		$results = Posts::searchBlogNames($term);
+		$results = Lb_Search::searchBlogNames($term);
 		$howmany = count($results);
-		if ($howmany>0) { //there are results
-			$reference_language = $howmany >1 ? 'There are '.$howmany.' Blogs with the term \''.$term.'\' in their Name' : 'There is '.$howmany.' Blog with the term \''.$term.'\' in its Name';
-			echo "<h3>".$reference_language."</h3>";
-			echo '<ul>';
-			foreach ($results as $result) {
-				echo '<li class ="resultItem">';
-					echo '<img src= "./img/thumbs/'.$result->blog_id.'.jpg" alt ="thumb" width ="50" height="50">';
-					echo '<a href="./'.$result->blog_id.'"><h4>'.$result->blog_name.'</h4></a>';
-					echo '<p>'.Lb_functions::limitWords(8, $result->blog_description).'</p>';
-				echo '</li>';
-			}
-			echo '</ul>';
-		} else {
-			Echo "<h3 class = \"dimmed\">There are no blogs with the term '$term' in their name</h3>";
-		}
+		if ($howmany>0) 
+		{ //there are results
+			foreach ($results as $result) 
+			{
 
+			}
+
+		} 
 	break;
 	
 	case 'blogtitles':
-		$results = Posts::searchBlogTitles($term);
+		$results = Lb_Search::searchBlogTitles($term);
 		$howmany = count($results);
 		if ($howmany>0) { //there are results
 			echo "<h3>There are $howmany Blog Posts with the term '$term' in their titles:</h3>";
@@ -51,7 +43,7 @@ switch ($scope) {
 	break;	
 
 	case 'blogcontents':
-		$results = Posts::searchBlogContents($term);
+		$results = Lb_Search::searchBlogContents($term);
 		$howmany = count($results);
 		if ($howmany>0) { //there are results
 			echo "<h3>There are $howmany Blog Posts with the term '$term' in their text:</h3>";

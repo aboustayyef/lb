@@ -12,18 +12,29 @@ define('ABSPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 $url = findWebRoot(); // custom function, at bottom of this document
 define('WEBPATH', $url);
 
+
+// Facebook APP ID (), one of the two must be commented out.
+
+/*Testing Server, "App for testing" facebook app*/
+define('FACEBOOK_APP_ID', '269731313194548');
+define('FACEBOOK_APP_SECRET', '1bac35b7253d2e0fcef1cf9f620d2de7');
+
+/*Live Server, "Lebanese Blogs" facebook app*/
+//define('FACEBOOK_APP_ID', '1419973148218767'); 
+//define('FACEBOOK_APP_SECRET', '16a49abb2d49c364d06b72eae7c79c1a');  
+
 // Database Connection
-define('DB_USER', 'database username');
-define('DB_PASS', 'database password');
-define('DB_HOST', 'host address of database');
-define('DB_DBASE', 'name of database');
+define('DB_USER', 'mustapha');
+define('DB_PASS', 'mm000741');
+define('DB_HOST', '127.0.0.1');
+define('DB_DBASE', 'lebanese_blogs');
 setlocale(LC_MONETARY, "en_US");
 
 // Runtime settings
 define('GOOGLE_FONTS','yes');
-define('STATCOUNTER_TRACKER', 'yes');
-define('ANALYTICS_TRACKER', 'yes');
-define('JQUERY_SOURCE', 'cdn'); //options: 'local', 'cdn' or 'none'
+define('STATCOUNTER_TRACKER', 'no');
+define('ANALYTICS_TRACKER', 'no');
+define('JQUERY_SOURCE', 'local'); //options: 'local', 'cdn' or 'none'
 
 // For CDN Purposes
 define('THUMBS_BASE', 'http://localhost/lebanese_blogs/img/thumbs'.DIRECTORY_SEPARATOR);

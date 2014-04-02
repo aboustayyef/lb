@@ -212,9 +212,6 @@ div.mainbar-wrapper {
   height: 64px;
   position: relative;
   background-color: #b12530;
-  -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
   border-bottom-width: 0;
   overflow: hidden; }
   div.mainbar-wrapper .mainbar .nav-wrapper {
@@ -350,13 +347,14 @@ div.mainbar-wrapper {
 .card-container {
   margin: 10px; }
 
+#facebooklikes.card-container .card_body {
+  height: 65px; }
+
 .card {
   width: 300px;
   padding: 0px;
   background: white;
-  -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25); }
+  border: 1px solid #b3b3b3; }
   .card a {
     text-decoration: none; }
   .card.red {
@@ -367,13 +365,14 @@ div.mainbar-wrapper {
     background: none;
     box-shadow: none;
     -moz-box-shadow: none;
-    -webkit-box-shadow: none; }
+    -webkit-box-shadow: none;
+    border: none; }
   .card .card_header {
     direction: ltr;
     overflow: auto;
     padding: 10px;
     position: relative;
-    border-bottom: 1px solid silver; }
+    border-bottom: 1px solid #dadada; }
     .card .card_header.noborder {
       border-bottom: none; }
     .card .card_header .add2fav {
@@ -414,12 +413,12 @@ div.mainbar-wrapper {
       float: left;
       border-radius: 50em; }
     .card .card_header .blog_name {
-      font-size: 18px;
-      line-height: 20px;
+      font-size: 17px;
+      line-height: 18px;
       width: 180px;
       margin-left: 70px; }
       .card .card_header .blog_name a {
-        color: black; }
+        color: #333333; }
     .card .card_header .blog_tools {
       margin-top: 6px;
       margin-left: 70px; }
@@ -513,8 +512,8 @@ div.mainbar-wrapper {
       .card .card_body .post_title a {
         color: #444;
         text-decoration: none;
-        font-size: 22px;
-        line-height: 24px; }
+        font-size: 20px;
+        line-height: 25px; }
         .card .card_body .post_title a:hover {
           color: #3B967C;
           text-decoration: none; }
@@ -654,6 +653,66 @@ div.mainbar-wrapper {
       color: #b12530; }
       .card .announcement h4 a:hover {
         text-decoration: underline; }
+  .card .CoverThumb {
+    border: 1px solid #f2f2f2;
+    float: left;
+    width: 73px;
+    height: 73px;
+    overflow: hidden; }
+
+div.bloggerCard .featuredBlogHeader {
+  position: relative;
+  min-height: 40px; }
+div.bloggerCard #tags {
+  margin-left: 0; }
+  div.bloggerCard #tags a {
+    background: #b12530;
+    color: white;
+    font-size: .8em; }
+div.bloggerCard .card .card_header.description {
+  background: beige; }
+div.bloggerCard .card .avatar {
+  overflow: auto;
+  margin-bottom: 10px; }
+  div.bloggerCard .card .avatar.withheader {
+    position: absolute;
+    top: 125px;
+    left: 125px; }
+  div.bloggerCard .card .avatar.noheader {
+    position: absolute;
+    top: 20px;
+    left: 125px; }
+  div.bloggerCard .card .avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #f2f2f2; }
+div.bloggerCard .card .blogTitle {
+  margin-top: 50px;
+  text-align: center; }
+  div.bloggerCard .card .blogTitle h2 {
+    line-height: 1em; }
+div.bloggerCard div.tools ul li {
+  padding: 8px 0;
+  width: 100px;
+  float: left;
+  background: #f3f3f3;
+  text-align: center;
+  border-bottom: 1px solid silver; }
+  div.bloggerCard div.tools ul li:nth-child(2) {
+    width: 98px;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver; }
+  div.bloggerCard div.tools ul li:hover {
+    background: #e6e6e6; }
+  div.bloggerCard div.tools ul li i {
+    font-size: 1.2em;
+    color: gray; }
+div.bloggerCard ol li {
+  margin-bottom: 10px; }
+  div.bloggerCard ol li a {
+    line-height: 1.1em;
+    color: #871c25; }
 
 .blogger-header {
   overflow: auto;

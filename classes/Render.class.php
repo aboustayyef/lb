@@ -81,7 +81,7 @@ class Render
 
         ?>
           <div class="card_header background-greylightest">
-            <a href ="<?php echo WEBPATH. $blog_id ; ?>"><img class ="blog_thumb" src="<?php echo THUMBS_BASE.$blog_id.'.jpg';?>" width ="50" height ="50"></a>
+            <a href ="<?php echo WEBPATH. $blog_id ; ?>"><img class ="blog_thumb lazy" data-original="<?php echo THUMBS_BASE.$blog_id.'.jpg';?>" src="img/interface/grey.gif" width ="50" height ="50"></a>
             <div class="post_details">
               <div class="blog_name secondaryfont"><a href ="<?php echo WEBPATH. $blog_id ;?>"><?php echo $blog_name ;?></a></div>
               <div class="blog_tools">
@@ -238,7 +238,7 @@ class Render
       <!--blog thumb-->
       
       <div class="col col-1 timeline-blog-thumb">
-        <a href ="<?php echo '/' . $post->post_id ?>"><img class ="blog_thumb" src="<?php echo "img/thumbs/".$post->blog_id.".jpg";?>" width ="50" height ="50"></a>
+        <a href ="<?php echo '/' . $post->post_id ?>"><img class ="blog_thumb lazy" data-original="<?php echo "img/thumbs/".$post->blog_id.".jpg";?>" src="img/interface/grey.gif" width ="50" height ="50"></a>
       </div>
         
       <!-- post details -->
@@ -362,12 +362,144 @@ class Render
     }
   }
 
-  public static function drawFeaturedBlogger($BloggerID){
+  public static function drawFeaturedBlogger($BloggerID, $featured='no'){
+    global $tags;
     // get blogger details (name, profile pic, home, twitter, link, etc)
-    // get 9 images from top posts, with links to source posts and titles
+    // get 8 images from top posts, with links to source posts and titles
     // get top 3 posts, titles and links.
-    // 
-  }
+    $blogger = new BloggerDetails($BloggerID);
+    $bloggerID = $BloggerID;
+    $blogTitle = $blogger->blog_details['blog_name'];
+    $blogDescription = $blogger->blog_details['blog_description'];
+    $topPosts = BloggerDetails::getTopPostsByBlogger($bloggerID, $number_of_posts=3, 90);
+    $blogPhotos = BloggerDetails::getTopBlogPhotos($bloggerID,8);
+    $blogTags = $blogger->blog_details['blog_tags'];
+    ?>
+    <div class ="card-container bloggerCard">
+      
+      <!-- Start Card -->
+      <div class="card">
+        <?php 
+          if ($featured == "yes") 
+          {
+            ;?>
+            <div class="card_header primaryfont background-bluegreen">
+              <h3 class ="whitefont">
+                <?php 
+                if ((isset($_SESSION['currentChannel'])) && ($_SESSION['currentChannel'] != 'all')) 
+                {
+                  echo '<span class ="understated">'. Channels::describeTag($_SESSION['currentChannel']).'</span><br>';
+                }
+                  ?>
+                  Featured Blog        
+                </h3>
+              </div>
+            <?php
+          }
+        ?>
+        
+
+        <!-- Lose Items -->
+        <div class="featuredBlogHeader">
+          <?php
+          /*Only show this section if we have 8 photos*/
+          if (count($blogPhotos) == 8) 
+          {
+            foreach ($blogPhotos as $key => $photo) 
+            {
+              $url = $photo->post_url;
+              $img = $photo->post_image;
+              $img_height = $photo->post_image_height;
+              $img_width = $photo->post_image_width;
+              $title = $photo->post_title;
+              if ($img_width >= $img_height) 
+              {
+                ;?>       
+                <a href ="<?php echo $url ;?>" target="_blank">
+                  <div class="CoverThumb"><img title ="<?php echo $title; ?>" class="lazy" data-original="<?php echo $img ; ?>" src="img/interface/grey.gif" height="75px"></div>
+                </a>
+                <?php
+              } else {
+                ;?>
+                <a href ="<?php echo $url ;?>" target="_blank">
+                  <div class="CoverThumb" ><img title ="<?php echo $title; ?>" class="lazy" data-original="<?php echo $img ; ?>" src="img/interface/grey.gif" width = "75px"></div>
+                </a>
+                <?php
+              }
+            }
+            echo '<div class="avatar withheader">';
+          }else{
+            echo '<div class="avatar noheader">';
+          }
+          ?>         
+              <img src="<?php echo WEBPATH.'/img/thumbs/'.$bloggerID.'.jpg' ?>" alt="<?php echo $blogTitle; ?>">
+          </div>
+        </div>
+        <!-- End Lose Item -->
+        
+        <!-- Card Header -->
+        <div class="card_header bloggerCard">
+          <div class="blogTitle">
+            <h2 class="primaryfont">
+              <?php echo $blogTitle ;?>
+            </h2>
+          </div>
+        </div>
+        <!-- End of header -->
+        <!-- Lose Section -->
+        <div class="tools">
+          <ul>
+            <li><i class ="fa fa-star"></i></li>
+            <li><i class ="fa fa-twitter"></i></li>
+            <li><i class ="fa fa-home"></i></li>
+          </ul>
+        </div>
+        <!-- End of Lose Section -->
+
+        <!-- Another header -->
+        <div class="card_header description">
+          <div class="blogDescription">
+            <p><?php echo $blogDescription; ?></p>
+            <?php 
+              $tags = explode(',',$blogTags);
+              echo '<div id ="tags">';
+              foreach ($tags as $key => $tag) {
+                $tag = trim($tag);
+                $channel = Channels::resolveTag($tag); // because we have many tags but only a few channels
+                echo '<a href="'.WEBPATH.'?channel='.$channel.'">#'.$tag.' </a>'; 
+              }
+              echo '</div>';
+            ?>
+          </div>
+        </div>
+        <!-- End of other header -->
+
+<?php 
+          if (count($blogPhotos) < 8){
+?>
+          <!-- This is a card body shows only if no images-->
+        <div class="card_body">
+          <div class="topPosts">
+            <h3>Top Posts:</h3>
+            <ol>
+              <?php 
+                foreach ($topPosts as $key => $post) {
+                  echo '<li><a href="' . $post->post_url . '">' . $post->post_title . '</a></li>';
+                }
+              ?>
+            </ol>
+          </div>
+        </div>
+        <!-- End of card body -->
+<?php
+          } 
+?>
+        
+
+      </div>
+      <!-- End of Card -->
+    </div>
+  <?php }
 
 }
 ?>

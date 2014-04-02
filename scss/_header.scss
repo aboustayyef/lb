@@ -12,7 +12,7 @@ div.mainbar-wrapper {
     height:64px;
     position:relative;
     background-color: $lb_red;
-    @include drop-shadow();
+    //@include drop-shadow();
     border-bottom-width: 0;
     overflow: hidden;
     .mainbar{

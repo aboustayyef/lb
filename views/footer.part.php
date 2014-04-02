@@ -45,8 +45,10 @@ echo '<!-- php execution took '.sprintf('%f', $executionTime).' seconds to run -
             };
         ?>
     </script>
-    <!-- App JS -->
+    <!-- App JS 
     <script src="<?php echo WEBPATH ;?>js/lebaneseblogs-ck.js?<?php echo time(); ?>"></script>
+    -->
+    <script src="<?php echo WEBPATH ;?>js/production/min/lbApp-ck.js?<?php echo time(); ?>"></script>
 
 <?php 
 

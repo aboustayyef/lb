@@ -3,12 +3,20 @@
     margin: 10px;
 }
 
+#facebooklikes.card-container
+{
+    .card_body
+    {
+        height:65px;
+    }
+}
+
 .card{
     width: 300px;
     padding: 0px; // devolve padding to sub-sections
     background: white ;
     //border-radius: 2px;
-    @include drop-shadow();
+    //@include drop-shadow();
     a{
         text-decoration: none;
     }
@@ -23,7 +31,9 @@
         box-shadow: none;
         -moz-box-shadow: none;
         -webkit-box-shadow: none;
+        border:none;
     }
+    border: 1px solid darken(white, 30);
 
     //header
     .card_header{
@@ -31,7 +41,7 @@
         overflow:auto;
         padding: $module_padding;
         position: relative;
-        border-bottom: 1px solid silver;
+        border-bottom: 1px solid lighten(silver,10);
         //options
         &.noborder{
             border-bottom:none;
@@ -85,12 +95,12 @@
             border-radius: 50em;
         }
         .blog_name{
-            font-size:18px;
-            line-height: 20px;
+            font-size:17px;
+            line-height: 18px;
             width: 180px;
             margin-left: 70px;
             a{
-                color:black;
+                color: lighten(black, 20);
             }
         }
         .blog_tools{
@@ -218,8 +228,8 @@
             a{
                 color: #444;
                 text-decoration: none;
-                font-size: 22px;
-                line-height: 24px;
+                font-size: 20px;
+                line-height: 25px;
                 &:hover{
                     color: #3B967C;
                     text-decoration: none;
@@ -422,4 +432,109 @@
             }
         }
     }
+  .CoverThumb
+  {
+    border:1px solid darken(white,5);
+    float:left;
+    width:73px;
+    height:73px;
+    overflow:hidden;
+  }
+}
+div.bloggerCard
+{
+  .featuredBlogHeader
+  {
+    position: relative;
+    min-height: 40px;
+  }
+  #tags
+  {
+    margin-left:0;
+    a
+    {
+      background: $lb_red;
+      color:white;
+      font-size: .8em;
+    }
+  }
+  .card
+  {
+    .card_header.description{
+      background: beige;
+    }
+    .avatar
+    {
+      overflow: auto;
+      margin-bottom:10px;
+      &.withheader
+      {
+        position:absolute;
+        top:125px;
+        left:125px;
+      }
+      &.noheader
+      {
+        position:absolute;
+        top:20px;
+        left:125px;
+      }
+      img
+      {
+        width:50px;
+        height:50px;
+        border-radius:50%;
+        border:2px solid darken(white, 5);
+      }
+    }
+    .blogTitle
+    {
+      margin-top:50px;
+      text-align: center;
+      h2
+      {
+        line-height: 1em;
+      }
+    }
+  }
+  div.tools
+  {
+    ul
+    {
+      li
+      {
+        padding:8px 0;
+        width:100px;
+        float:left;
+        background: lighten(silver, 20);
+        text-align: center;
+        border-bottom: 1px solid silver;
+        &:nth-child(2)
+        {
+          width:98px;
+          border-left:1px solid silver;
+          border-right:1px solid silver;
+        }
+        &:hover{
+          background: lighten(silver,15);
+        }
+        i
+        {
+          font-size: 1.2em;
+          color:lighten(black, 50);
+        }
+      }
+    }
+  }
+  ol
+  {
+    li
+    {
+      margin-bottom:10px;
+      a{
+        line-height: 1.1em;
+        color:darken($lb_red,10);
+      }
+    }
+  }
 }
