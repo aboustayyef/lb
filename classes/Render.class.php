@@ -29,7 +29,6 @@ class Render
     $f_id = LbUser::getFacebookID();
 
     foreach ($data as $key => $post) {
-
       // prepare URL of exit link
       $target_url = WEBPATH."r.php?r=".urlencode($post->post_url);
       
@@ -88,27 +87,8 @@ class Render
                   <!-- <li><i class ="icon-exclamation-sign"></i> About Blog</li> -->
                   
                   <?php 
-                    if ($signed_in) { // if user is signed in;
-                      $blog_id = $blog_id;
-                      if (Posts::isFavorite($f_id, $blog_id)) {
-                        // user is signed in and blog is a favorite
-                        ?>
-                        <div class ="add2fav favorite_toggle" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><i class="fa fa-star" style="color:#FC0"></i> Favorite (<a class ="removeFromFavorites" href="#">remove</a>)</div>
-                        <?php
-                      }else {
-                        // user is signed in but blog is not a favorite
-                        ?>
-                        <div class ="add2fav favorite_toggle" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><a class="addToFavorites" href="#"><i class="fa fa-star"></i> Add Blog to Favorites</a></div>
-                        <?php
-                      }
-                    } else {
-                      // user is not signed in. Will ask them to sign in;
-                      $here=urlencode($_SESSION['pageWanted']);
-                      ?>
-                      <div class ="add2fav" ><a href="<?php echo WEBPATH.'?pagewanted=login&blogtofave='.$blog_id.'&redirecturl='.WEBPATH.'?pagewanted='.$here ; ?>"><i class ="fa fa-star"></i> Add Blog to Favorites</a></div>
-                      <?php
-                    }
-                   ?>
+                    self::showFavoritesStar($f_id,$blog_id);
+                  ?>
               </div>
             </div>
           </div>
@@ -182,12 +162,12 @@ class Render
                 if (Posts::isSaved($f_id, $post_url)) {
                   // user is signed in and post is saved
                   ?>
-                  <li class="doSave save_toggle" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><a class="removeFromSaved" href="#"><i class="fa fa-list-alt selected"></i> Listed</a></li>
+                  <li class="doSave save_toggle action" data-action="removeFromList" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><span class="message"><i class="fa fa-list-alt selected"></i> Listed</span></li>
                   <?php
                 }else {
                   // user is signed in but post is not saved
                   ?>
-                  <li class="doSave save_toggle" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><a class="addToSaved" href="#"><i class="fa fa-clock-o"></i> Read Later</a></li>
+                  <li class="doSave save_toggle action" data-action="addToList" data-url ="<?php echo $post_url ?>" data-user="<?php echo $f_id ; ?>"><span class="message"><i class="fa fa-clock-o"></i> Read Later</span></li>
                   <?php
                 }
               } else {
@@ -299,6 +279,34 @@ class Render
     }
   }
 
+
+  public static function showFavoritesStar($user, $blog){
+      $blog_id = $blog;
+      $f_id = $user;
+    if (LbUser::isSignedIn())
+    { // if user is signed in;
+      if (Posts::isFavorite($f_id, $blog_id))
+      {
+        // user is signed in and blog is a favorite
+        ?>
+        <div title ="Remove Blog from Favorites" class ="button action removeFromFav" data-action="removeFromFavorites" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><i class="fa fa-star fav"></i></div>
+        <?php
+      }else {
+        // user is signed in but blog is not a favorite
+        ?>
+        <div title ="Add Blog to Favorites" class ="button action addToFav " data-action="addToFavorites" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><i class="fa fa-star fav"></i></div>
+        <?php
+      }
+    } else {
+      // user is not signed in. Will ask them to sign in;
+      $here=urlencode($_SESSION['pageWanted']);
+      ?>
+      <div title ="Add Blog to Favorites (Requires Signin)" class ="addToFav" ><a href="<?php echo WEBPATH.'?pagewanted=login&blogtofave='.$blog_id.'&redirecturl='.WEBPATH.'?pagewanted='.$here ; ?>"><i class="fa fa-star fav"></i></a></div>
+      <?php
+    }
+  }
+
+
   public static function drawCompact($data)
   {
     foreach ($data as $key => $post) {
@@ -370,6 +378,7 @@ class Render
     $blogger = new BloggerDetails($BloggerID);
     $bloggerID = $BloggerID;
     $blogTitle = $blogger->blog_details['blog_name'];
+    $blogUrl = $blogger->blog_details['blog_url'];
     $blogDescription = $blogger->blog_details['blog_description'];
     $topPosts = BloggerDetails::getTopPostsByBlogger($bloggerID, $number_of_posts=3, 90);
     $blogPhotos = BloggerDetails::getTopBlogPhotos($bloggerID,8);
@@ -378,7 +387,7 @@ class Render
     <div class ="card-container bloggerCard">
       
       <!-- Start Card -->
-      <div class="card">
+      <div class="card" style ="opacity:0" data-blogid="<?php echo $bloggerID; ?>">
         <?php 
           if ($featured == "yes") 
           {
@@ -432,7 +441,7 @@ class Render
             echo '<div class="avatar noheader">';
           }
           ?>         
-              <img src="<?php echo WEBPATH.'/img/thumbs/'.$bloggerID.'.jpg' ?>" alt="<?php echo $blogTitle; ?>">
+              <a href ="<?php echo WEBPATH.$bloggerID ?>"><img src="<?php echo WEBPATH.'/img/thumbs/'.$bloggerID.'.jpg' ?>" alt="<?php echo $blogTitle; ?>"></a>
           </div>
         </div>
         <!-- End Lose Item -->
@@ -441,7 +450,7 @@ class Render
         <div class="card_header bloggerCard">
           <div class="blogTitle">
             <h2 class="primaryfont">
-              <?php echo $blogTitle ;?>
+              <a href ="<?php echo WEBPATH.$bloggerID ?>"><?php echo $blogTitle ;?></a>
             </h2>
           </div>
         </div>
@@ -449,16 +458,45 @@ class Render
         <!-- Lose Section -->
         <div class="tools">
           <ul>
-            <li><i class ="fa fa-star"></i></li>
-            <li><i class ="fa fa-twitter"></i></li>
-            <li><i class ="fa fa-home"></i></li>
+              <?php 
+              if (LbUser::isSignedIn())
+              { // if user is signed in;
+                $blog_id = $bloggerID;
+                $f_id = LbUser::getFacebookID();
+                if (Posts::isFavorite($f_id, $blog_id))
+                {
+                  // user is signed in and blog is a favorite
+                  ?>
+                  <li title ="Remove Blog From Favorites" class ="button action removeFromFav" data-action="removeFromFavorites" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><i class="fa fa-star "></i></li>
+                  <?php
+                }else {
+                  // user is signed in but blog is not a favorite
+                  ?>
+                  <li title ="Add Blog To Favorites" class ="button action addToFav " data-action="addToFavorites" data-blog="<?php echo $blog_id ?>" data-user="<?php echo $f_id ; ?>"><i class="fa fa-star "></i></li>
+                  <?php
+                }
+              } else {
+                // user is not signed in. Will ask them to sign in;
+                $here=urlencode($_SESSION['pageWanted']);
+                ?>
+                <li title ="Add Blog To Favorites (requires Sign In)" class ="addToFav" ><a href="<?php echo WEBPATH.'?pagewanted=login&blogtofave='.$blog_id.'&redirecturl='.WEBPATH.'?pagewanted='.$here ; ?>"><i class="fa fa-star "></i></a></li>
+                <?php
+              }
+
+              ?>
+            <li><a title ="Go to author's twitter page" href="<?php echo 'https://twitter.com/'.$blogger->blog_details['blog_author_twitter_username']; ?>"><i class ="fa fa-twitter"></i></a></li>
+            <li><a title ="Go to author's homepage" href="<?php echo $blogUrl  ?>"><i class ="fa fa-home"></i></a></li>
           </ul>
         </div>
         <!-- End of Lose Section -->
 
         <!-- Another header -->
-        <div class="card_header description">
-          <div class="blogDescription">
+        <div class="card_header description <?php
+            if (count($blogPhotos) < 8) {
+              echo " nophotos";
+            }
+           ?>">
+          <div class="secondaryfont blogDescription ">
             <p><?php echo $blogDescription; ?></p>
             <?php 
               $tags = explode(',',$blogTags);
@@ -479,7 +517,7 @@ class Render
 ?>
           <!-- This is a card body shows only if no images-->
         <div class="card_body">
-          <div class="topPosts">
+          <div class="topPosts secondaryfont">
             <h3>Top Posts:</h3>
             <ol>
               <?php 
@@ -502,4 +540,8 @@ class Render
   <?php }
 
 }
+
+
+
+
 ?>

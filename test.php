@@ -1,9 +1,8 @@
 <?php 
 	/* testing */
 require_once('init.php');
-$searchterm = 'Syria';
 
-$results = Lb_Search::searchBlogContents($searchterm);
+$results = Posts::blogExists('hghaddarnl');
 
 echo '<pre>';
 print_r($results);

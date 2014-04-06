@@ -111,3 +111,7 @@ $('.leftNav-dismiss').on('click', function(e){
 $(window).smartresize(function(){
   lbApp.reArrange();
 });
+
+$(document).ready(function(){
+  $('#view-area').css('-webkit-overflow-scrolling', 'touch');
+});

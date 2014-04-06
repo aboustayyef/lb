@@ -32,6 +32,11 @@ function areWeInChannel($s){
         </div>
         <div class = "label level1 <?php if ( $_SESSION['pageWanted']=='saved') { echo 'selected';} ?>">
           <a href="<?php echo WEBPATH.'?pagewanted=saved';?>"><i class ="fa fa-list-alt"></i>My Reading List</a>
+          <?php 
+            if (LbUser::isSignedIn()) {
+              echo '<span id ="readingListCounter"> (<span class="theFigure">'.LbUser::getCounterReadingList().'</span>) </span>';
+            }
+          ?>
         </div>
         
         <h4 class="sectionheader">Posts to Show</h4>

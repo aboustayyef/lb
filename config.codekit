@@ -1025,6 +1025,24 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/css\/lebaneseblogs (Majdi-Hamouis-MacBook-Air's conflicted copy 2014-04-03 (1)).css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/lebaneseblogs (Majdi-Hamouis-MacBook-Air's conflicted copy 2014-04-03 (1)).css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/css\/lebaneseblogs (Majdi-Hamouis-MacBook-Air's conflicted copy 2014-04-03).css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/lebaneseblogs (Majdi-Hamouis-MacBook-Air's conflicted copy 2014-04-03).css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/css\/lebaneseblogs.css": {
 		"fileType": 16,
 		"ignore": 1,
@@ -1054,6 +1072,15 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/css\/pages (Majdi-Hamouis-MacBook-Air's conflicted copy 2014-04-03).css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/pages (Majdi-Hamouis-MacBook-Air's conflicted copy 2014-04-03).css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/css\/pages.css": {
 		"fileType": 16,
 		"ignore": 1,
@@ -1077,6 +1104,15 @@
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/screen.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/css\/search (Majdi-Hamouis-MacBook-Air's conflicted copy 2014-04-03).css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/search (Majdi-Hamouis-MacBook-Air's conflicted copy 2014-04-03).css",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -5531,6 +5567,17 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/js\/_lbApp_favorites.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/_lbApp_favorites.js",
+		"outputAbbreviatedPath": "\/js\/min\/_lbApp_favorites-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/js\/_lbApp_interface.js": {
 		"fileType": 64,
 		"ignore": 1,
@@ -5553,23 +5600,23 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/_lbApp_utilities.js": {
+	"\/js\/_lbApp_readLater.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/_lbApp_utilities.js",
-		"outputAbbreviatedPath": "\/js\/min\/_lbApp_utilities-ck.js",
+		"inputAbbreviatedPath": "\/js\/_lbApp_readLater.js",
+		"outputAbbreviatedPath": "\/js\/min\/_lbApp_readLater-ck.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/blocksit.min.js": {
+	"\/js\/_lbApp_search.js": {
 		"fileType": 64,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/blocksit.min.js",
-		"outputAbbreviatedPath": "\/js\/min\/blocksit.min-ck.js",
+		"inputAbbreviatedPath": "\/js\/_lbApp_search.js",
+		"outputAbbreviatedPath": "\/js\/min\/_lbApp_search-ck.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -5619,23 +5666,56 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/js\/production\/lbApp-ck.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/production\/lbApp-ck.js",
+		"outputAbbreviatedPath": "\/js\/production\/min\/lbApp-ck-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/js\/production\/lbApp.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/js\/production\/lbApp.js",
-		"outputAbbreviatedPath": "\/js\/production\/min\/lbApp-ck.js",
+		"outputAbbreviatedPath": "\/js\/production\/lbApp-ck.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/production\/min\/lbApp-ck.js": {
+	"\/js\/thirdParties\/_blocksIt.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/production\/min\/lbApp-ck.js",
-		"outputAbbreviatedPath": "\/js\/production\/min\/min\/lbApp-ck-ck.js",
+		"inputAbbreviatedPath": "\/js\/thirdParties\/_blocksIt.js",
+		"outputAbbreviatedPath": "\/js\/thirdParties\/min\/_blocksIt-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/thirdParties\/_debouncer.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/thirdParties\/_debouncer.js",
+		"outputAbbreviatedPath": "\/js\/thirdParties\/min\/_debouncer-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/thirdParties\/_lazyLoading.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/thirdParties\/_lazyLoading.js",
+		"outputAbbreviatedPath": "\/js\/thirdParties\/min\/_lazyLoading-ck.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -6036,15 +6116,6 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/search\/index.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/search\/index.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/test.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -6209,26 +6280,56 @@
 	"\/js\/production\/lbApp.js": [
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/_lbApp_utilities.js",
+			"linkedFileAbbreviatedPath": "\/js\/thirdParties\/_debouncer.js",
 			"position": 0,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/_lbApp_core.js",
+			"linkedFileAbbreviatedPath": "\/js\/thirdParties\/_lazyLoading.js",
 			"position": 1,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/_lbApp_interface.js",
+			"linkedFileAbbreviatedPath": "\/js\/thirdParties\/_blocksIt.js",
 			"position": 2,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/_lbApp_posts.js",
+			"linkedFileAbbreviatedPath": "\/js\/_lbApp_core.js",
 			"position": 3,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/_lbApp_interface.js",
+			"position": 4,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/_lbApp_posts.js",
+			"position": 5,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/_lbApp_search.js",
+			"position": 6,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/_lbApp_favorites.js",
+			"position": 7,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/_lbApp_readLater.js",
+			"position": 8,
 			"type": 0
 			}
 		]
@@ -6352,7 +6453,7 @@
 	"coffeeMinifyOutput": 1,
 	"coffeeOutputStyle": 0,
 	"coffeeSyntaxCheckerStyle": 1,
-	"externalServerAddress": "http:\/\/vbox\/websites\/lebanese_blogs",
+	"externalServerAddress": "http:\/\/localhost\/lebanese_blogs",
 	"externalServerPreviewPathAddition": "",
 	"genericWebpageFileExtensionsString": "html, htm, shtml, shtm, xhtml, php, jsp, asp, aspx, erb, ctp",
 	"hamlAutoOutputPathRelativePath": "",

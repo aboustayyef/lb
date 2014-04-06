@@ -31,12 +31,11 @@ class SearchPage
 
   function render(){
     $_SESSION['pageWanted'] = 'search';
-
-    $this->getInitialData(); // will populate $this->_postsData
+    $_SESSION['searchTerm'] = $this->_pageDetails['searchTerm'];
     $this->initializeCounter(); // will initialize the counter of the cards
     
     View::makeHeader($this->_pageDetails);
-    View::makeSearchBody($this->_postsData);
+    View::makeSearchBody($this->_pageDetails['searchTerm']);
     View::makeFooter($this->_footerDetails); // think of the parameters of footer
 
     // Draw the header, pass along the _pageTitle and _pageDescription and 
@@ -49,14 +48,5 @@ class SearchPage
     $_SESSION['posts_displayed'] = 0; // initialize number of posts shown
     $_SESSION['items_displayed'] = 0; // initialize number of items shown (including other widgets)
   }
-
-  function getInitialData(){
-      $this->_postsData = array(
-        'blogsResults' => Lb_Search::searchBlogNames($this->_pageDetails['searchTerm']),
-        'titlesResults' => Lb_Search::searchBlogTitles($this->_pageDetails['searchTerm']),
-        'bodyResults' => Lb_Search::searchBlogContents($this->_pageDetails['searchTerm']),
-      );
-  }
-
 }
 ?>

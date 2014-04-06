@@ -16,7 +16,7 @@ class Lb_Search
             FROM blogs 
             WHERE MATCH(blog_name) 
             AGAINST ( \'"'.$term.'"\' IN BOOLEAN MODE) 
-            UNION SELECT col_id, col_name, col_home_page, col_description 
+            UNION SELECT col_shorthand, col_name, col_home_page, col_description 
             FROM columnists 
             WHERE MATCH(col_name) AGAINST (\'"'.$term.'"\' IN BOOLEAN MODE)';        
     $names->query($sql);
@@ -45,7 +45,7 @@ class Lb_Search
             LEFT JOIN blogs ON posts.blog_id = blogs.blog_id 
             LEFT JOIN columnists ON posts.blog_id = columnists.col_shorthand
             WHERE MATCH(post_title) AGAINST (\'"'.$term.'"\' IN BOOLEAN MODE) 
-            ORDER BY post_timestamp DESC';
+            ORDER BY post_timestamp DESC LIMIT 100';
     $results = $names->query($sql)->results();
     //return $results;
     return self::NormalizeResults($results);
@@ -72,7 +72,8 @@ class Lb_Search
             FROM posts 
             LEFT JOIN blogs ON posts.blog_id = blogs.blog_id 
             LEFT JOIN columnists ON posts.blog_id = columnists.col_shorthand
-            WHERE MATCH(post_content) AGAINST (\'"'.$term.'"\' IN BOOLEAN MODE) ORDER BY post_timestamp DESC';
+            WHERE MATCH(post_content) AGAINST (\'"'.$term.'"\' IN BOOLEAN MODE) 
+            ORDER BY post_timestamp DESC LIMIT 100'; // limited to 100 to avoid crazy common words like 'lebanese'
     $results = $names->query($sql)->results();
     //return $results;
     return self::NormalizeResults($results);

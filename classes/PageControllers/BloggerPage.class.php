@@ -18,8 +18,8 @@ class BloggerPage
     $this->_pageDetails['googleFonts']  = GOOGLE_FONTS;
     $this->_pageDetails['title'] = "$blog_name at Lebanese Blogs";
     $this->_pageDetails['description'] = "blog $blog_name in Lebanese Blogs";
-    $this->_pageDetails['leftColumn'] = "no";
-    $this->_pageDetails['cssFile'] = "blogger.css";
+    $this->_pageDetails['leftColumn'] = "yes";
+    $this->_pageDetails['cssFile'] = "lebaneseblogs.css";
 
     $this->_footerDetails['statcounter']  = STATCOUNTER_TRACKER; // Don't touch. Change from config.php only
     $this->_footerDetails['analytics']  = ANALYTICS_TRACKER; // Don't touch. Change from config.php only
@@ -30,6 +30,7 @@ class BloggerPage
   function render(){
     $_SESSION['pageWanted'] = 'blogger';
     $_SESSION['currentView'] = 'cards';
+    $_SESSION['currentBlogger'] = $this->_pageDetails['bloggerid'];
     $this->getBloggerDetails(); // will populate $this->_postsData
     
     View::makeHeader($this->_pageDetails);

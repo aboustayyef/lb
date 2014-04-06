@@ -31,12 +31,14 @@ echo '<!-- php execution took '.sprintf('%f', $executionTime).' seconds to run -
         }
     ?>
 
-    <script src="<?php echo WEBPATH ;?>js/blocksit.min.js"></script>
-
     <!-- App Global Variables -->
     <script>
         var global_page = "<?php echo $_SESSION['pageWanted'] ; ?>";
         var global_viewtype = "<?php echo $_SESSION['currentView'] ?>";
+        var global_searchTerm = "<?php 
+         if (!empty($_SESSION['searchTerm'])) {
+            echo $_SESSION['searchTerm'];
+         };?>";
         <?php 
             if (@$pageFooter['lefColumnInitialState'] == "closed") {
                 ?>var global_leftColumnInitialState = "closed";<?php
@@ -44,11 +46,20 @@ echo '<!-- php execution took '.sprintf('%f', $executionTime).' seconds to run -
                 ?>var global_leftColumnInitialState = "open";<?php
             };
         ?>
+
+        if (global_page === 'search')
+            {
+                $(window).load(function()
+                {
+                    lbApp.Search.init(global_searchTerm);
+                });
+            };
+
     </script>
     <!-- App JS 
     <script src="<?php echo WEBPATH ;?>js/lebaneseblogs-ck.js?<?php echo time(); ?>"></script>
     -->
-    <script src="<?php echo WEBPATH ;?>js/production/min/lbApp-ck.js?<?php echo time(); ?>"></script>
+    <script src="<?php echo WEBPATH ;?>js/production/lbApp-ck.js?<?php echo time(); ?>"></script>
 
 <?php 
 

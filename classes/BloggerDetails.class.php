@@ -40,14 +40,15 @@ class BloggerDetails
 /*Low Level Functions. Will be used by higher ones above*/
 
 	public function getBloggerDetails(){
-		$tempDetails = array();
-		$tempDetails['blog_name'] =$this->list_of_posts[0]->blog_name ;
-		$tempDetails['blog_description']=$this->list_of_posts[0]->blog_description;
-		$tempDetails['blog_url']=$this->list_of_posts[0]->blog_url;
-		$tempDetails['blog_author_twitter_username']=$this->list_of_posts[0]->blog_author_twitter_username;
-        $tempDetails['blog_tags']=$this->list_of_posts[0]->blog_tags;
-
-		return $tempDetails;
+        if (!empty($this->list_of_posts[0])) {
+            $tempDetails = array();
+            $tempDetails['blog_name'] =$this->list_of_posts[0]->blog_name ;
+            $tempDetails['blog_description']=$this->list_of_posts[0]->blog_description;
+            $tempDetails['blog_url']=$this->list_of_posts[0]->blog_url;
+            $tempDetails['blog_author_twitter_username']=$this->list_of_posts[0]->blog_author_twitter_username;
+            $tempDetails['blog_tags']=$this->list_of_posts[0]->blog_tags;
+            return $tempDetails;
+        }
 	}
 
     public static function getTopBlogPhotos($blogger_ID, $number_of_photos=8){
@@ -165,7 +166,6 @@ class BloggerDetails
         LEFT JOIN `columnists` ON posts.blog_id = columnists.col_shorthand
         WHERE (blogs.blog_id = "'.trim($whichblogger).'") OR (columnists.col_shorthand = "'.trim($whichblogger).'") 
         ORDER BY `post_timestamp` DESC LIMIT ' . $number_of_posts ;
-
         DB::getInstance()->query($query);
         if (DB::getInstance()->error()) {
             echo "There's an error in the query";

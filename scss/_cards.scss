@@ -11,7 +11,12 @@
     }
 }
 
-.card{
+.divider p{
+    padding: 5px;
+}
+
+.card
+{
     width: 300px;
     padding: 0px; // devolve padding to sub-sections
     background: white ;
@@ -450,18 +455,49 @@ div.bloggerCard
   }
   #tags
   {
-    margin-left:0;
     a
     {
+      &:first-child{
+        margin-left: 0;
+      }
+      margin-left:5px;
+      border-radius:5px;
       background: $lb_red;
       color:white;
-      font-size: .8em;
+      padding:2px;
+      font-size: .9em;
     }
   }
   .card
   {
+    $pastel: rgb(216, 232, 197);
     .card_header.description{
+      padding:5px 10px;
       background: beige;
+      &.nophotos{
+        background: $pastel;
+      }
+    }
+    .card_body{
+      background:darken(silver,30);
+      h3{
+        color: $pastel; 
+      }
+      ol{
+        list-style-type: decimal;
+        padding-left: 20px;
+        color: lighten($pastel,10);
+        li{
+          margin-bottom:5px;
+          padding-top:2px;
+          border-top:solid 1px darken(silver,15);
+          a{
+            font-size: 0.95em;
+            line-height: 1em;
+            color: white;
+          }
+        }
+      }
     }
     .avatar
     {
@@ -523,6 +559,27 @@ div.bloggerCard
           font-size: 1.2em;
           color:lighten(black, 50);
         }
+        &.removeFromFav
+        {
+            i
+            {
+                $yellow: rgb(255, 199, 0);
+                color: $yellow;
+                &:hover
+                {
+                    color: darken($yellow, 10);
+                }
+            }
+        }   
+        &.addToFav{
+            i{
+                color: lighten(silver,10);
+                text-shadow: 2px 2px 2px #fff;
+                &:hover{
+                    color: silver;
+                } 
+            }
+        }
       }
     }
   }
@@ -538,3 +595,34 @@ div.bloggerCard
     }
   }
 }
+
+/* Favorites and Stars */
+
+i.fav{
+    color: black;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+}
+
+.removeFromFav i{
+    $yellow: rgb(255, 199, 0);
+    color: $yellow;
+    &:hover{
+        color: darken($yellow, 10);
+    }
+
+}
+.addToFav i{
+    color: lighten(silver,10);
+    text-shadow: 2px 2px 2px #fff;
+    &:hover{
+        color: silver;
+    }
+}
+.updating i{
+    color: silver;
+}
+
+

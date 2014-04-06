@@ -116,7 +116,7 @@ class DB {
 			$x++;
 		}
 		$sql = "UPDATE {$table} SET {$set} WHERE {$id[0]} = {$id[1]}";
-		
+		//echo $sql, print_r($params),'<br>';
 		if(!$this->query($sql,$params)->error()){
 			return true;
 		}

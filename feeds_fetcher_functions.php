@@ -137,40 +137,60 @@ function get_vimeo_thumb($content){
 function get_image_from_post($link){
 
 	$html = file_get_html($link);
-
-	$text_container = $html->find('.entry-content',0);
-	if (is_object($text_container)) {
-		#  .entry-content exists, proceed...
-	} else {
-		$text_container = $html->find('.post-content',0);
-		if (is_object($text_container)) {
-			# .post-content exists, proceed...
-		} else {
-			$text_container = $html->find('#content',0);
-			if (is_object($text_container)) {
-				#content exits, proceed
-			}else{
-				return false; // we'll be adding more
-			}
-		}
+	if (!is_object($html)) 
+	{
+		return false;
 	}
-
-	$text_container = $text_container->find('img');
-	if (is_array($text_container)) {
-		foreach ($text_container as $key => $element) {
-			if ($element->width > 300) {
-				return $element->src;
+	if ($text_container = $html->find('.entry-content',0))
+	{
+		if (is_object($text_container))
+		{
+			#  .entry-content exists, proceed...
+		} else {
+			$text_container = $html->find('.post-content',0);
+			if (is_object($text_container)) 
+			{
+				# .post-content exists, proceed...
 			} else {
-				$img = $element->src;
-				list($width, $height, $type, $attr) = getimagesize("$img");
-				if ($width > 300) {
-					return $img;
+				$text_container = $html->find('#content',0);
+				if (is_object($text_container)) 
+				{
+					#content exits, proceed
+				}else{
+					$text_container = $html->find('.post',0);
+					if (is_object($text_container)) 
+					{
+						#content exits, proceed
+					}else{
+						return false; // we'll be adding more
+					}
 				}
 			}
 		}
+	};
+	if (is_object($text_container))
+	{
+		$text_container = $text_container->find('img');
+		if (is_array($text_container))
+		{
+			foreach ($text_container as $key => $element)
+			{
+				if ($element->width > 300)
+				{
+					return $element->src;
+				} else {
+					$img = $element->src;
+					list($width, $height, $type, $attr) = getimagesize("$img");
+					if ($width > 300) 
+					{
+						return $img;
+					}
+				}
+			}
+		}
+	} else {
 		return false;
 	}
-
 }
 
 

@@ -46,7 +46,11 @@ if (($pagewanted == "browse") || ($pagewanted == NULL)) {
     $bloggerid = isset($_GET['bloggerid']) ? $_GET['bloggerid'] : NULL;
     if (!$bloggerid) 
     {
-      die('blogger ID cant be empty');
+      if (!empty($_SESSION['currentBlogger'])) {
+        $bloggerid = $_SESSION['currentBlogger'];
+      }else{
+        die('blogger ID cant be empty');
+      }
     }
     if (Posts::blogExists($bloggerid)) 
     {

@@ -28,7 +28,8 @@ class Posts
     }
 
     public static function blogExists($blog_id){
-        $query = 'SELECT blog_id FROM blogs WHERE blogs.blog_id = "'.$blog_id.'" ';
+        $query = 'SELECT blog_id FROM blogs WHERE blogs.blog_id = "'.$blog_id.'" 
+                    UNION SELECT col_shorthand FROM columnists WHERE columnists.col_shorthand = "'.$blog_id.'"';
         $results = DB::getInstance()->query($query)->results();
         if (count($results)>0) {
             return true;
@@ -316,17 +317,22 @@ public static function get_saved_bloggers_posts($user_id, $from, $howmany){
     }
 
 
-    public static function get_random_bloggers($howmany, $channel=null){
+    public static function get_random_bloggers($howmany, $channel=null, $freshness=45){ // freshness -> last post by that blogger is within x days;
         if ($channel=='all') {
             $channel = NULL;
         }
+        $targetTimestamp = time() - ( $freshness * 24 * 60 * 60 );
         if (isset($channel)) {
         $query = 'SELECT `blog_id`, `blog_url`, `blog_name`, `blog_description` FROM blogs WHERE blogs.blog_tags LIKE "%'.$channel.'%" 
+                    AND blogs.blog_last_post_timestamp > '.$targetTimestamp.'
                     UNION SELECT `col_shorthand`, `col_home_page`, `col_name`, `col_description` FROM columnists  WHERE columnists.col_tags LIKE "%'.$channel.'%"
+                    AND columnists.col_last_post_timestamp > '.$targetTimestamp.'
                     ORDER BY RAND() LIMIT '.$howmany; 
         } else {
         $query = 'SELECT `blog_id`, `blog_url`, `blog_name`, `blog_description` FROM blogs  
+                    WHERE blogs.blog_last_post_timestamp > '.$targetTimestamp.'
                     UNION SELECT `col_shorthand`, `col_home_page`, `col_name`, `col_description` FROM columnists 
+                    WHERE columnists.col_last_post_timestamp > '.$targetTimestamp.'
                     ORDER BY RAND() LIMIT '.$howmany;            
         }
 
@@ -359,6 +365,11 @@ public static function get_saved_bloggers_posts($user_id, $from, $howmany){
             return true;
         }
         return false;
+    }
+
+    public static function howManySaved($user_id){
+        $sql = 'SELECT * from users_posts WHERE `user_facebook_id` = "' . $user_id . '" ';
+        return DB::getInstance()->query($sql)->count();
     }
 
     public static function hasClicked($user_ip, $post_url){

@@ -29,8 +29,17 @@ lbApp.Posts =
       {
         thePosts.css("width",lbApp.interfaceElements.viewArea.windowWidth());
         thePosts.css("margin","0 auto");
+        var cols = lbApp.interfaceElements.viewArea.numberOfColumns();
+        
+        /* Maximize the data size of dividers so that nothing wraps around them*/
+        $('.divider').each(function(){
+          $(this).css({'width':(cols*320)+'px'});
+          $(this).attr({'data-size':cols});
+        });
+
+        /* Now organize the cards */
         thePosts.BlocksIt({
-          numOfCol: lbApp.interfaceElements.viewArea.numberOfColumns(),
+          numOfCol: cols,
           offsetX: 10,
           offsetY: 10,
           blockElement: this.config.superContainer
@@ -41,6 +50,7 @@ lbApp.Posts =
   {
     // This function reveals the hidden posts
     $(this.config.container).css('opacity',1);
+    $(this.config.superContainer).css('opacity',1);
   },
   hide: function()
   {
@@ -57,10 +67,14 @@ lbApp.Posts =
     } else if (global_page === "saved")
     {
       url = "contr_get_saved_extra_posts.php";
-    } else
+    } else if (global_page === "browse")
     {
       url = "contr_get_extra_posts.php";
+    } else if (global_page === "blogger"){
+      // Do Nothing. This page doesn't inifini-scroll
+      return;
     }
+
     $.post(url, function(data)
     {
       lbApp.Posts.config.$wrapper.append(data);
@@ -77,7 +91,7 @@ $('#view-area').smartscroll(function(){
   var d = lbApp.Posts.distanceToBottom(); // How close we are to the bottom post
   var c = $(this).height(); // height of the viewport
   var e = d - c ;// difference between the two.
-  if ((e < c*1.4) && (lbApp.Posts.isUpdating == 'no')) {
+  if ((e < c*1.4) && (lbApp.Posts.isUpdating == 'no') && global_page != 'search') {
     console.log('updating now');
     lbApp.Posts.addNew();
   }

@@ -28,8 +28,20 @@ $maxitems = 0;
 $connection = DB::GetInstance();
 
 // get all feeds
-$connection->query('SELECT `blog_id`, `blog_rss_feed` , `blog_active` FROM `blogs`');
-$feeds = $connection->results();
+
+if (isset($argv[1])) {
+	echo $dhr;
+	echo 'fetching script '.$argv[1];
+	echo $dhr;
+	$feeds = array();
+	$feeds[0] = new stdClass();
+	$feeds[0]->blog_active = 1;
+	$feeds[0]->blog_rss_feed = $argv[1]; 
+	$feeds[0]->blog_id = 'testing';
+} else {
+	$connection->query('SELECT `blog_id`, `blog_rss_feed` , `blog_active` FROM `blogs`');
+	$feeds = $connection->results();
+}
 
 // loop through feeds
 foreach ($feeds as $feed) 

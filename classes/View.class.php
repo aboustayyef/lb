@@ -18,40 +18,17 @@ class View
     Render::drawData($data, 'normal');
   }
 
-  public static function makeSearchBody($data){
-    // Data here is an array of three different kinds of search results
-    // $data['blogsResults'] , $data['titlesResults'] & $data['bodyResults']
-    if ((count($data['blogsResults']) == 0 ) && (count($data['titlesResults']) == 0 ) && (count($data['bodyResults']) == 0 )) {
-      // No results At all /
-      //include_once(ABSPATH.'/views/no-search-results.part.php');
-      return;
-    } else {
-      echo '<div id="posts">';
-        if (count($data['blogsResults']) > 0 ) { // No Blog Results
-          foreach ($data['blogsResults'] as $key => $blog) {
-            Render::drawFeaturedBlogger($blog->blog_id);
-          }
-        }
-        if (count($data['titlesResults'])>0)
-        {
-          Render::drawCards($data['titlesResults']);
-        }
-        if (count($data['bodyResults'])>0)
-        {
-          ?>
-
-          <div class ="card-container" data-size="3">
-            <div style ="background:white;width:100%">
-              <p>This is a test separator</p>
-            </div>
-          </div>
-
-          <?php
-          Render::drawCards($data['bodyResults']);
-        }
-      echo '</div> <!-- /posts -->';
-    }
-   }
+  public static function makeSearchBody($data)
+  {
+    echo '<div id="posts">';
+      echo '<div class ="searchingFor" id ="placeHolder_blognames"><h4><i class="fa fa-refresh fa-spin"></i> Searching for Blog Names</h4></div>';
+      echo '<div class ="searchingFor" id ="placeHolder_blogtitles"><h4><i class="fa fa-refresh fa-spin"></i> Searching for Blog Titles</h4></div>';
+      echo '<div class ="searchingFor" id ="placeHolder_blogcontents"><h4><i class="fa fa-refresh fa-spin"></i> Searching for Blog Content</h4></div>';      
+    echo '</div>';
+      /* just testing. Elaborate later*/
+    ?>
+    <?php
+  }
 
 
   public static function makeSavedBody($data){

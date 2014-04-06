@@ -70,6 +70,14 @@ class LbUser
     }
   }
 
+  static function getCounterReadingList(){
+    if (self::isSignedIn()) {
+      return Posts::howManySaved($_SESSION['facebook']['id']); 
+    }else{
+      return false;
+    }
+  }
+
   static function showFacebookSigninButton($redirectTo=NULL){
     $loginConfig = array(
       'scope' => 'email', 

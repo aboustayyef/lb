@@ -9,7 +9,7 @@ div.mainbar-wrapper {
     top:0;
     padding:0;
     margin:0;
-    height:64px;
+    height:50px;
     position:relative;
     background-color: $lb_red;
     //@include drop-shadow();
@@ -27,7 +27,7 @@ div.mainbar-wrapper {
                     border-left: 1px lighten($lb_red, 15) solid;
                     display: block;
                     float: left;
-                    padding: 23px 15px;
+                    padding: 13px 15px;
                     margin:0;
                     &:hover{
                         background-color: darken($lb_red, 5);
@@ -61,16 +61,16 @@ div.mainbar-wrapper {
     #logo{
         overflow:hidden;
         float: left;
-        padding: 10px 20px;
+        padding: 6px 20px;
         display: block;
         @media only screen and (max-width:510px){
             width:120px;
-            padding:14px 5px;
+            padding:9px 5px;
         }
 
         img.desktop-logo{
-            width:250px;
-            height:40px;
+            height:38px;
+            width: auto;
             @media only screen and (max-width:510px){
                 display:none
             }
@@ -91,7 +91,7 @@ div.mainbar-wrapper {
         width: 480px;
         float: left;
         padding-top: 20px;
-        color: lighten($lb_red, 45);
+        color: darken(beige, 25);
     }
 
     #hamburger{
@@ -100,7 +100,7 @@ div.mainbar-wrapper {
         color: white;
         margin-right: 10px;
         border-right: 1px solid lighten($lb_red, 35);
-        padding: 18px 12px;
+        padding: 13px 12px;
         float: left;
         background: darken($lb_red,4); 
         @media only screen and (max-width:768px){
@@ -138,7 +138,7 @@ div.mainbar-wrapper {
     background:$menus-background;
     display:none;
     position: absolute;
-    top: 63px;
+    top: 50px;
     z-index:320;
     -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.5);

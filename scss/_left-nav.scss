@@ -1,19 +1,42 @@
 $left_padding: 20px;
 
+
+// Light Color Scheme
+$backgroundcolor: white;
+$selected_background: darken(white,4);
+$highlight: $lb_red;
+$link_color: darken(silver,45);
+$icon_color: darken(silver,14);
+$selected_link: white;
+$selected_icon: $lb_red;
+
+// Dark Color Scheme
+// $backgroundcolor: darken(silver, 30);
+// $selected_background: darken(silver, 40);
+// $highlight: darken($selected_background,15);
+// $link_color: darken(white,15);
+// $icon_color: darken(white,30);
+// $selected_link: white;
+// $selected_icon: white;
+
+
 #left-col-wrapper{
+    a{
+        color: $link_color;
+    }
     display: none ; //javascript will make this 1 once height is calculated and rendered
     position: relative;
     top:0;
     width: 239px ; //280 with border
-    background-color: darken(white,2); 
+    background-color: $backgroundcolor; 
     float: left;
     z-index: 400;
-    box-shadow: 1px 4px 1px 1px rgba(10,10,10,.2);
     overflow-y: hidden;
     overflow-x: hidden;
+    border-right: 1px solid darken(white, 18);
     div.leftNav-dismiss{
-            margin-right: 5px;
-            margin-top:5px;
+            margin-right: 8px;
+            margin-top:8px;
             background: transparent;
             color:black;
             cursor:pointer;
@@ -79,7 +102,7 @@ $left_padding: 20px;
         margin:0;
         margin-left: -10px;
         padding-top:20px;
-        color: $lb_red;
+        color: $highlight;
         font-weight: bold;
         padding-left:$left_padding;
     }
@@ -103,7 +126,7 @@ $left_padding: 20px;
         width:239px - $left_padding;
         i{
             margin-right:5px;
-            color: lighten(black,49);
+            color: $icon_color;
         }
         padding-left: $left_padding;
         &.level1{
@@ -160,16 +183,22 @@ $left_padding: 20px;
         color:$lb_red;
     }
 }
-.left-col-inner{
-    border-top: 2px solid $lb_red;
+
+
+#readingListCounter{
+    font-size: 0.9em;
+    color: lighten(silver,1);
+    .theFigure{
+        color: $lb_red;
+        margin: 0 2px;
+    }
 }
 
-
-
 .selected{
-    background-color: rgba(0,0,0,0.06);
+
+    background-color: $selected_background;
     i{
-        color: $lb_red;
+        color: $selected_icon;
     }
 }
 }

@@ -115,12 +115,12 @@ if (empty($pageDetails)) {
           } ?>
           
             <div id ="logo">
-                <a href="<?php echo WEBPATH ;?>">
+                <a href="<?php echo WEBPATH.'?channel=all' ;?>">
                 <img class='desktop-logo' src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white.png" >
                 <img src ="<?php echo WEBPATH;?>img/interface/logo-horiz-white-mobile.png" alt="" class="mobile-logo">
               </a>
             </div>
-            <div id="slogan" class="primaryfont">The best place to discover, read and organize Lebanon's top blogs</div>
+            <div id="slogan" class="secondaryfont">The best place to discover, read and organize Lebanon's top blogs</div>
             <div class="nav-wrapper">
                 <ul id ="menu-icons">
                   <li data-menu="menu-about"><i id ="info" class ="fa fa-info-circle"></i></li>

@@ -8,13 +8,11 @@
 <div class="blogger">
 	
 
-<div class ="bloggerPosts">
+<div id ="posts">
 <?php
 Render::drawFeaturedBlogger($blog_id);
 Render::drawCards($data, 'blogger');
 ?>
-</div> <!-- /bloggerPosts -->
+
+</div> <!-- /posts -->
 </div> <!-- /blogger -->
-<div class="bloggerbutton">
-	<a class="btn btn-red" href="<?php echo $url;?>">See More at <?php echo $blog_name; ?></a>
-</div>
