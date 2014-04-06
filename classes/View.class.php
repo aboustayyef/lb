@@ -25,7 +25,6 @@ class View
       echo '<div class ="searchingFor" id ="placeHolder_blogtitles"><h4><i class="fa fa-refresh fa-spin"></i> Searching for Blog Titles</h4></div>';
       echo '<div class ="searchingFor" id ="placeHolder_blogcontents"><h4><i class="fa fa-refresh fa-spin"></i> Searching for Blog Content</h4></div>';      
     echo '</div>';
-      /* just testing. Elaborate later*/
     ?>
     <?php
   }

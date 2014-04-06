@@ -84,6 +84,30 @@
                 background: darken($lb_red,8);
                 color:white;
             }
+
+        }
+        #timeList{
+            background-color: darken($lb_red,6);
+            position: fixed;
+            color: white;
+            z-index: 100;
+            margin-top: -24px;
+            margin-left: 180px;
+            border: 1px solid darken($lb_red, 8);
+            li{
+                font-size: 14px;
+                min-width: 80px;
+                padding: 4px 10px;
+                margin: 0;
+                color: #e6e6e6;
+                i{
+                    float:right;
+                }
+                &:hover{
+                    background: darken($lb_red,9);
+                }
+            }
+            
         }
         &.tip{
 

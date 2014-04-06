@@ -93,6 +93,25 @@ ul#criteria {
 	max-width:46em;
 	margin: 3em auto;
 	padding: 0 1em 3em 1em;
-
-
+}
+#pagewrapper{
+	background: white;
+}
+#view-area{
+	background:white;
+	p{
+		&.clear{
+			padding:5px;			
+			background-color: #dff0d8;
+			border-color: #d6e9c6;
+			color: #3c763d;
+		}
+		&.error{
+			padding:5px;
+			background-color: #f2dede;
+			border-color: #ebccd1;
+			color: #a94442;
+		}
+		color: lighten(black, 20);
+	}
 }

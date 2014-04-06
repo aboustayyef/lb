@@ -160,19 +160,6 @@ textarea, input {
   border-radius: 4px;
   border: silver 1px solid; }
 
-#timeList {
-  padding: 5px 0;
-  background-color: #982029;
-  color: white; }
-  #timeList li {
-    min-width: 80px;
-    padding: 7px 10px;
-    margin: 2px 0; }
-    #timeList li:first-child {
-      margin-top: 0; }
-    #timeList li:hover {
-      background: #8b1d26; }
-
 #modal {
   display: none;
   z-index: 1000;
@@ -415,6 +402,24 @@ div.mainbar-wrapper {
       .card .card_header #timeSelector:hover {
         background: #8f1e27;
         color: white; }
+    .card .card_header #timeList {
+      background-color: #982029;
+      position: fixed;
+      color: white;
+      z-index: 100;
+      margin-top: -24px;
+      margin-left: 180px;
+      border: 1px solid #8f1e27; }
+      .card .card_header #timeList li {
+        font-size: 14px;
+        min-width: 80px;
+        padding: 4px 10px;
+        margin: 0;
+        color: #e6e6e6; }
+        .card .card_header #timeList li i {
+          float: right; }
+        .card .card_header #timeList li:hover {
+          background: #8b1d26; }
     .card .card_header.tip {
       background: #ffcc66;
       color: #664400; }

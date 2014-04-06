@@ -92,7 +92,47 @@ lbApp.interfaceElements =
         $('#view-area').fadeTo('fast',1);
       });
     },
-  }
+  },
+  top_switcher : {
+    init: function(){
+      $(document).on('click','#timeSelector', function(){
+        if ($('#timeList').css('display')=='none') {
+          $('#timeList').css('display','block');
+        }
+      });
+      $(document).on('click','#timeList li', function(){
+        var hours = $(this).data('hours');
+        if ($('#timeList').css('display')=='block') {
+          $('#timeList').css('display','none');
+        }
+        $('#timeSelector').html('<i class ="fa fa-refresh fa-spin">&nbsp;</i>');
+        lbApp.interfaceElements.top_switcher.switch_top(hours, 5,'');
+      });
+    },
+    switch_top: function(hours,howmany,channel){
+
+      // this function renders the top5 box with new settings
+
+      $.post( "api_get_posts.php?type=top&hours="+hours+"&howmany="+howmany+"&channel="+channel, function( data ) {
+        var box = $('#posts').find('.card-container').eq(0);
+        
+        // get current style to assign it to swapped box
+        var style = box.attr('style');
+
+        // replace top5 box with new one with new data
+        box.css('opacity',0);
+        box.replaceWith(data);
+        
+        // assign old style to new box
+        box = $('#posts').find('.card-container').eq(0);
+        box.attr('style',style);
+        box.css('opacity',1);
+        
+        // just in case, flow cards for little distances
+        lbApp.reArrange();
+      });
+    },
+  },
 };
 
 /* Interface Events */
@@ -114,4 +154,5 @@ $(window).smartresize(function(){
 
 $(document).ready(function(){
   $('#view-area').css('-webkit-overflow-scrolling', 'touch');
+  lbApp.interfaceElements.top_switcher.init();
 });

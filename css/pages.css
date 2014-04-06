@@ -160,19 +160,6 @@ textarea, input {
   border-radius: 4px;
   border: silver 1px solid; }
 
-#timeList {
-  padding: 5px 0;
-  background-color: #982029;
-  color: white; }
-  #timeList li {
-    min-width: 80px;
-    padding: 7px 10px;
-    margin: 2px 0; }
-    #timeList li:first-child {
-      margin-top: 0; }
-    #timeList li:hover {
-      background: #8b1d26; }
-
 #modal {
   display: none;
   z-index: 1000;
@@ -430,6 +417,24 @@ ul#criteria {
   max-width: 46em;
   margin: 3em auto;
   padding: 0 1em 3em 1em; }
+
+#pagewrapper {
+  background: white; }
+
+#view-area {
+  background: white; }
+  #view-area p {
+    color: #333333; }
+    #view-area p.clear {
+      padding: 5px;
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+      color: #3c763d; }
+    #view-area p.error {
+      padding: 5px;
+      background-color: #f2dede;
+      border-color: #ebccd1;
+      color: #a94442; }
 
 .modal_cover {
   opacity: 1;

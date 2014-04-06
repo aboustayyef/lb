@@ -459,9 +459,9 @@ class Render
         <div class="tools">
           <ul>
               <?php 
+              $blog_id = $bloggerID;
               if (LbUser::isSignedIn())
               { // if user is signed in;
-                $blog_id = $bloggerID;
                 $f_id = LbUser::getFacebookID();
                 if (Posts::isFavorite($f_id, $blog_id))
                 {

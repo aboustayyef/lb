@@ -139,23 +139,6 @@ textarea, input{
     border:silver 1px solid;
 }
 
-#timeList{
-    padding: 5px 0;
-    background-color: darken($lb_red,6);
-    color: white;
-    li{
-        min-width: 80px;
-        padding: 7px 10px;
-        margin: 2px 0;
-        &:first-child{
-            margin-top:0;
-        }
-        &:hover{
-            background: darken($lb_red,9);
-        }
-    }
-}
-
 // modal window
 
 #modal{

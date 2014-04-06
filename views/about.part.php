@@ -56,6 +56,7 @@
 		</ul>
 
 		<h3>Ready to submit?</h3>
+		<div id="message_submitblog"></div>
 
 		<input id ="submitblog" type="text" placeholder = "http://yourblogaddress.com">
 		<a href ="" id="submitBlog" class ="btn btn-red"/>Submit Blog</a> 
@@ -68,6 +69,7 @@
 		
 		<h3>Feedback</h3>
 		<p>Any suggestion, advice or rant? Use this form to send it. If you want us to respond, add your email address somewhere in the body of your feedback</p>
+		<div id="message_submitfeedback"></div>
 
 			<textarea name="feedback" id="feedback" cols="30" rows="10" placeholder ="Example: I just wanted to tell you how awesome/terrible you are - fan@haters.com"></textarea>
 			<a href ="" id="submitFeedback" class ="btn btn-red"/>Submit Feedback</a> 
